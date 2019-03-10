@@ -1,0 +1,11 @@
+[Inputs]
+SPI_CLK
+MOSI
+CS
+BUF_IN
+CLK
+[Outputs]
+MISO
+BUF_OUT
+COMPLETE
+[BiDir]

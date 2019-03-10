@@ -1,0 +1,45 @@
+    ____  ____
+   /   /\/   /
+  /___/  \  /    VENDOR      : Xilinx Inc.
+  \   \   \/     VERSION     : 14.6 (P.68d)
+   \   \         APPLICATION : /opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/compxlib
+   /   /         CONTENTS    : Compilation Log
+  /___/   /\     FILENAME    : compxlib.log
+  \   \  /  \    
+   \___\/\___\
+
+Release 14.6 - /opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/compxlib 14.6 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Processing command line ...
+Library Source Paths => '/opt/Xilinx/14.6/ISE_DS/ISE'
+Current Working Directory => '/home/jan/Projekte/RFStuff/FPGA/1-example_led_3'
+Compilation Mode = FAST
+Execute Mode = ON
+Scheduling library installation & compilation for architectures: spartan6
+
+Scheduling library installation & compilation for libraries: simprim unisim xilinxcorelib
+
+Signature:-
+------------------------------------------------------------------------------
+/opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/compxlib -s mti_se -l verilog -arch spartan6 -lib unisim -lib simprim -lib xilinxcorelib -intstyle ise 
+------------------------------------------------------------------------------
+ERROR:Compxlib - COMPXLIB[sim]: Unable to automatically find executables for simulator 'mti_se' from the following paths:
+    /opt/Xilinx/14.6/ISE_DS/ISE//bin/lin64
+   /usr/local/sbin
+   /usr/local/bin
+   /usr/sbin
+   /usr/bin
+   /sbin
+   /bin
+   /usr/games
+   /usr/local/games
+   /snap/bin
+   /opt/ESP/xtensa-esp32-elf/bin
+   /home/jan/bin
+   /home/jan/.local/bin
+   /opt/eagle-8.5.2
+   /opt/VariCAD/bin
+   /home/jan/Studium/Masterarbeit/Software/testcard-cli/build
+   /opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/.
+Simulator 'mti_se' is ignored.

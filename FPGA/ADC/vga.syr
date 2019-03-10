@@ -1,0 +1,418 @@
+Release 14.6 - xst P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: vga.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "vga.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "vga"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-tqg144
+
+---- Source Options
+Top Module Name                    : vga
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/ipcore_dir/PLL.vhd" into library work
+Parsing entity <PLL>.
+Parsing architecture <xilinx> of entity <pll>.
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.vhd" into library work
+Parsing entity <vga>.
+Parsing architecture <rtl> of entity <vga>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <vga> (architecture <rtl>) from library <work>.
+
+Elaborating entity <PLL> (architecture <xilinx>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <vga>.
+    Related source file is "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.vhd".
+    Found 10-bit register for signal <v_cnt>.
+    Found 1-bit register for signal <LED1>.
+    Found 11-bit register for signal <h_cnt>.
+    Found 11-bit adder for signal <h_cnt[10]_GND_3_o_add_15_OUT> created at line 107.
+    Found 10-bit adder for signal <v_cnt[9]_GND_3_o_add_17_OUT> created at line 111.
+    Found 11-bit comparator lessequal for signal <GND_3_o_h_cnt[10]_LessThan_1_o> created at line 65
+    Found 10-bit comparator lessequal for signal <GND_3_o_v_cnt[9]_LessThan_2_o> created at line 73
+    Found 10-bit comparator lessequal for signal <GND_3_o_v_cnt[9]_LessThan_3_o> created at line 83
+    Found 10-bit comparator greater for signal <v_cnt[9]_GND_3_o_LessThan_4_o> created at line 87
+    Found 10-bit comparator greater for signal <GND_3_o_v_cnt[9]_LessThan_5_o> created at line 87
+    Found 11-bit comparator greater for signal <h_cnt[10]_GND_3_o_LessThan_10_o> created at line 81
+    Found 11-bit comparator greater for signal <GND_3_o_h_cnt[10]_LessThan_11_o> created at line 81
+    Found 11-bit comparator greater for signal <h_cnt[10]_PWR_3_o_LessThan_15_o> created at line 106
+    Found 10-bit comparator greater for signal <v_cnt[9]_PWR_3_o_LessThan_17_o> created at line 110
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  22 D-type flip-flop(s).
+	inferred   9 Comparator(s).
+	inferred   3 Multiplexer(s).
+Unit <vga> synthesized.
+
+Synthesizing Unit <PLL>.
+    Related source file is "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/ipcore_dir/PLL.vhd".
+    Summary:
+	no macro.
+Unit <PLL> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 2
+ 10-bit adder                                          : 1
+ 11-bit adder                                          : 1
+# Registers                                            : 3
+ 1-bit register                                        : 1
+ 10-bit register                                       : 1
+ 11-bit register                                       : 1
+# Comparators                                          : 9
+ 10-bit comparator greater                             : 3
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator greater                             : 3
+ 11-bit comparator lessequal                           : 1
+# Multiplexers                                         : 3
+ 5-bit 2-to-1 multiplexer                              : 2
+ 6-bit 2-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <vga>.
+The following registers are absorbed into counter <h_cnt>: 1 register on signal <h_cnt>.
+The following registers are absorbed into counter <v_cnt>: 1 register on signal <v_cnt>.
+Unit <vga> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 10-bit up counter                                     : 1
+ 11-bit up counter                                     : 1
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+# Comparators                                          : 9
+ 10-bit comparator greater                             : 3
+ 10-bit comparator lessequal                           : 2
+ 11-bit comparator greater                             : 3
+ 11-bit comparator lessequal                           : 1
+# Multiplexers                                         : 3
+ 5-bit 2-to-1 multiplexer                              : 2
+ 6-bit 2-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <vga> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block vga, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 22
+ Flip-Flops                                            : 22
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : vga.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 94
+#      GND                         : 1
+#      INV                         : 3
+#      LUT1                        : 19
+#      LUT2                        : 1
+#      LUT3                        : 1
+#      LUT4                        : 12
+#      LUT5                        : 4
+#      LUT6                        : 12
+#      MUXCY                       : 19
+#      VCC                         : 1
+#      XORCY                       : 21
+# FlipFlops/Latches                : 22
+#      FD                          : 11
+#      FDE                         : 1
+#      FDR                         : 10
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 23
+#      IBUFG                       : 1
+#      OBUF                        : 22
+# DCMs                             : 1
+#      DCM_SP                      : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              22  out of  11440     0%  
+ Number of Slice LUTs:                   52  out of   5720     0%  
+    Number used as Logic:                52  out of   5720     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     52
+   Number with an unused Flip Flop:      30  out of     52    57%  
+   Number with an unused LUT:             0  out of     52     0%  
+   Number of fully used LUT-FF pairs:    22  out of     52    42%  
+   Number of unique control sets:         3
+
+IO Utilization: 
+ Number of IOs:                          23
+ Number of bonded IOBs:                  23  out of    102    22%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK                                | DCM_SP:CLKFX           | 22    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 3.677ns (Maximum Frequency: 271.955MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 6.991ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 3.677ns (frequency: 271.955MHz)
+  Total number of paths / destination ports: 594 / 33
+-------------------------------------------------------------------------
+Delay:               4.412ns (Levels of Logic = 4)
+  Source:            h_cnt_0 (FF)
+  Destination:       v_cnt_1 (FF)
+  Source Clock:      CLK rising 0.8X
+  Destination Clock: CLK rising 0.8X
+
+  Data Path: h_cnt_0 to v_cnt_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.981  h_cnt_0 (h_cnt_0)
+     LUT6:I0->O            2   0.203   0.617  h_cnt[10]_PWR_3_o_LessThan_15_o1_SW0 (N8)
+     LUT6:I5->O            2   0.205   0.617  h_cnt[10]_PWR_3_o_LessThan_15_o1 (h_cnt[10]_PWR_3_o_LessThan_15_o)
+     LUT6:I5->O            9   0.205   0.830  _n0060 (_n0060)
+     LUT4:I3->O            1   0.205   0.000  v_cnt_1_rstpot (v_cnt_1_rstpot)
+     FD:D                      0.102          v_cnt_1
+    ----------------------------------------
+    Total                      4.412ns (1.367ns logic, 3.046ns route)
+                                       (31.0% logic, 69.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 491 / 19
+-------------------------------------------------------------------------
+Offset:              6.991ns (Levels of Logic = 4)
+  Source:            v_cnt_4 (FF)
+  Destination:       V_G<5> (PAD)
+  Source Clock:      CLK rising 0.8X
+
+  Data Path: v_cnt_4 to V_G<5>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               6   0.447   1.089  v_cnt_4 (v_cnt_4)
+     LUT5:I0->O            1   0.203   0.684  GND_3_o_v_cnt[9]_LessThan_5_o11 (GND_3_o_v_cnt[9]_LessThan_5_o1)
+     LUT6:I4->O            2   0.203   0.845  GND_3_o_v_cnt[9]_LessThan_5_o12 (GND_3_o_v_cnt[9]_LessThan_5_o)
+     LUT5:I2->O            6   0.205   0.744  V_G<1>1 (V_G_1_OBUF)
+     OBUF:I->O                 2.571          V_G_5_OBUF (V_G<5>)
+    ----------------------------------------
+    Total                      6.991ns (3.629ns logic, 3.362ns route)
+                                       (51.9% logic, 48.1% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    4.412|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.79 secs
+ 
+--> 
+
+
+Total memory usage is 413704 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

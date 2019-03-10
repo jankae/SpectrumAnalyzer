@@ -1,0 +1,8 @@
+Packages
+*.b#*
+*.s#*
+Software/RemoteSystemsTempFiles
+Software/FreeRTOS_TAD_logs
+Software/ADCTest/SW4STM32/ADCTest/Debug
+Software/.metadata
+

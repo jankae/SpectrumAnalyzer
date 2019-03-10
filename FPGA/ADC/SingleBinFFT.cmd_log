@@ -1,0 +1,4 @@
+vhdtdtfi -prj ADC -o /home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhi -module SingleBinFFT -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/WindowingMult.vhd -lib work SingleBinFFT.vhd 
+vhdtdtfi -prj ADC -o /home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhi -module SingleBinFFT -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/WindowingMult.vhd -lib work SingleBinFFT.vhd 
+vhdtdtfi -prj ADC -o /home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhi -module SingleBinFFT -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/WindowingMult.vhd -lib work SingleBinFFT.vhd 
+vhdtdtfi -prj ADC -o /home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhi -module SingleBinFFT -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/WindowingMult.vhd -lib work SingleBinFFT.vhd 

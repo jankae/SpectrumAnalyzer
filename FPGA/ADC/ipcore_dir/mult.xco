@@ -1,0 +1,59 @@
+##############################################################
+#
+# Xilinx Core Generator version 14.6
+# Date: Sun Mar  3 18:14:20 2019
+#
+##############################################################
+#
+#  This file contains the customisation parameters for a
+#  Xilinx CORE Generator IP GUI. It is strongly recommended
+#  that you do not manually alter this file as it may cause
+#  unexpected and unsupported behavior.
+#
+##############################################################
+#
+#  Generated from component: xilinx.com:ip:cmpy:3.1
+#
+##############################################################
+#
+# BEGIN Project Options
+SET addpads = false
+SET asysymbol = true
+SET busformat = BusFormatAngleBracketNotRipped
+SET createndf = false
+SET designentry = VHDL
+SET device = xc6slx9
+SET devicefamily = spartan6
+SET flowvendor = Other
+SET formalverification = false
+SET foundationsym = false
+SET implementationfiletype = Ngc
+SET package = tqg144
+SET removerpms = false
+SET simulationfiles = Behavioral
+SET speedgrade = -3
+SET verilogsim = false
+SET vhdlsim = true
+# END Project Options
+# BEGIN Select
+SELECT Complex_Multiplier xilinx.com:ip:cmpy:3.1
+# END Select
+# BEGIN Parameters
+CSET aportwidth=32
+CSET bportwidth=32
+CSET clockenable=false
+CSET component_name=mult
+CSET latency=17
+CSET multtype=Use_Mults
+CSET optimizegoal=Resources
+CSET outputwidthhigh=62
+CSET outputwidthlow=31
+CSET roundmode=Truncate
+CSET sclrcepriority=SCLR_overrides_CE
+CSET syncclear=false
+# END Parameters
+# BEGIN Extra information
+MISC pkg_timestamp=2013-06-08T22:47:28Z
+# END Extra information
+GENERATE
+# CRC: 8db79a5f

@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/WindowingMult.vhd"
+vhdl work "SingleBinFFT.vhd"
+vhdl work "FFT_test.vhd"

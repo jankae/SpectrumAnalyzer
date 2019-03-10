@@ -1,0 +1,2 @@
+vhdl work ../../PLL.vhd
+vhdl work ../example_design/PLL_exdes.vhd

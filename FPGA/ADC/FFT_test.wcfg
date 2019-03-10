@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/jan/Projekte/RFStuff/FPGA/ADC/FFT_test_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="bip_utils_pkg_v2_0" />
+            <top_module name="fft_test" />
+            <top_module name="mult_gen_pkg_v11_2" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_signed" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="textio" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="31" />
+   <wvobject fp_name="/fft_test/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/new_sample" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">new_sample</obj_property>
+      <obj_property name="ObjectShortName">new_sample</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data[13:0]</obj_property>
+      <obj_property name="ObjectShortName">data[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/npoints" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">npoints[31:0]</obj_property>
+      <obj_property name="ObjectShortName">npoints[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/window_coeff" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">window_coeff[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_coeff[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/window_inc_denom" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">window_inc_denom[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_inc_denom[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/window_address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">window_address[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_address[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/out_real" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_real[63:0]</obj_property>
+      <obj_property name="ObjectShortName">out_real[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/out_imag" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_imag[63:0]</obj_property>
+      <obj_property name="ObjectShortName">out_imag[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/new_sample" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">new_sample</obj_property>
+      <obj_property name="ObjectShortName">new_sample</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data[13:0]</obj_property>
+      <obj_property name="ObjectShortName">data[13:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/npoints" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">npoints[31:0]</obj_property>
+      <obj_property name="ObjectShortName">npoints[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/window_coeff" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">window_coeff[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_coeff[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/window_address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">window_address[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_address[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/window_inc_denom" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">window_inc_denom[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_inc_denom[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/out_real" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_real[63:0]</obj_property>
+      <obj_property name="ObjectShortName">out_real[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/out_imag" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_imag[63:0]</obj_property>
+      <obj_property name="ObjectShortName">out_imag[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/window_address_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">window_address_cnt[15:0]</obj_property>
+      <obj_property name="ObjectShortName">window_address_cnt[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/sum_real" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sum_real[63:0]</obj_property>
+      <obj_property name="ObjectShortName">sum_real[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/sum_imag" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">sum_imag[63:0]</obj_property>
+      <obj_property name="ObjectShortName">sum_imag[63:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/pnt_cnt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pnt_cnt[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pnt_cnt[31:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/pipe_level" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pipe_level[0:0]</obj_property>
+      <obj_property name="ObjectShortName">pipe_level[0:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/mult_a" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mult_a[13:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_a[13:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/mult_b" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mult_b[15:0]</obj_property>
+      <obj_property name="ObjectShortName">mult_b[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/fft_test/uut/windowed_data" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">windowed_data[29:0]</obj_property>
+      <obj_property name="ObjectShortName">windowed_data[29:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+</wave_config>

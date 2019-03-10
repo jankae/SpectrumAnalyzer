@@ -1,0 +1,106 @@
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+vhdtdtfi -prj top -o /home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhi -module spi_mem -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work ipcore_dir/spi.vhd -lib work spi.vhd -lib work spi_mem.vhd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 spi_mem.ngc spi_mem.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o spi_mem_map.ncd spi_mem.ngd spi_mem.pcf 
+par -w -intstyle ise -ol high -mt off spi_mem_map.ncd spi_mem.ncd spi_mem.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml spi_mem.twx spi_mem.ncd -o spi_mem.twr spi_mem.pcf -ucf top.ucf 
+bitgen -intstyle ise -f spi_mem.ut spi_mem.ncd 

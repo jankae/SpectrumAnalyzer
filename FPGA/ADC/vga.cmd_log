@@ -1,0 +1,98 @@
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/vga.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc top.ucf -p xc6slx9-tqg144-3 vga.ngc vga.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o vga_map.ncd vga.ngd vga.pcf 
+par -w -intstyle ise -ol high -mt off vga_map.ncd vga.ncd vga.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml vga.twx vga.ncd -o vga.twr vga.pcf -ucf top.ucf 
+bitgen -intstyle ise -f vga.ut vga.ncd 

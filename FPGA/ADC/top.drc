@@ -1,0 +1,66 @@
+Release 14.6 Drc P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Sun Mar  3 16:51:17 2019
+
+drc -z top.ncd top.pcf
+
+ERROR:PhysDesignRules:368 - The signal <H_SYNC_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_B<0>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_B<1>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_B<2>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_B<3>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_B<4>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_SYNC_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_R<0>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_R<1>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_R<2>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_R<3>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_R<4>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_G<0>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_G<1>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_G<2>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_G<3>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_G<4>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+ERROR:PhysDesignRules:368 - The signal <V_G<5>_OBUF> is incomplete. The signal
+   is not driven by any source pin in the design.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp
+   instance_name/dcm_sp_inst, consult the device Data Sheet.
+ERROR:PhysDesignRules:10 - The network <H_SYNC_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_B<0>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_B<1>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_B<2>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_B<3>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_B<4>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_SYNC_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_R<0>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_R<1>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_R<2>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_R<3>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_R<4>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_G<0>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_G<1>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_G<2>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_G<3>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_G<4>_OBUF> is completely unrouted.
+ERROR:PhysDesignRules:10 - The network <V_G<5>_OBUF> is completely unrouted.
+ERROR:Bitgen:25 - DRC detected 36 errors and 0 warnings.  Please see the
+   previously displayed individual error or warning messages for more details.

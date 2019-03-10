@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/spi.vhd"
+vhdl work "spi.vhd"
+vhdl work "spi_mem.vhd"

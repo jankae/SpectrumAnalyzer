@@ -1,0 +1,496 @@
+Release 14.6 - xst P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.06 secs
+ 
+--> 
+Reading design: spi_mem.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "spi_mem.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "spi_mem"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-tqg144
+
+---- Source Options
+Top Module Name                    : spi_mem
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/ipcore_dir/spi.vhd" into library work
+Parsing entity <spi>.
+Parsing architecture <spi_a> of entity <spi>.
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi.vhd" into library work
+Parsing entity <spi_slave>.
+Parsing architecture <Behavioral> of entity <spi_slave>.
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhd" into library work
+Parsing entity <spi_mem>.
+Parsing architecture <Behavioral> of entity <spi_mem>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <spi_mem> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <spi_slave> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <spi> (architecture <spi_a>) from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <spi_mem>.
+    Related source file is "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi_mem.vhd".
+    Found 15-bit register for signal <mem_address>.
+    Found 1-bit register for signal <mem_write>.
+    Found 16-bit register for signal <mem_in>.
+    Found 1-bit register for signal <write_not_read>.
+    Found 1-bit register for signal <first>.
+    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_0_OUT> created at line 1241.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  34 D-type flip-flop(s).
+	inferred   3 Multiplexer(s).
+Unit <spi_mem> synthesized.
+
+Synthesizing Unit <spi_slave>.
+    Related source file is "/home/jan/Projekte/RFStuff/FPGA/1-example_led_3/spi.vhd".
+        W = 16
+    Found 2-bit register for signal <spiSR>.
+    Found 16-bit register for signal <miso_buffer>.
+    Found 16-bit register for signal <mosi_buffer>.
+    Found 1-bit register for signal <COMPLETE>.
+    Found 1-bit register for signal <next_complete>.
+    Found 16-bit register for signal <BUF_OUT>.
+WARNING:Xst:737 - Found 1-bit latch for signal <PWR_6_o_CS_DLATCH_2_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 1-bit tristate buffer for signal <MISO> created at line 51
+WARNING:Xst:737 - Found 1-bit latch for signal <miso_buffer[15]_CS_DLATCH_1_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Summary:
+	inferred  52 D-type flip-flop(s).
+	inferred   2 Latch(s).
+	inferred   4 Multiplexer(s).
+	inferred   1 Tristate(s).
+Unit <spi_slave> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 15-bit adder                                          : 1
+# Registers                                            : 11
+ 1-bit register                                        : 5
+ 15-bit register                                       : 1
+ 16-bit register                                       : 4
+ 2-bit register                                        : 1
+# Latches                                              : 2
+ 1-bit latch                                           : 2
+# Multiplexers                                         : 7
+ 1-bit 2-to-1 multiplexer                              : 2
+ 15-bit 2-to-1 multiplexer                             : 2
+ 16-bit 2-to-1 multiplexer                             : 3
+# Tristates                                            : 1
+ 1-bit tristate buffer                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/spi.ngc>.
+Loading core <spi> for timing and area information for instance <your_instance_name>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 15-bit adder                                          : 1
+# Registers                                            : 86
+ Flip-Flops                                            : 86
+# Multiplexers                                         : 7
+ 1-bit 2-to-1 multiplexer                              : 2
+ 15-bit 2-to-1 multiplexer                             : 2
+ 16-bit 2-to-1 multiplexer                             : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <mem_address_10> of sequential type is unconnected in block <spi_mem>.
+WARNING:Xst:2677 - Node <mem_address_11> of sequential type is unconnected in block <spi_mem>.
+WARNING:Xst:2677 - Node <mem_address_12> of sequential type is unconnected in block <spi_mem>.
+WARNING:Xst:2677 - Node <mem_address_13> of sequential type is unconnected in block <spi_mem>.
+WARNING:Xst:2677 - Node <mem_address_14> of sequential type is unconnected in block <spi_mem>.
+
+Optimizing unit <spi_mem> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block spi_mem, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 81
+ Flip-Flops                                            : 81
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : spi_mem.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 89
+#      GND                         : 2
+#      INV                         : 2
+#      LUT1                        : 8
+#      LUT2                        : 19
+#      LUT3                        : 3
+#      LUT4                        : 14
+#      LUT5                        : 16
+#      LUT6                        : 4
+#      MUXCY                       : 9
+#      VCC                         : 2
+#      XORCY                       : 10
+# FlipFlops/Latches                : 83
+#      FD                          : 2
+#      FDE                         : 32
+#      FDR                         : 5
+#      FDRE                        : 41
+#      FDSE                        : 1
+#      LDC_1                       : 2
+# RAMS                             : 1
+#      RAMB16BWER                  : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 8
+#      IBUF                        : 3
+#      IOBUF                       : 1
+#      OBUF                        : 4
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              82  out of  11440     0%  
+ Number of Slice LUTs:                   66  out of   5720     1%  
+    Number used as Logic:                66  out of   5720     1%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     98
+   Number with an unused Flip Flop:      16  out of     98    16%  
+   Number with an unused LUT:            32  out of     98    32%  
+   Number of fully used LUT-FF pairs:    50  out of     98    51%  
+   Number of unique control sets:         8
+
+IO Utilization: 
+ Number of IOs:                           9
+ Number of bonded IOBs:                   9  out of    102     8%  
+    IOB Flip Flops/Latches:               1
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                1  out of     32     3%  
+    Number using Block RAM only:          1
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 82    |
+CS                                 | IBUF+BUFG              | 2     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 3.980ns (Maximum Frequency: 251.231MHz)
+   Minimum input arrival time before clock: 4.781ns
+   Maximum output required time after clock: 4.433ns
+   Maximum combinational path delay: 5.472ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.980ns (frequency: 251.231MHz)
+  Total number of paths / destination ports: 930 / 193
+-------------------------------------------------------------------------
+Delay:               3.980ns (Levels of Logic = 3)
+  Source:            Inst_spi_slave/mosi_buffer_7 (FF)
+  Destination:       Inst_spi_slave/miso_buffer_15 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: Inst_spi_slave/mosi_buffer_7 to Inst_spi_slave/miso_buffer_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             3   0.447   1.015  Inst_spi_slave/mosi_buffer_7 (Inst_spi_slave/mosi_buffer_7)
+     LUT6:I0->O            2   0.203   0.721  Inst_spi_slave/GND_5_o_mosi_buffer[15]_equal_7_o<15>2 (Inst_spi_slave/GND_5_o_mosi_buffer[15]_equal_7_o<15>1)
+     LUT6:I4->O           15   0.203   1.086  Inst_spi_slave/GND_5_o_mosi_buffer[15]_equal_7_o<15>3 (Inst_spi_slave/GND_5_o_mosi_buffer[15]_equal_7_o)
+     LUT5:I3->O            1   0.203   0.000  Inst_spi_slave/Mmux_miso_buffer[15]_BUF_IN[15]_mux_9_OUT21 (Inst_spi_slave/miso_buffer[15]_BUF_IN[15]_mux_9_OUT<10>)
+     FDE:D                     0.102          Inst_spi_slave/miso_buffer_10
+    ----------------------------------------
+    Total                      3.980ns (1.158ns logic, 2.822ns route)
+                                       (29.1% logic, 70.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 115 / 100
+-------------------------------------------------------------------------
+Offset:              4.781ns (Levels of Logic = 3)
+  Source:            CS (PAD)
+  Destination:       Inst_spi_slave/miso_buffer_15 (FF)
+  Destination Clock: clk rising
+
+  Data Path: CS to Inst_spi_slave/miso_buffer_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            70   1.222   2.044  CS_IBUF (LED2_OBUF)
+     LUT6:I0->O           16   0.203   1.005  Inst_spi_slave/Mmux_miso_buffer[15]_BUF_IN[15]_mux_9_OUT1011 (Inst_spi_slave/Mmux_miso_buffer[15]_BUF_IN[15]_mux_9_OUT101)
+     LUT2:I1->O            1   0.205   0.000  Inst_spi_slave/Mmux_miso_buffer[15]_BUF_IN[15]_mux_9_OUT17 (Inst_spi_slave/miso_buffer[15]_BUF_IN[15]_mux_9_OUT<0>)
+     FDE:D                     0.102          Inst_spi_slave/miso_buffer_0
+    ----------------------------------------
+    Total                      4.781ns (1.732ns logic, 3.049ns route)
+                                       (36.2% logic, 63.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CS'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              3.331ns (Levels of Logic = 1)
+  Source:            CS (PAD)
+  Destination:       Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q (LATCH)
+  Destination Clock: CS rising
+
+  Data Path: CS to Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            70   1.222   1.679  CS_IBUF (LED2_OBUF)
+     LDC_1:CLR                 0.430          Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q
+    ----------------------------------------
+    Total                      3.331ns (1.652ns logic, 1.679ns route)
+                                       (49.6% logic, 50.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CS'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              4.433ns (Levels of Logic = 2)
+  Source:            Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q (LATCH)
+  Destination:       MISO (PAD)
+  Source Clock:      CS rising
+
+  Data Path: Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q to MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDC_1:G->Q            1   0.498   0.579  Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q (Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q)
+     INV:I->O              1   0.206   0.579  Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q_inv1_INV_0 (Inst_spi_slave/PWR_6_o_CS_DLATCH_2_q_inv)
+     IOBUF:T->IO               2.571          MISO_IOBUF (MISO)
+    ----------------------------------------
+    Total                      4.433ns (3.275ns logic, 1.158ns route)
+                                       (73.9% logic, 26.1% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Delay:               5.472ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       LED2 (PAD)
+
+  Data Path: CS to LED2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            70   1.222   1.679  CS_IBUF (LED2_OBUF)
+     OBUF:I->O                 2.571          LED2_OBUF (LED2)
+    ----------------------------------------
+    Total                      5.472ns (3.793ns logic, 1.679ns route)
+                                       (69.3% logic, 30.7% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock CS
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    1.063|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.980|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 6.00 secs
+Total CPU time to Xst completion: 5.82 secs
+ 
+--> 
+
+
+Total memory usage is 399736 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

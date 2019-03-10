@@ -1,0 +1,2 @@
+vhdl isim_temp "ipcore_dir/mult.vhd"
+vhdl isim_temp "MultTest.vhd"

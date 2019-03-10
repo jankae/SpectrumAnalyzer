@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/jan/Projekte/RFStuff/FPGA/ADC/FFT_test_isim_beh.exe" -prj "/home/jan/Projekte/RFStuff/FPGA/ADC/FFT_test_beh.prj" "work.FFT_test" 

@@ -1,0 +1,3 @@
+vhdl isim_temp "ipcore_dir/spi.vhd"
+vhdl isim_temp "spi.vhd"
+vhdl isim_temp "spi_mem.vhd"

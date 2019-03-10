@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1836: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1842: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1848: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1849: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1850: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1851: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="321" delta="new" >"/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/xbip_utils_v2_0/bip_utils_pkg_v2_0.vhd" Line 1852: Comparison between arrays of unequal length always returns <arg fmt="%s" index="1">FALSE</arg>.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="746" delta="new" >"/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/mult_gen_v11_2/mult_gen_pkg_v11_2.vhd" Line 2242: Range is empty (null range)
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/WindowingMult.vhd</arg>&quot; line <arg fmt="%s" index="2">112</arg>: Output port &lt;<arg fmt="%s" index="3">zero_detect</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/_dbg/WindowingMult.vhd</arg>&quot; line <arg fmt="%s" index="2">112</arg>: Output port &lt;<arg fmt="%s" index="3">pcasc</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U0</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+</msg>
+
+</messages>
+

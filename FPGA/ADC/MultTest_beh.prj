@@ -1,0 +1,2 @@
+vhdl work "ipcore_dir/mult.vhd"
+vhdl work "MultTest.vhd"

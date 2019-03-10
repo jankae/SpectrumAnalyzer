@@ -1,0 +1,15 @@
+# Output products list for <mult>
+_xmsgs/pn_parser.xmsgs
+mult/doc/cmpy_ds291.pdf
+mult/doc/cmpy_v3_1_vinfo.html
+mult.asy
+mult.gise
+mult.ngc
+mult.sym
+mult.vhd
+mult.vho
+mult.xco
+mult.xise
+mult_flist.txt
+mult_readme.txt
+mult_xmdf.tcl

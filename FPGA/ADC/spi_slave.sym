@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<symbol version="7" name="spi_slave">
+    <symboltype>BLOCK</symboltype>
+    <timestamp>2019-3-6T20:14:7</timestamp>
+    <pin polarity="Input" x="0" y="-288" name="SPI_CLK" />
+    <pin polarity="Input" x="0" y="-224" name="MOSI" />
+    <pin polarity="Input" x="0" y="-160" name="CS" />
+    <pin polarity="Input" x="0" y="-96" name="BUF_IN" />
+    <pin polarity="Input" x="0" y="-32" name="CLK" />
+    <pin polarity="Output" x="384" y="-288" name="MISO" />
+    <pin polarity="Output" x="384" y="-160" name="BUF_OUT" />
+    <pin polarity="Output" x="384" y="-32" name="COMPLETE" />
+    <graph>
+        <rect width="256" x="64" y="-320" height="320" />
+        <attrtext style="alignment:BCENTER;fontsize:56;fontname:Arial" attrname="SymbolName" x="192" y="-328" type="symbol" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-288" type="pin SPI_CLK" />
+        <line x2="0" y1="-288" y2="-288" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-224" type="pin MOSI" />
+        <line x2="0" y1="-224" y2="-224" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-160" type="pin CS" />
+        <line x2="0" y1="-160" y2="-160" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-96" type="pin BUF_IN" />
+        <line x2="0" y1="-96" y2="-96" x1="64" />
+        <attrtext style="fontsize:24;fontname:Arial" attrname="PinName" x="72" y="-32" type="pin CLK" />
+        <line x2="0" y1="-32" y2="-32" x1="64" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-288" type="pin MISO" />
+        <line x2="384" y1="-288" y2="-288" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-160" type="pin BUF_OUT" />
+        <line x2="384" y1="-160" y2="-160" x1="320" />
+        <attrtext style="alignment:RIGHT;fontsize:24;fontname:Arial" attrname="PinName" x="312" y="-32" type="pin COMPLETE" />
+        <line x2="384" y1="-32" y2="-32" x1="320" />
+    </graph>
+</symbol>

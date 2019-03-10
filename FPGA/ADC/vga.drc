@@ -1,0 +1,11 @@
+Release 14.6 Drc P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Sun Mar  3 19:13:50 2019
+
+drc -z vga.ncd vga.pcf
+
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp PLL1/dcm_sp_inst, consult
+   the device Data Sheet.
+DRC detected 0 errors and 0 warnings.
