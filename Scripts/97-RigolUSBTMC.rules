@@ -1,0 +1,6 @@
+# RigolDSO.rules
+# This file should be installed to /etc/udev/rules.d so that you can access the Rigol DS1000 hardware without being root
+#
+# type this at the command prompt: sudo cp 97-RigolUSBTMC.rules /etc/udev/rules.d
+
+SUBSYSTEM=="usb", ACTION=="add",ATTR{idVendor}=="1ab1", ATTR{idProduct}=="0642", GROUP="usbtmc", MODE="0666"
