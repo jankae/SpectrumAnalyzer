@@ -1,5 +1,5 @@
 
--- VHDL Instantiation Created from source file ADCSynchronizer.vhd -- 13:50:17 03/10/2019
+-- VHDL Instantiation Created from source file ADCSynchronizer.vhd -- 19:44:23 03/12/2019
 --
 -- Notes: 
 -- 1) This instantiation template has been automatically generated using types

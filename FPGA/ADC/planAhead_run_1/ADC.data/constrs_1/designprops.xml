@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Compat Version="1" Minor="4">
+	<CompatParts>
+	</CompatParts>
+	<ConfigModes>
+		<Mode Id="JTAG"/>
+	</ConfigModes>
+	<PortProps>
+		<Port Name="MISO" OffChipTerm="NONE"/>
+	</PortProps>
+</Compat>
+

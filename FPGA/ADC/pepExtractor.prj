@@ -1,2 +1,3 @@
+work	"ADCSynchronizer.vhd"
+work	"IF_analysis.vhd"
 work	"SingleBinFFT.vhd"
-work	"ipcore_dir/WindowingMult.vhd"

@@ -1,0 +1,200 @@
+
+****** PlanAhead v14.6 (64-bit)
+  **** Build 269223 by xbuild on Wed Jun  5 11:07:37 MDT 2013
+    ** Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source /home/jan/Projekte/RFStuff/FPGA/ADC/pa.fromHdl.tcl
+# create_project -name ADC -dir "/home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_1" -part xc6slx9tqg144-3
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "IF_analysis.ucf" [current_fileset -constrset]
+Adding file '/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {ipcore_dir/PLL.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/spi.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {ipcore_dir/WindowingMult.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# add_files [list {ipcore_dir/WindowingMult.ngc}]
+# set hdlfile [add_files [list {spi.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {SingleBinFFT.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# add_files [list {ipcore_dir/spi.ngc}]
+# set hdlfile [add_files [list {ADCSynchronizer.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set hdlfile [add_files [list {IF_analysis.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set_property top IF_analysis $srcset
+# add_files [list {IF_analysis.ucf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/WindowingMult.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/spi.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/mult.ncf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc6slx9tqg144-3
+Using Verific elaboration
+Parsing VHDL file "/opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/lib/synplify/synattr.vhd" into library synplify
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/WindowingMult.vhd" into library work
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/spi.vhd" into library work
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhd" into library work
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/spi.vhd" into library work
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/PLL.vhd" into library work
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/ADCSynchronizer.vhd" into library work
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" into library work
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design WindowingMult.ngc ...
+WARNING:NetListWriters:298 - No output is written to WindowingMult.xncf,
+   ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file WindowingMult.edif ...
+ngc2edif: Total memory usage is 104176 kilobytes
+
+Reading core file '/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/WindowingMult.ngc' for (cell view 'WindowingMult', library 'work', file 'WindowingMult.vhd')
+Parsing EDIF File [./.Xil/PlanAhead-9815-jan-desktop/ngc2edif/WindowingMult.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-9815-jan-desktop/ngc2edif/WindowingMult.edif]
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design spi.ngc ...
+WARNING:NetListWriters:298 - No output is written to spi.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file spi.edif ...
+ngc2edif: Total memory usage is 104240 kilobytes
+
+Reading core file '/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/spi.ngc' for (cell view 'spi', library 'work', file 'spi.vhd')
+Parsing EDIF File [./.Xil/PlanAhead-9815-jan-desktop/ngc2edif/spi.edif]
+Finished Parsing EDIF File [./.Xil/PlanAhead-9815-jan-desktop/ngc2edif/spi.edif]
+Loading clock regions from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/tqg144/Package.xml
+Loading io standards from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.ucf]
+Finished Parsing UCF File [/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Phase 0 | Netlist Checksum: f5bc87ef
+open_rtl_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 2931.699 ; gain = 186.969
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P45 [get_ports ADC_CLK]
+endgroup
+startgroup
+set_property package_pin P56 [get_ports CLK]
+endgroup
+startgroup
+set_property package_pin P27 [get_ports SPI_CLK]
+endgroup
+startgroup
+set_property package_pin P24 [get_ports MOSI]
+endgroup
+startgroup
+set_property package_pin P26 [get_ports MISO]
+endgroup
+startgroup
+set_property package_pin P23 [get_ports CS]
+endgroup
+set_property package_pin "" [get_ports [list  {ADC_IN[0]}]]
+startgroup
+set_property package_pin P46 [get_ports {ADC_IN[0]}]
+endgroup
+set_property package_pin "" [get_ports [list  {ADC_IN[1]}]]
+set_property is_loc_fixed false [get_ports [list  CS]]
+set_property is_loc_fixed false [get_ports [list  MISO]]
+set_property is_loc_fixed false [get_ports [list  MOSI]]
+set_property is_loc_fixed false [get_ports [list  SPI_CLK]]
+set_property package_pin "" [get_ports [list  {ADC_IN[1]}]]
+set_property package_pin "" [get_ports [list  SPI_CLK]]
+set_property package_pin "" [get_ports [list  MOSI]]
+set_property package_pin "" [get_ports [list  MISO]]
+set_property package_pin "" [get_ports [list  CS]]
+startgroup
+set_property package_pin P43 [get_ports {ADC_IN[1]}]
+endgroup
+startgroup
+set_property package_pin P44 [get_ports {ADC_IN[2]}]
+endgroup
+set_property package_pin "" [get_ports [list  {ADC_IN[3]}]]
+startgroup
+set_property package_pin P40 [get_ports {ADC_IN[3]}]
+endgroup
+startgroup
+set_property package_pin P41 [get_ports {ADC_IN[4]}]
+endgroup
+startgroup
+set_property package_pin P34 [get_ports {ADC_IN[5]}]
+endgroup
+startgroup
+set_property package_pin P35 [get_ports {ADC_IN[6]}]
+endgroup
+startgroup
+set_property package_pin P33 [get_ports {ADC_IN[7]}]
+endgroup
+startgroup
+set_property package_pin P30 [get_ports {ADC_IN[8]}]
+endgroup
+startgroup
+set_property package_pin P29 [get_ports {ADC_IN[9]}]
+endgroup
+startgroup
+set_property package_pin P32 [get_ports {ADC_IN[10]}]
+endgroup
+startgroup
+set_property package_pin P26 [get_ports {ADC_IN[11]}]
+endgroup
+startgroup
+set_property package_pin P27 [get_ports {ADC_IN[12]}]
+endgroup
+startgroup
+set_property package_pin P24 [get_ports {ADC_IN[13]}]
+endgroup
+startgroup
+set_property package_pin P57 [get_ports SPI_CLK]
+endgroup
+startgroup
+set_property package_pin P58 [get_ports MOSI]
+endgroup
+startgroup
+set_property package_pin P50 [get_ports MISO]
+endgroup
+save_constraints
+startgroup
+set_property package_pin P51 [get_ports CS]
+endgroup
+save_constraints
+set_property slew FAST [get_ports [list MISO]]
+save_constraints
+set_property offchip_term NONE [get_ports [list MISO]]
+save_constraints
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Tue Mar 12 20:35:47 2019...
+INFO: [Common 17-83] Releasing license: PlanAhead

@@ -1,0 +1,101 @@
+#-----------------------------------------------------------
+# PlanAhead v14.6 (64-bit)
+# Build 269223 by xbuild on Wed Jun  5 11:07:37 MDT 2013
+# Start of session at: Tue Mar 12 20:27:01 2019
+# Process ID: 9815
+# Log file: /home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_1/planAhead.log
+# Journal file: /home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/jan/Projekte/RFStuff/FPGA/ADC/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin P45 [get_ports ADC_CLK]
+endgroup
+startgroup
+set_property package_pin P56 [get_ports CLK]
+endgroup
+startgroup
+set_property package_pin P27 [get_ports SPI_CLK]
+endgroup
+startgroup
+set_property package_pin P24 [get_ports MOSI]
+endgroup
+startgroup
+set_property package_pin P26 [get_ports MISO]
+endgroup
+startgroup
+set_property package_pin P23 [get_ports CS]
+endgroup
+set_property package_pin "" [get_ports [list  {ADC_IN[0]}]]
+startgroup
+set_property package_pin P46 [get_ports {ADC_IN[0]}]
+endgroup
+set_property package_pin "" [get_ports [list  {ADC_IN[1]}]]
+set_property is_loc_fixed false [get_ports [list  CS]]
+set_property is_loc_fixed false [get_ports [list  MISO]]
+set_property is_loc_fixed false [get_ports [list  MOSI]]
+set_property is_loc_fixed false [get_ports [list  SPI_CLK]]
+set_property package_pin "" [get_ports [list  {ADC_IN[1]}]]
+set_property package_pin "" [get_ports [list  SPI_CLK]]
+set_property package_pin "" [get_ports [list  MOSI]]
+set_property package_pin "" [get_ports [list  MISO]]
+set_property package_pin "" [get_ports [list  CS]]
+startgroup
+set_property package_pin P43 [get_ports {ADC_IN[1]}]
+endgroup
+startgroup
+set_property package_pin P44 [get_ports {ADC_IN[2]}]
+endgroup
+set_property package_pin "" [get_ports [list  {ADC_IN[3]}]]
+startgroup
+set_property package_pin P40 [get_ports {ADC_IN[3]}]
+endgroup
+startgroup
+set_property package_pin P41 [get_ports {ADC_IN[4]}]
+endgroup
+startgroup
+set_property package_pin P34 [get_ports {ADC_IN[5]}]
+endgroup
+startgroup
+set_property package_pin P35 [get_ports {ADC_IN[6]}]
+endgroup
+startgroup
+set_property package_pin P33 [get_ports {ADC_IN[7]}]
+endgroup
+startgroup
+set_property package_pin P30 [get_ports {ADC_IN[8]}]
+endgroup
+startgroup
+set_property package_pin P29 [get_ports {ADC_IN[9]}]
+endgroup
+startgroup
+set_property package_pin P32 [get_ports {ADC_IN[10]}]
+endgroup
+startgroup
+set_property package_pin P26 [get_ports {ADC_IN[11]}]
+endgroup
+startgroup
+set_property package_pin P27 [get_ports {ADC_IN[12]}]
+endgroup
+startgroup
+set_property package_pin P24 [get_ports {ADC_IN[13]}]
+endgroup
+startgroup
+set_property package_pin P57 [get_ports SPI_CLK]
+endgroup
+startgroup
+set_property package_pin P58 [get_ports MOSI]
+endgroup
+startgroup
+set_property package_pin P50 [get_ports MISO]
+endgroup
+save_constraints
+startgroup
+set_property package_pin P51 [get_ports CS]
+endgroup
+save_constraints
+set_property slew FAST [get_ports [list MISO]]
+save_constraints
+set_property offchip_term NONE [get_ports [list MISO]]
+save_constraints

@@ -123,10 +123,10 @@ ENTITY BMG_STIM_GEN IS
             CLKA : IN STD_LOGIC;
             CLKB : IN STD_LOGIC;
             TB_RST : IN STD_LOGIC;
-            ADDRA: OUT  STD_LOGIC_VECTOR(9 DOWNTO 0) := (OTHERS => '0'); 
+            ADDRA: OUT  STD_LOGIC_VECTOR(12 DOWNTO 0) := (OTHERS => '0'); 
             DINA : OUT  STD_LOGIC_VECTOR(15 DOWNTO 0) := (OTHERS => '0'); 
             WEA : OUT STD_LOGIC_VECTOR (0 DOWNTO 0) := (OTHERS => '0');
-            ADDRB: OUT  STD_LOGIC_VECTOR(9 DOWNTO 0) := (OTHERS => '0');
+            ADDRB: OUT  STD_LOGIC_VECTOR(12 DOWNTO 0) := (OTHERS => '0');
             ENB : OUT STD_LOGIC :='0';
 	        CHECK_DATA: OUT STD_LOGIC:='0'
 	  );
@@ -165,21 +165,21 @@ SIGNAL   PORTA_WR_R2             : STD_LOGIC  := '0';
 SIGNAL   PORTA_WR_R1             : STD_LOGIC  := '0';
 
 CONSTANT WR_RD_DEEP_COUNT :INTEGER :=8;
-CONSTANT WR_DEEP_COUNT    : INTEGER := if_then_else((10 <= 10),WR_RD_DEEP_COUNT,
+CONSTANT WR_DEEP_COUNT    : INTEGER := if_then_else((13 <= 13),WR_RD_DEEP_COUNT,
                                               ((16/16)*WR_RD_DEEP_COUNT));
-CONSTANT RD_DEEP_COUNT    : INTEGER := if_then_else((10 <= 10),WR_RD_DEEP_COUNT,
+CONSTANT RD_DEEP_COUNT    : INTEGER := if_then_else((13 <= 13),WR_RD_DEEP_COUNT,
                                               ((16/16)*WR_RD_DEEP_COUNT));
 
 BEGIN
 
-   ADDRA <= WRITE_ADDR(9 DOWNTO 0) ;
+   ADDRA <= WRITE_ADDR(12 DOWNTO 0) ;
    DINA  <= DINA_INT ;
-   ADDRB <= READ_ADDR(9 DOWNTO 0) when (DO_READ='1') else (OTHERS=>'0');
+   ADDRB <= READ_ADDR(12 DOWNTO 0) when (DO_READ='1') else (OTHERS=>'0');
    CHECK_DATA <= DO_READ;
 
   RD_ADDR_GEN_INST:ENTITY work.ADDR_GEN
     GENERIC MAP(
-      C_MAX_DEPTH => 1024 ,
+      C_MAX_DEPTH => 8192 ,
       RST_INC => 1    )
     PORT MAP(
        CLK        => CLKB,
@@ -192,7 +192,7 @@ BEGIN
 
   WR_ADDR_GEN_INST:ENTITY work.ADDR_GEN
     GENERIC MAP( 
-      C_MAX_DEPTH => 1024,
+      C_MAX_DEPTH => 8192,
       RST_INC => 1    )
     PORT MAP(
        CLK        => CLKA,

@@ -90,7 +90,7 @@ ENTITY spi_exdes IS
       --Inputs - Port A
   
     WEA            : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA          : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    ADDRA          : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
   
     DINA           : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
   
@@ -99,7 +99,7 @@ ENTITY spi_exdes IS
   
       --Inputs - Port B
     ENB            : IN STD_LOGIC;  --opt port
-    ADDRB          : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    ADDRB          : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
     DOUTB          : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     CLKB           : IN STD_LOGIC
 
@@ -122,7 +122,7 @@ ARCHITECTURE xilinx OF spi_exdes IS
       --Port A
   
     WEA        : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    ADDRA      : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    ADDRA      : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
   
     DINA       : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
 
@@ -132,7 +132,7 @@ ARCHITECTURE xilinx OF spi_exdes IS
   
       --Port B
     ENB        : IN STD_LOGIC;  --opt port
-    ADDRB      : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    ADDRB      : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
     DOUTB      : OUT STD_LOGIC_VECTOR(15 DOWNTO 0);
     CLKB       : IN STD_LOGIC
 

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.ncd
+OUTFILE=/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.bit
+FAMILY=Spartan6
+PART=xc6slx9-3tqg144
+WORKINGDIR=/home/jan/Projekte/RFStuff/FPGA/ADC
+LICENSE=WebPack
+USER_INFO=211694844_0_0_311

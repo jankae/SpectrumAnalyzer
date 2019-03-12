@@ -5,6 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="info" file="Timing" num="2698" delta="old" >No timing constraints found, doing default enumeration.</msg>
+
 <msg type="info" file="Timing" num="3412" delta="old" >To improve timing, see the Timing Closure User Guide (UG612).</msg>
 
 <msg type="info" file="Timing" num="2752" delta="old" >To get complete path coverage, use the unconstrained paths option. All paths that are not constrained will be reported in the unconstrained paths section(s) of the report.</msg>

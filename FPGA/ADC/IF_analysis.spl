@@ -1,0 +1,10 @@
+[Inputs]
+CLK
+SPI_CLK
+MOSI
+CS
+ADC_CLK
+=ADC_IN[13:0]=
+[Outputs]
+MISO
+[BiDir]

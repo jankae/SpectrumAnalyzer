@@ -1,0 +1,20 @@
+vhdtdtfi -lib work SingleBinFFT.vhd -lib work ADCSynchronizer.vhd -lib work IF_analysis.vhd -prj ADC -o IF_analysis.spl -module IF_analysis -template /opt/Xilinx/14.6/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan6 IF_analysis.spl /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.sym 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc6slx9-tqg144-3 IF_analysis.ngc IF_analysis.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o IF_analysis_map.ncd IF_analysis.ngd IF_analysis.pcf 
+par -w -intstyle ise -ol high -mt off IF_analysis_map.ncd IF_analysis.ncd IF_analysis.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml IF_analysis.twx IF_analysis.ncd -o IF_analysis.twr IF_analysis.pcf 
+bitgen -intstyle ise -f IF_analysis.ut IF_analysis.ncd 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.syr" 
+xst -intstyle ise -ifn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.xst" -ofn "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.syr" 
+ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -uc IF_analysis.ucf -p xc6slx9-tqg144-3 IF_analysis.ngc IF_analysis.ngd  
+map -intstyle ise -p xc6slx9-tqg144-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -global_opt off -mt off -ir off -pr off -lc off -power off -o IF_analysis_map.ncd IF_analysis.ngd IF_analysis.pcf 
+par -w -intstyle ise -ol high -mt off IF_analysis_map.ncd IF_analysis.ncd IF_analysis.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml IF_analysis.twx IF_analysis.ncd -o IF_analysis.twr IF_analysis.pcf -ucf IF_analysis.ucf 
+bitgen -intstyle ise -f IF_analysis.ut IF_analysis.ncd 

@@ -1,0 +1,11 @@
+#-----------------------------------------------------------
+# PlanAhead v14.6 (64-bit)
+# Build 269223 by xbuild on Wed Jun  5 11:07:37 MDT 2013
+# Start of session at: Tue Mar 12 20:36:31 2019
+# Process ID: 10237
+# Log file: /home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_2/planAhead.log
+# Journal file: /home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/jan/Projekte/RFStuff/FPGA/ADC/pa.fromHdl.tcl
+update_compile_order -fileset sim_1

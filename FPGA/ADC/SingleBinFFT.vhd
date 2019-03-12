@@ -77,7 +77,7 @@ begin
 	process(clk)
 	begin
 		if rising_edge(clk) then
-			if RESET = '1' then
+			if RESET = '0' then
 				pnt_cnt <= to_unsigned(0, 32);
 				OUT_REAL <= (others => '0');
 				OUT_IMAG <= (others => '0');
