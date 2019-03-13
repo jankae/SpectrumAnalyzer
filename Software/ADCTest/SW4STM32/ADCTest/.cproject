@@ -34,6 +34,7 @@
 								<option id="gnu.c.compiler.option.debugging.level.2058644775" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated" />
 								<option id="gnu.c.compiler.option.include.paths.948049721" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="../../../Inc" />
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Application/User}&quot;" />
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Drivers/Board}&quot;" />
 									<listOptionValue builtIn="false" value="../../../Drivers/STM32F7xx_HAL_Driver/Inc" />
 									<listOptionValue builtIn="false" value="../../../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy" />

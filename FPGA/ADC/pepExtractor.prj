@@ -1,3 +1,7 @@
 work	"ADCSynchronizer.vhd"
 work	"IF_analysis.vhd"
 work	"SingleBinFFT.vhd"
+work	"ipcore_dir/PLL.vhd"
+work	"ipcore_dir/WindowingMult.vhd"
+work	"ipcore_dir/spi.vhd"
+work	"spi.vhd"

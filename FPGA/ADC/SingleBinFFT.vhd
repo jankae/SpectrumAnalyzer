@@ -70,7 +70,7 @@ begin
 		 clk => CLK,
 		 a => mult_a,
 		 b => mult_b,
-		 sclr => RESET,
+		 sclr => not RESET,
 		 p => windowed_data
 	  );
 

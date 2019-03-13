@@ -12,7 +12,7 @@
 #t/* USER CODE END RTOS_TIMERS */
 #n#t/* Create the thread(s) */
 #t/* definition and creation of defaultTask */
-#tosThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+#tosThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 1024);
 #tdefaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 #n
 #n

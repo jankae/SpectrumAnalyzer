@@ -2,12 +2,12 @@ Command line:
    FFT_test_isim_beh.exe
      -simmode  gui
      -simrunnum  0
-     -socket  55523
+     -socket  58109
 
-Sun Mar 10 14:14:27 2019
+Wed Mar 13 18:36:05 2019
 
 
- Elaboration Time: 0.02 sec
+ Elaboration Time: 0.01 sec
 
  Current Memory Usage: 213.869 Meg
 
@@ -20,13 +20,10 @@ Sun Mar 10 14:14:27 2019
  Total Traceable Variables  : 159
  Total Scalar Nets and Variables : 2165
 Total Line Count : 92
-Total Line Count : 92
-Total Line Count : 92
-Total Line Count : 92
 
- Total Simulation Time: 3.56 sec
+ Total Simulation Time: 0.02 sec
 
  Current Memory Usage: 289.37 Meg
 
-Sun Mar 10 14:59:50 2019
+Wed Mar 13 18:36:35 2019
 

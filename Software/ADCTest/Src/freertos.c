@@ -54,6 +54,7 @@
 /* USER CODE BEGIN Includes */     
 #include "log.h"
 #include "stm.h"
+#include "DummyData.h"
 /* USER CODE END Includes */
 
 /* Variables -----------------------------------------------------------------*/
@@ -170,7 +171,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of defaultTask */
-  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
+  osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 1024);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -191,6 +192,10 @@ void StartDefaultTask(void const * argument)
 	LOG(Log_System, LevelInfo, "Start");
 
 	log_flush();
+	generate_dummy_data(10000000, 4000, 250000, 0);
+	while(1) {
+		vTaskDelay(1000);
+	}
 
 //	LOG(Log_System, LevelInfo, "Readback: 0x%04x", readSPI(0x5555));
 //	while(1);
