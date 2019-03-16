@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-03-16T15:28:24</DateModified>
+  <DateModified>2019-03-16T19:37:03</DateModified>
   <ModuleName>IF_analysis</ModuleName>
-  <SummaryTimeStamp>2019-03-16T15:10:47</SummaryTimeStamp>
+  <SummaryTimeStamp>2019-03-16T19:15:02</SummaryTimeStamp>
   <SavedFilePath>/home/jan/Projekte/RFStuff/FPGA/ADC/iseconfig/IF_analysis.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/jan/Projekte/RFStuff/FPGA/ADC/</ImplementationReportsDirectory>
   <DateInitialized>2019-03-13T18:26:26</DateInitialized>

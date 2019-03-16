@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Interface Version="1" Minor="1">
+	<Ifc Id="ROOT" Top="1">
+		<Bus Id="ADC_IN">
+			<Port Id="13" Dir="IN"/>
+			<Port Id="12" Dir="IN"/>
+			<Port Id="11" Dir="IN"/>
+			<Port Id="10" Dir="IN"/>
+			<Port Id="9" Dir="IN"/>
+			<Port Id="8" Dir="IN"/>
+			<Port Id="7" Dir="IN"/>
+			<Port Id="6" Dir="IN"/>
+			<Port Id="5" Dir="IN"/>
+			<Port Id="4" Dir="IN"/>
+			<Port Id="3" Dir="IN"/>
+			<Port Id="2" Dir="IN"/>
+			<Port Id="1" Dir="IN"/>
+			<Port Id="0" Dir="IN"/>
+		</Bus>
+		<Port Id="CLK" Dir="IN"/>
+		<Port Id="SPI_CLK" Dir="IN"/>
+		<Port Id="MOSI" Dir="IN"/>
+		<Port Id="CS" Dir="IN"/>
+		<Port Id="ADC_CLK" Dir="IN"/>
+		<Port Id="MISO" Dir="OUT"/>
+		<Port Id="LED1" Dir="OUT"/>
+		<Port Id="LED2" Dir="OUT"/>
+		<Port Id="LED3" Dir="INOUT"/>
+		<Port Id="LED4" Dir="OUT"/>
+	</Ifc>
+</Interface>
+

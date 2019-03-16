@@ -1,11 +1,16 @@
 Release 14.6 Drc P.68d (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sat Mar 16 15:30:46 2019
+Sat Mar 16 19:40:42 2019
 
 drc -z IF_analysis.ncd IF_analysis.pcf
 
 INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
    with the CLKFX and CLKFX180 outputs of the DCM comp
    your_instance_name/dcm_sp_inst, consult the device Data Sheet.
-DRC detected 0 errors and 0 warnings.
+WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
+   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
+   default, may be incorrect and should not be used.  For more information,
+   please reference Xilinx Answer Record 39999.
+DRC detected 0 errors and 1 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

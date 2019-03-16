@@ -72,34 +72,264 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 component switching limit errors)
- Minimum period is   1.000ns.
+ Minimum period is   3.124ns.
 --------------------------------------------------------------------------------
 
 Component Switching Limit Checks: TS_CLOCK_100 = PERIOD TIMEGRP "CLOCK_100" 10 ns HIGH 50%;
 --------------------------------------------------------------------------------
+Slack: 6.876ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKA(Fmax))
+  Physical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram/CLKAWRCLK
+  Logical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram/CLKAWRCLK
+  Location pin: RAMB8_X1Y5.CLKAWRCLK
+  Clock network: clk_100
+--------------------------------------------------------------------------------
+Slack: 6.876ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKB(Fmax))
+  Physical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram/CLKBRDCLK
+  Logical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram/CLKBRDCLK
+  Location pin: RAMB8_X1Y5.CLKBRDCLK
+  Clock network: clk_100
+--------------------------------------------------------------------------------
+Slack: 6.876ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKA(Fmax))
+  Physical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram/CLKA
+  Logical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram/CLKA
+  Location pin: RAMB16_X1Y14.CLKA
+  Clock network: clk_100
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_CLOCK_SPI = PERIOD TIMEGRP "CLOCK_SPI" 10 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 125 paths analyzed, 124 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   3.984ns.
+--------------------------------------------------------------------------------
+
+Paths for end point SPI_interface/mosi_buffer_8 (SLICE_X14Y16.CE), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     3.008ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SPI_interface/bit_cnt_15 (FF)
+  Destination:          SPI_interface/mosi_buffer_8 (FF)
+  Requirement:          5.000ns
+  Data Path Delay:      1.956ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.001ns (0.155 - 0.156)
+  Source Clock:         SPI_CLK_BUFGP rising at 0.000ns
+  Destination Clock:    SPI_CLK_BUFGP falling at 5.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: SPI_interface/bit_cnt_15 to SPI_interface/mosi_buffer_8
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y21.AQ      Tcko                  0.391   SPI_interface/bit_cnt<15>
+                                                       SPI_interface/bit_cnt_15
+    SLICE_X15Y15.B6      net (fanout=29)       0.578   SPI_interface/bit_cnt<15>
+    SLICE_X15Y15.B       Tilo                  0.259   SPI_interface/bit_cnt<15>_inv
+                                                       SPI_interface/bit_cnt<15>_inv1_INV_0
+    SLICE_X14Y16.CE      net (fanout=2)        0.393   SPI_interface/bit_cnt<15>_inv
+    SLICE_X14Y16.CLK     Tceck                 0.335   SPI_interface/mosi_buffer<11>
+                                                       SPI_interface/mosi_buffer_8
+    -------------------------------------------------  ---------------------------
+    Total                                      1.956ns (0.985ns logic, 0.971ns route)
+                                                       (50.4% logic, 49.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SPI_interface/mosi_buffer_12 (SLICE_X14Y16.CE), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     3.025ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SPI_interface/bit_cnt_15 (FF)
+  Destination:          SPI_interface/mosi_buffer_12 (FF)
+  Requirement:          5.000ns
+  Data Path Delay:      1.939ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.001ns (0.155 - 0.156)
+  Source Clock:         SPI_CLK_BUFGP rising at 0.000ns
+  Destination Clock:    SPI_CLK_BUFGP falling at 5.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: SPI_interface/bit_cnt_15 to SPI_interface/mosi_buffer_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y21.AQ      Tcko                  0.391   SPI_interface/bit_cnt<15>
+                                                       SPI_interface/bit_cnt_15
+    SLICE_X15Y15.B6      net (fanout=29)       0.578   SPI_interface/bit_cnt<15>
+    SLICE_X15Y15.B       Tilo                  0.259   SPI_interface/bit_cnt<15>_inv
+                                                       SPI_interface/bit_cnt<15>_inv1_INV_0
+    SLICE_X14Y16.CE      net (fanout=2)        0.393   SPI_interface/bit_cnt<15>_inv
+    SLICE_X14Y16.CLK     Tceck                 0.318   SPI_interface/mosi_buffer<11>
+                                                       SPI_interface/mosi_buffer_12
+    -------------------------------------------------  ---------------------------
+    Total                                      1.939ns (0.968ns logic, 0.971ns route)
+                                                       (49.9% logic, 50.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SPI_interface/mosi_buffer_13 (SLICE_X14Y16.CE), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     3.028ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               SPI_interface/bit_cnt_15 (FF)
+  Destination:          SPI_interface/mosi_buffer_13 (FF)
+  Requirement:          5.000ns
+  Data Path Delay:      1.936ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.001ns (0.155 - 0.156)
+  Source Clock:         SPI_CLK_BUFGP rising at 0.000ns
+  Destination Clock:    SPI_CLK_BUFGP falling at 5.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: SPI_interface/bit_cnt_15 to SPI_interface/mosi_buffer_13
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y21.AQ      Tcko                  0.391   SPI_interface/bit_cnt<15>
+                                                       SPI_interface/bit_cnt_15
+    SLICE_X15Y15.B6      net (fanout=29)       0.578   SPI_interface/bit_cnt<15>
+    SLICE_X15Y15.B       Tilo                  0.259   SPI_interface/bit_cnt<15>_inv
+                                                       SPI_interface/bit_cnt<15>_inv1_INV_0
+    SLICE_X14Y16.CE      net (fanout=2)        0.393   SPI_interface/bit_cnt<15>_inv
+    SLICE_X14Y16.CLK     Tceck                 0.315   SPI_interface/mosi_buffer<11>
+                                                       SPI_interface/mosi_buffer_13
+    -------------------------------------------------  ---------------------------
+    Total                                      1.936ns (0.965ns logic, 0.971ns route)
+                                                       (49.8% logic, 50.2% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_CLOCK_SPI = PERIOD TIMEGRP "CLOCK_SPI" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point SPI_interface/bit_cnt_5 (SLICE_X14Y21.C5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.381ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SPI_interface/bit_cnt_4 (FF)
+  Destination:          SPI_interface/bit_cnt_5 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.381ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SPI_CLK_BUFGP rising at 10.000ns
+  Destination Clock:    SPI_CLK_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: SPI_interface/bit_cnt_4 to SPI_interface/bit_cnt_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y21.CQ      Tcko                  0.200   SPI_interface/bit_cnt<6>
+                                                       SPI_interface/bit_cnt_4
+    SLICE_X14Y21.C5      net (fanout=1)        0.060   SPI_interface/bit_cnt<4>
+    SLICE_X14Y21.CLK     Tah         (-Th)    -0.121   SPI_interface/bit_cnt<6>
+                                                       SPI_interface/Mmux_bit_cnt[14]_GND_19_o_mux_7_OUT121
+                                                       SPI_interface/bit_cnt_5
+    -------------------------------------------------  ---------------------------
+    Total                                      0.381ns (0.321ns logic, 0.060ns route)
+                                                       (84.3% logic, 15.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SPI_interface/mosi_buffer_3 (SLICE_X14Y13.DX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.385ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SPI_interface/mosi_buffer_2 (FF)
+  Destination:          SPI_interface/mosi_buffer_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.385ns (Levels of Logic = 0)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SPI_CLK_BUFGP falling at 15.000ns
+  Destination Clock:    SPI_CLK_BUFGP falling at 15.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: SPI_interface/mosi_buffer_2 to SPI_interface/mosi_buffer_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y13.CQ      Tcko                  0.200   SPI_interface/mosi_buffer<3>
+                                                       SPI_interface/mosi_buffer_2
+    SLICE_X14Y13.DX      net (fanout=2)        0.137   SPI_interface/mosi_buffer<2>
+    SLICE_X14Y13.CLK     Tckdi       (-Th)    -0.048   SPI_interface/mosi_buffer<3>
+                                                       SPI_interface/mosi_buffer_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.385ns (0.248ns logic, 0.137ns route)
+                                                       (64.4% logic, 35.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SPI_interface/bit_cnt_3 (SLICE_X14Y21.B5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.391ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SPI_interface/bit_cnt_2 (FF)
+  Destination:          SPI_interface/bit_cnt_3 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.391ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SPI_CLK_BUFGP rising at 10.000ns
+  Destination Clock:    SPI_CLK_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: SPI_interface/bit_cnt_2 to SPI_interface/bit_cnt_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y21.BQ      Tcko                  0.200   SPI_interface/bit_cnt<6>
+                                                       SPI_interface/bit_cnt_2
+    SLICE_X14Y21.B5      net (fanout=1)        0.070   SPI_interface/bit_cnt<2>
+    SLICE_X14Y21.CLK     Tah         (-Th)    -0.121   SPI_interface/bit_cnt<6>
+                                                       SPI_interface/Mmux_bit_cnt[14]_GND_19_o_mux_7_OUT101
+                                                       SPI_interface/bit_cnt_3
+    -------------------------------------------------  ---------------------------
+    Total                                      0.391ns (0.321ns logic, 0.070ns route)
+                                                       (82.1% logic, 17.9% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_CLOCK_SPI = PERIOD TIMEGRP "CLOCK_SPI" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 8.270ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.730ns (578.035MHz) (Tbcper_I)
+  Physical resource: SPI_CLK_BUFGP/BUFG/I0
+  Logical resource: SPI_CLK_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X2Y12.I0
+  Clock network: SPI_CLK_BUFGP/IBUFG
+--------------------------------------------------------------------------------
 Slack: 9.000ns (period - min period limit)
   Period: 10.000ns
   Min period limit: 1.000ns (1000.000MHz) (Tcp)
-  Physical resource: ADC_input/new_clk/CLK
-  Logical resource: ADC_input/Mshreg_new_clk/CLK
-  Location pin: SLICE_X8Y17.CLK
-  Clock network: clk_100
+  Physical resource: SPI_interface/data_synced_2/CLK
+  Logical resource: SPI_interface/Mshreg_data_synced_2/CLK
+  Location pin: SLICE_X12Y15.CLK
+  Clock network: SPI_CLK_BUFGP
 --------------------------------------------------------------------------------
 Slack: 9.570ns (period - min period limit)
   Period: 10.000ns
   Min period limit: 0.430ns (2325.581MHz) (Tcp)
-  Physical resource: SPI_interface/data_synced_0/CLK
-  Logical resource: SPI_interface/data_synced_0/CK
-  Location pin: SLICE_X14Y29.CLK
-  Clock network: clk_100
---------------------------------------------------------------------------------
-Slack: 9.570ns (period - min period limit)
-  Period: 10.000ns
-  Min period limit: 0.430ns (2325.581MHz) (Tcp)
-  Physical resource: LED3_OBUF/CLK
-  Logical resource: LED3/CK
-  Location pin: SLICE_X14Y38.CLK
-  Clock network: clk_100
+  Physical resource: SPI_interface/mosi_buffer<3>/CLK
+  Logical resource: SPI_interface/mosi_buffer_4/CK
+  Location pin: SLICE_X14Y13.CLK
+  Clock network: SPI_CLK_BUFGP
 --------------------------------------------------------------------------------
 
 ================================================================================
@@ -107,19 +337,19 @@ Timing constraint: TS_your_instance_name_clkfx = PERIOD TIMEGRP
 "your_instance_name_clkfx"         TS_CLOCK_50 / 2.08333333 HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 10 paths analyzed, 10 endpoints analyzed, 0 failing endpoints
+ 59821 paths analyzed, 2570 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   2.495ns.
+ Minimum period is   5.887ns.
 --------------------------------------------------------------------------------
 
-Paths for end point LED3 (SLICE_X14Y38.A3), 1 path
+Paths for end point FFT/sum_real_50 (SLICE_X7Y26.CE), 128 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     7.105ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               ADC_input/NEW_SAMPLE (FF)
-  Destination:          LED3 (FF)
+Slack (setup path):     3.713ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               FFT/pnt_cnt_1 (FF)
+  Destination:          FFT/sum_real_50 (FF)
   Requirement:          9.600ns
-  Data Path Delay:      2.208ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.052ns (0.595 - 0.647)
+  Data Path Delay:      5.610ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.042ns (0.547 - 0.589)
   Source Clock:         clk_100 rising at 0.000ns
   Destination Clock:    clk_100 rising at 9.600ns
   Clock Uncertainty:    0.235ns
@@ -130,30 +360,42 @@ Slack (setup path):     7.105ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.399ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: ADC_input/NEW_SAMPLE to LED3
+  Maximum Data Path at Slow Process Corner: FFT/pnt_cnt_1 to FFT/sum_real_50
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X11Y25.DQ      Tcko                  0.391   ADC_input/NEW_SAMPLE
-                                                       ADC_input/NEW_SAMPLE
-    SLICE_X14Y38.A3      net (fanout=1)        1.476   ADC_input/NEW_SAMPLE
-    SLICE_X14Y38.CLK     Tas                   0.341   LED3_OBUF
-                                                       LED3_rstpot
-                                                       LED3
+    SLICE_X18Y6.BQ       Tcko                  0.408   FFT/pnt_cnt<3>
+                                                       FFT/pnt_cnt_1
+    SLICE_X18Y11.A1      net (fanout=3)        0.964   FFT/pnt_cnt<1>
+    SLICE_X18Y11.COUT    Topcya                0.409   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lutdi
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A6       net (fanout=54)       1.786   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A        Tilo                  0.259   FFT/OUT_IMAG<39>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv1_3_INV_0
+    SLICE_X7Y26.CE       net (fanout=6)        1.207   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv13
+    SLICE_X7Y26.CLK      Tceck                 0.340   FFT/sum_real<51>
+                                                       FFT/sum_real_50
     -------------------------------------------------  ---------------------------
-    Total                                      2.208ns (0.732ns logic, 1.476ns route)
-                                                       (33.2% logic, 66.8% route)
+    Total                                      5.610ns (1.644ns logic, 3.966ns route)
+                                                       (29.3% logic, 70.7% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point ADC_input/NEW_SAMPLE (SLICE_X11Y25.D3), 1 path
---------------------------------------------------------------------------------
-Slack (setup path):     7.267ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               ADC_input/new_clk (FF)
-  Destination:          ADC_input/NEW_SAMPLE (FF)
+Slack (setup path):     3.727ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               FFT/pnt_cnt_1 (FF)
+  Destination:          FFT/sum_real_50 (FF)
   Requirement:          9.600ns
-  Data Path Delay:      2.074ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.024ns (0.260 - 0.284)
+  Data Path Delay:      5.596ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.042ns (0.547 - 0.589)
   Source Clock:         clk_100 rising at 0.000ns
   Destination Clock:    clk_100 rising at 9.600ns
   Clock Uncertainty:    0.235ns
@@ -164,30 +406,42 @@ Slack (setup path):     7.267ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.399ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: ADC_input/new_clk to ADC_input/NEW_SAMPLE
+  Maximum Data Path at Slow Process Corner: FFT/pnt_cnt_1 to FFT/sum_real_50
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X8Y17.CQ       Tcko                  0.447   ADC_input/new_clk
-                                                       ADC_input/new_clk
-    SLICE_X11Y25.D3      net (fanout=2)        1.305   ADC_input/new_clk
-    SLICE_X11Y25.CLK     Tas                   0.322   ADC_input/NEW_SAMPLE
-                                                       ADC_input/new_clk_GND_14_o_MUX_18_o1
-                                                       ADC_input/NEW_SAMPLE
+    SLICE_X18Y6.BQ       Tcko                  0.408   FFT/pnt_cnt<3>
+                                                       FFT/pnt_cnt_1
+    SLICE_X18Y11.A1      net (fanout=3)        0.964   FFT/pnt_cnt<1>
+    SLICE_X18Y11.COUT    Topcya                0.395   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lut<0>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A6       net (fanout=54)       1.786   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A        Tilo                  0.259   FFT/OUT_IMAG<39>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv1_3_INV_0
+    SLICE_X7Y26.CE       net (fanout=6)        1.207   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv13
+    SLICE_X7Y26.CLK      Tceck                 0.340   FFT/sum_real<51>
+                                                       FFT/sum_real_50
     -------------------------------------------------  ---------------------------
-    Total                                      2.074ns (0.769ns logic, 1.305ns route)
-                                                       (37.1% logic, 62.9% route)
+    Total                                      5.596ns (1.630ns logic, 3.966ns route)
+                                                       (29.1% logic, 70.9% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point SPI_interface/data_synced_0 (SLICE_X14Y29.SR), 1 path
---------------------------------------------------------------------------------
-Slack (setup path):     7.398ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               SPI_interface/data_valid_1 (FF)
-  Destination:          SPI_interface/data_synced_0 (FF)
+Slack (setup path):     3.782ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fft_points_0 (FF)
+  Destination:          FFT/sum_real_50 (FF)
   Requirement:          9.600ns
-  Data Path Delay:      1.954ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.013ns (0.241 - 0.254)
+  Data Path Delay:      5.531ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.052ns (0.547 - 0.599)
   Source Clock:         clk_100 rising at 0.000ns
   Destination Clock:    clk_100 rising at 9.600ns
   Clock Uncertainty:    0.235ns
@@ -198,21 +452,316 @@ Slack (setup path):     7.398ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.399ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: SPI_interface/data_valid_1 to SPI_interface/data_synced_0
+  Maximum Data Path at Slow Process Corner: fft_points_0 to FFT/sum_real_50
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y29.AQ      Tcko                  0.447   SPI_interface/data_valid_1
-                                                       SPI_interface/data_valid_1
-    SLICE_X13Y29.D3      net (fanout=1)        0.317   SPI_interface/data_valid_1
-    SLICE_X13Y29.D       Tilo                  0.259   SPI_interface/data_valid<1>_inv
-                                                       SPI_interface/data_valid<1>_inv1_INV_0
-    SLICE_X14Y29.SR      net (fanout=2)        0.487   SPI_interface/data_valid<1>_inv
-    SLICE_X14Y29.CLK     Tsrck                 0.444   SPI_interface/data_synced_0
-                                                       SPI_interface/data_synced_0
+    SLICE_X16Y14.AQ      Tcko                  0.447   fft_points<2>
+                                                       fft_points_0
+    SLICE_X18Y11.A2      net (fanout=3)        0.846   fft_points<0>
+    SLICE_X18Y11.COUT    Topcya                0.409   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lutdi
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A6       net (fanout=54)       1.786   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A        Tilo                  0.259   FFT/OUT_IMAG<39>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv1_3_INV_0
+    SLICE_X7Y26.CE       net (fanout=6)        1.207   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv13
+    SLICE_X7Y26.CLK      Tceck                 0.340   FFT/sum_real<51>
+                                                       FFT/sum_real_50
     -------------------------------------------------  ---------------------------
-    Total                                      1.954ns (1.150ns logic, 0.804ns route)
-                                                       (58.9% logic, 41.1% route)
+    Total                                      5.531ns (1.683ns logic, 3.848ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point FFT/sum_real_56 (SLICE_X6Y28.CE), 130 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     3.723ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               FFT/pnt_cnt_1 (FF)
+  Destination:          FFT/sum_real_56 (FF)
+  Requirement:          9.600ns
+  Data Path Delay:      5.605ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.037ns (0.552 - 0.589)
+  Source Clock:         clk_100 rising at 0.000ns
+  Destination Clock:    clk_100 rising at 9.600ns
+  Clock Uncertainty:    0.235ns
+
+  Clock Uncertainty:          0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.399ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: FFT/pnt_cnt_1 to FFT/sum_real_56
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y6.BQ       Tcko                  0.408   FFT/pnt_cnt<3>
+                                                       FFT/pnt_cnt_1
+    SLICE_X18Y11.A1      net (fanout=3)        0.964   FFT/pnt_cnt<1>
+    SLICE_X18Y11.COUT    Topcya                0.409   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lutdi
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X7Y28.A3       net (fanout=54)       2.311   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X7Y28.A        Tilo                  0.259   FFT/_n0165_inv
+                                                       FFT/_n0165_inv1
+    SLICE_X6Y28.CE       net (fanout=2)        0.682   FFT/_n0165_inv
+    SLICE_X6Y28.CLK      Tceck                 0.335   FFT/sum_real<59>
+                                                       FFT/sum_real_56
+    -------------------------------------------------  ---------------------------
+    Total                                      5.605ns (1.639ns logic, 3.966ns route)
+                                                       (29.2% logic, 70.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     3.737ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               FFT/pnt_cnt_1 (FF)
+  Destination:          FFT/sum_real_56 (FF)
+  Requirement:          9.600ns
+  Data Path Delay:      5.591ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.037ns (0.552 - 0.589)
+  Source Clock:         clk_100 rising at 0.000ns
+  Destination Clock:    clk_100 rising at 9.600ns
+  Clock Uncertainty:    0.235ns
+
+  Clock Uncertainty:          0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.399ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: FFT/pnt_cnt_1 to FFT/sum_real_56
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y6.BQ       Tcko                  0.408   FFT/pnt_cnt<3>
+                                                       FFT/pnt_cnt_1
+    SLICE_X18Y11.A1      net (fanout=3)        0.964   FFT/pnt_cnt<1>
+    SLICE_X18Y11.COUT    Topcya                0.395   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lut<0>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X7Y28.A3       net (fanout=54)       2.311   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X7Y28.A        Tilo                  0.259   FFT/_n0165_inv
+                                                       FFT/_n0165_inv1
+    SLICE_X6Y28.CE       net (fanout=2)        0.682   FFT/_n0165_inv
+    SLICE_X6Y28.CLK      Tceck                 0.335   FFT/sum_real<59>
+                                                       FFT/sum_real_56
+    -------------------------------------------------  ---------------------------
+    Total                                      5.591ns (1.625ns logic, 3.966ns route)
+                                                       (29.1% logic, 70.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     3.792ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fft_points_0 (FF)
+  Destination:          FFT/sum_real_56 (FF)
+  Requirement:          9.600ns
+  Data Path Delay:      5.526ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.047ns (0.552 - 0.599)
+  Source Clock:         clk_100 rising at 0.000ns
+  Destination Clock:    clk_100 rising at 9.600ns
+  Clock Uncertainty:    0.235ns
+
+  Clock Uncertainty:          0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.399ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fft_points_0 to FFT/sum_real_56
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y14.AQ      Tcko                  0.447   fft_points<2>
+                                                       fft_points_0
+    SLICE_X18Y11.A2      net (fanout=3)        0.846   fft_points<0>
+    SLICE_X18Y11.COUT    Topcya                0.409   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lutdi
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X7Y28.A3       net (fanout=54)       2.311   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X7Y28.A        Tilo                  0.259   FFT/_n0165_inv
+                                                       FFT/_n0165_inv1
+    SLICE_X6Y28.CE       net (fanout=2)        0.682   FFT/_n0165_inv
+    SLICE_X6Y28.CLK      Tceck                 0.335   FFT/sum_real<59>
+                                                       FFT/sum_real_56
+    -------------------------------------------------  ---------------------------
+    Total                                      5.526ns (1.678ns logic, 3.848ns route)
+                                                       (30.4% logic, 69.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point FFT/sum_real_49 (SLICE_X7Y26.CE), 128 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     3.729ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               FFT/pnt_cnt_1 (FF)
+  Destination:          FFT/sum_real_49 (FF)
+  Requirement:          9.600ns
+  Data Path Delay:      5.594ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.042ns (0.547 - 0.589)
+  Source Clock:         clk_100 rising at 0.000ns
+  Destination Clock:    clk_100 rising at 9.600ns
+  Clock Uncertainty:    0.235ns
+
+  Clock Uncertainty:          0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.399ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: FFT/pnt_cnt_1 to FFT/sum_real_49
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y6.BQ       Tcko                  0.408   FFT/pnt_cnt<3>
+                                                       FFT/pnt_cnt_1
+    SLICE_X18Y11.A1      net (fanout=3)        0.964   FFT/pnt_cnt<1>
+    SLICE_X18Y11.COUT    Topcya                0.409   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lutdi
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A6       net (fanout=54)       1.786   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A        Tilo                  0.259   FFT/OUT_IMAG<39>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv1_3_INV_0
+    SLICE_X7Y26.CE       net (fanout=6)        1.207   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv13
+    SLICE_X7Y26.CLK      Tceck                 0.324   FFT/sum_real<51>
+                                                       FFT/sum_real_49
+    -------------------------------------------------  ---------------------------
+    Total                                      5.594ns (1.628ns logic, 3.966ns route)
+                                                       (29.1% logic, 70.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     3.743ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               FFT/pnt_cnt_1 (FF)
+  Destination:          FFT/sum_real_49 (FF)
+  Requirement:          9.600ns
+  Data Path Delay:      5.580ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.042ns (0.547 - 0.589)
+  Source Clock:         clk_100 rising at 0.000ns
+  Destination Clock:    clk_100 rising at 9.600ns
+  Clock Uncertainty:    0.235ns
+
+  Clock Uncertainty:          0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.399ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: FFT/pnt_cnt_1 to FFT/sum_real_49
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y6.BQ       Tcko                  0.408   FFT/pnt_cnt<3>
+                                                       FFT/pnt_cnt_1
+    SLICE_X18Y11.A1      net (fanout=3)        0.964   FFT/pnt_cnt<1>
+    SLICE_X18Y11.COUT    Topcya                0.395   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lut<0>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A6       net (fanout=54)       1.786   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A        Tilo                  0.259   FFT/OUT_IMAG<39>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv1_3_INV_0
+    SLICE_X7Y26.CE       net (fanout=6)        1.207   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv13
+    SLICE_X7Y26.CLK      Tceck                 0.324   FFT/sum_real<51>
+                                                       FFT/sum_real_49
+    -------------------------------------------------  ---------------------------
+    Total                                      5.580ns (1.614ns logic, 3.966ns route)
+                                                       (28.9% logic, 71.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     3.798ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               fft_points_0 (FF)
+  Destination:          FFT/sum_real_49 (FF)
+  Requirement:          9.600ns
+  Data Path Delay:      5.515ns (Levels of Logic = 5)
+  Clock Path Skew:      -0.052ns (0.547 - 0.599)
+  Source Clock:         clk_100 rising at 0.000ns
+  Destination Clock:    clk_100 rising at 9.600ns
+  Clock Uncertainty:    0.235ns
+
+  Clock Uncertainty:          0.235ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.399ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: fft_points_0 to FFT/sum_real_49
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X16Y14.AQ      Tcko                  0.447   fft_points<2>
+                                                       fft_points_0
+    SLICE_X18Y11.A2      net (fanout=3)        0.846   fft_points<0>
+    SLICE_X18Y11.COUT    Topcya                0.409   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lutdi
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>
+    SLICE_X18Y12.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>
+    SLICE_X18Y13.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.CIN     net (fanout=1)        0.003   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>
+    SLICE_X18Y14.COUT    Tbyp                  0.076   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A6       net (fanout=54)       1.786   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>
+    SLICE_X9Y23.A        Tilo                  0.259   FFT/OUT_IMAG<39>
+                                                       FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv1_3_INV_0
+    SLICE_X7Y26.CE       net (fanout=6)        1.207   FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv13
+    SLICE_X7Y26.CLK      Tceck                 0.324   FFT/sum_real<51>
+                                                       FFT/sum_real_49
+    -------------------------------------------------  ---------------------------
+    Total                                      5.515ns (1.667ns logic, 3.848ns route)
+                                                       (30.2% logic, 69.8% route)
 
 --------------------------------------------------------------------------------
 
@@ -220,117 +769,112 @@ Hold Paths: TS_your_instance_name_clkfx = PERIOD TIMEGRP "your_instance_name_clk
         TS_CLOCK_50 / 2.08333333 HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point LED3 (SLICE_X14Y38.A6), 1 path
+Paths for end point memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram (RAMB16_X1Y8.ADDRA3), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.415ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               LED3 (FF)
-  Destination:          LED3 (FF)
+Slack (hold path):      0.320ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               mem_address_2 (FF)
+  Destination:          memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram (RAM)
   Requirement:          0.000ns
-  Data Path Delay:      0.415ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      0.324ns (Levels of Logic = 0)
+  Clock Path Skew:      0.004ns (0.077 - 0.073)
   Source Clock:         clk_100 rising at 9.600ns
   Destination Clock:    clk_100 rising at 9.600ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: LED3 to LED3
+  Minimum Data Path at Fast Process Corner: mem_address_2 to memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X14Y38.AQ      Tcko                  0.200   LED3_OBUF
-                                                       LED3
-    SLICE_X14Y38.A6      net (fanout=2)        0.025   LED3_OBUF
-    SLICE_X14Y38.CLK     Tah         (-Th)    -0.190   LED3_OBUF
-                                                       LED3_rstpot
-                                                       LED3
+    SLICE_X17Y17.CQ      Tcko                  0.198   mem_address<3>
+                                                       mem_address_2
+    RAMB16_X1Y8.ADDRA3   net (fanout=26)       0.192   mem_address<2>
+    RAMB16_X1Y8.CLKA     Trckc_ADDRA (-Th)     0.066   memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
+                                                       memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
     -------------------------------------------------  ---------------------------
-    Total                                      0.415ns (0.390ns logic, 0.025ns route)
-                                                       (94.0% logic, 6.0% route)
+    Total                                      0.324ns (0.132ns logic, 0.192ns route)
+                                                       (40.7% logic, 59.3% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point first (SLICE_X21Y34.A5), 1 path
+Paths for end point memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram (RAMB16_X1Y10.DIA1), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.618ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               first (FF)
-  Destination:          first (FF)
+Slack (hold path):      0.363ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               mem_in_6 (FF)
+  Destination:          memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram (RAM)
   Requirement:          0.000ns
-  Data Path Delay:      0.618ns (Levels of Logic = 1)
-  Clock Path Skew:      0.000ns
+  Data Path Delay:      0.364ns (Levels of Logic = 0)
+  Clock Path Skew:      0.001ns (0.070 - 0.069)
   Source Clock:         clk_100 rising at 9.600ns
   Destination Clock:    clk_100 rising at 9.600ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: first to first
+  Minimum Data Path at Fast Process Corner: mem_in_6 to memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X21Y34.AQ      Tcko                  0.198   first
-                                                       first
-    SLICE_X21Y34.A5      net (fanout=2)        0.205   first
-    SLICE_X21Y34.CLK     Tah         (-Th)    -0.215   first
-                                                       first_rstpot
-                                                       first
+    SLICE_X19Y20.CQ      Tcko                  0.198   mem_in<7>
+                                                       mem_in_6
+    RAMB16_X1Y10.DIA1    net (fanout=1)        0.219   mem_in<6>
+    RAMB16_X1Y10.CLKA    Trckd_DIA   (-Th)     0.053   memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
+                                                       memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
     -------------------------------------------------  ---------------------------
-    Total                                      0.618ns (0.413ns logic, 0.205ns route)
-                                                       (66.8% logic, 33.2% route)
+    Total                                      0.364ns (0.145ns logic, 0.219ns route)
+                                                       (39.8% logic, 60.2% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point SPI_interface/COMPLETE (SLICE_X15Y29.SR), 1 path
+Paths for end point memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram (RAMB16_X1Y8.ADDRA2), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.689ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               SPI_interface/data_valid_1 (FF)
-  Destination:          SPI_interface/COMPLETE (FF)
+Slack (hold path):      0.384ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               mem_address_1 (FF)
+  Destination:          memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram (RAM)
   Requirement:          0.000ns
-  Data Path Delay:      0.694ns (Levels of Logic = 1)
-  Clock Path Skew:      0.005ns (0.075 - 0.070)
+  Data Path Delay:      0.388ns (Levels of Logic = 0)
+  Clock Path Skew:      0.004ns (0.077 - 0.073)
   Source Clock:         clk_100 rising at 9.600ns
   Destination Clock:    clk_100 rising at 9.600ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: SPI_interface/data_valid_1 to SPI_interface/COMPLETE
+  Minimum Data Path at Fast Process Corner: mem_address_1 to memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X12Y29.AQ      Tcko                  0.234   SPI_interface/data_valid_1
-                                                       SPI_interface/data_valid_1
-    SLICE_X13Y29.D3      net (fanout=1)        0.172   SPI_interface/data_valid_1
-    SLICE_X13Y29.D       Tilo                  0.156   SPI_interface/data_valid<1>_inv
-                                                       SPI_interface/data_valid<1>_inv1_INV_0
-    SLICE_X15Y29.SR      net (fanout=2)        0.263   SPI_interface/data_valid<1>_inv
-    SLICE_X15Y29.CLK     Tcksr       (-Th)     0.131   SPI_interface/COMPLETE
-                                                       SPI_interface/COMPLETE
+    SLICE_X17Y17.BQ      Tcko                  0.198   mem_address<3>
+                                                       mem_address_1
+    RAMB16_X1Y8.ADDRA2   net (fanout=107)      0.256   mem_address<1>
+    RAMB16_X1Y8.CLKA     Trckc_ADDRA (-Th)     0.066   memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
+                                                       memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram
     -------------------------------------------------  ---------------------------
-    Total                                      0.694ns (0.259ns logic, 0.435ns route)
-                                                       (37.3% logic, 62.7% route)
+    Total                                      0.388ns (0.132ns logic, 0.256ns route)
+                                                       (34.0% logic, 66.0% route)
 
 --------------------------------------------------------------------------------
 
 Component Switching Limit Checks: TS_your_instance_name_clkfx = PERIOD TIMEGRP "your_instance_name_clkfx"
         TS_CLOCK_50 / 2.08333333 HIGH 50%;
 --------------------------------------------------------------------------------
-Slack: 7.870ns (period - min period limit)
+Slack: 6.476ns (period - min period limit)
   Period: 9.600ns
-  Min period limit: 1.730ns (578.035MHz) (Tbcper_I)
-  Physical resource: your_instance_name/clkout1_buf/I0
-  Logical resource: your_instance_name/clkout1_buf/I0
-  Location pin: BUFGMUX_X2Y3.I0
-  Clock network: your_instance_name/clkfx
---------------------------------------------------------------------------------
-Slack: 8.600ns (period - min period limit)
-  Period: 9.600ns
-  Min period limit: 1.000ns (1000.000MHz) (Tcp)
-  Physical resource: ADC_input/new_clk/CLK
-  Logical resource: ADC_input/Mshreg_new_clk/CLK
-  Location pin: SLICE_X8Y17.CLK
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKA(Fmax))
+  Physical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram/CLKAWRCLK
+  Logical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram/CLKAWRCLK
+  Location pin: RAMB8_X1Y5.CLKAWRCLK
   Clock network: clk_100
 --------------------------------------------------------------------------------
-Slack: 9.170ns (period - min period limit)
+Slack: 6.476ns (period - min period limit)
   Period: 9.600ns
-  Min period limit: 0.430ns (2325.581MHz) (Tcp)
-  Physical resource: SPI_interface/data_synced_0/CLK
-  Logical resource: SPI_interface/data_synced_0/CK
-  Location pin: SLICE_X14Y29.CLK
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKB(Fmax))
+  Physical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram/CLKBRDCLK
+  Logical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram/CLKBRDCLK
+  Location pin: RAMB8_X1Y5.CLKBRDCLK
+  Clock network: clk_100
+--------------------------------------------------------------------------------
+Slack: 6.476ns (period - min period limit)
+  Period: 9.600ns
+  Min period limit: 3.124ns (320.102MHz) (Trper_CLKA(Fmax))
+  Physical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram/CLKA
+  Logical resource: memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram/CLKA
+  Location pin: RAMB16_X1Y14.CLKA
   Clock network: clk_100
 --------------------------------------------------------------------------------
 
@@ -342,8 +886,8 @@ Derived Constraints for TS_CLOCK_50
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_CLOCK_50                    |     20.000ns|      8.000ns|      5.198ns|            0|            0|            0|           10|
-| TS_your_instance_name_clkfx   |      9.600ns|      2.495ns|          N/A|            0|            0|           10|            0|
+|TS_CLOCK_50                    |     20.000ns|      8.000ns|     12.265ns|            0|            0|            0|        59821|
+| TS_your_instance_name_clkfx   |      9.600ns|      5.887ns|          N/A|            0|            0|        59821|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -358,7 +902,15 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    2.495|         |         |         |
+CLK            |    5.887|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SPI_CLK        |    2.639|         |    1.992|    1.740|
 ---------------+---------+---------+---------+---------+
 
 
@@ -367,7 +919,7 @@ Timing summary:
 
 Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
 
-Constraints cover 10 paths, 0 nets, and 24 connections
+Constraints cover 59946 paths, 0 nets, and 3162 connections
 
 Design statistics:
    Minimum period:   8.000ns{1}   (Maximum frequency: 125.000MHz)
@@ -376,14 +928,14 @@ Design statistics:
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Sat Mar 16 15:30:42 2019 
+Analysis completed Sat Mar 16 19:40:38 2019 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 402 MB
+Peak Memory Usage: 416 MB
 
 
 

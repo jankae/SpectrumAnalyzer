@@ -214,6 +214,7 @@ begin
 				mem_in <= (others => '0');
 			else
 				if spi_complete = '1' then
+					--spi_in <= spi_out;
 					if first = '1' then
 						write_not_read <= spi_out(15);
 						mem_address <= spi_out(14 downto 0);
@@ -252,22 +253,22 @@ begin
 				end if;
 			end if;
 			-- assign spi_in dependent on mem_address
-			spi_in <= x"F555";
---			case mem_address is
---				when "000000000000000" => spi_in <= "00000000000000" & fft_busy & fft_active;
---				when "000000000000001" => spi_in <= window_inc;
---				when "000000000000010" => spi_in <= fft_points(15 downto 0);
---				when "000000000000011" => spi_in <= fft_points(31 downto 16);
---				when "000000000000100" => spi_in <= out_real(15 downto 0);
---				when "000000000000101" => spi_in <= out_real(31 downto 16);
---				when "000000000000110" => spi_in <= out_real(47 downto 32);
---				when "000000000000111" => spi_in <= out_real(63 downto 48);
---				when "000000000001000" => spi_in <= out_imag(15 downto 0);
---				when "000000000001001" => spi_in <= out_imag(31 downto 16);
---				when "000000000001010" => spi_in <= out_imag(47 downto 32);
---				when "000000000001011" => spi_in <= out_imag(63 downto 48);
---				when others => spi_in <= (others => '0');
---			end case;
+--			spi_in <= x"FA50";
+			case mem_address is
+				when "000000000000000" => spi_in <= "00000000000000" & fft_busy & fft_active;
+				when "000000000000001" => spi_in <= window_inc;
+				when "000000000000010" => spi_in <= fft_points(15 downto 0);
+				when "000000000000011" => spi_in <= fft_points(31 downto 16);
+				when "000000000000100" => spi_in <= out_real(15 downto 0);
+				when "000000000000101" => spi_in <= out_real(31 downto 16);
+				when "000000000000110" => spi_in <= out_real(47 downto 32);
+				when "000000000000111" => spi_in <= out_real(63 downto 48);
+				when "000000000001000" => spi_in <= out_imag(15 downto 0);
+				when "000000000001001" => spi_in <= out_imag(31 downto 16);
+				when "000000000001010" => spi_in <= out_imag(47 downto 32);
+				when "000000000001011" => spi_in <= out_imag(63 downto 48);
+				when others => spi_in <= (others => '0');
+			end case;
 		end if;
 	end process;
 

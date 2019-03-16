@@ -7,16 +7,17 @@ Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/spi.vhd" into library wor
 Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/SPI_test.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 103380 KB
-Fuse CPU Usage: 1010 ms
+Fuse Memory Usage: 105096 KB
+Fuse CPU Usage: 1040 ms
 Compiling package standard
 Compiling package std_logic_1164
+Compiling package numeric_std
 Compiling architecture behavioral of entity spi_slave [\spi_slave(16)\]
 Compiling architecture behavior of entity spi_test
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 5 VHDL Units
+Compiled 6 VHDL Units
 Built simulation executable /home/jan/Projekte/RFStuff/FPGA/ADC/SPI_test_isim_beh.exe
-Fuse Memory Usage: 669172 KB
-Fuse CPU Usage: 1030 ms
+Fuse Memory Usage: 676676 KB
+Fuse CPU Usage: 1120 ms
 GCC CPU Usage: 200 ms

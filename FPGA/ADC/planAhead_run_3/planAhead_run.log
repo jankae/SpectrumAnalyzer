@@ -1,0 +1,113 @@
+
+****** PlanAhead v14.6 (64-bit)
+  **** Build 269223 by xbuild on Wed Jun  5 11:07:37 MDT 2013
+    ** Copyright 1986-1999, 2001-2012 Xilinx, Inc. All Rights Reserved.
+
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source /home/jan/Projekte/RFStuff/FPGA/ADC/pa.fromNetlist.tcl
+# create_project -name ADC -dir "/home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_3" -part xc6slx9tqg144-3
+# set_property design_mode GateLvl [get_property srcset [current_run -impl]]
+# set_property edif_top_file "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.ngc" [ get_property srcset [ current_run ] ]
+# add_files -norecurse { {/home/jan/Projekte/RFStuff/FPGA/ADC} {ipcore_dir} }
+# add_files [list {ipcore_dir/WindowingMult.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/spi.ncf}] -fileset [get_property constrset [current_run]]
+# add_files [list {ipcore_dir/mult.ncf}] -fileset [get_property constrset [current_run]]
+# set_property target_constrs_file "IF_analysis.ucf" [current_fileset -constrset]
+Adding file '/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.ucf' to fileset 'constrs_1'
+# add_files [list {IF_analysis.ucf}] -fileset [get_property constrset [current_run]]
+# link_design
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+Design is defaulting to project part: xc6slx9tqg144-3
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design IF_analysis.ngc ...
+WARNING:NetListWriters:298 - No output is written to IF_analysis.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+WARNING:NetListWriters:306 - Signal bus spi_in<5 : 1> on block IF_analysis is
+   not reconstructed, because there are some missing bus signals.
+WARNING:NetListWriters:306 - Signal bus FFT/Result<31 : 0> on block IF_analysis
+   is not reconstructed, because there are some missing bus signals.
+  finished :Prep
+Writing EDIF netlist file IF_analysis.edif ...
+ngc2edif: Total memory usage is 105272 kilobytes
+
+Parsing EDIF File [./planAhead_run_3/ADC.data/cache/IF_analysis_ngc_2583bf82.edif]
+Finished Parsing EDIF File [./planAhead_run_3/ADC.data/cache/IF_analysis_ngc_2583bf82.edif]
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design WindowingMult.ngc ...
+WARNING:NetListWriters:298 - No output is written to WindowingMult.xncf,
+   ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file WindowingMult.edif ...
+ngc2edif: Total memory usage is 104216 kilobytes
+
+Reading core file '/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/WindowingMult.ngc' for (cell view 'WindowingMult', library 'IF_analysis_lib', file 'IF_analysis.ngc')
+Parsing EDIF File [./planAhead_run_3/ADC.data/cache/WindowingMult_ngc_37895939.edif]
+Finished Parsing EDIF File [./planAhead_run_3/ADC.data/cache/WindowingMult_ngc_37895939.edif]
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Release 14.6 - ngc2edif P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Reading design spi.ngc ...
+WARNING:NetListWriters:298 - No output is written to spi.xncf, ignored.
+Processing design ...
+   Preping design's networks ...
+   Preping design's macros ...
+  finished :Prep
+Writing EDIF netlist file spi.edif ...
+ngc2edif: Total memory usage is 104240 kilobytes
+
+Reading core file '/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/spi.ngc' for (cell view 'spi', library 'IF_analysis_lib', file 'IF_analysis.ngc')
+Parsing EDIF File [./planAhead_run_3/ADC.data/cache/spi_ngc_37895939.edif]
+Finished Parsing EDIF File [./planAhead_run_3/ADC.data/cache/spi_ngc_37895939.edif]
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+Loading clock regions from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockRegion.xml
+Loading clock buffers from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/ClockBuffers.xml
+Loading package pin functions from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/PinFunctions.xml...
+Loading package from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/spartan6lx/xc6slx9/tqg144/Package.xml
+Loading io standards from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/IOStandards.xml
+Loading device configuration modes from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/spartan6/ConfigModes.xml
+Loading list of drcs for the architecture : /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/./parts/xilinx/spartan6/drc.xml
+Parsing UCF File [/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/WindowingMult.ncf]
+Finished Parsing UCF File [/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/WindowingMult.ncf]
+Parsing UCF File [/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/spi.ncf]
+Finished Parsing UCF File [/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/spi.ncf]
+Parsing UCF File [/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.ucf]
+Finished Parsing UCF File [/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.ucf]
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (IBUF, BUFG): 1 instances
+
+Phase 0 | Netlist Checksum: fba80f17
+link_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:11 . Memory (MB): peak = 2922.441 ; gain = 175.469
+startgroup
+set_property package_pin P7 [get_ports SPI_CLK]
+endgroup
+startgroup
+set_property package_pin P57 [get_ports CS]
+endgroup
+save_constraints
+exit
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Sat Mar 16 17:00:01 2019...
+INFO: [Common 17-83] Releasing license: PlanAhead

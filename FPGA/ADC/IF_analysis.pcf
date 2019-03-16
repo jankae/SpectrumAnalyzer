@@ -1,29 +1,566 @@
 //! **************************************************************************
-// Written by: Map P.68d on Sat Mar 16 15:30:31 2019
+// Written by: Map P.68d on Sat Mar 16 19:40:22 2019
 //! **************************************************************************
 
 SCHEMATIC START;
-COMP "CS" LOCATE = SITE "P51" LEVEL 1;
-COMP "MISO" LOCATE = SITE "P50" LEVEL 1;
-COMP "LED3" LOCATE = SITE "P98" LEVEL 1;
+COMP "CS" LOCATE = SITE "P57" LEVEL 1;
+COMP "SPI_CLK" LOCATE = SITE "P51" LEVEL 1;
+COMP "CLK" LOCATE = SITE "P56" LEVEL 1;
 COMP "LED1" LOCATE = SITE "P95" LEVEL 1;
 COMP "LED2" LOCATE = SITE "P94" LEVEL 1;
-COMP "MOSI" LOCATE = SITE "P58" LEVEL 1;
 COMP "LED4" LOCATE = SITE "P97" LEVEL 1;
+COMP "MISO" LOCATE = SITE "P50" LEVEL 1;
+COMP "MOSI" LOCATE = SITE "P58" LEVEL 1;
+COMP "ADC_IN<0>" LOCATE = SITE "P46" LEVEL 1;
+COMP "ADC_IN<1>" LOCATE = SITE "P43" LEVEL 1;
+COMP "ADC_IN<2>" LOCATE = SITE "P44" LEVEL 1;
+COMP "ADC_IN<3>" LOCATE = SITE "P40" LEVEL 1;
+COMP "ADC_IN<4>" LOCATE = SITE "P41" LEVEL 1;
+COMP "ADC_IN<5>" LOCATE = SITE "P34" LEVEL 1;
+COMP "ADC_IN<6>" LOCATE = SITE "P35" LEVEL 1;
+COMP "ADC_IN<7>" LOCATE = SITE "P33" LEVEL 1;
+COMP "ADC_IN<8>" LOCATE = SITE "P30" LEVEL 1;
+COMP "ADC_IN<9>" LOCATE = SITE "P29" LEVEL 1;
+COMP "LED3" LOCATE = SITE "P98" LEVEL 1;
 COMP "ADC_CLK" LOCATE = SITE "P45" LEVEL 1;
-COMP "CLK" LOCATE = SITE "P56" LEVEL 1;
-COMP "SPI_CLK" LOCATE = SITE "P57" LEVEL 1;
-PIN SPI_CLK_pin<0> = BEL "SPI_CLK" PINNAME PAD;
-PIN "SPI_CLK_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
-TIMEGRP your_instance_name_clkfx = BEL "your_instance_name/clkout1_buf" BEL
-        "ADC_input/last_clk" BEL "SPI_interface/COMPLETE" BEL
-        "SPI_interface/data_valid_1" BEL "SPI_interface/data_synced_0" BEL
-        "LED3" BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL
-        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk";
-TIMEGRP CLOCK_100 = BEL "ADC_input/last_clk" BEL "SPI_interface/COMPLETE" BEL
-        "SPI_interface/data_valid_1" BEL "SPI_interface/data_synced_0" BEL
-        "LED3" BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL
-        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk";
+COMP "ADC_IN<10>" LOCATE = SITE "P32" LEVEL 1;
+COMP "ADC_IN<11>" LOCATE = SITE "P26" LEVEL 1;
+COMP "ADC_IN<12>" LOCATE = SITE "P27" LEVEL 1;
+COMP "ADC_IN<13>" LOCATE = SITE "P24" LEVEL 1;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram_pins<26>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram"
+        PINNAME CLKAWRCLK;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram_pins<27>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram"
+        PINNAME CLKBRDCLK;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKA;
+PIN
+        memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
+        = BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
+        PINNAME CLKB;
+PIN FFT/windowing_mult/blk00000001/blk00000004_pins<92> = BEL
+        "FFT/windowing_mult/blk00000001/blk00000004" PINNAME CLK;
+TIMEGRP CLOCK_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL
+        "mem_in_3" BEL "mem_in_4" BEL "mem_in_5" BEL "mem_in_6" BEL "mem_in_7"
+        BEL "mem_in_8" BEL "mem_in_9" BEL "mem_in_10" BEL "mem_in_11" BEL
+        "mem_in_12" BEL "mem_in_13" BEL "mem_in_14" BEL "mem_in_15" BEL
+        "window_inc_0" BEL "window_inc_1" BEL "window_inc_2" BEL
+        "window_inc_3" BEL "window_inc_4" BEL "window_inc_5" BEL
+        "window_inc_6" BEL "window_inc_7" BEL "window_inc_8" BEL
+        "window_inc_9" BEL "window_inc_10" BEL "window_inc_11" BEL
+        "window_inc_12" BEL "window_inc_13" BEL "window_inc_14" BEL
+        "window_inc_15" BEL "fft_points_0" BEL "fft_points_1" BEL
+        "fft_points_2" BEL "fft_points_3" BEL "fft_points_4" BEL
+        "fft_points_5" BEL "fft_points_6" BEL "fft_points_7" BEL
+        "fft_points_8" BEL "fft_points_9" BEL "fft_points_10" BEL
+        "fft_points_11" BEL "fft_points_12" BEL "fft_points_13" BEL
+        "fft_points_14" BEL "fft_points_15" BEL "fft_points_16" BEL
+        "fft_points_17" BEL "fft_points_18" BEL "fft_points_19" BEL
+        "fft_points_20" BEL "fft_points_21" BEL "fft_points_22" BEL
+        "fft_points_23" BEL "fft_points_24" BEL "fft_points_25" BEL
+        "fft_points_26" BEL "fft_points_27" BEL "fft_points_28" BEL
+        "fft_points_29" BEL "fft_points_30" BEL "fft_points_31" BEL
+        "mem_address_0" BEL "mem_address_1" BEL "mem_address_2" BEL
+        "mem_address_3" BEL "mem_address_4" BEL "mem_address_5" BEL
+        "mem_address_6" BEL "mem_address_7" BEL "mem_address_8" BEL
+        "mem_address_9" BEL "mem_address_10" BEL "mem_address_11" BEL
+        "mem_address_12" BEL "mem_address_13" BEL "mem_address_14" BEL
+        "spi_in_0" BEL "spi_in_1" BEL "spi_in_2" BEL "spi_in_3" BEL "spi_in_4"
+        BEL "spi_in_5" BEL "spi_in_6" BEL "spi_in_7" BEL "spi_in_8" BEL
+        "spi_in_9" BEL "spi_in_10" BEL "spi_in_11" BEL "spi_in_12" BEL
+        "spi_in_13" BEL "spi_in_14" BEL "spi_in_15" BEL
+        "SPI_interface/COMPLETE" BEL "SPI_interface/BUF_OUT_15" BEL
+        "SPI_interface/BUF_OUT_14" BEL "SPI_interface/BUF_OUT_13" BEL
+        "SPI_interface/BUF_OUT_12" BEL "SPI_interface/BUF_OUT_11" BEL
+        "SPI_interface/BUF_OUT_10" BEL "SPI_interface/BUF_OUT_9" BEL
+        "SPI_interface/BUF_OUT_8" BEL "SPI_interface/BUF_OUT_7" BEL
+        "SPI_interface/BUF_OUT_6" BEL "SPI_interface/BUF_OUT_5" BEL
+        "SPI_interface/BUF_OUT_4" BEL "SPI_interface/BUF_OUT_3" BEL
+        "SPI_interface/BUF_OUT_2" BEL "SPI_interface/BUF_OUT_1" BEL
+        "SPI_interface/BUF_OUT_0" BEL "ADC_input/last_clk" BEL
+        "ADC_input/DATA_OUT_13" BEL "ADC_input/DATA_OUT_12" BEL
+        "ADC_input/DATA_OUT_11" BEL "ADC_input/DATA_OUT_10" BEL
+        "ADC_input/DATA_OUT_9" BEL "ADC_input/DATA_OUT_8" BEL
+        "ADC_input/DATA_OUT_7" BEL "ADC_input/DATA_OUT_6" BEL
+        "ADC_input/DATA_OUT_5" BEL "ADC_input/DATA_OUT_4" BEL
+        "ADC_input/DATA_OUT_3" BEL "ADC_input/DATA_OUT_2" BEL
+        "ADC_input/DATA_OUT_1" BEL "ADC_input/DATA_OUT_0" BEL "FFT/pnt_cnt_31"
+        BEL "FFT/pnt_cnt_30" BEL "FFT/pnt_cnt_29" BEL "FFT/pnt_cnt_28" BEL
+        "FFT/pnt_cnt_27" BEL "FFT/pnt_cnt_26" BEL "FFT/pnt_cnt_25" BEL
+        "FFT/pnt_cnt_24" BEL "FFT/pnt_cnt_23" BEL "FFT/pnt_cnt_22" BEL
+        "FFT/pnt_cnt_21" BEL "FFT/pnt_cnt_20" BEL "FFT/pnt_cnt_19" BEL
+        "FFT/pnt_cnt_18" BEL "FFT/pnt_cnt_17" BEL "FFT/pnt_cnt_16" BEL
+        "FFT/pnt_cnt_15" BEL "FFT/pnt_cnt_14" BEL "FFT/pnt_cnt_13" BEL
+        "FFT/pnt_cnt_12" BEL "FFT/pnt_cnt_11" BEL "FFT/pnt_cnt_10" BEL
+        "FFT/pnt_cnt_9" BEL "FFT/pnt_cnt_8" BEL "FFT/pnt_cnt_7" BEL
+        "FFT/pnt_cnt_6" BEL "FFT/pnt_cnt_5" BEL "FFT/pnt_cnt_4" BEL
+        "FFT/pnt_cnt_3" BEL "FFT/pnt_cnt_2" BEL "FFT/pnt_cnt_1" BEL
+        "FFT/pnt_cnt_0" BEL "FFT/WINDOW_ADDRESS_12" BEL
+        "FFT/WINDOW_ADDRESS_11" BEL "FFT/WINDOW_ADDRESS_10" BEL
+        "FFT/WINDOW_ADDRESS_9" BEL "FFT/WINDOW_ADDRESS_8" BEL
+        "FFT/WINDOW_ADDRESS_7" BEL "FFT/WINDOW_ADDRESS_6" BEL
+        "FFT/WINDOW_ADDRESS_5" BEL "FFT/WINDOW_ADDRESS_4" BEL
+        "FFT/WINDOW_ADDRESS_3" BEL "FFT/WINDOW_ADDRESS_2" BEL
+        "FFT/WINDOW_ADDRESS_1" BEL "FFT/WINDOW_ADDRESS_0" BEL
+        "FFT/OUT_REAL_63" BEL "FFT/OUT_REAL_62" BEL "FFT/OUT_REAL_61" BEL
+        "FFT/OUT_REAL_60" BEL "FFT/OUT_REAL_59" BEL "FFT/OUT_REAL_58" BEL
+        "FFT/OUT_REAL_57" BEL "FFT/OUT_REAL_56" BEL "FFT/OUT_REAL_55" BEL
+        "FFT/OUT_REAL_54" BEL "FFT/OUT_REAL_53" BEL "FFT/OUT_REAL_52" BEL
+        "FFT/OUT_REAL_51" BEL "FFT/OUT_REAL_50" BEL "FFT/OUT_REAL_49" BEL
+        "FFT/OUT_REAL_48" BEL "FFT/OUT_REAL_47" BEL "FFT/OUT_REAL_46" BEL
+        "FFT/OUT_REAL_45" BEL "FFT/OUT_REAL_44" BEL "FFT/OUT_REAL_43" BEL
+        "FFT/OUT_REAL_42" BEL "FFT/OUT_REAL_41" BEL "FFT/OUT_REAL_40" BEL
+        "FFT/OUT_REAL_39" BEL "FFT/OUT_REAL_38" BEL "FFT/OUT_REAL_37" BEL
+        "FFT/OUT_REAL_36" BEL "FFT/OUT_REAL_35" BEL "FFT/OUT_REAL_34" BEL
+        "FFT/OUT_REAL_33" BEL "FFT/OUT_REAL_32" BEL "FFT/OUT_REAL_31" BEL
+        "FFT/OUT_REAL_30" BEL "FFT/OUT_REAL_29" BEL "FFT/OUT_REAL_28" BEL
+        "FFT/OUT_REAL_27" BEL "FFT/OUT_REAL_26" BEL "FFT/OUT_REAL_25" BEL
+        "FFT/OUT_REAL_24" BEL "FFT/OUT_REAL_23" BEL "FFT/OUT_REAL_22" BEL
+        "FFT/OUT_REAL_21" BEL "FFT/OUT_REAL_20" BEL "FFT/OUT_REAL_19" BEL
+        "FFT/OUT_REAL_18" BEL "FFT/OUT_REAL_17" BEL "FFT/OUT_REAL_16" BEL
+        "FFT/OUT_REAL_15" BEL "FFT/OUT_REAL_14" BEL "FFT/OUT_REAL_13" BEL
+        "FFT/OUT_REAL_12" BEL "FFT/OUT_REAL_11" BEL "FFT/OUT_REAL_10" BEL
+        "FFT/OUT_REAL_9" BEL "FFT/OUT_REAL_8" BEL "FFT/OUT_REAL_7" BEL
+        "FFT/OUT_REAL_6" BEL "FFT/OUT_REAL_5" BEL "FFT/OUT_REAL_4" BEL
+        "FFT/OUT_REAL_3" BEL "FFT/OUT_REAL_2" BEL "FFT/OUT_REAL_1" BEL
+        "FFT/OUT_REAL_0" BEL "FFT/sum_real_63" BEL "FFT/sum_real_62" BEL
+        "FFT/sum_real_61" BEL "FFT/sum_real_60" BEL "FFT/sum_real_59" BEL
+        "FFT/sum_real_58" BEL "FFT/sum_real_57" BEL "FFT/sum_real_56" BEL
+        "FFT/sum_real_55" BEL "FFT/sum_real_54" BEL "FFT/sum_real_53" BEL
+        "FFT/sum_real_52" BEL "FFT/sum_real_51" BEL "FFT/sum_real_50" BEL
+        "FFT/sum_real_49" BEL "FFT/sum_real_48" BEL "FFT/sum_real_47" BEL
+        "FFT/sum_real_46" BEL "FFT/sum_real_45" BEL "FFT/sum_real_44" BEL
+        "FFT/sum_real_43" BEL "FFT/sum_real_42" BEL "FFT/sum_real_41" BEL
+        "FFT/sum_real_40" BEL "FFT/sum_real_39" BEL "FFT/sum_real_38" BEL
+        "FFT/sum_real_37" BEL "FFT/sum_real_36" BEL "FFT/sum_real_35" BEL
+        "FFT/sum_real_34" BEL "FFT/sum_real_33" BEL "FFT/sum_real_32" BEL
+        "FFT/sum_real_31" BEL "FFT/sum_real_30" BEL "FFT/sum_real_29" BEL
+        "FFT/sum_real_28" BEL "FFT/sum_real_27" BEL "FFT/sum_real_26" BEL
+        "FFT/sum_real_25" BEL "FFT/sum_real_24" BEL "FFT/sum_real_23" BEL
+        "FFT/sum_real_22" BEL "FFT/sum_real_21" BEL "FFT/sum_real_20" BEL
+        "FFT/sum_real_19" BEL "FFT/sum_real_18" BEL "FFT/sum_real_17" BEL
+        "FFT/sum_real_16" BEL "FFT/sum_real_15" BEL "FFT/sum_real_14" BEL
+        "FFT/sum_real_13" BEL "FFT/sum_real_12" BEL "FFT/sum_real_11" BEL
+        "FFT/sum_real_10" BEL "FFT/sum_real_9" BEL "FFT/sum_real_8" BEL
+        "FFT/sum_real_7" BEL "FFT/sum_real_6" BEL "FFT/sum_real_5" BEL
+        "FFT/sum_real_4" BEL "FFT/sum_real_3" BEL "FFT/sum_real_2" BEL
+        "FFT/sum_real_1" BEL "FFT/sum_real_0" BEL "FFT/OUT_IMAG_63" BEL
+        "FFT/OUT_IMAG_62" BEL "FFT/OUT_IMAG_61" BEL "FFT/OUT_IMAG_60" BEL
+        "FFT/OUT_IMAG_59" BEL "FFT/OUT_IMAG_58" BEL "FFT/OUT_IMAG_57" BEL
+        "FFT/OUT_IMAG_56" BEL "FFT/OUT_IMAG_55" BEL "FFT/OUT_IMAG_54" BEL
+        "FFT/OUT_IMAG_53" BEL "FFT/OUT_IMAG_52" BEL "FFT/OUT_IMAG_51" BEL
+        "FFT/OUT_IMAG_50" BEL "FFT/OUT_IMAG_49" BEL "FFT/OUT_IMAG_48" BEL
+        "FFT/OUT_IMAG_47" BEL "FFT/OUT_IMAG_46" BEL "FFT/OUT_IMAG_45" BEL
+        "FFT/OUT_IMAG_44" BEL "FFT/OUT_IMAG_43" BEL "FFT/OUT_IMAG_42" BEL
+        "FFT/OUT_IMAG_41" BEL "FFT/OUT_IMAG_40" BEL "FFT/OUT_IMAG_39" BEL
+        "FFT/OUT_IMAG_38" BEL "FFT/OUT_IMAG_37" BEL "FFT/OUT_IMAG_36" BEL
+        "FFT/OUT_IMAG_35" BEL "FFT/OUT_IMAG_34" BEL "FFT/OUT_IMAG_33" BEL
+        "FFT/OUT_IMAG_32" BEL "FFT/OUT_IMAG_31" BEL "FFT/OUT_IMAG_30" BEL
+        "FFT/OUT_IMAG_29" BEL "FFT/OUT_IMAG_28" BEL "FFT/OUT_IMAG_27" BEL
+        "FFT/OUT_IMAG_26" BEL "FFT/OUT_IMAG_25" BEL "FFT/OUT_IMAG_24" BEL
+        "FFT/OUT_IMAG_23" BEL "FFT/OUT_IMAG_22" BEL "FFT/OUT_IMAG_21" BEL
+        "FFT/OUT_IMAG_20" BEL "FFT/OUT_IMAG_19" BEL "FFT/OUT_IMAG_18" BEL
+        "FFT/OUT_IMAG_17" BEL "FFT/OUT_IMAG_16" BEL "FFT/OUT_IMAG_15" BEL
+        "FFT/OUT_IMAG_14" BEL "FFT/OUT_IMAG_13" BEL "FFT/OUT_IMAG_12" BEL
+        "FFT/OUT_IMAG_11" BEL "FFT/OUT_IMAG_10" BEL "FFT/OUT_IMAG_9" BEL
+        "FFT/OUT_IMAG_8" BEL "FFT/OUT_IMAG_7" BEL "FFT/OUT_IMAG_6" BEL
+        "FFT/OUT_IMAG_5" BEL "FFT/OUT_IMAG_4" BEL "FFT/OUT_IMAG_3" BEL
+        "FFT/OUT_IMAG_2" BEL "FFT/OUT_IMAG_1" BEL "FFT/OUT_IMAG_0" BEL
+        "FFT/BUSY" BEL "FFT/sum_imag_63" BEL "FFT/sum_imag_62" BEL
+        "FFT/sum_imag_61" BEL "FFT/sum_imag_60" BEL "FFT/sum_imag_59" BEL
+        "FFT/sum_imag_58" BEL "FFT/sum_imag_57" BEL "FFT/sum_imag_56" BEL
+        "FFT/sum_imag_55" BEL "FFT/sum_imag_54" BEL "FFT/sum_imag_53" BEL
+        "FFT/sum_imag_52" BEL "FFT/sum_imag_51" BEL "FFT/sum_imag_50" BEL
+        "FFT/sum_imag_49" BEL "FFT/sum_imag_48" BEL "FFT/sum_imag_47" BEL
+        "FFT/sum_imag_46" BEL "FFT/sum_imag_45" BEL "FFT/sum_imag_44" BEL
+        "FFT/sum_imag_43" BEL "FFT/sum_imag_42" BEL "FFT/sum_imag_41" BEL
+        "FFT/sum_imag_40" BEL "FFT/sum_imag_39" BEL "FFT/sum_imag_38" BEL
+        "FFT/sum_imag_37" BEL "FFT/sum_imag_36" BEL "FFT/sum_imag_35" BEL
+        "FFT/sum_imag_34" BEL "FFT/sum_imag_33" BEL "FFT/sum_imag_32" BEL
+        "FFT/sum_imag_31" BEL "FFT/sum_imag_30" BEL "FFT/sum_imag_29" BEL
+        "FFT/sum_imag_28" BEL "FFT/sum_imag_27" BEL "FFT/sum_imag_26" BEL
+        "FFT/sum_imag_25" BEL "FFT/sum_imag_24" BEL "FFT/sum_imag_23" BEL
+        "FFT/sum_imag_22" BEL "FFT/sum_imag_21" BEL "FFT/sum_imag_20" BEL
+        "FFT/sum_imag_19" BEL "FFT/sum_imag_18" BEL "FFT/sum_imag_17" BEL
+        "FFT/sum_imag_16" BEL "FFT/sum_imag_15" BEL "FFT/sum_imag_14" BEL
+        "FFT/sum_imag_13" BEL "FFT/sum_imag_12" BEL "FFT/sum_imag_11" BEL
+        "FFT/sum_imag_10" BEL "FFT/sum_imag_9" BEL "FFT/sum_imag_8" BEL
+        "FFT/sum_imag_7" BEL "FFT/sum_imag_6" BEL "FFT/sum_imag_5" BEL
+        "FFT/sum_imag_4" BEL "FFT/sum_imag_3" BEL "FFT/sum_imag_2" BEL
+        "FFT/sum_imag_1" BEL "FFT/sum_imag_0" BEL "mem_write_0" BEL
+        "SPI_interface/data_synced_0" BEL "SPI_interface/cs_was_high" BEL
+        "FFT/pipe_level_0" BEL "fft_active" BEL "LED3" BEL "write_not_read"
+        BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL "FFT/window_address_cnt_0"
+        BEL "FFT/window_address_cnt_14" BEL "FFT/window_address_cnt_13" BEL
+        "FFT/window_address_cnt_15" BEL "FFT/window_address_cnt_12" BEL
+        "FFT/window_address_cnt_11" BEL "FFT/window_address_cnt_10" BEL
+        "FFT/window_address_cnt_9" BEL "FFT/window_address_cnt_7" BEL
+        "FFT/window_address_cnt_6" BEL "FFT/window_address_cnt_8" BEL
+        "FFT/window_address_cnt_5" BEL "FFT/window_address_cnt_4" BEL
+        "FFT/window_address_cnt_3" BEL "FFT/window_address_cnt_2" BEL
+        "FFT/window_address_cnt_1" BEL "FFT/mult_b_15" BEL "FFT/mult_b_14" BEL
+        "FFT/mult_b_13" BEL "FFT/mult_b_12" BEL "FFT/mult_b_11" BEL
+        "FFT/mult_b_10" BEL "FFT/mult_b_9" BEL "FFT/mult_b_8" BEL
+        "FFT/mult_b_7" BEL "FFT/mult_b_6" BEL "FFT/mult_b_5" BEL
+        "FFT/mult_b_4" BEL "FFT/mult_b_3" BEL "FFT/mult_b_2" BEL
+        "FFT/mult_b_1" BEL "FFT/mult_b_0" BEL "FFT/mult_a_13" BEL
+        "FFT/mult_a_12" BEL "FFT/mult_a_11" BEL "FFT/mult_a_10" BEL
+        "FFT/mult_a_9" BEL "FFT/mult_a_8" BEL "FFT/mult_a_7" BEL
+        "FFT/mult_a_6" BEL "FFT/mult_a_5" BEL "FFT/mult_a_4" BEL
+        "FFT/mult_a_3" BEL "FFT/mult_a_2" BEL "FFT/mult_a_1" BEL
+        "FFT/mult_a_0" BEL "mem_address_14_1" BEL "mem_address_14_2" BEL
+        "mem_address_2_1" BEL "ADC_input/Mshreg_new_clk" BEL
+        "ADC_input/new_clk" BEL "SPI_interface/Mshreg_data_valid_2" BEL
+        "SPI_interface/data_valid_2" PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram_pins<27>"
+        BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_0"
+        BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_1"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN "FFT/windowing_mult/blk00000001/blk00000004_pins<92>";
+TIMEGRP your_instance_name_clkfx = BEL "mem_in_0" BEL "mem_in_1" BEL
+        "mem_in_2" BEL "mem_in_3" BEL "mem_in_4" BEL "mem_in_5" BEL "mem_in_6"
+        BEL "mem_in_7" BEL "mem_in_8" BEL "mem_in_9" BEL "mem_in_10" BEL
+        "mem_in_11" BEL "mem_in_12" BEL "mem_in_13" BEL "mem_in_14" BEL
+        "mem_in_15" BEL "window_inc_0" BEL "window_inc_1" BEL "window_inc_2"
+        BEL "window_inc_3" BEL "window_inc_4" BEL "window_inc_5" BEL
+        "window_inc_6" BEL "window_inc_7" BEL "window_inc_8" BEL
+        "window_inc_9" BEL "window_inc_10" BEL "window_inc_11" BEL
+        "window_inc_12" BEL "window_inc_13" BEL "window_inc_14" BEL
+        "window_inc_15" BEL "fft_points_0" BEL "fft_points_1" BEL
+        "fft_points_2" BEL "fft_points_3" BEL "fft_points_4" BEL
+        "fft_points_5" BEL "fft_points_6" BEL "fft_points_7" BEL
+        "fft_points_8" BEL "fft_points_9" BEL "fft_points_10" BEL
+        "fft_points_11" BEL "fft_points_12" BEL "fft_points_13" BEL
+        "fft_points_14" BEL "fft_points_15" BEL "fft_points_16" BEL
+        "fft_points_17" BEL "fft_points_18" BEL "fft_points_19" BEL
+        "fft_points_20" BEL "fft_points_21" BEL "fft_points_22" BEL
+        "fft_points_23" BEL "fft_points_24" BEL "fft_points_25" BEL
+        "fft_points_26" BEL "fft_points_27" BEL "fft_points_28" BEL
+        "fft_points_29" BEL "fft_points_30" BEL "fft_points_31" BEL
+        "mem_address_0" BEL "mem_address_1" BEL "mem_address_2" BEL
+        "mem_address_3" BEL "mem_address_4" BEL "mem_address_5" BEL
+        "mem_address_6" BEL "mem_address_7" BEL "mem_address_8" BEL
+        "mem_address_9" BEL "mem_address_10" BEL "mem_address_11" BEL
+        "mem_address_12" BEL "mem_address_13" BEL "mem_address_14" BEL
+        "spi_in_0" BEL "spi_in_1" BEL "spi_in_2" BEL "spi_in_3" BEL "spi_in_4"
+        BEL "spi_in_5" BEL "spi_in_6" BEL "spi_in_7" BEL "spi_in_8" BEL
+        "spi_in_9" BEL "spi_in_10" BEL "spi_in_11" BEL "spi_in_12" BEL
+        "spi_in_13" BEL "spi_in_14" BEL "spi_in_15" BEL
+        "your_instance_name/clkout1_buf" BEL "SPI_interface/COMPLETE" BEL
+        "SPI_interface/BUF_OUT_15" BEL "SPI_interface/BUF_OUT_14" BEL
+        "SPI_interface/BUF_OUT_13" BEL "SPI_interface/BUF_OUT_12" BEL
+        "SPI_interface/BUF_OUT_11" BEL "SPI_interface/BUF_OUT_10" BEL
+        "SPI_interface/BUF_OUT_9" BEL "SPI_interface/BUF_OUT_8" BEL
+        "SPI_interface/BUF_OUT_7" BEL "SPI_interface/BUF_OUT_6" BEL
+        "SPI_interface/BUF_OUT_5" BEL "SPI_interface/BUF_OUT_4" BEL
+        "SPI_interface/BUF_OUT_3" BEL "SPI_interface/BUF_OUT_2" BEL
+        "SPI_interface/BUF_OUT_1" BEL "SPI_interface/BUF_OUT_0" BEL
+        "ADC_input/last_clk" BEL "ADC_input/DATA_OUT_13" BEL
+        "ADC_input/DATA_OUT_12" BEL "ADC_input/DATA_OUT_11" BEL
+        "ADC_input/DATA_OUT_10" BEL "ADC_input/DATA_OUT_9" BEL
+        "ADC_input/DATA_OUT_8" BEL "ADC_input/DATA_OUT_7" BEL
+        "ADC_input/DATA_OUT_6" BEL "ADC_input/DATA_OUT_5" BEL
+        "ADC_input/DATA_OUT_4" BEL "ADC_input/DATA_OUT_3" BEL
+        "ADC_input/DATA_OUT_2" BEL "ADC_input/DATA_OUT_1" BEL
+        "ADC_input/DATA_OUT_0" BEL "FFT/pnt_cnt_31" BEL "FFT/pnt_cnt_30" BEL
+        "FFT/pnt_cnt_29" BEL "FFT/pnt_cnt_28" BEL "FFT/pnt_cnt_27" BEL
+        "FFT/pnt_cnt_26" BEL "FFT/pnt_cnt_25" BEL "FFT/pnt_cnt_24" BEL
+        "FFT/pnt_cnt_23" BEL "FFT/pnt_cnt_22" BEL "FFT/pnt_cnt_21" BEL
+        "FFT/pnt_cnt_20" BEL "FFT/pnt_cnt_19" BEL "FFT/pnt_cnt_18" BEL
+        "FFT/pnt_cnt_17" BEL "FFT/pnt_cnt_16" BEL "FFT/pnt_cnt_15" BEL
+        "FFT/pnt_cnt_14" BEL "FFT/pnt_cnt_13" BEL "FFT/pnt_cnt_12" BEL
+        "FFT/pnt_cnt_11" BEL "FFT/pnt_cnt_10" BEL "FFT/pnt_cnt_9" BEL
+        "FFT/pnt_cnt_8" BEL "FFT/pnt_cnt_7" BEL "FFT/pnt_cnt_6" BEL
+        "FFT/pnt_cnt_5" BEL "FFT/pnt_cnt_4" BEL "FFT/pnt_cnt_3" BEL
+        "FFT/pnt_cnt_2" BEL "FFT/pnt_cnt_1" BEL "FFT/pnt_cnt_0" BEL
+        "FFT/WINDOW_ADDRESS_12" BEL "FFT/WINDOW_ADDRESS_11" BEL
+        "FFT/WINDOW_ADDRESS_10" BEL "FFT/WINDOW_ADDRESS_9" BEL
+        "FFT/WINDOW_ADDRESS_8" BEL "FFT/WINDOW_ADDRESS_7" BEL
+        "FFT/WINDOW_ADDRESS_6" BEL "FFT/WINDOW_ADDRESS_5" BEL
+        "FFT/WINDOW_ADDRESS_4" BEL "FFT/WINDOW_ADDRESS_3" BEL
+        "FFT/WINDOW_ADDRESS_2" BEL "FFT/WINDOW_ADDRESS_1" BEL
+        "FFT/WINDOW_ADDRESS_0" BEL "FFT/OUT_REAL_63" BEL "FFT/OUT_REAL_62" BEL
+        "FFT/OUT_REAL_61" BEL "FFT/OUT_REAL_60" BEL "FFT/OUT_REAL_59" BEL
+        "FFT/OUT_REAL_58" BEL "FFT/OUT_REAL_57" BEL "FFT/OUT_REAL_56" BEL
+        "FFT/OUT_REAL_55" BEL "FFT/OUT_REAL_54" BEL "FFT/OUT_REAL_53" BEL
+        "FFT/OUT_REAL_52" BEL "FFT/OUT_REAL_51" BEL "FFT/OUT_REAL_50" BEL
+        "FFT/OUT_REAL_49" BEL "FFT/OUT_REAL_48" BEL "FFT/OUT_REAL_47" BEL
+        "FFT/OUT_REAL_46" BEL "FFT/OUT_REAL_45" BEL "FFT/OUT_REAL_44" BEL
+        "FFT/OUT_REAL_43" BEL "FFT/OUT_REAL_42" BEL "FFT/OUT_REAL_41" BEL
+        "FFT/OUT_REAL_40" BEL "FFT/OUT_REAL_39" BEL "FFT/OUT_REAL_38" BEL
+        "FFT/OUT_REAL_37" BEL "FFT/OUT_REAL_36" BEL "FFT/OUT_REAL_35" BEL
+        "FFT/OUT_REAL_34" BEL "FFT/OUT_REAL_33" BEL "FFT/OUT_REAL_32" BEL
+        "FFT/OUT_REAL_31" BEL "FFT/OUT_REAL_30" BEL "FFT/OUT_REAL_29" BEL
+        "FFT/OUT_REAL_28" BEL "FFT/OUT_REAL_27" BEL "FFT/OUT_REAL_26" BEL
+        "FFT/OUT_REAL_25" BEL "FFT/OUT_REAL_24" BEL "FFT/OUT_REAL_23" BEL
+        "FFT/OUT_REAL_22" BEL "FFT/OUT_REAL_21" BEL "FFT/OUT_REAL_20" BEL
+        "FFT/OUT_REAL_19" BEL "FFT/OUT_REAL_18" BEL "FFT/OUT_REAL_17" BEL
+        "FFT/OUT_REAL_16" BEL "FFT/OUT_REAL_15" BEL "FFT/OUT_REAL_14" BEL
+        "FFT/OUT_REAL_13" BEL "FFT/OUT_REAL_12" BEL "FFT/OUT_REAL_11" BEL
+        "FFT/OUT_REAL_10" BEL "FFT/OUT_REAL_9" BEL "FFT/OUT_REAL_8" BEL
+        "FFT/OUT_REAL_7" BEL "FFT/OUT_REAL_6" BEL "FFT/OUT_REAL_5" BEL
+        "FFT/OUT_REAL_4" BEL "FFT/OUT_REAL_3" BEL "FFT/OUT_REAL_2" BEL
+        "FFT/OUT_REAL_1" BEL "FFT/OUT_REAL_0" BEL "FFT/sum_real_63" BEL
+        "FFT/sum_real_62" BEL "FFT/sum_real_61" BEL "FFT/sum_real_60" BEL
+        "FFT/sum_real_59" BEL "FFT/sum_real_58" BEL "FFT/sum_real_57" BEL
+        "FFT/sum_real_56" BEL "FFT/sum_real_55" BEL "FFT/sum_real_54" BEL
+        "FFT/sum_real_53" BEL "FFT/sum_real_52" BEL "FFT/sum_real_51" BEL
+        "FFT/sum_real_50" BEL "FFT/sum_real_49" BEL "FFT/sum_real_48" BEL
+        "FFT/sum_real_47" BEL "FFT/sum_real_46" BEL "FFT/sum_real_45" BEL
+        "FFT/sum_real_44" BEL "FFT/sum_real_43" BEL "FFT/sum_real_42" BEL
+        "FFT/sum_real_41" BEL "FFT/sum_real_40" BEL "FFT/sum_real_39" BEL
+        "FFT/sum_real_38" BEL "FFT/sum_real_37" BEL "FFT/sum_real_36" BEL
+        "FFT/sum_real_35" BEL "FFT/sum_real_34" BEL "FFT/sum_real_33" BEL
+        "FFT/sum_real_32" BEL "FFT/sum_real_31" BEL "FFT/sum_real_30" BEL
+        "FFT/sum_real_29" BEL "FFT/sum_real_28" BEL "FFT/sum_real_27" BEL
+        "FFT/sum_real_26" BEL "FFT/sum_real_25" BEL "FFT/sum_real_24" BEL
+        "FFT/sum_real_23" BEL "FFT/sum_real_22" BEL "FFT/sum_real_21" BEL
+        "FFT/sum_real_20" BEL "FFT/sum_real_19" BEL "FFT/sum_real_18" BEL
+        "FFT/sum_real_17" BEL "FFT/sum_real_16" BEL "FFT/sum_real_15" BEL
+        "FFT/sum_real_14" BEL "FFT/sum_real_13" BEL "FFT/sum_real_12" BEL
+        "FFT/sum_real_11" BEL "FFT/sum_real_10" BEL "FFT/sum_real_9" BEL
+        "FFT/sum_real_8" BEL "FFT/sum_real_7" BEL "FFT/sum_real_6" BEL
+        "FFT/sum_real_5" BEL "FFT/sum_real_4" BEL "FFT/sum_real_3" BEL
+        "FFT/sum_real_2" BEL "FFT/sum_real_1" BEL "FFT/sum_real_0" BEL
+        "FFT/OUT_IMAG_63" BEL "FFT/OUT_IMAG_62" BEL "FFT/OUT_IMAG_61" BEL
+        "FFT/OUT_IMAG_60" BEL "FFT/OUT_IMAG_59" BEL "FFT/OUT_IMAG_58" BEL
+        "FFT/OUT_IMAG_57" BEL "FFT/OUT_IMAG_56" BEL "FFT/OUT_IMAG_55" BEL
+        "FFT/OUT_IMAG_54" BEL "FFT/OUT_IMAG_53" BEL "FFT/OUT_IMAG_52" BEL
+        "FFT/OUT_IMAG_51" BEL "FFT/OUT_IMAG_50" BEL "FFT/OUT_IMAG_49" BEL
+        "FFT/OUT_IMAG_48" BEL "FFT/OUT_IMAG_47" BEL "FFT/OUT_IMAG_46" BEL
+        "FFT/OUT_IMAG_45" BEL "FFT/OUT_IMAG_44" BEL "FFT/OUT_IMAG_43" BEL
+        "FFT/OUT_IMAG_42" BEL "FFT/OUT_IMAG_41" BEL "FFT/OUT_IMAG_40" BEL
+        "FFT/OUT_IMAG_39" BEL "FFT/OUT_IMAG_38" BEL "FFT/OUT_IMAG_37" BEL
+        "FFT/OUT_IMAG_36" BEL "FFT/OUT_IMAG_35" BEL "FFT/OUT_IMAG_34" BEL
+        "FFT/OUT_IMAG_33" BEL "FFT/OUT_IMAG_32" BEL "FFT/OUT_IMAG_31" BEL
+        "FFT/OUT_IMAG_30" BEL "FFT/OUT_IMAG_29" BEL "FFT/OUT_IMAG_28" BEL
+        "FFT/OUT_IMAG_27" BEL "FFT/OUT_IMAG_26" BEL "FFT/OUT_IMAG_25" BEL
+        "FFT/OUT_IMAG_24" BEL "FFT/OUT_IMAG_23" BEL "FFT/OUT_IMAG_22" BEL
+        "FFT/OUT_IMAG_21" BEL "FFT/OUT_IMAG_20" BEL "FFT/OUT_IMAG_19" BEL
+        "FFT/OUT_IMAG_18" BEL "FFT/OUT_IMAG_17" BEL "FFT/OUT_IMAG_16" BEL
+        "FFT/OUT_IMAG_15" BEL "FFT/OUT_IMAG_14" BEL "FFT/OUT_IMAG_13" BEL
+        "FFT/OUT_IMAG_12" BEL "FFT/OUT_IMAG_11" BEL "FFT/OUT_IMAG_10" BEL
+        "FFT/OUT_IMAG_9" BEL "FFT/OUT_IMAG_8" BEL "FFT/OUT_IMAG_7" BEL
+        "FFT/OUT_IMAG_6" BEL "FFT/OUT_IMAG_5" BEL "FFT/OUT_IMAG_4" BEL
+        "FFT/OUT_IMAG_3" BEL "FFT/OUT_IMAG_2" BEL "FFT/OUT_IMAG_1" BEL
+        "FFT/OUT_IMAG_0" BEL "FFT/BUSY" BEL "FFT/sum_imag_63" BEL
+        "FFT/sum_imag_62" BEL "FFT/sum_imag_61" BEL "FFT/sum_imag_60" BEL
+        "FFT/sum_imag_59" BEL "FFT/sum_imag_58" BEL "FFT/sum_imag_57" BEL
+        "FFT/sum_imag_56" BEL "FFT/sum_imag_55" BEL "FFT/sum_imag_54" BEL
+        "FFT/sum_imag_53" BEL "FFT/sum_imag_52" BEL "FFT/sum_imag_51" BEL
+        "FFT/sum_imag_50" BEL "FFT/sum_imag_49" BEL "FFT/sum_imag_48" BEL
+        "FFT/sum_imag_47" BEL "FFT/sum_imag_46" BEL "FFT/sum_imag_45" BEL
+        "FFT/sum_imag_44" BEL "FFT/sum_imag_43" BEL "FFT/sum_imag_42" BEL
+        "FFT/sum_imag_41" BEL "FFT/sum_imag_40" BEL "FFT/sum_imag_39" BEL
+        "FFT/sum_imag_38" BEL "FFT/sum_imag_37" BEL "FFT/sum_imag_36" BEL
+        "FFT/sum_imag_35" BEL "FFT/sum_imag_34" BEL "FFT/sum_imag_33" BEL
+        "FFT/sum_imag_32" BEL "FFT/sum_imag_31" BEL "FFT/sum_imag_30" BEL
+        "FFT/sum_imag_29" BEL "FFT/sum_imag_28" BEL "FFT/sum_imag_27" BEL
+        "FFT/sum_imag_26" BEL "FFT/sum_imag_25" BEL "FFT/sum_imag_24" BEL
+        "FFT/sum_imag_23" BEL "FFT/sum_imag_22" BEL "FFT/sum_imag_21" BEL
+        "FFT/sum_imag_20" BEL "FFT/sum_imag_19" BEL "FFT/sum_imag_18" BEL
+        "FFT/sum_imag_17" BEL "FFT/sum_imag_16" BEL "FFT/sum_imag_15" BEL
+        "FFT/sum_imag_14" BEL "FFT/sum_imag_13" BEL "FFT/sum_imag_12" BEL
+        "FFT/sum_imag_11" BEL "FFT/sum_imag_10" BEL "FFT/sum_imag_9" BEL
+        "FFT/sum_imag_8" BEL "FFT/sum_imag_7" BEL "FFT/sum_imag_6" BEL
+        "FFT/sum_imag_5" BEL "FFT/sum_imag_4" BEL "FFT/sum_imag_3" BEL
+        "FFT/sum_imag_2" BEL "FFT/sum_imag_1" BEL "FFT/sum_imag_0" BEL
+        "mem_write_0" BEL "SPI_interface/data_synced_0" BEL
+        "SPI_interface/cs_was_high" BEL "FFT/pipe_level_0" BEL "fft_active"
+        BEL "LED3" BEL "write_not_read" BEL "ADC_input/NEW_SAMPLE" BEL "first"
+        BEL "FFT/window_address_cnt_0" BEL "FFT/window_address_cnt_14" BEL
+        "FFT/window_address_cnt_13" BEL "FFT/window_address_cnt_15" BEL
+        "FFT/window_address_cnt_12" BEL "FFT/window_address_cnt_11" BEL
+        "FFT/window_address_cnt_10" BEL "FFT/window_address_cnt_9" BEL
+        "FFT/window_address_cnt_7" BEL "FFT/window_address_cnt_6" BEL
+        "FFT/window_address_cnt_8" BEL "FFT/window_address_cnt_5" BEL
+        "FFT/window_address_cnt_4" BEL "FFT/window_address_cnt_3" BEL
+        "FFT/window_address_cnt_2" BEL "FFT/window_address_cnt_1" BEL
+        "FFT/mult_b_15" BEL "FFT/mult_b_14" BEL "FFT/mult_b_13" BEL
+        "FFT/mult_b_12" BEL "FFT/mult_b_11" BEL "FFT/mult_b_10" BEL
+        "FFT/mult_b_9" BEL "FFT/mult_b_8" BEL "FFT/mult_b_7" BEL
+        "FFT/mult_b_6" BEL "FFT/mult_b_5" BEL "FFT/mult_b_4" BEL
+        "FFT/mult_b_3" BEL "FFT/mult_b_2" BEL "FFT/mult_b_1" BEL
+        "FFT/mult_b_0" BEL "FFT/mult_a_13" BEL "FFT/mult_a_12" BEL
+        "FFT/mult_a_11" BEL "FFT/mult_a_10" BEL "FFT/mult_a_9" BEL
+        "FFT/mult_a_8" BEL "FFT/mult_a_7" BEL "FFT/mult_a_6" BEL
+        "FFT/mult_a_5" BEL "FFT/mult_a_4" BEL "FFT/mult_a_3" BEL
+        "FFT/mult_a_2" BEL "FFT/mult_a_1" BEL "FFT/mult_a_0" BEL
+        "mem_address_14_1" BEL "mem_address_14_2" BEL "mem_address_2_1" BEL
+        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk" BEL
+        "SPI_interface/Mshreg_data_valid_2" BEL "SPI_interface/data_valid_2"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[1].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram_pins<26>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM9.ram_pins<27>"
+        BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_0"
+        BEL
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_b.B/sel_pipe_1"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[7].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[6].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[5].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
+        PIN
+        "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[4].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
+        PIN "FFT/windowing_mult/blk00000001/blk00000004_pins<92>";
+TIMEGRP CLOCK_SPI = BEL "SPI_interface/data_15" BEL "SPI_interface/data_14"
+        BEL "SPI_interface/data_13" BEL "SPI_interface/data_12" BEL
+        "SPI_interface/data_11" BEL "SPI_interface/data_10" BEL
+        "SPI_interface/data_9" BEL "SPI_interface/data_8" BEL
+        "SPI_interface/data_7" BEL "SPI_interface/data_6" BEL
+        "SPI_interface/data_5" BEL "SPI_interface/data_4" BEL
+        "SPI_interface/data_3" BEL "SPI_interface/data_2" BEL
+        "SPI_interface/data_1" BEL "SPI_interface/data_0" BEL
+        "SPI_interface/miso_buffer_15" BEL "SPI_interface/miso_buffer_14" BEL
+        "SPI_interface/miso_buffer_13" BEL "SPI_interface/miso_buffer_12" BEL
+        "SPI_interface/miso_buffer_11" BEL "SPI_interface/miso_buffer_10" BEL
+        "SPI_interface/miso_buffer_9" BEL "SPI_interface/miso_buffer_8" BEL
+        "SPI_interface/miso_buffer_7" BEL "SPI_interface/miso_buffer_6" BEL
+        "SPI_interface/miso_buffer_5" BEL "SPI_interface/miso_buffer_4" BEL
+        "SPI_interface/miso_buffer_3" BEL "SPI_interface/miso_buffer_2" BEL
+        "SPI_interface/miso_buffer_1" BEL "SPI_interface/miso_buffer_0" BEL
+        "SPI_interface/mosi_buffer_14" BEL "SPI_interface/mosi_buffer_13" BEL
+        "SPI_interface/mosi_buffer_12" BEL "SPI_interface/mosi_buffer_11" BEL
+        "SPI_interface/mosi_buffer_10" BEL "SPI_interface/mosi_buffer_9" BEL
+        "SPI_interface/mosi_buffer_8" BEL "SPI_interface/mosi_buffer_7" BEL
+        "SPI_interface/mosi_buffer_6" BEL "SPI_interface/mosi_buffer_5" BEL
+        "SPI_interface/mosi_buffer_4" BEL "SPI_interface/mosi_buffer_3" BEL
+        "SPI_interface/mosi_buffer_2" BEL "SPI_interface/mosi_buffer_1" BEL
+        "SPI_interface/mosi_buffer_0" BEL "SPI_interface/bit_cnt_15" BEL
+        "SPI_interface/bit_cnt_14" BEL "SPI_interface/bit_cnt_13" BEL
+        "SPI_interface/bit_cnt_12" BEL "SPI_interface/bit_cnt_11" BEL
+        "SPI_interface/bit_cnt_10" BEL "SPI_interface/bit_cnt_9" BEL
+        "SPI_interface/bit_cnt_8" BEL "SPI_interface/bit_cnt_7" BEL
+        "SPI_interface/bit_cnt_6" BEL "SPI_interface/bit_cnt_5" BEL
+        "SPI_interface/bit_cnt_4" BEL "SPI_interface/bit_cnt_3" BEL
+        "SPI_interface/bit_cnt_2" BEL "SPI_interface/bit_cnt_1" BEL
+        "SPI_interface/bit_cnt_0" BEL "SPI_interface/cs_was_high_ack" BEL
+        "SPI_interface/data_valid_0" BEL "SPI_CLK_BUFGP/BUFG" BEL
+        "SPI_interface/Mshreg_data_synced_2" BEL
+        "SPI_interface/data_synced_2";
 PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
         PINNAME DIVCLK;
 PIN your_instance_name/dcm_sp_inst_pins<3> = BEL
@@ -32,6 +569,7 @@ TIMEGRP CLOCK_50 = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
         "your_instance_name/dcm_sp_inst_pins<3>";
 TS_CLOCK_50 = PERIOD TIMEGRP "CLOCK_50" 20 ns HIGH 50%;
 TS_CLOCK_100 = PERIOD TIMEGRP "CLOCK_100" 10 ns HIGH 50%;
+TS_CLOCK_SPI = PERIOD TIMEGRP "CLOCK_SPI" 10 ns HIGH 50%;
 TS_your_instance_name_clkfx = PERIOD TIMEGRP "your_instance_name_clkfx"
         TS_CLOCK_50 / 2.08333333 HIGH 50%;
 SCHEMATIC END;

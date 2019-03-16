@@ -1,49 +1,5 @@
 INFO:sim:172 - Generating IP...
 Applying current project options...
 Finished applying current project options.
-WARNING:sim - A core named 'PLL' already exists in the project. Output products
-   for this core may be overwritten.
-Resolving generics for 'PLL'...
-WARNING:sim - A core named 'PLL' already exists in the project. Output products
-   for this core may be overwritten.
-Applying external generics to 'PLL'...
-Delivering associated files for 'PLL'...
-WARNING:sim - Component clk_wiz_v3_6 does not have a valid model name for VHDL
-   synthesis
-Delivering EJava files for 'PLL'...
-Delivered 3 files into directory
-/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/PLL
-Delivered 1 file into directory
-/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/PLL
-Generating ASY schematic symbol...
-Loading device for application Rf_Device from file '6slx9.nph' in environment
-/opt/Xilinx/14.6/ISE_DS/ISE/.
-INFO:sim:949 - Finished generation of ASY schematic symbol.
-Generating SYM schematic symbol for 'PLL'...
-Generating ISE project...
-XCO file found: PLL.xco
-XMDF file found: PLL_xmdf.tcl
-Adding /home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/PLL.asy -view all
--origin_type imported
-Adding /home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/PLL.ucf -view all
--origin_type created
-Adding /home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/PLL.vhd -view all
--origin_type created
-INFO:HDLCompiler:1061 - Parsing VHDL file
-   "/home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/PLL.vhd" into library
-   work
-INFO:ProjectMgmt - Parsing design hierarchy completed successfully.
-Adding /home/jan/Projekte/RFStuff/FPGA/ADC/ipcore_dir/tmp/_cg/PLL.vho -view all
--origin_type imported
-INFO:TclTasksC:2116 - The automatic calculation of top has been turned-off.
-   Please set the new top explicitly by running the "project set top" command.
-   To re-calculate the new top automatically, set the "Auto Implementation Top"
-   property to true.
-Top level has been set to "/PLL"
-Generating README file...
-Generating FLIST file...
-INFO:sim:948 - Finished FLIST file generation.
-Launching README viewer...
-Moving files to output directory...
-Finished moving files to output directory
+Cancelled executing Tcl generator.
 Wrote CGP file for project 'PLL'.

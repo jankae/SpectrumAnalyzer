@@ -117,18 +117,16 @@ BEGIN
 		MOSI <= '1';
 		wait for SPI_CLK_period;
 		CS <= '0';
-		wait for SPI_CLK_period*8;
+		wait for SPI_CLK_period*8.5;
 		MOSI <= '0';
-		wait for SPI_CLK_period*8;
-		CS <= '1';
-		
 		BUF_IN <= "1111000000001111";
+		wait for SPI_CLK_period*8;
 		MOSI <= '0';
 		wait for SPI_CLK_period*8;
 		CS <= '0';
 		wait for SPI_CLK_period*8;
 		MOSI <= '1';
-		wait for SPI_CLK_period*8;
+		wait for SPI_CLK_period*7.5;
 		CS <= '1';
 
       wait;

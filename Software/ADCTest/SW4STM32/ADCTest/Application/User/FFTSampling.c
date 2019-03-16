@@ -2,6 +2,7 @@
 
 #include <math.h>
 #include "stm.h"
+#include "log.h"
 
 #define STATUS_ENABLED		0x01
 #define STATUS_BUSY			0x02
@@ -27,14 +28,18 @@ static uint16_t read16(uint16_t address) {
 	uint16_t send[2] = { address & 0x7FFF, 0 };
 	uint16_t rec[2];
 	HAL_SPI_TransmitReceive(&hspi1, (uint8_t*) send, (uint8_t*) rec, 2, 10);
+	HAL_Delay(2);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
+	LOG(Log_FFT, LevelDebug, "Read16: 0x%04x", rec[1]);
 	return rec[1];
 }
 static void write16(uint16_t address, uint16_t val) {
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
 	uint16_t send[2] = { address | 0x8000, val };
 	HAL_SPI_Transmit(&hspi1, (uint8_t*) send, 2, 10);
+	HAL_Delay(2);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
+	LOG(Log_FFT, LevelDebug, "Write16: 0x%04x", val);
 }
 static uint32_t read32(uint16_t address) {
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
@@ -42,11 +47,11 @@ static uint32_t read32(uint16_t address) {
 	uint16_t rec[3];
 	HAL_SPI_TransmitReceive(&hspi1, (uint8_t*) send, (uint8_t*) rec, 3, 10);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-	return rec[1] << 16 | rec[2];
+	return rec[2] << 16 | rec[1];
 }
 static void write32(uint16_t address, uint32_t val) {
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
-	uint16_t send[3] = { address | 0x8000, val >> 16, val & 0xFFFF };
+	uint16_t send[3] = { address | 0x8000, val & 0xFFFF, val >> 16 };
 	HAL_SPI_Transmit(&hspi1, (uint8_t*) send, 3, 10);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
 }
@@ -56,13 +61,13 @@ static uint64_t read64(uint16_t address) {
 	uint16_t rec[5];
 	HAL_SPI_TransmitReceive(&hspi1, (uint8_t*) send, (uint8_t*) rec, 5, 10);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-	return (uint64_t) rec[1] << 48 | (uint64_t) rec[2] << 32 | rec[3] << 16
-			| rec[4];
+	return (uint64_t) rec[4] << 48 | (uint64_t) rec[3] << 32 | rec[2] << 16
+			| rec[1];
 }
 static void write64(uint16_t address, uint64_t val) {
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
-	uint16_t send[5] = { address | 0x8000, val >> 48, (val >> 32) & 0xFFFF, (val
-			>> 16) & 0xFFFF, val & 0xFFFF };
+	uint16_t send[5] = { address | 0x8000, val & 0xFFFF, (val >> 16) & 0xFFFF,
+			(val >> 32) & 0xFFFF, val >> 48 };
 	HAL_SPI_Transmit(&hspi1, (uint8_t*) send, 5, 10);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
 }
@@ -131,4 +136,18 @@ uint32_t FFT_take_sample(uint32_t points, fft_window_t window) {
 	return abs;
 }
 
+void fft_spi_mem_test() {
+#define TEST_ITERATIONS			100
+	uint16_t fail = 0, pass = 0;
+	for(uint16_t i=0;i<TEST_ITERATIONS;i++) {
+		write16(0x01, i);
+		if(read16(0x01) != i) {
+			fail++;
+		} else {
+			pass++;
+		}
+		vTaskDelay(5);
+	}
+	LOG(Log_FFT, LevelInfo, "SPI mem test: %d passed, %d failed", pass, fail);
+}
 

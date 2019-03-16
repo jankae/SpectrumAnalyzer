@@ -132,6 +132,8 @@ BEGIN
 		-- increment window address every 2 sample
 		SPI(x"8001", x"0001");
 		wait for SPI_CLK_period*2;
+		SPI(x"0001", x"0000");
+		wait for SPI_CLK_period*2;
 		-- 4 FFT points
 		SPI(x"8002", x"0004");
 		wait for SPI_CLK_period*2;
