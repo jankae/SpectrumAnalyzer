@@ -1,8 +1,13 @@
 Release 14.6 Drc P.68d (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sat Mar  9 18:37:56 2019
+Thu Mar 14 23:24:41 2019
 
 drc -z spi_mem.ncd spi_mem.pcf
 
-DRC detected 0 errors and 0 warnings.
+WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
+   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
+   default, may be incorrect and should not be used.  For more information,
+   please reference Xilinx Answer Record 39999.
+DRC detected 0 errors and 1 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

@@ -61,11 +61,11 @@ architecture Behavioral of spi_mem is
   PORT (
     clka : IN STD_LOGIC;
     wea : IN STD_LOGIC_VECTOR(0 DOWNTO 0);
-    addra : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
     dina : IN STD_LOGIC_VECTOR(15 DOWNTO 0);
     clkb : IN STD_LOGIC;
     enb : IN STD_LOGIC;
-    addrb : IN STD_LOGIC_VECTOR(9 DOWNTO 0);
+    addrb : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
     doutb : OUT STD_LOGIC_VECTOR(15 DOWNTO 0)
   );
 	END COMPONENT;
@@ -98,11 +98,11 @@ begin
   PORT MAP (
     clka => clk,
     wea => mem_write,
-    addra => mem_address(9 downto 0),
+    addra => mem_address(12 downto 0),
     dina => mem_in,
     clkb => clk,
     enb => '1',
-    addrb => mem_address(9 downto 0),
+    addrb => mem_address(12 downto 0),
     doutb => spi_in
   );
   

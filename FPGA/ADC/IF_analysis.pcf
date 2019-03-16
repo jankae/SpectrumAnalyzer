@@ -1,27 +1,38 @@
 //! **************************************************************************
-// Written by: Map P.68d on Tue Mar 12 20:37:36 2019
+// Written by: Map P.68d on Sat Mar 16 15:30:31 2019
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "CS" LOCATE = SITE "P51" LEVEL 1;
-COMP "SPI_CLK" LOCATE = SITE "P57" LEVEL 1;
-COMP "CLK" LOCATE = SITE "P56" LEVEL 1;
 COMP "MISO" LOCATE = SITE "P50" LEVEL 1;
+COMP "LED3" LOCATE = SITE "P98" LEVEL 1;
+COMP "LED1" LOCATE = SITE "P95" LEVEL 1;
+COMP "LED2" LOCATE = SITE "P94" LEVEL 1;
 COMP "MOSI" LOCATE = SITE "P58" LEVEL 1;
-COMP "ADC_IN<0>" LOCATE = SITE "P46" LEVEL 1;
-COMP "ADC_IN<1>" LOCATE = SITE "P43" LEVEL 1;
-COMP "ADC_IN<2>" LOCATE = SITE "P44" LEVEL 1;
-COMP "ADC_IN<3>" LOCATE = SITE "P40" LEVEL 1;
-COMP "ADC_IN<4>" LOCATE = SITE "P41" LEVEL 1;
-COMP "ADC_IN<5>" LOCATE = SITE "P34" LEVEL 1;
-COMP "ADC_IN<6>" LOCATE = SITE "P35" LEVEL 1;
-COMP "ADC_IN<7>" LOCATE = SITE "P33" LEVEL 1;
-COMP "ADC_IN<8>" LOCATE = SITE "P30" LEVEL 1;
-COMP "ADC_IN<9>" LOCATE = SITE "P29" LEVEL 1;
+COMP "LED4" LOCATE = SITE "P97" LEVEL 1;
 COMP "ADC_CLK" LOCATE = SITE "P45" LEVEL 1;
-COMP "ADC_IN<10>" LOCATE = SITE "P32" LEVEL 1;
-COMP "ADC_IN<11>" LOCATE = SITE "P26" LEVEL 1;
-COMP "ADC_IN<12>" LOCATE = SITE "P27" LEVEL 1;
-COMP "ADC_IN<13>" LOCATE = SITE "P24" LEVEL 1;
+COMP "CLK" LOCATE = SITE "P56" LEVEL 1;
+COMP "SPI_CLK" LOCATE = SITE "P57" LEVEL 1;
+PIN SPI_CLK_pin<0> = BEL "SPI_CLK" PINNAME PAD;
+PIN "SPI_CLK_pin<0>" CLOCK_DEDICATED_ROUTE = FALSE;
+TIMEGRP your_instance_name_clkfx = BEL "your_instance_name/clkout1_buf" BEL
+        "ADC_input/last_clk" BEL "SPI_interface/COMPLETE" BEL
+        "SPI_interface/data_valid_1" BEL "SPI_interface/data_synced_0" BEL
+        "LED3" BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL
+        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk";
+TIMEGRP CLOCK_100 = BEL "ADC_input/last_clk" BEL "SPI_interface/COMPLETE" BEL
+        "SPI_interface/data_valid_1" BEL "SPI_interface/data_synced_0" BEL
+        "LED3" BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL
+        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk";
+PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
+        PINNAME DIVCLK;
+PIN your_instance_name/dcm_sp_inst_pins<3> = BEL
+        "your_instance_name/dcm_sp_inst" PINNAME CLKIN;
+TIMEGRP CLOCK_50 = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
+        "your_instance_name/dcm_sp_inst_pins<3>";
+TS_CLOCK_50 = PERIOD TIMEGRP "CLOCK_50" 20 ns HIGH 50%;
+TS_CLOCK_100 = PERIOD TIMEGRP "CLOCK_100" 10 ns HIGH 50%;
+TS_your_instance_name_clkfx = PERIOD TIMEGRP "your_instance_name_clkfx"
+        TS_CLOCK_50 / 2.08333333 HIGH 50%;
 SCHEMATIC END;
 

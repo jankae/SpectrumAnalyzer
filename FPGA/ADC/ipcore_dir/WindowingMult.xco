@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.6
-# Date: Sat Mar  9 22:06:19 2019
+# Date: Thu Mar 14 21:32:50 2019
 #
 ##############################################################
 #
@@ -52,7 +52,7 @@ CSET outputwidthlow=0
 CSET pipestages=2
 CSET portatype=Signed
 CSET portawidth=14
-CSET portbtype=Unsigned
+CSET portbtype=Signed
 CSET portbwidth=16
 CSET roundpoint=0
 CSET sclrcepriority=SCLR_Overrides_CE
@@ -65,4 +65,4 @@ CSET zerodetect=false
 MISC pkg_timestamp=2012-11-05T14:23:07Z
 # END Extra information
 GENERATE
-# CRC: 6a63541c
+# CRC: e94f3e9b

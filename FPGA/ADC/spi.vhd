@@ -44,51 +44,59 @@ end spi_slave;
 architecture Behavioral of spi_slave is
 	signal miso_buffer : STD_LOGIC_VECTOR (W-1 downto 0);
 	signal mosi_buffer : STD_LOGIC_VECTOR (W-1 downto 0);
-	signal next_complete : STD_LOGIC;
-	signal spiSR : STD_LOGIC_VECTOR (1 downto 0);
-begin
 
-	MISO <= 'Z' when CS = '1' else
-				miso_buffer(W-1) when CS = '0';
+	signal data_valid : STD_LOGIC_VECTOR(1 downto 0);
+	signal data_synced : STD_LOGIC_VECTOR(1 downto 0);
+	signal data : STD_LOGIC_VECTOR(W-1 downto 0);
+begin
 
 	process(CLK)
 	begin
 		if rising_edge(CLK) then
-			spiSR <= spiSR(0) & SPI_CLK;
-			if CS = '1' then
-				-- reset state machine
-				miso_buffer <= BUF_IN;
-				mosi_buffer <= (W-1 downto 1 => '0') & '1';
-				--MISO <= 'Z';
-				COMPLETE <= '0';
-				next_complete <= '0';
-				spiSR <= "00";
-			else
-				--MISO <= miso_buffer(W-1);
-				if spiSR = "01" then
-					-- rising edge
-					if mosi_buffer(W-1) = '1' then
-						-- this was the last bit
-						next_complete <= '1';
-						BUF_OUT <= mosi_buffer(W-2 downto 0) & MOSI;
-						mosi_buffer <= (W-1 downto 1 => '0') & '1';
-					else
-						mosi_buffer <= mosi_buffer(W-2 downto 0) & MOSI;
-					end if;
-				end if;
-				if spiSR = "10" then
-					-- falling edge
-					if mosi_buffer = (W-2 downto 0 => '0') & '1' then
-						miso_buffer <= BUF_IN;
-					else
-						miso_buffer <= miso_buffer(W-2 downto 0) & '0';
-					end if;
-				end if;
-				if next_complete = '1' then
-					next_complete <= '0';
+			data_valid(1) <= data_valid(0);
+			if data_valid(1) = '1' then
+				if data_synced(0) = '0' then
+					BUF_OUT <= data;
 					COMPLETE <= '1';
+					data_synced(0) <= '1';
 				else
 					COMPLETE <= '0';
+				end if;
+			else
+				COMPLETE <= '0';
+				data_synced(0) <= '0';
+			end if;
+		end if;
+	end process;
+
+	MISO <= miso_buffer(W-1);-- when CS = '0' else 'Z';
+
+	process(SPI_CLK, CS)
+	begin
+		if CS = '1' then
+			-- reset state machine
+			miso_buffer <= BUF_IN;
+			mosi_buffer <= (W-1 downto 1 => '0') & '1';
+		else
+			if rising_edge(SPI_CLK) then
+				data_synced(1) <= data_synced(0);
+				if mosi_buffer(W-1) = '1' then
+					-- this was the last bit
+					data_valid(0) <= '1';
+					data <= mosi_buffer(W-2 downto 0) & MOSI;
+					mosi_buffer <= (W-1 downto 1 => '0') & '1';
+				else
+					if data_valid(0) = '1' and data_synced(1) = '1' then
+						data_valid(0) <= '0';
+					end if;
+					mosi_buffer <= mosi_buffer(W-2 downto 0) & MOSI;
+				end if;
+			end if;
+			if falling_edge(SPI_CLK) then
+				if mosi_buffer = (W-2 downto 0 => '0') & '1' then
+					miso_buffer <= BUF_IN;
+				else
+					miso_buffer <= miso_buffer(W-2 downto 0) & '0';
 				end if;
 			end if;
 		end if;

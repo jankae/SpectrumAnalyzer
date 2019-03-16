@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.06 secs
  
 --> 
 Reading design: IF_analysis.prj
@@ -126,6 +126,7 @@ Parsing architecture <Behavioral> of entity <spi_slave>.
 Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhd" into library work
 Parsing entity <SingleBinFFT>.
 Parsing architecture <Behavioral> of entity <singlebinfft>.
+WARNING:HDLCompiler:946 - "/home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhd" Line 73: Actual for formal port sclr is neither a static name nor a globally static expression
 Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/ADCSynchronizer.vhd" into library work
 Parsing entity <ADCSynchronizer>.
 Parsing architecture <Behavioral> of entity <adcsynchronizer>.
@@ -148,6 +149,7 @@ Elaborating entity <SingleBinFFT> (architecture <Behavioral>) from library <work
 Elaborating entity <WindowingMult> (architecture <WindowingMult_a>) from library <work>.
 
 Elaborating entity <spi_slave> (architecture <Behavioral>) with generics from library <work>.
+WARNING:HDLCompiler:92 - "/home/jan/Projekte/RFStuff/FPGA/ADC/spi.vhd" Line 78: buf_in should be on the sensitivity list of the process
 
 Elaborating entity <spi> (architecture <spi_a>) from library <work>.
 
@@ -157,7 +159,10 @@ Elaborating entity <spi> (architecture <spi_a>) from library <work>.
 
 Synthesizing Unit <IF_analysis>.
     Related source file is "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd".
-INFO:Xst:3210 - "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" line 136: Output port <LOCKED> of the instance <your_instance_name> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" line 164: Output port <OUT_REAL> of the instance <FFT> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" line 164: Output port <OUT_IMAG> of the instance <FFT> is unconnected or connected to loadless signal.
+INFO:Xst:3210 - "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" line 164: Output port <BUSY> of the instance <FFT> is unconnected or connected to loadless signal.
+    Found 1-bit register for signal <first>.
     Found 15-bit register for signal <mem_address>.
     Found 1-bit register for signal <mem_write>.
     Found 16-bit register for signal <mem_in>.
@@ -165,14 +170,25 @@ INFO:Xst:3210 - "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" line 136: 
     Found 1-bit register for signal <fft_active>.
     Found 16-bit register for signal <window_inc>.
     Found 32-bit register for signal <fft_points>.
-    Found 16-bit register for signal <spi_in>.
-    Found 1-bit register for signal <first>.
-    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_15_OUT> created at line 1241.
-    Found 16-bit 13-to-1 multiplexer for signal <_n0155> created at line 242.
+    Found 1-bit register for signal <LED3>.
+    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_12_OUT> created at line 1241.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<1:4>> (without init value) have a constant value of 1 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 0 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 1 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 0 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 1 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 0 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 1 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 0 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 1 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 0 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 1 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 0 in block <IF_analysis>.
+    WARNING:Xst:2404 -  FFs/Latches <spi_in<4:4>> (without init value) have a constant value of 1 in block <IF_analysis>.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  99 D-type flip-flop(s).
-	inferred  21 Multiplexer(s).
+	inferred  84 D-type flip-flop(s).
+	inferred  20 Multiplexer(s).
 Unit <IF_analysis> synthesized.
 
 Synthesizing Unit <PLL>.
@@ -222,20 +238,33 @@ Unit <SingleBinFFT> synthesized.
 Synthesizing Unit <spi_slave>.
     Related source file is "/home/jan/Projekte/RFStuff/FPGA/ADC/spi.vhd".
         W = 16
-    Found 2-bit register for signal <spiSR>.
-    Found 16-bit register for signal <miso_buffer>.
     Found 16-bit register for signal <mosi_buffer>.
-    Found 1-bit register for signal <COMPLETE>.
-    Found 1-bit register for signal <next_complete>.
     Found 16-bit register for signal <BUF_OUT>.
-WARNING:Xst:737 - Found 1-bit latch for signal <PWR_14_o_CS_DLATCH_2_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 1-bit tristate buffer for signal <MISO> created at line 51
-WARNING:Xst:737 - Found 1-bit latch for signal <miso_buffer[15]_CS_DLATCH_1_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 1-bit register for signal <COMPLETE>.
+    Found 1-bit register for signal <data_synced<0>>.
+    Found 1-bit register for signal <data_synced<1>>.
+    Found 1-bit register for signal <data_valid<0>>.
+    Found 16-bit register for signal <data>.
+    Found 1-bit register for signal <data_valid<1>>.
+    Found 1-bit register for signal <miso_buffer<15>>.
+    Found 1-bit register for signal <miso_buffer<14>>.
+    Found 1-bit register for signal <miso_buffer<13>>.
+    Found 1-bit register for signal <miso_buffer<12>>.
+    Found 1-bit register for signal <miso_buffer<11>>.
+    Found 1-bit register for signal <miso_buffer<10>>.
+    Found 1-bit register for signal <miso_buffer<9>>.
+    Found 1-bit register for signal <miso_buffer<8>>.
+    Found 1-bit register for signal <miso_buffer<7>>.
+    Found 1-bit register for signal <miso_buffer<6>>.
+    Found 1-bit register for signal <miso_buffer<5>>.
+    Found 1-bit register for signal <miso_buffer<4>>.
+    Found 1-bit register for signal <miso_buffer<3>>.
+    Found 1-bit register for signal <miso_buffer<2>>.
+    Found 1-bit register for signal <miso_buffer<1>>.
+    Found 1-bit register for signal <miso_buffer<0>>.
     Summary:
-	inferred  52 D-type flip-flop(s).
-	inferred   2 Latch(s).
-	inferred   4 Multiplexer(s).
-	inferred   1 Tristate(s).
+	inferred  69 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
 Unit <spi_slave> synthesized.
 
 =========================================================================
@@ -249,27 +278,21 @@ Macro Statistics
  32-bit adder                                          : 1
  64-bit adder                                          : 1
  64-bit subtractor                                     : 1
-# Registers                                            : 31
- 1-bit register                                        : 12
+# Registers                                            : 49
+ 1-bit register                                        : 32
  14-bit register                                       : 2
  15-bit register                                       : 1
- 16-bit register                                       : 9
- 2-bit register                                        : 1
+ 16-bit register                                       : 8
  32-bit register                                       : 2
  64-bit register                                       : 4
-# Latches                                              : 2
- 1-bit latch                                           : 2
 # Comparators                                          : 2
  16-bit comparator greater                             : 1
  32-bit comparator greater                             : 1
-# Multiplexers                                         : 25
- 1-bit 2-to-1 multiplexer                              : 18
+# Multiplexers                                         : 22
+ 1-bit 2-to-1 multiplexer                              : 17
  15-bit 2-to-1 multiplexer                             : 2
- 16-bit 13-to-1 multiplexer                            : 1
- 16-bit 2-to-1 multiplexer                             : 3
+ 16-bit 2-to-1 multiplexer                             : 2
  32-bit 2-to-1 multiplexer                             : 1
-# Tristates                                            : 1
- 1-bit tristate buffer                                 : 1
 
 =========================================================================
 
@@ -302,16 +325,15 @@ Macro Statistics
  1-bit up counter                                      : 1
  16-bit up counter                                     : 2
  32-bit up counter                                     : 1
-# Registers                                            : 456
- Flip-Flops                                            : 456
+# Registers                                            : 458
+ Flip-Flops                                            : 458
 # Comparators                                          : 2
  16-bit comparator greater                             : 1
  32-bit comparator greater                             : 1
-# Multiplexers                                         : 40
- 1-bit 13-to-1 multiplexer                             : 16
- 1-bit 2-to-1 multiplexer                              : 18
+# Multiplexers                                         : 22
+ 1-bit 2-to-1 multiplexer                              : 17
  15-bit 2-to-1 multiplexer                             : 2
- 16-bit 2-to-1 multiplexer                             : 3
+ 16-bit 2-to-1 multiplexer                             : 2
  32-bit 2-to-1 multiplexer                             : 1
 
 =========================================================================
@@ -324,16 +346,274 @@ Optimizing unit <IF_analysis> ...
 
 Optimizing unit <ADCSynchronizer> ...
 
+Optimizing unit <spi_slave> ...
+
 Optimizing unit <SingleBinFFT> ...
 WARNING:Xst:2677 - Node <FFT/WINDOW_ADDRESS_15> of sequential type is unconnected in block <IF_analysis>.
 WARNING:Xst:2677 - Node <FFT/WINDOW_ADDRESS_14> of sequential type is unconnected in block <IF_analysis>.
 WARNING:Xst:2677 - Node <FFT/WINDOW_ADDRESS_13> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_63> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_62> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_61> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_60> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_59> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_58> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_57> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_56> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_55> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_54> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_53> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_52> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_51> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_50> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_49> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_48> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_47> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_46> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_45> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_44> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_43> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_42> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_41> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_40> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_39> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_38> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_37> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_36> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_35> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_34> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_33> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_32> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_31> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_30> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_29> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_28> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_27> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_26> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_25> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_24> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_23> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_22> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_21> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_20> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_19> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_18> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_17> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_16> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_15> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_14> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_13> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_12> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_11> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_10> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_9> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_8> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_7> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_6> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_5> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_4> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_3> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_2> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_1> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_REAL_0> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_63> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_62> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_61> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_60> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_59> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_58> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_57> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_56> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_55> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_54> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_53> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_52> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_51> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_50> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_49> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_48> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_47> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_46> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_45> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_44> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_43> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_42> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_41> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_40> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_39> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_38> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_37> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_36> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_35> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_34> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_33> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_32> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_31> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_30> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_29> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_28> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_27> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_26> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_25> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_24> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_23> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_22> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_21> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_20> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_19> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_18> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_17> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_16> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_15> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_14> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_13> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_12> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_11> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_10> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_9> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_8> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_7> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_6> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_5> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_4> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_3> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_2> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_1> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_real_0> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_63> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_62> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_61> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_60> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_59> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_58> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_57> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_56> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_55> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_54> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_53> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_52> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_51> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_50> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_49> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_48> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_47> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_46> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_45> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_44> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_43> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_42> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_41> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_40> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_39> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_38> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_37> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_36> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_35> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_34> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_33> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_32> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_31> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_30> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_29> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_28> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_27> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_26> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_25> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_24> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_23> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_22> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_21> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_20> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_19> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_18> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_17> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_16> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_15> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_14> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_13> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_12> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_11> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_10> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_9> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_8> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_7> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_6> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_5> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_4> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_3> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_2> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_1> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/OUT_IMAG_0> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/BUSY> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_63> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_62> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_61> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_60> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_59> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_58> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_57> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_56> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_55> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_54> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_53> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_52> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_51> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_50> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_49> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_48> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_47> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_46> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_45> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_44> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_43> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_42> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_41> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_40> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_39> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_38> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_37> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_36> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_35> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_34> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_33> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_32> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_31> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_30> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_29> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_28> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_27> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_26> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_25> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_24> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_23> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_22> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_21> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_20> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_19> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_18> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_17> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_16> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_15> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_14> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_13> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_12> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_11> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_10> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_9> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_8> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_7> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_6> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_5> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_4> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_3> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_2> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_1> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:2677 - Node <FFT/sum_imag_0> of sequential type is unconnected in block <IF_analysis>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block IF_analysis, actual ratio is 14.
-FlipFlop mem_address_14 has been replicated 2 time(s)
-FlipFlop mem_address_2 has been replicated 1 time(s)
+Found area constraint ratio of 100 (+ 5) on block IF_analysis, actual ratio is 8.
+FlipFlop mem_address_14 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
@@ -345,8 +625,8 @@ Unit <IF_analysis> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 519
- Flip-Flops                                            : 519
+# Registers                                            : 262
+ Flip-Flops                                            : 262
 # Shift Registers                                      : 1
  2-bit shift register                                  : 1
 
@@ -371,36 +651,39 @@ Top Level Output File Name         : IF_analysis.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1113
+# BELS                             : 556
 #      GND                         : 3
-#      INV                         : 75
-#      LUT1                        : 71
-#      LUT2                        : 86
-#      LUT3                        : 14
-#      LUT4                        : 267
-#      LUT5                        : 36
-#      LUT6                        : 131
-#      MUXCY                       : 223
+#      INV                         : 8
+#      LUT1                        : 72
+#      LUT2                        : 41
+#      LUT3                        : 9
+#      LUT4                        : 99
+#      LUT5                        : 50
+#      LUT6                        : 97
+#      MUXCY                       : 98
 #      VCC                         : 3
-#      XORCY                       : 204
-# FlipFlops/Latches                : 524
-#      FD                          : 21
+#      XORCY                       : 76
+# FlipFlops/Latches                : 265
+#      FD                          : 27
+#      FDC                         : 15
+#      FDC_1                       : 6
 #      FDE                         : 97
-#      FDR                         : 53
-#      FDRE                        : 350
-#      FDSE                        : 1
-#      LDC_1                       : 2
+#      FDP                         : 1
+#      FDP_1                       : 10
+#      FDR                         : 77
+#      FDRE                        : 32
 # RAMS                             : 8
 #      RAMB16BWER                  : 7
 #      RAMB8BWER                   : 1
 # Shift Registers                  : 1
 #      SRLC16E                     : 1
 # Clock Buffers                    : 3
-#      BUFG                        : 3
-# IO Buffers                       : 20
-#      IBUF                        : 18
+#      BUFG                        : 2
+#      BUFGP                       : 1
+# IO Buffers                       : 23
+#      IBUF                        : 17
 #      IBUFG                       : 1
-#      OBUFT                       : 1
+#      OBUF                        : 5
 # DCMs                             : 1
 #      DCM_SP                      : 1
 # DSPs                             : 1
@@ -413,23 +696,22 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             523  out of  11440     4%  
- Number of Slice LUTs:                  681  out of   5720    11%  
-    Number used as Logic:               680  out of   5720    11%  
+ Number of Slice Registers:             265  out of  11440     2%  
+ Number of Slice LUTs:                  377  out of   5720     6%  
+    Number used as Logic:               376  out of   5720     6%  
     Number used as Memory:                1  out of   1440     0%  
        Number used as SRL:                1
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    875
-   Number with an unused Flip Flop:     352  out of    875    40%  
-   Number with an unused LUT:           194  out of    875    22%  
-   Number of fully used LUT-FF pairs:   329  out of    875    37%  
-   Number of unique control sets:        23
+ Number of LUT Flip Flop pairs used:    445
+   Number with an unused Flip Flop:     180  out of    445    40%  
+   Number with an unused LUT:            68  out of    445    15%  
+   Number of fully used LUT-FF pairs:   197  out of    445    44%  
+   Number of unique control sets:        14
 
 IO Utilization: 
- Number of IOs:                          20
- Number of bonded IOBs:                  20  out of    102    19%  
-    IOB Flip Flops/Latches:               1
+ Number of IOs:                          24
+ Number of bonded IOBs:                  24  out of    102    23%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                8  out of     32    25%  
@@ -458,8 +740,8 @@ Clock Information:
 -----------------------------------+------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
-CLK                                | DCM_SP:CLKFX           | 532   |
-CS                                 | IBUF+BUFG              | 2     |
+CLK                                | DCM_SP:CLKFX           | 225   |
+SPI_CLK                            | BUFGP                  | 50    |
 -----------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
@@ -470,9 +752,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 11.356ns (Maximum Frequency: 88.058MHz)
-   Minimum input arrival time before clock: 4.904ns
-   Maximum output required time after clock: 4.433ns
+   Minimum period: 10.536ns (Maximum Frequency: 94.914MHz)
+   Minimum input arrival time before clock: 4.872ns
+   Maximum output required time after clock: 4.576ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -481,101 +763,132 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 11.356ns (frequency: 88.058MHz)
-  Total number of paths / destination ports: 60233 / 1610
+  Clock period: 10.536ns (frequency: 94.914MHz)
+  Total number of paths / destination ports: 17409 / 682
 -------------------------------------------------------------------------
-Delay:               5.451ns (Levels of Logic = 18)
-  Source:            fft_points_0 (FF)
-  Destination:       FFT/sum_imag_31 (FF)
+Delay:               5.057ns (Levels of Logic = 4)
+  Source:            mem_address_6 (FF)
+  Destination:       fft_points_16 (FF)
   Source Clock:      CLK rising 2.1X
   Destination Clock: CLK rising 2.1X
 
-  Data Path: fft_points_0 to FFT/sum_imag_31
+  Data Path: mem_address_6 to fft_points_16
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDE:C->Q              4   0.447   0.931  fft_points_0 (fft_points_0)
-     LUT4:I0->O            1   0.203   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lut<0> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_lut<0>)
-     MUXCY:S->O            1   0.172   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<0> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<0>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<1> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<1>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<2> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<2>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<3>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<4> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<4>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<5> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<5>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<6> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<6>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<7>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<8> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<8>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<9> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<9>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<10> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<10>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<11>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<12> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<12>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<13> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<13>)
-     MUXCY:CI->O           1   0.019   0.000  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<14> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<14>)
-     MUXCY:CI->O          55   0.019   1.580  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15> (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>)
-     INV:I->O             33   0.206   1.305  FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv1_INV_0 (FFT/Mcompar_pnt_cnt[31]_NPOINTS[31]_LessThan_1_o_cy<15>_inv1)
-     FDRE:CE                   0.322          FFT/sum_imag_0
+     FDRE:C->Q            11   0.447   1.227  mem_address_6 (mem_address_6)
+     LUT6:I1->O            3   0.203   0.755  _n0161_inv11 (_n0161_inv11)
+     LUT3:I1->O           17   0.203   1.132  _n0161_inv13 (_n0161_inv1)
+     LUT6:I4->O            1   0.203   0.580  fft_points[31]_fft_points[31]_mux_8_OUT<16>1 (fft_points[31]_fft_points[31]_mux_8_OUT<16>)
+     LUT6:I5->O            1   0.205   0.000  fft_points_16_dpot (fft_points_16_dpot)
+     FDE:D                     0.102          fft_points_16
     ----------------------------------------
-    Total                      5.451ns (1.635ns logic, 3.816ns route)
-                                       (30.0% logic, 70.0% route)
+    Total                      5.057ns (1.363ns logic, 3.694ns route)
+                                       (27.0% logic, 73.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'SPI_CLK'
+  Clock period: 8.452ns (frequency: 118.317MHz)
+  Total number of paths / destination ports: 337 / 65
+-------------------------------------------------------------------------
+Delay:               4.226ns (Levels of Logic = 3)
+  Source:            SPI_interface/mosi_buffer_1 (FF)
+  Destination:       SPI_interface/miso_buffer_15 (FF)
+  Source Clock:      SPI_CLK rising
+  Destination Clock: SPI_CLK falling
+
+  Data Path: SPI_interface/mosi_buffer_1 to SPI_interface/miso_buffer_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.447   1.015  SPI_interface/mosi_buffer_1 (SPI_interface/mosi_buffer_1)
+     LUT6:I0->O            1   0.203   0.944  SPI_interface/GND_19_o_mosi_buffer[15]_equal_8_o<15>1 (SPI_interface/GND_19_o_mosi_buffer[15]_equal_8_o<15>)
+     LUT6:I0->O           16   0.203   1.109  SPI_interface/GND_19_o_mosi_buffer[15]_equal_8_o<15>3 (SPI_interface/GND_19_o_mosi_buffer[15]_equal_8_o)
+     LUT2:I0->O            1   0.203   0.000  SPI_interface/Mmux_miso_buffer[14]_BUF_IN[15]_mux_8_OUT21 (SPI_interface/miso_buffer[14]_BUF_IN[15]_mux_8_OUT<10>)
+     FDP_1:D                   0.102          SPI_interface/miso_buffer_10
+    ----------------------------------------
+    Total                      4.226ns (1.158ns logic, 3.068ns route)
+                                       (27.4% logic, 72.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 172 / 172
+  Total number of paths / destination ports: 99 / 99
 -------------------------------------------------------------------------
-Offset:              4.904ns (Levels of Logic = 2)
+Offset:              4.872ns (Levels of Logic = 3)
   Source:            CS (PAD)
-  Destination:       SPI_interface/BUF_OUT_15 (FF)
+  Destination:       fft_points_0 (FF)
   Destination Clock: CLK rising 2.1X
 
-  Data Path: CS to SPI_interface/BUF_OUT_15
+  Data Path: CS to fft_points_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           111   1.222   2.154  CS_IBUF (CS_IBUF)
-     LUT4:I0->O           16   0.203   1.004  SPI_interface/_n0061_inv1 (SPI_interface/_n0061_inv)
-     FDE:CE                    0.322          SPI_interface/BUF_OUT_0
+     IBUF:I->O           104   1.222   2.135  CS_IBUF (CS_IBUF)
+     LUT4:I0->O           16   0.203   1.005  _n0201_inv1_rstpot (_n0201_inv1_rstpot)
+     LUT6:I5->O            1   0.205   0.000  fft_points_0_dpot (fft_points_0_dpot)
+     FDE:D                     0.102          fft_points_0
     ----------------------------------------
-    Total                      4.904ns (1.747ns logic, 3.157ns route)
-                                       (35.6% logic, 64.4% route)
+    Total                      4.872ns (1.732ns logic, 3.140ns route)
+                                       (35.5% logic, 64.5% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'CS'
-  Total number of paths / destination ports: 2 / 2
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_CLK'
+  Total number of paths / destination ports: 52 / 52
 -------------------------------------------------------------------------
-Offset:              3.558ns (Levels of Logic = 1)
+Offset:              4.641ns (Levels of Logic = 2)
   Source:            CS (PAD)
-  Destination:       SPI_interface/miso_buffer[15]_CS_DLATCH_1_q (LATCH)
-  Destination Clock: CS rising
+  Destination:       SPI_interface/data_15 (FF)
+  Destination Clock: SPI_CLK rising
 
-  Data Path: CS to SPI_interface/miso_buffer[15]_CS_DLATCH_1_q
+  Data Path: CS to SPI_interface/data_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           111   1.222   1.906  CS_IBUF (CS_IBUF)
-     LDC_1:CLR                 0.430          SPI_interface/PWR_14_o_CS_DLATCH_2_q
+     IBUF:I->O           104   1.222   1.888  CS_IBUF (CS_IBUF)
+     LUT2:I1->O           16   0.205   1.004  SPI_interface/_n01011 (SPI_interface/_n0101)
+     FDE:CE                    0.322          SPI_interface/data_0
     ----------------------------------------
-    Total                      3.558ns (1.652ns logic, 1.906ns route)
-                                       (46.4% logic, 53.6% route)
+    Total                      4.641ns (1.749ns logic, 2.892ns route)
+                                       (37.7% logic, 62.3% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'CS'
-  Total number of paths / destination ports: 2 / 1
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_CLK'
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              4.433ns (Levels of Logic = 2)
-  Source:            SPI_interface/PWR_14_o_CS_DLATCH_2_q (LATCH)
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            SPI_interface/miso_buffer_15 (FF)
   Destination:       MISO (PAD)
-  Source Clock:      CS rising
+  Source Clock:      SPI_CLK falling
 
-  Data Path: SPI_interface/PWR_14_o_CS_DLATCH_2_q to MISO
+  Data Path: SPI_interface/miso_buffer_15 to MISO
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDC_1:G->Q            1   0.498   0.579  SPI_interface/PWR_14_o_CS_DLATCH_2_q (SPI_interface/PWR_14_o_CS_DLATCH_2_q)
-     INV:I->O              1   0.206   0.579  SPI_interface/PWR_14_o_CS_DLATCH_2_q_inv1_INV_0 (SPI_interface/PWR_14_o_CS_DLATCH_2_q_inv)
-     OBUFT:T->O                2.571          MISO_OBUFT (MISO)
+     FDP_1:C->Q            1   0.447   0.579  SPI_interface/miso_buffer_15 (SPI_interface/miso_buffer_15)
+     OBUF:I->O                 2.571          MISO_OBUF (MISO)
     ----------------------------------------
-    Total                      4.433ns (3.275ns logic, 1.158ns route)
-                                       (73.9% logic, 26.1% route)
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              4.576ns (Levels of Logic = 2)
+  Source:            SPI_interface/COMPLETE (FF)
+  Destination:       LED1 (PAD)
+  Source Clock:      CLK rising 2.1X
+
+  Data Path: SPI_interface/COMPLETE to LED1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              7   0.447   0.773  SPI_interface/COMPLETE (SPI_interface/COMPLETE)
+     INV:I->O              1   0.206   0.579  _n01271_INV_0 (LED1_OBUF)
+     OBUF:I->O                 2.571          LED1_OBUF (LED1)
+    ----------------------------------------
+    Total                      4.576ns (3.224ns logic, 1.351ns route)
+                                       (70.5% logic, 29.5% route)
 
 =========================================================================
 
@@ -587,29 +900,31 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    5.451|         |         |         |
+CLK            |    5.057|         |         |         |
+SPI_CLK        |    1.165|         |         |         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock CS
+Clock to Setup on destination clock SPI_CLK
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    1.063|         |         |         |
+CLK            |    1.507|         |         |         |
+SPI_CLK        |    3.152|         |    4.226|         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.74 secs
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.77 secs
  
 --> 
 
 
-Total memory usage is 417524 kilobytes
+Total memory usage is 417376 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    5 (   0 filtered)
-Number of infos    :    1 (   0 filtered)
+Number of warnings :  275 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
 

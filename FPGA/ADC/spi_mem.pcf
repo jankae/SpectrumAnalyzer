@@ -1,69 +1,16 @@
 //! **************************************************************************
-// Written by: Map P.68d on Sat Mar 09 18:37:40 2019
+// Written by: Map P.68d on Thu Mar 14 23:24:25 2019
 //! **************************************************************************
 
 SCHEMATIC START;
 COMP "clk" LOCATE = SITE "P56" LEVEL 1;
-COMP "CS" LOCATE = SITE "P23" LEVEL 1;
-COMP "MISO" LOCATE = SITE "P26" LEVEL 1;
+COMP "CS" LOCATE = SITE "P51" LEVEL 1;
+COMP "MISO" LOCATE = SITE "P50" LEVEL 1;
 COMP "LED1" LOCATE = SITE "P95" LEVEL 1;
 COMP "LED2" LOCATE = SITE "P94" LEVEL 1;
-COMP "MOSI" LOCATE = SITE "P24" LEVEL 1;
+COMP "MOSI" LOCATE = SITE "P58" LEVEL 1;
 COMP "LED3" LOCATE = SITE "P98" LEVEL 1;
 COMP "LED4" LOCATE = SITE "P97" LEVEL 1;
-COMP "SPI_CLK" LOCATE = SITE "P27" LEVEL 1;
-PIN
-        your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>
-        = BEL
-        "your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
-        PINNAME CLKA;
-PIN
-        your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>
-        = BEL
-        "your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram"
-        PINNAME CLKB;
-TIMEGRP CLOCK_50 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL "mem_in_3"
-        BEL "mem_in_4" BEL "mem_in_5" BEL "mem_in_6" BEL "mem_in_7" BEL
-        "mem_in_8" BEL "mem_in_9" BEL "mem_in_10" BEL "mem_in_11" BEL
-        "mem_in_12" BEL "mem_in_13" BEL "mem_in_14" BEL "mem_in_15" BEL
-        "mem_address_0" BEL "mem_address_1" BEL "mem_address_2" BEL
-        "mem_address_3" BEL "mem_address_4" BEL "mem_address_5" BEL
-        "mem_address_6" BEL "mem_address_7" BEL "mem_address_8" BEL
-        "mem_address_9" BEL "Inst_spi_slave/BUF_OUT_15" BEL
-        "Inst_spi_slave/BUF_OUT_14" BEL "Inst_spi_slave/BUF_OUT_13" BEL
-        "Inst_spi_slave/BUF_OUT_12" BEL "Inst_spi_slave/BUF_OUT_11" BEL
-        "Inst_spi_slave/BUF_OUT_10" BEL "Inst_spi_slave/BUF_OUT_9" BEL
-        "Inst_spi_slave/BUF_OUT_8" BEL "Inst_spi_slave/BUF_OUT_7" BEL
-        "Inst_spi_slave/BUF_OUT_6" BEL "Inst_spi_slave/BUF_OUT_5" BEL
-        "Inst_spi_slave/BUF_OUT_4" BEL "Inst_spi_slave/BUF_OUT_3" BEL
-        "Inst_spi_slave/BUF_OUT_2" BEL "Inst_spi_slave/BUF_OUT_1" BEL
-        "Inst_spi_slave/BUF_OUT_0" BEL "Inst_spi_slave/COMPLETE" BEL
-        "Inst_spi_slave/miso_buffer_15" BEL "Inst_spi_slave/miso_buffer_14"
-        BEL "Inst_spi_slave/miso_buffer_13" BEL
-        "Inst_spi_slave/miso_buffer_12" BEL "Inst_spi_slave/miso_buffer_11"
-        BEL "Inst_spi_slave/miso_buffer_10" BEL "Inst_spi_slave/miso_buffer_9"
-        BEL "Inst_spi_slave/miso_buffer_8" BEL "Inst_spi_slave/miso_buffer_7"
-        BEL "Inst_spi_slave/miso_buffer_6" BEL "Inst_spi_slave/miso_buffer_5"
-        BEL "Inst_spi_slave/miso_buffer_4" BEL "Inst_spi_slave/miso_buffer_3"
-        BEL "Inst_spi_slave/miso_buffer_2" BEL "Inst_spi_slave/miso_buffer_1"
-        BEL "Inst_spi_slave/miso_buffer_0" BEL "Inst_spi_slave/mosi_buffer_15"
-        BEL "Inst_spi_slave/mosi_buffer_14" BEL
-        "Inst_spi_slave/mosi_buffer_13" BEL "Inst_spi_slave/mosi_buffer_12"
-        BEL "Inst_spi_slave/mosi_buffer_11" BEL
-        "Inst_spi_slave/mosi_buffer_10" BEL "Inst_spi_slave/mosi_buffer_9" BEL
-        "Inst_spi_slave/mosi_buffer_8" BEL "Inst_spi_slave/mosi_buffer_7" BEL
-        "Inst_spi_slave/mosi_buffer_6" BEL "Inst_spi_slave/mosi_buffer_5" BEL
-        "Inst_spi_slave/mosi_buffer_4" BEL "Inst_spi_slave/mosi_buffer_3" BEL
-        "Inst_spi_slave/mosi_buffer_2" BEL "Inst_spi_slave/mosi_buffer_1" BEL
-        "Inst_spi_slave/mosi_buffer_0" BEL "Inst_spi_slave/spiSR_1" BEL
-        "Inst_spi_slave/spiSR_0" BEL "mem_write_0" BEL
-        "Inst_spi_slave/next_complete" BEL "write_not_read" BEL "first" BEL
-        "clk_BUFGP/BUFG" PIN
-        "your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
-        PIN
-        "your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>";
-TIMEGRP CLOCK_1 = BEL "Inst_spi_slave/spiSR_0" BEL "LED1";
-TS_CLOCK_50 = PERIOD TIMEGRP "CLOCK_50" 50 MHz HIGH 50%;
-TS_CLOCK_1 = PERIOD TIMEGRP "CLOCK_1" 1 MHz HIGH 50%;
+COMP "SPI_CLK" LOCATE = SITE "P57" LEVEL 1;
 SCHEMATIC END;
 

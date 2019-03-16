@@ -5,7 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="info" file="Timing" num="2698" delta="old" >No timing constraints found, doing default enumeration.</msg>
+<msg type="info" file="Timing" num="3386" delta="old" >Intersecting Constraints found and resolved.  For more information, see the TSI report.  Please consult the Xilinx Command Line Tools User Guide for information on generating a TSI report.</msg>
 
 <msg type="info" file="Timing" num="3412" delta="old" >To improve timing, see the Timing Closure User Guide (UG612).</msg>
 

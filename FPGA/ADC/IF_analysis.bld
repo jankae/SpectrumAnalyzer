@@ -14,8 +14,21 @@ Done.
 Annotating constraints to design from ucf file "IF_analysis.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'CLOCK_50', used in period specification
+   'TS_CLOCK_50', was traced into DCM_SP instance
+   your_instance_name/dcm_sp_inst. The following new TNM groups and period
+   specifications were generated at the DCM_SP output(s): 
+   CLKFX: <TIMESPEC TS_your_instance_name_clkfx = PERIOD
+   "your_instance_name_clkfx" TS_CLOCK_50 / 2.083333333 HIGH 50%>
+
 Done...
 
+WARNING:NgdBuild:1212 - User specified non-default attribute value (20.833) was
+   detected for the CLKIN_PERIOD attribute on DCM
+   "your_instance_name/dcm_sp_inst".  This does not match the PERIOD constraint
+   value (20 ns.).  The uncertainty calculation will use the non-default
+   attribute value.  This could result in incorrect uncertainty calculated for
+   DCM output clocks.
 Checking expanded design ...
 
 Partition Implementation Status
@@ -27,9 +40,9 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   0
+  Number of warnings:   1
 
-Total memory usage is 416844 kilobytes
+Total memory usage is 415444 kilobytes
 
 Writing NGD file "IF_analysis.ngd" ...
 Total REAL time to NGDBUILD completion:  3 sec
