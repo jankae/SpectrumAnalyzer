@@ -50,8 +50,7 @@ int main(int argc, char **argv)
     unisim_a_0714155612_2768510774_init();
     unisim_a_0018426790_2768510774_init();
     unisim_a_1297477671_0429821216_init();
-    unisim_a_0397947719_2584565154_init();
-    unisim_a_1490675510_1976025627_init();
+    unisim_a_3645376643_2584565154_init();
     work_a_1589345586_0912031422_init();
     work_a_2376206236_3212880686_init();
     ieee_p_0774719531_init();

@@ -137,8 +137,8 @@ architecture Behavioral of IF_analysis is
 	signal adc_new : std_logic;
 begin
 
-	LED1 <= not spi_complete;
-	LED2 <= first;
+	LED1 <= not fft_active;
+	LED2 <= not fft_busy;
 	
 	your_instance_name : PLL
 	port map(-- Clock in ports
@@ -239,7 +239,8 @@ begin
 									fft_points <= spi_out & fft_points(15 downto 0);
 								end if;
 							end if;
-						else
+						end if;
+						if write_not_read = '0' or mem_address(14) = '0' then
 							-- increment address immediately if not accessing block RAM
 							mem_address <= std_logic_vector(unsigned(mem_address) + 1);
 						end if;

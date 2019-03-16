@@ -92,26 +92,26 @@ begin
 			else
 				if pnt_cnt < unsigned(NPOINTS) then 
 					BUSY <= '1';
-				if NEW_SAMPLE = '1' then
-					mult_a <= DATA;
-					mult_b <= WINDOW_COEFF;
-					-- advance window address
-					if window_address_cnt < unsigned(WINDOW_INC_DENOM) then
-						window_address_cnt <= window_address_cnt + 1;
-					else
-						window_address_cnt <= to_unsigned(0, 16);
-						WINDOW_ADDRESS <= std_logic_vector( unsigned(WINDOW_ADDRESS) + 1 );
+					if NEW_SAMPLE = '1' then
+						mult_a <= DATA;
+						mult_b <= WINDOW_COEFF;
+						-- advance window address
+						if window_address_cnt < unsigned(WINDOW_INC_DENOM) then
+							window_address_cnt <= window_address_cnt + 1;
+						else
+							window_address_cnt <= to_unsigned(0, 16);
+							WINDOW_ADDRESS <= std_logic_vector( unsigned(WINDOW_ADDRESS) + 1 );
+						end if;
+						if pipe_level > 0 then
+							-- advance complex vector and add input data
+							sum_imag <= -sum_real;
+							sum_real <= sum_imag + signed(windowed_data);
+							pnt_cnt <= pnt_cnt + 1;
+						else
+							-- multiplier has no valid output yet
+							pipe_level <= pipe_level + 1;
+						end if;
 					end if;
-					if pipe_level > 0 then
-						-- advance complex vector and add input data
-						sum_imag <= -sum_real;
-						sum_real <= sum_imag + signed(windowed_data);
-						pnt_cnt <= pnt_cnt + 1;
-					else
-						-- multiplier has no valid output yet
-						pipe_level <= pipe_level + 1;
-					end if;
-				end if;
 				else 
 					BUSY <= '0';
 					OUT_REAL <= std_logic_vector(sum_real);

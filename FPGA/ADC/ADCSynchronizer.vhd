@@ -42,6 +42,8 @@ architecture Behavioral of ADCSynchronizer is
 	signal last_clk : STD_LOGIC;
 	signal new_clk : STD_LOGIC;
 	signal xfer_pipe : STD_LOGIC;
+	
+	signal xfer_data : STD_LOGIC_VECTOR(13 downto 0);
 begin
 
 	process(CLK)
@@ -57,10 +59,11 @@ begin
 				-- synchronize ADC CLK into main clk domain
 				new_clk <= xfer_pipe;
 				xfer_pipe <= ADC_CLK;
+				xfer_data <= ADC_DATA;
 				-- edge detection
 				last_clk <= new_clk;
 				if new_clk = '1' and last_clk  = '0' then
-					DATA_OUT <= ADC_DATA;
+					DATA_OUT <= xfer_data;
 					NEW_SAMPLE <= '1';
 				else
 					NEW_SAMPLE <= '0';

@@ -1,5 +1,6 @@
 ISim log file
 Running: /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_isim_beh.wdb 
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
 ISim P.68d (signature 0xfbc00daa)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
@@ -31,4 +32,11 @@ at 239568 ps(4), Instance /if_analysis_test/uut/memory/U0/native_mem_module/mem_
 # run 1.00us
 # run 1.00us
 # run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# run 1.00us
+# exit 0
 # exit 0

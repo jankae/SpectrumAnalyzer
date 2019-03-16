@@ -67,7 +67,7 @@ END COMPONENT;
     GENERIC MAP (
       c_a_type => 0,
       c_a_width => 14,
-      c_b_type => 1,
+      c_b_type => 0,
       c_b_value => "10000001",
       c_b_width => 16,
       c_ccm_imp => 0,

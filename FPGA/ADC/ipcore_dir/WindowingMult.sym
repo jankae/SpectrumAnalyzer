@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="WindowingMult">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2019-3-9T22:6:46</timestamp>
+    <timestamp>2019-3-16T22:12:2</timestamp>
     <pin polarity="Input" x="0" y="80" name="a[13:0]" />
     <pin polarity="Input" x="0" y="144" name="b[15:0]" />
     <pin polarity="Input" x="0" y="240" name="clk" />

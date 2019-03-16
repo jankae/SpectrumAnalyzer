@@ -168,8 +168,8 @@ Synthesizing Unit <IF_analysis>.
     Found 32-bit register for signal <fft_points>.
     Found 16-bit register for signal <spi_in>.
     Found 1-bit register for signal <LED3>.
-    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_12_OUT> created at line 1241.
-    Found 16-bit 13-to-1 multiplexer for signal <_n0159> created at line 255.
+    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_15_OUT> created at line 1241.
+    Found 16-bit 13-to-1 multiplexer for signal <_n0162> created at line 256.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred 100 D-type flip-flop(s).
@@ -188,9 +188,10 @@ Synthesizing Unit <ADCSynchronizer>.
     Found 1-bit register for signal <new_clk>.
     Found 1-bit register for signal <xfer_pipe>.
     Found 1-bit register for signal <NEW_SAMPLE>.
+    Found 14-bit register for signal <xfer_data>.
     Found 14-bit register for signal <DATA_OUT>.
     Summary:
-	inferred  18 D-type flip-flop(s).
+	inferred  32 D-type flip-flop(s).
 Unit <ADCSynchronizer> synthesized.
 
 Synthesizing Unit <SingleBinFFT>.
@@ -252,9 +253,9 @@ Macro Statistics
  32-bit adder                                          : 1
  64-bit adder                                          : 1
  64-bit subtractor                                     : 1
-# Registers                                            : 34
+# Registers                                            : 35
  1-bit register                                        : 13
- 14-bit register                                       : 2
+ 14-bit register                                       : 3
  15-bit register                                       : 1
  16-bit register                                       : 9
  2-bit register                                        : 3
@@ -305,8 +306,8 @@ Macro Statistics
  1-bit up counter                                      : 1
  16-bit up counter                                     : 2
  32-bit up counter                                     : 1
-# Registers                                            : 461
- Flip-Flops                                            : 461
+# Registers                                            : 475
+ Flip-Flops                                            : 475
 # Comparators                                          : 2
  16-bit comparator greater                             : 1
  32-bit comparator greater                             : 1
@@ -350,8 +351,8 @@ Unit <IF_analysis> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 520
- Flip-Flops                                            : 520
+# Registers                                            : 534
+ Flip-Flops                                            : 534
 # Shift Registers                                      : 3
  2-bit shift register                                  : 3
 
@@ -376,20 +377,20 @@ Top Level Output File Name         : IF_analysis.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1115
+# BELS                             : 1112
 #      GND                         : 3
 #      INV                         : 76
 #      LUT1                        : 71
 #      LUT2                        : 87
 #      LUT3                        : 14
-#      LUT4                        : 267
-#      LUT5                        : 35
+#      LUT4                        : 263
+#      LUT5                        : 36
 #      LUT6                        : 132
 #      MUXCY                       : 223
 #      VCC                         : 3
 #      XORCY                       : 204
-# FlipFlops/Latches                : 527
-#      FD                          : 23
+# FlipFlops/Latches                : 541
+#      FD                          : 37
 #      FDE                         : 99
 #      FDR                         : 52
 #      FDRE                        : 350
@@ -419,17 +420,17 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             526  out of  11440     4%  
- Number of Slice LUTs:                  685  out of   5720    11%  
-    Number used as Logic:               682  out of   5720    11%  
+ Number of Slice Registers:             540  out of  11440     4%  
+ Number of Slice LUTs:                  682  out of   5720    11%  
+    Number used as Logic:               679  out of   5720    11%  
     Number used as Memory:                3  out of   1440     0%  
        Number used as SRL:                3
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    878
-   Number with an unused Flip Flop:     352  out of    878    40%  
-   Number with an unused LUT:           193  out of    878    21%  
-   Number of fully used LUT-FF pairs:   333  out of    878    37%  
+ Number of LUT Flip Flop pairs used:    873
+   Number with an unused Flip Flop:     333  out of    873    38%  
+   Number with an unused LUT:           191  out of    873    21%  
+   Number of fully used LUT-FF pairs:   349  out of    873    39%  
    Number of unique control sets:        23
 
 IO Utilization: 
@@ -464,7 +465,7 @@ Clock Information:
 -----------------------------------+-------------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                       | Load  |
 -----------------------------------+-------------------------------------------------------------+-------+
-CLK                                | DCM_SP:CLKFX                                                | 537   |
+CLK                                | DCM_SP:CLKFX                                                | 551   |
 SPI_interface/cs_sampled_1         | NONE(SPI_interface/miso_buffer[15]_cs_sampled[1]_DLATCH_1_q)| 2     |
 -----------------------------------+-------------------------------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -477,9 +478,9 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 11.356ns (Maximum Frequency: 88.058MHz)
+   Minimum period: 6.814ns (Maximum Frequency: 146.764MHz)
    Minimum input arrival time before clock: 4.677ns
-   Maximum output required time after clock: 4.576ns
+   Maximum output required time after clock: 6.369ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -488,14 +489,14 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 11.356ns (frequency: 88.058MHz)
-  Total number of paths / destination ports: 60308 / 1634
+  Clock period: 6.814ns (frequency: 146.764MHz)
+  Total number of paths / destination ports: 60339 / 1650
 -------------------------------------------------------------------------
 Delay:               5.451ns (Levels of Logic = 18)
   Source:            fft_points_0 (FF)
   Destination:       FFT/sum_imag_31 (FF)
-  Source Clock:      CLK rising 2.1X
-  Destination Clock: CLK rising 2.1X
+  Source Clock:      CLK rising 1.2X
+  Destination Clock: CLK rising 1.2X
 
   Data Path: fft_points_0 to FFT/sum_imag_31
                                 Gate     Net
@@ -532,14 +533,14 @@ Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
 Offset:              4.677ns (Levels of Logic = 3)
   Source:            CS (PAD)
   Destination:       fft_points_0 (FF)
-  Destination Clock: CLK rising 2.1X
+  Destination Clock: CLK rising 1.2X
 
   Data Path: CS to fft_points_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            72   1.222   1.940  CS_IBUF (CS_IBUF)
-     LUT4:I0->O           16   0.203   1.005  _n0244_inv1_rstpot (_n0244_inv1_rstpot)
+     LUT4:I0->O           16   0.203   1.005  _n0246_inv1_rstpot (_n0246_inv1_rstpot)
      LUT6:I5->O            1   0.205   0.000  fft_points_0_dpot (fft_points_0_dpot)
      FDE:D                     0.102          fft_points_0
     ----------------------------------------
@@ -570,21 +571,21 @@ Offset:              4.433ns (Levels of Logic = 2)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
   Total number of paths / destination ports: 3 / 3
 -------------------------------------------------------------------------
-Offset:              4.576ns (Levels of Logic = 2)
-  Source:            SPI_interface/COMPLETE (FF)
+Offset:              6.369ns (Levels of Logic = 2)
+  Source:            fft_active (FF)
   Destination:       LED1 (PAD)
-  Source Clock:      CLK rising 2.1X
+  Source Clock:      CLK rising 1.2X
 
-  Data Path: SPI_interface/COMPLETE to LED1
+  Data Path: fft_active to LED1
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              7   0.447   0.773  SPI_interface/COMPLETE (SPI_interface/COMPLETE)
-     INV:I->O              1   0.206   0.579  _n01701_INV_0 (LED1_OBUF)
+     FD:C->Q              19   0.447   1.071  fft_active (fft_active)
+     INV:I->O            337   0.206   2.074  LED11_INV_0 (FFT/RESET_inv)
      OBUF:I->O                 2.571          LED1_OBUF (LED1)
     ----------------------------------------
-    Total                      4.576ns (3.224ns logic, 1.351ns route)
-                                       (70.5% logic, 29.5% route)
+    Total                      6.369ns (3.224ns logic, 3.145ns route)
+                                       (50.6% logic, 49.4% route)
 
 =========================================================================
 
@@ -611,12 +612,12 @@ CLK            |    2.310|         |         |         |
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.91 secs
+Total CPU time to Xst completion: 8.90 secs
  
 --> 
 
 
-Total memory usage is 417564 kilobytes
+Total memory usage is 417568 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    6 (   0 filtered)

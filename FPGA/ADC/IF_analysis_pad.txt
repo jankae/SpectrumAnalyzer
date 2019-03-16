@@ -1,7 +1,7 @@
 Release 14.6 - par P.68d (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Sat Mar 16 16:10:34 2019
+Sat Mar 16 23:15:54 2019
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -70,13 +70,13 @@ Pinout by Pin Number:
 |P48       |           |IOBM     |IO_L48P_D7_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P49       |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
 |P50       |MISO       |IOB      |IO_L31N_GCLK30_D15_2      |TRISTATE |LVCMOS25*  |2             |12        |FAST     |           |         |         |LOCATED   |YES        |NONE            |
-|P51       |CS         |IOB      |IO_L31P_GCLK31_D14_2      |INPUT    |LVCMOS25*  |2             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|P51       |SPI_CLK    |IOB      |IO_L31P_GCLK31_D14_2      |INPUT    |LVCMOS25*  |2             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P52       |           |         |VCCINT                    |         |           |              |          |         |           |         |1.2      |          |           |                |
 |P53       |           |         |VCCAUX                    |         |           |              |          |         |           |         |2.5      |          |           |                |
 |P54       |           |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
 |P55       |           |IOBS     |IO_L30N_GCLK0_USERCCLK_2  |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P56       |CLK        |IOB      |IO_L30P_GCLK1_D13_2       |INPUT    |LVCMOS25*  |2             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
-|P57       |SPI_CLK    |IOB      |IO_L14N_D12_2             |INPUT    |LVCMOS25*  |2             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
+|P57       |CS         |IOB      |IO_L14N_D12_2             |INPUT    |LVCMOS25*  |2             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P58       |MOSI       |IOB      |IO_L14P_D11_2             |INPUT    |LVCMOS25*  |2             |          |         |           |NONE     |         |LOCATED   |NO         |NONE            |
 |P59       |           |IOBS     |IO_L13N_D10_2             |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
 |P60       |           |IOBM     |IO_L13P_M1_2              |UNUSED   |           |2             |          |         |           |         |         |          |           |                |

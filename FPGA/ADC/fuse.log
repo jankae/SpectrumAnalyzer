@@ -1,4 +1,4 @@
-Running: /opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_isim_beh.exe -prj /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_beh.prj work.IF_analysis_test 
+Running: /opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_isim_beh.exe -prj /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_beh.prj IF_analysis_test 
 ISim P.68d (signature 0xfbc00daa)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
@@ -14,8 +14,8 @@ Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" into lib
 Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test.vhd" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 149716 KB
-Fuse CPU Usage: 1460 ms
+Fuse Memory Usage: 149712 KB
+Fuse CPU Usage: 1490 ms
 Compiling package standard
 Compiling package std_logic_1164
 Compiling package numeric_std
@@ -32,7 +32,6 @@ Compiling architecture dcm_sp_maximum_period_check_v of entity dcm_sp_maximum_pe
 Compiling architecture dcm_sp_maximum_period_check_v of entity dcm_sp_maximum_period_check [\dcm_sp_maximum_period_check("*"...]
 Compiling architecture dcm_sp_clock_lost_v of entity dcm_sp_clock_lost [dcm_sp_clock_lost_default]
 Compiling architecture dcm_sp_v of entity DCM_SP [\DCM_SP(true,"*",true,false,2.0,...]
-Compiling architecture bufg_v of entity BUFG [bufg_default]
 Compiling architecture xilinx of entity PLL [pll_default]
 Compiling architecture behavioral of entity ADCSynchronizer [adcsynchronizer_default]
 Compiling package std_logic_signed
@@ -52,9 +51,9 @@ Compiling architecture spi_a of entity spi [spi_default]
 Compiling architecture behavioral of entity IF_analysis [if_analysis_default]
 Compiling architecture behavior of entity if_analysis_test
 Time Resolution for simulation is 1ps.
-Waiting for 7 sub-compilation(s) to finish...
-Compiled 55 VHDL Units
+Waiting for 4 sub-compilation(s) to finish...
+Compiled 53 VHDL Units
 Built simulation executable /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_isim_beh.exe
 Fuse Memory Usage: 743632 KB
-Fuse CPU Usage: 2070 ms
-GCC CPU Usage: 4530 ms
+Fuse CPU Usage: 2090 ms
+GCC CPU Usage: 4700 ms

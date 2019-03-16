@@ -119,6 +119,7 @@ BEGIN
 				wait for SPI_CLK_period/2;
 				SPI_CLK <= '0';
 			end loop;
+			wait for SPI_CLK_PERIOD;
 			CS <= '1';
 		end procedure SPI;
    begin		

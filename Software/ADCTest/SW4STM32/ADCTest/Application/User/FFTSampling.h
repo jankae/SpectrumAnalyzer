@@ -11,13 +11,14 @@
 #include <stdint.h>
 
 typedef enum {
-	FFT_WINDOW_RECTANGLE,
-	FFT_WINDOW_HANN,
-	FFT_WINDOW_HAMMING,
-	FFT_WINDOW_FLATTOP,
+	FFT_WINDOW_RECTANGLE = 0,
+	FFT_WINDOW_HANN = 1,
+	FFT_WINDOW_HAMMING = 2,
+	FFT_WINDOW_FLATTOP = 3,
+	FFT_WINDOW_MAX = 4,
 } fft_window_t;
 
-uint32_t FFT_take_sample(uint32_t points, fft_window_t window);
+uint32_t FFT_take_sample(uint32_t points, fft_window_t window, uint32_t dummyFreq);
 void fft_spi_mem_test();
 
 #endif /* APPLICATION_USER_FFTSAMPLING_H_ */
