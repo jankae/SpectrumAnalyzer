@@ -164,7 +164,10 @@ begin
 
   -- Connect the output clocks to the design
   -------------------------------------------
-  clk <= clk_int;
+  clkout1_buf : BUFG
+  port map
+   (O => clk,
+    I => clk_int);
 
   -- Output clock sampling
   -------------------------------------

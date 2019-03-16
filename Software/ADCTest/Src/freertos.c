@@ -192,6 +192,10 @@ void StartDefaultTask(void const * argument)
 	LOG(Log_System, LevelInfo, "Start");
 
 	log_flush();
+	while(1) {
+		fft_spi_mem_test();
+		vTaskDelay(1000);
+	}
 	generate_dummy_data(10000000, 4000, 250000, 0);
 	while(1) {
 		vTaskDelay(1000);

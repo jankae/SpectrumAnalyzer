@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: IF_analysis.prj
@@ -126,6 +126,7 @@ Parsing architecture <Behavioral> of entity <spi_slave>.
 Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhd" into library work
 Parsing entity <SingleBinFFT>.
 Parsing architecture <Behavioral> of entity <singlebinfft>.
+WARNING:HDLCompiler:946 - "/home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhd" Line 73: Actual for formal port sclr is neither a static name nor a globally static expression
 Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/ADC/ADCSynchronizer.vhd" into library work
 Parsing entity <ADCSynchronizer>.
 Parsing architecture <Behavioral> of entity <adcsynchronizer>.
@@ -157,7 +158,7 @@ Elaborating entity <spi> (architecture <spi_a>) from library <work>.
 
 Synthesizing Unit <IF_analysis>.
     Related source file is "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd".
-INFO:Xst:3210 - "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" line 136: Output port <LOCKED> of the instance <your_instance_name> is unconnected or connected to loadless signal.
+    Found 1-bit register for signal <first>.
     Found 15-bit register for signal <mem_address>.
     Found 1-bit register for signal <mem_write>.
     Found 16-bit register for signal <mem_in>.
@@ -166,12 +167,12 @@ INFO:Xst:3210 - "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd" line 136: 
     Found 16-bit register for signal <window_inc>.
     Found 32-bit register for signal <fft_points>.
     Found 16-bit register for signal <spi_in>.
-    Found 1-bit register for signal <first>.
-    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_15_OUT> created at line 1241.
-    Found 16-bit 13-to-1 multiplexer for signal <_n0155> created at line 242.
+    Found 1-bit register for signal <LED3>.
+    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_12_OUT> created at line 1241.
+    Found 16-bit 13-to-1 multiplexer for signal <_n0159> created at line 255.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred  99 D-type flip-flop(s).
+	inferred 100 D-type flip-flop(s).
 	inferred  21 Multiplexer(s).
 Unit <IF_analysis> synthesized.
 
@@ -222,17 +223,19 @@ Unit <SingleBinFFT> synthesized.
 Synthesizing Unit <spi_slave>.
     Related source file is "/home/jan/Projekte/RFStuff/FPGA/ADC/spi.vhd".
         W = 16
+    Found 2-bit register for signal <cs_sampled>.
+    Found 2-bit register for signal <mosi_sampled>.
     Found 2-bit register for signal <spiSR>.
     Found 16-bit register for signal <miso_buffer>.
     Found 16-bit register for signal <mosi_buffer>.
     Found 1-bit register for signal <COMPLETE>.
     Found 1-bit register for signal <next_complete>.
     Found 16-bit register for signal <BUF_OUT>.
-WARNING:Xst:737 - Found 1-bit latch for signal <PWR_14_o_CS_DLATCH_2_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 1-bit tristate buffer for signal <MISO> created at line 51
-WARNING:Xst:737 - Found 1-bit latch for signal <miso_buffer[15]_CS_DLATCH_1_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <PWR_14_o_cs_sampled[1]_DLATCH_2_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 1-bit tristate buffer for signal <MISO> created at line 53
+WARNING:Xst:737 - Found 1-bit latch for signal <miso_buffer[15]_cs_sampled[1]_DLATCH_1_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
     Summary:
-	inferred  52 D-type flip-flop(s).
+	inferred  56 D-type flip-flop(s).
 	inferred   2 Latch(s).
 	inferred   4 Multiplexer(s).
 	inferred   1 Tristate(s).
@@ -249,12 +252,12 @@ Macro Statistics
  32-bit adder                                          : 1
  64-bit adder                                          : 1
  64-bit subtractor                                     : 1
-# Registers                                            : 31
- 1-bit register                                        : 12
+# Registers                                            : 34
+ 1-bit register                                        : 13
  14-bit register                                       : 2
  15-bit register                                       : 1
  16-bit register                                       : 9
- 2-bit register                                        : 1
+ 2-bit register                                        : 3
  32-bit register                                       : 2
  64-bit register                                       : 4
 # Latches                                              : 2
@@ -302,8 +305,8 @@ Macro Statistics
  1-bit up counter                                      : 1
  16-bit up counter                                     : 2
  32-bit up counter                                     : 1
-# Registers                                            : 456
- Flip-Flops                                            : 456
+# Registers                                            : 461
+ Flip-Flops                                            : 461
 # Comparators                                          : 2
  16-bit comparator greater                             : 1
  32-bit comparator greater                             : 1
@@ -333,11 +336,13 @@ Mapping all equations...
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block IF_analysis, actual ratio is 14.
 FlipFlop mem_address_14 has been replicated 2 time(s)
-FlipFlop mem_address_2 has been replicated 1 time(s)
+FlipFlop mem_address_3 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
 Processing Unit <IF_analysis> :
+	Found 2-bit shift register for signal <SPI_interface/mosi_sampled_1>.
+	Found 2-bit shift register for signal <SPI_interface/cs_sampled_1>.
 	Found 2-bit shift register for signal <ADC_input/new_clk>.
 Unit <IF_analysis> processed.
 
@@ -345,10 +350,10 @@ Unit <IF_analysis> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 519
- Flip-Flops                                            : 519
-# Shift Registers                                      : 1
- 2-bit shift register                                  : 1
+# Registers                                            : 520
+ Flip-Flops                                            : 520
+# Shift Registers                                      : 3
+ 2-bit shift register                                  : 3
 
 =========================================================================
 
@@ -371,35 +376,36 @@ Top Level Output File Name         : IF_analysis.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1113
+# BELS                             : 1115
 #      GND                         : 3
-#      INV                         : 75
+#      INV                         : 76
 #      LUT1                        : 71
-#      LUT2                        : 86
+#      LUT2                        : 87
 #      LUT3                        : 14
 #      LUT4                        : 267
-#      LUT5                        : 36
-#      LUT6                        : 131
+#      LUT5                        : 35
+#      LUT6                        : 132
 #      MUXCY                       : 223
 #      VCC                         : 3
 #      XORCY                       : 204
-# FlipFlops/Latches                : 524
-#      FD                          : 21
-#      FDE                         : 97
-#      FDR                         : 53
+# FlipFlops/Latches                : 527
+#      FD                          : 23
+#      FDE                         : 99
+#      FDR                         : 52
 #      FDRE                        : 350
 #      FDSE                        : 1
 #      LDC_1                       : 2
 # RAMS                             : 8
 #      RAMB16BWER                  : 7
 #      RAMB8BWER                   : 1
-# Shift Registers                  : 1
-#      SRLC16E                     : 1
-# Clock Buffers                    : 3
-#      BUFG                        : 3
-# IO Buffers                       : 20
+# Shift Registers                  : 3
+#      SRLC16E                     : 3
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 24
 #      IBUF                        : 18
 #      IBUFG                       : 1
+#      OBUF                        : 4
 #      OBUFT                       : 1
 # DCMs                             : 1
 #      DCM_SP                      : 1
@@ -413,28 +419,28 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             523  out of  11440     4%  
- Number of Slice LUTs:                  681  out of   5720    11%  
-    Number used as Logic:               680  out of   5720    11%  
-    Number used as Memory:                1  out of   1440     0%  
-       Number used as SRL:                1
+ Number of Slice Registers:             526  out of  11440     4%  
+ Number of Slice LUTs:                  685  out of   5720    11%  
+    Number used as Logic:               682  out of   5720    11%  
+    Number used as Memory:                3  out of   1440     0%  
+       Number used as SRL:                3
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    875
-   Number with an unused Flip Flop:     352  out of    875    40%  
-   Number with an unused LUT:           194  out of    875    22%  
-   Number of fully used LUT-FF pairs:   329  out of    875    37%  
+ Number of LUT Flip Flop pairs used:    878
+   Number with an unused Flip Flop:     352  out of    878    40%  
+   Number with an unused LUT:           193  out of    878    21%  
+   Number of fully used LUT-FF pairs:   333  out of    878    37%  
    Number of unique control sets:        23
 
 IO Utilization: 
- Number of IOs:                          20
- Number of bonded IOBs:                  20  out of    102    19%  
+ Number of IOs:                          24
+ Number of bonded IOBs:                  24  out of    102    23%  
     IOB Flip Flops/Latches:               1
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                8  out of     32    25%  
     Number using Block RAM only:          8
- Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
  Number of DSP48A1s:                      1  out of     16     6%  
 
 ---------------------------
@@ -455,12 +461,13 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)  | Load  |
------------------------------------+------------------------+-------+
-CLK                                | DCM_SP:CLKFX           | 532   |
-CS                                 | IBUF+BUFG              | 2     |
------------------------------------+------------------------+-------+
+-----------------------------------+-------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                       | Load  |
+-----------------------------------+-------------------------------------------------------------+-------+
+CLK                                | DCM_SP:CLKFX                                                | 537   |
+SPI_interface/cs_sampled_1         | NONE(SPI_interface/miso_buffer[15]_cs_sampled[1]_DLATCH_1_q)| 2     |
+-----------------------------------+-------------------------------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
@@ -471,8 +478,8 @@ Timing Summary:
 Speed Grade: -3
 
    Minimum period: 11.356ns (Maximum Frequency: 88.058MHz)
-   Minimum input arrival time before clock: 4.904ns
-   Maximum output required time after clock: 4.433ns
+   Minimum input arrival time before clock: 4.677ns
+   Maximum output required time after clock: 4.576ns
    Maximum combinational path delay: No path found
 
 Timing Details:
@@ -482,7 +489,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
   Clock period: 11.356ns (frequency: 88.058MHz)
-  Total number of paths / destination ports: 60233 / 1610
+  Total number of paths / destination ports: 60308 / 1634
 -------------------------------------------------------------------------
 Delay:               5.451ns (Levels of Logic = 18)
   Source:            fft_points_0 (FF)
@@ -520,62 +527,64 @@ Delay:               5.451ns (Levels of Logic = 18)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 172 / 172
+  Total number of paths / destination ports: 104 / 104
 -------------------------------------------------------------------------
-Offset:              4.904ns (Levels of Logic = 2)
+Offset:              4.677ns (Levels of Logic = 3)
   Source:            CS (PAD)
-  Destination:       SPI_interface/BUF_OUT_15 (FF)
+  Destination:       fft_points_0 (FF)
   Destination Clock: CLK rising 2.1X
 
-  Data Path: CS to SPI_interface/BUF_OUT_15
+  Data Path: CS to fft_points_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O           111   1.222   2.154  CS_IBUF (CS_IBUF)
-     LUT4:I0->O           16   0.203   1.004  SPI_interface/_n0061_inv1 (SPI_interface/_n0061_inv)
-     FDE:CE                    0.322          SPI_interface/BUF_OUT_0
+     IBUF:I->O            72   1.222   1.940  CS_IBUF (CS_IBUF)
+     LUT4:I0->O           16   0.203   1.005  _n0244_inv1_rstpot (_n0244_inv1_rstpot)
+     LUT6:I5->O            1   0.205   0.000  fft_points_0_dpot (fft_points_0_dpot)
+     FDE:D                     0.102          fft_points_0
     ----------------------------------------
-    Total                      4.904ns (1.747ns logic, 3.157ns route)
-                                       (35.6% logic, 64.4% route)
+    Total                      4.677ns (1.732ns logic, 2.945ns route)
+                                       (37.0% logic, 63.0% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'CS'
-  Total number of paths / destination ports: 2 / 2
--------------------------------------------------------------------------
-Offset:              3.558ns (Levels of Logic = 1)
-  Source:            CS (PAD)
-  Destination:       SPI_interface/miso_buffer[15]_CS_DLATCH_1_q (LATCH)
-  Destination Clock: CS rising
-
-  Data Path: CS to SPI_interface/miso_buffer[15]_CS_DLATCH_1_q
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     IBUF:I->O           111   1.222   1.906  CS_IBUF (CS_IBUF)
-     LDC_1:CLR                 0.430          SPI_interface/PWR_14_o_CS_DLATCH_2_q
-    ----------------------------------------
-    Total                      3.558ns (1.652ns logic, 1.906ns route)
-                                       (46.4% logic, 53.6% route)
-
-=========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'CS'
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_interface/cs_sampled_1'
   Total number of paths / destination ports: 2 / 1
 -------------------------------------------------------------------------
 Offset:              4.433ns (Levels of Logic = 2)
-  Source:            SPI_interface/PWR_14_o_CS_DLATCH_2_q (LATCH)
+  Source:            SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q (LATCH)
   Destination:       MISO (PAD)
-  Source Clock:      CS rising
+  Source Clock:      SPI_interface/cs_sampled_1 rising
 
-  Data Path: SPI_interface/PWR_14_o_CS_DLATCH_2_q to MISO
+  Data Path: SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q to MISO
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDC_1:G->Q            1   0.498   0.579  SPI_interface/PWR_14_o_CS_DLATCH_2_q (SPI_interface/PWR_14_o_CS_DLATCH_2_q)
-     INV:I->O              1   0.206   0.579  SPI_interface/PWR_14_o_CS_DLATCH_2_q_inv1_INV_0 (SPI_interface/PWR_14_o_CS_DLATCH_2_q_inv)
+     LDC_1:G->Q            1   0.498   0.579  SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q (SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q)
+     INV:I->O              1   0.206   0.579  SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q_inv1_INV_0 (SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q_inv)
      OBUFT:T->O                2.571          MISO_OBUFT (MISO)
     ----------------------------------------
     Total                      4.433ns (3.275ns logic, 1.158ns route)
                                        (73.9% logic, 26.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              4.576ns (Levels of Logic = 2)
+  Source:            SPI_interface/COMPLETE (FF)
+  Destination:       LED1 (PAD)
+  Source Clock:      CLK rising 2.1X
+
+  Data Path: SPI_interface/COMPLETE to LED1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              7   0.447   0.773  SPI_interface/COMPLETE (SPI_interface/COMPLETE)
+     INV:I->O              1   0.206   0.579  _n01701_INV_0 (LED1_OBUF)
+     OBUF:I->O                 2.571          LED1_OBUF (LED1)
+    ----------------------------------------
+    Total                      4.576ns (3.224ns logic, 1.351ns route)
+                                       (70.5% logic, 29.5% route)
 
 =========================================================================
 
@@ -590,26 +599,26 @@ Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 CLK            |    5.451|         |         |         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock CS
+Clock to Setup on destination clock SPI_interface/cs_sampled_1
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    1.063|         |         |         |
+CLK            |    2.310|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.74 secs
+Total CPU time to Xst completion: 8.91 secs
  
 --> 
 
 
-Total memory usage is 417524 kilobytes
+Total memory usage is 417564 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    5 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

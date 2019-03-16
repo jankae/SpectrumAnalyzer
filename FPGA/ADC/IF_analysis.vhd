@@ -37,7 +37,11 @@ entity IF_analysis is
            MISO : out  STD_LOGIC;
            CS : in  STD_LOGIC;
            ADC_IN : in  STD_LOGIC_VECTOR (13 downto 0);
-           ADC_CLK : in  STD_LOGIC);
+           ADC_CLK : in  STD_LOGIC;
+			  LED1 : out STD_LOGIC;
+			  LED2 : out STD_LOGIC;
+			  LED3 : inout STD_LOGIC;
+			  LED4 : out STD_LOGIC);
 end IF_analysis;
 
 architecture Behavioral of IF_analysis is
@@ -133,6 +137,9 @@ architecture Behavioral of IF_analysis is
 	signal adc_new : std_logic;
 begin
 
+	LED1 <= not spi_complete;
+	LED2 <= first;
+	
 	your_instance_name : PLL
 	port map(-- Clock in ports
 		CLK_IN1 => CLK,
@@ -140,8 +147,9 @@ begin
 		CLK_OUT1 => clk_100,
 		-- Status and control signals
 		RESET  => '0',
-		LOCKED => open
+		LOCKED => LED4
 	);
+--	clk_100 <= CLK;
 
 	ADC_input : ADCSynchronizer
 	PORT MAP(
@@ -192,9 +200,13 @@ begin
 		doutb => window_coeff
   );
 
+
  	process(clk_100)
 	begin
 		if rising_edge(clk_100) then
+			if adc_new = '1' then
+				LED3 <= not LED3;
+			end if;
 			if CS = '1' then
 				first <= '1';
 				mem_address <= "000000000000000";
@@ -212,21 +224,22 @@ begin
 								-- it is a write to the window memory
 								mem_in <= spi_out;
 								mem_write <= "1";
-							elsif mem_address = "000000000000000" then
-								-- write to the status word
-								fft_active <= spi_out(0);
-							elsif mem_address = "000000000000001" then
-								-- write window increment
-								window_inc <= spi_out;
-							elsif mem_address = "000000000000010" then
-								-- write number of points low word
-								fft_points <= fft_points(31 downto 16) & spi_out;
-							elsif mem_address = "000000000000011" then
-								-- write number of points high word
-								fft_points <= spi_out & fft_points(15 downto 0);
+							else
+								if mem_address = "000000000000000" then
+									-- write to the status word
+									fft_active <= spi_out(0);
+								elsif mem_address = "000000000000001" then
+									-- write window increment
+									window_inc <= spi_out;
+								elsif mem_address = "000000000000010" then
+									-- write number of points low word
+									fft_points <= fft_points(31 downto 16) & spi_out;
+								elsif mem_address = "000000000000011" then
+									-- write number of points high word
+									fft_points <= spi_out & fft_points(15 downto 0);
+								end if;
 							end if;
-						end if;
-						if mem_address(14) = '0' then
+						else
 							-- increment address immediately if not accessing block RAM
 							mem_address <= std_logic_vector(unsigned(mem_address) + 1);
 						end if;

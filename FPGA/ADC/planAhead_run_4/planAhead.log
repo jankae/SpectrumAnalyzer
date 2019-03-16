@@ -1,0 +1,26 @@
+#-----------------------------------------------------------
+# PlanAhead v14.6 (64-bit)
+# Build 269223 by xbuild on Wed Jun  5 11:07:37 MDT 2013
+# Start of session at: Sat Mar 16 15:36:56 2019
+# Process ID: 15801
+# Log file: /home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_4/planAhead.log
+# Journal file: /home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_4/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.6/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source /home/jan/Projekte/RFStuff/FPGA/ADC/pa.fromNetlist.tcl
+# create_project -name ADC -dir "/home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_5" -part xc6slx9tqg144-3
+ERROR: [Common 17-53] User Exception: Project already exists on disk, please use '-force' option to overwrite: 
+     /home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_5/ADC.ppr
+     /home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_5/ADC.data
+
+    while executing
+"create_project -name ADC -dir "/home/jan/Projekte/RFStuff/FPGA/ADC/planAhead_run_5" -part xc6slx9tqg144-3"
+    (file "/home/jan/Projekte/RFStuff/FPGA/ADC/pa.fromNetlist.tcl" line 4)
+exit
+INFO: [Common 17-206] Exiting PlanAhead at Sat Mar 16 15:37:10 2019...
+INFO: [Common 17-83] Releasing license: PlanAhead

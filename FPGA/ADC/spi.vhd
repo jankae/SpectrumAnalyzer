@@ -46,16 +46,20 @@ architecture Behavioral of spi_slave is
 	signal mosi_buffer : STD_LOGIC_VECTOR (W-1 downto 0);
 	signal next_complete : STD_LOGIC;
 	signal spiSR : STD_LOGIC_VECTOR (1 downto 0);
+	signal cs_sampled: STD_LOGIC_VECTOR (1 downto 0);
+	signal mosi_sampled: STD_LOGIC_VECTOR (1 downto 0);
 begin
 
-	MISO <= 'Z' when CS = '1' else
-				miso_buffer(W-1) when CS = '0';
+	MISO <= 'Z' when cs_sampled(1) = '1' else
+				miso_buffer(W-1) when cs_sampled(1) = '0';
 
 	process(CLK)
 	begin
 		if rising_edge(CLK) then
-			spiSR <= spiSR(0) & SPI_CLK;
-			if CS = '1' then
+			cs_sampled <= cs_sampled(0) & CS;
+			mosi_sampled <= mosi_sampled(0) & MOSI;
+			spiSR <= spiSR(0 downto 0) & SPI_CLK;
+			if cs_sampled(1) = '1' then
 				-- reset state machine
 				miso_buffer <= BUF_IN;
 				mosi_buffer <= (W-1 downto 1 => '0') & '1';
@@ -70,10 +74,10 @@ begin
 					if mosi_buffer(W-1) = '1' then
 						-- this was the last bit
 						next_complete <= '1';
-						BUF_OUT <= mosi_buffer(W-2 downto 0) & MOSI;
+						BUF_OUT <= mosi_buffer(W-2 downto 0) & mosi_sampled(1);
 						mosi_buffer <= (W-1 downto 1 => '0') & '1';
 					else
-						mosi_buffer <= mosi_buffer(W-2 downto 0) & MOSI;
+						mosi_buffer <= mosi_buffer(W-2 downto 0) & mosi_sampled(1);
 					end if;
 				end if;
 				if spiSR = "10" then

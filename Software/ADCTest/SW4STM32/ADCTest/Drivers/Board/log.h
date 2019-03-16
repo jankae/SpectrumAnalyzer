@@ -40,6 +40,7 @@
 #define Log_TLS			(LevelAll)
 #define Log_MAX30100	(LevelAll)
 #define Log_MCP9808		(LevelAll)
+#define Log_FFT			(LevelAll)
 
 // if LevelDebug is omitted from this mask,
 // debug message will not be logged regardless

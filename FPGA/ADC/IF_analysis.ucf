@@ -1,8 +1,14 @@
 
 # PlanAhead Generated physical constraints 
 
-NET "ADC_CLK" LOC = P45;
 NET "CLK" LOC = P56;
+NET "CLK"        TNM_NET = CLOCK_50;
+TIMESPEC         TS_CLOCK_50 = PERIOD "CLOCK_50" 20ns HIGH 50 %;
+NET "clk_100"        TNM_NET = CLOCK_100;
+TIMESPEC         TS_CLOCK_100 = PERIOD "CLOCK_100" 10ns HIGH 50 %;
+NET "SPI_CLK" CLOCK_DEDICATED_ROUTE = FALSE;
+
+NET "ADC_CLK" LOC = P45;
 NET "ADC_IN[0]" LOC = P46;
 NET "ADC_IN[1]" LOC = P43;
 NET "ADC_IN[2]" LOC = P44;
@@ -21,6 +27,11 @@ NET "SPI_CLK" LOC = P57;
 NET "MOSI" LOC = P58;
 NET "MISO" LOC = P50;
 NET "CS" LOC = P51;
+
+NET "LED1" LOC = P95;
+NET "LED2" LOC = P94;
+NET "LED3" LOC = P98;
+NET "LED4" LOC = P97;
 
 # PlanAhead Generated IO constraints 
 

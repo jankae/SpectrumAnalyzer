@@ -1,6 +1,6 @@
 iMPACT Version: Jun  8 2013 12:13:20
 
-iMPACT log file Started on Sat Mar  9 18:38:18 2019
+iMPACT log file Started on Sat Mar 16 16:10:51 2019
 
 Preference Table
 Name                 Setting             
@@ -50,7 +50,7 @@ PLD file version = 0012h.
  PLD version = 0012h.
 Type = 0x0004.
 ESN option: 000018FF39A301.
-'1': Loading file 'spi_mem.bit' ...
+'1': Loading file 'IF_analysis.bit' ...
 done.
 INFO:iMPACT:1777 - 
    Reading /opt/Xilinx/14.6/ISE_DS/ISE/spartan6/data/xc6slx9.bsd...
@@ -116,4 +116,4 @@ INFO:iMPACT:188 - '1': Programming completed successfully.
 LCK cycle: NoWait
 INFO:iMPACT - '1': Checking done pin....done.
 '1': Programmed successfully.
-Elapsed time =      0 sec.
+Elapsed time =      1 sec.

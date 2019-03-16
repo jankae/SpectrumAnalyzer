@@ -156,17 +156,9 @@ begin
 
   -- Output buffering
   -------------------------------------
-  clkf_buf : BUFG
-  port map
-   (O => clkfb,
-    I => clk0);
+  clkfb <= clk0;
 
 
-  clkout1_buf : BUFG
-  port map
-   (O   => CLK_OUT1,
-    I   => clkfx);
-
-
+  CLK_OUT1 <= clkfx;
 
 end xilinx;

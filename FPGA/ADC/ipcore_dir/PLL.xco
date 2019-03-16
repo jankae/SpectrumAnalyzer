@@ -1,7 +1,7 @@
 ##############################################################
 #
 # Xilinx Core Generator version 14.6
-# Date: Tue Mar 12 18:46:07 2019
+# Date: Sat Mar 16 15:09:35 2019
 #
 ##############################################################
 #
@@ -68,7 +68,7 @@ CSET clkin1_jitter_ps=208.33
 CSET clkin1_ui_jitter=0.010
 CSET clkin2_jitter_ps=100.0
 CSET clkin2_ui_jitter=0.010
-CSET clkout1_drives=BUFG
+CSET clkout1_drives=No_buffer
 CSET clkout1_requested_duty_cycle=50.000
 CSET clkout1_requested_out_freq=100.000
 CSET clkout1_requested_phase=0.000
@@ -197,9 +197,9 @@ CSET override_pll=false
 CSET platform=lin64
 CSET pll_bandwidth=OPTIMIZED
 CSET pll_clk_feedback=CLKFBOUT
-CSET pll_clkfbout_mult=4
+CSET pll_clkfbout_mult=25
 CSET pll_clkfbout_phase=0.000
-CSET pll_clkin_period=10.000
+CSET pll_clkin_period=20.833
 CSET pll_clkout0_divide=1
 CSET pll_clkout0_duty_cycle=0.500
 CSET pll_clkout0_phase=0.000
@@ -219,7 +219,7 @@ CSET pll_clkout5_divide=1
 CSET pll_clkout5_duty_cycle=0.500
 CSET pll_clkout5_phase=0.000
 CSET pll_compensation=SYSTEM_SYNCHRONOUS
-CSET pll_divclk_divide=1
+CSET pll_divclk_divide=2
 CSET pll_notes=None
 CSET pll_ref_jitter=0.010
 CSET power_down_port=POWER_DOWN
@@ -266,4 +266,4 @@ CSET use_status=false
 MISC pkg_timestamp=2012-05-10T12:44:55Z
 # END Extra information
 GENERATE
-# CRC: c9c3ea03
+# CRC: b85e3212
