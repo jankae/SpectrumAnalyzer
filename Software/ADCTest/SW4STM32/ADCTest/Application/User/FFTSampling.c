@@ -17,7 +17,7 @@ static uint16_t programmed_window_points = 0;
 static float window_ampl_corr[FFT_WINDOW_MAX] = {
 		1.0f,
 		2.0f,
-		1.85f,
+		1.84f,
 		4.638f,
 };
 
@@ -36,7 +36,6 @@ static uint16_t read16(uint16_t address) {
 	uint16_t send[2] = { address & 0x7FFF, 0 };
 	uint16_t rec[2];
 	HAL_SPI_TransmitReceive(&hspi1, (uint8_t*) send, (uint8_t*) rec, 2, 10);
-	HAL_Delay(2);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
 //	LOG(Log_FFT, LevelDebug, "Read 0x%04x from 0x%04x", rec[1], address);
 	return rec[1];
@@ -45,7 +44,6 @@ static void write16(uint16_t address, uint16_t val) {
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
 	uint16_t send[2] = { address | 0x8000, val };
 	HAL_SPI_Transmit(&hspi1, (uint8_t*) send, 2, 10);
-	HAL_Delay(2);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
 //	LOG(Log_FFT, LevelDebug, "Write 0x%04x to 0x%04x", val, address);
 }
@@ -54,37 +52,33 @@ static uint32_t read32(uint16_t address) {
 	uint16_t send[3] = { address & 0x7FFF, 0, 0 };
 	uint16_t rec[3];
 	HAL_SPI_TransmitReceive(&hspi1, (uint8_t*) send, (uint8_t*) rec, 3, 10);
-	HAL_Delay(2);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-	LOG(Log_FFT, LevelDebug, "Read 0x%08x from 0x%04x", rec[2] << 16 | rec[1], address);
+//	LOG(Log_FFT, LevelDebug, "Read 0x%08x from 0x%04x", rec[2] << 16 | rec[1], address);
 	return rec[2] << 16 | rec[1];
 }
 static void write32(uint16_t address, uint32_t val) {
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
 	uint16_t send[3] = { address | 0x8000, val & 0xFFFF, val >> 16 };
 	HAL_SPI_Transmit(&hspi1, (uint8_t*) send, 3, 10);
-	HAL_Delay(2);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-	LOG(Log_FFT, LevelDebug, "Write 0x%08x to 0x%04x", val, address);
+//	LOG(Log_FFT, LevelDebug, "Write 0x%08x to 0x%04x", val, address);
 }
 static uint64_t read64(uint16_t address) {
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
 	uint16_t send[5] = { address & 0x7FFF, 0, 0, 0, 0 };
 	uint16_t rec[5];
 	HAL_SPI_TransmitReceive(&hspi1, (uint8_t*) send, (uint8_t*) rec, 5, 10);
-	HAL_Delay(2);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
 	uint64_t res;
 	memcpy((uint8_t*) &res, (uint8_t*) &rec[1], 8);
 	return res;
 }
 static void write64(uint16_t address, uint64_t val) {
-//	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
 	uint16_t send[5] = { address | 0x8000, val & 0xFFFF, (val >> 16) & 0xFFFF,
 			(val >> 32) & 0xFFFF, val >> 48 };
 	HAL_SPI_Transmit(&hspi1, (uint8_t*) send, 5, 10);
-	HAL_Delay(2);
-//	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
 }
 static int16_t get_window_point(uint16_t index, uint16_t npoints,
 		fft_window_t window) {
@@ -122,8 +116,15 @@ static void program_window(uint16_t points, fft_window_t window) {
 		return;
 	}
 
-	for(uint16_t i=0;i<points;i++) {
-		write16(WINDOW_BASE_ADDR + i, get_window_point(i, points, window));
+	for (uint16_t i = 0; i < points / 2; i++) {
+		int32_t value = get_window_point(i, points, window);
+		write16(WINDOW_BASE_ADDR + i, value);
+		write16(WINDOW_BASE_ADDR + points - 1 - i, value);
+	}
+	if (points & 0x01) {
+		// odd number of points, write missing middle point
+		write16(WINDOW_BASE_ADDR + points / 2,
+				get_window_point(points / 2, points, window));
 	}
 
 	programmed_window_points = points;
@@ -135,7 +136,10 @@ uint32_t FFT_take_sample(uint32_t points, fft_window_t window, uint32_t dummyFre
 	uint16_t window_points = (points + div - 1) / div;
 
 	// stop any ongoing operation
-	write16(0x00, 0x00);
+//	while (1) {
+		write16(0x00, 0x00);
+//		vTaskDelay(100);
+//	}
 
 	LOG(Log_FFT, LevelDebug, "Window pts: %u, per FFT pt: %u", window_points, div);
 
