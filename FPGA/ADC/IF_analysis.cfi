@@ -1,0 +1,11 @@
+# PROMGEN: Xilinx Prom Generator P.68d
+# Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+SOFTWARE_VERSION P.68d
+DATE             3/17/2019 - 12:25
+SOURCE          /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.mcs
+DEVICE          4096K
+DATA_WIDTH      1
+FILL_DATA       0xFF
+SIGNATURE       0x3AE5D69B
+START_ADDRESS   0x00000000 END_ADDRESS 0x00053393 DIRECTION_UP   "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.bit" 6slx9tqg144

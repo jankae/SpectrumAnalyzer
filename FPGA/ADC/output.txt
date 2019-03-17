@@ -1,0 +1,8 @@
+Storage Target: SPI Flash Single FPGA
+32M
+FF
+IF_analysis
+/home/jan/Projekte/RFStuff/FPGA/ADC
+
+MCS
+No
