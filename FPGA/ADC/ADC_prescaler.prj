@@ -1,0 +1,3 @@
+vhdl work "ipcore_dir/PLL.vhd"
+vhdl work "ADCSynchronizer.vhd"
+vhdl work "ADC_prescaler.vhd"

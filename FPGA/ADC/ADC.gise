@@ -24,6 +24,44 @@
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ADCSync_test_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_VHDL_INSTTEMPLATE" xil_pn:name="ADCSynchronizer.vhi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="ADC_prescaler.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="ADC_prescaler.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="ADC_prescaler.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="ADC_prescaler.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="ADC_prescaler.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="ADC_prescaler.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="ADC_prescaler.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="ADC_prescaler.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="ADC_prescaler.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="ADC_prescaler.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="ADC_prescaler.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="ADC_prescaler.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="ADC_prescaler.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ADC_prescaler.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="ADC_prescaler.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="ADC_prescaler.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="ADC_prescaler.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="ADC_prescaler.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="ADC_prescaler.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="ADC_prescaler.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="ADC_prescaler.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="ADC_prescaler.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="ADC_prescaler.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="ADC_prescaler_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="ADC_prescaler_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="ADC_prescaler_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="ADC_prescaler_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="ADC_prescaler_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="ADC_prescaler_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ADC_prescaler_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ADC_prescaler_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="ADC_prescaler_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="ADC_prescaler_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ADC_prescaler_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="ADC_prescaler_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="ADC_prescaler_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="ADC_prescaler_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="ADC_prescaler_xst.xrpt"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="FFT_test_isim_beh.exe"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="IF_analysis.bgn" xil_pn:subbranch="FPGAConfiguration"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="IF_analysis.bit" xil_pn:subbranch="FPGAConfiguration"/>
@@ -57,7 +95,6 @@
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="IF_analysis_map.ncd" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="IF_analysis_map.ngm" xil_pn:subbranch="Map"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="IF_analysis_map.xrpt"/>
-    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="IF_analysis_ngdbuild.xrpt"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="IF_analysis_pad.csv" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="IF_analysis_pad.txt" xil_pn:subbranch="Par"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="IF_analysis_par.xrpt"/>
@@ -229,6 +266,7 @@
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="ADCSync_test.vhd"/>
@@ -255,6 +293,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
@@ -318,11 +357,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1552418812" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-5467784714244852173" xil_pn:start_ts="1552418812">
+    <transform xil_pn:end_ts="1553106469" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="5171962668282212681" xil_pn:start_ts="1553106469">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1552774517" xil_pn:in_ck="-4230811944875582198" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-2874135627497644189" xil_pn:start_ts="1552774516">
+    <transform xil_pn:end_ts="1553106469" xil_pn:in_ck="-4230811944875582198" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-4507420585006565383" xil_pn:start_ts="1553106469">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="ipcore_dir/PLL.vhd"/>
@@ -331,108 +370,109 @@
       <outfile xil_pn:name="ipcore_dir/spi.ngc"/>
       <outfile xil_pn:name="ipcore_dir/spi.vhd"/>
     </transform>
-    <transform xil_pn:end_ts="1552418812" xil_pn:in_ck="8789916340119493318" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1552418812">
+    <transform xil_pn:end_ts="1553106469" xil_pn:in_ck="8789916340119493318" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1553106469">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1552418812" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="-4008026848350610315" xil_pn:start_ts="1552418812">
+    <transform xil_pn:end_ts="1553106469" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="8428288288090157067" xil_pn:start_ts="1553106469">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1552419429" xil_pn:in_ck="8789916340119493318" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745955965653" xil_pn:start_ts="1552419429">
+    <transform xil_pn:end_ts="1553106469" xil_pn:in_ck="8789916340119493318" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="250970745955965653" xil_pn:start_ts="1553106469">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1552419429" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="8140731371666821229" xil_pn:start_ts="1552419429">
+    <transform xil_pn:end_ts="1553106469" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="299093593887724419" xil_pn:start_ts="1553106469">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1552774527" xil_pn:in_ck="-7137663222426704941" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="6278805329254215292" xil_pn:start_ts="1552774517">
+    <transform xil_pn:end_ts="1553107057" xil_pn:in_ck="1169729614627606827" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="4689701176840711314" xil_pn:start_ts="1553107050">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="IF_analysis.lso"/>
-      <outfile xil_pn:name="IF_analysis.ngc"/>
-      <outfile xil_pn:name="IF_analysis.ngr"/>
-      <outfile xil_pn:name="IF_analysis.prj"/>
-      <outfile xil_pn:name="IF_analysis.stx"/>
-      <outfile xil_pn:name="IF_analysis.syr"/>
-      <outfile xil_pn:name="IF_analysis.xst"/>
-      <outfile xil_pn:name="IF_analysis_test_beh.prj"/>
-      <outfile xil_pn:name="IF_analysis_xst.xrpt"/>
+      <outfile xil_pn:name="ADC_prescaler.lso"/>
+      <outfile xil_pn:name="ADC_prescaler.ngc"/>
+      <outfile xil_pn:name="ADC_prescaler.ngr"/>
+      <outfile xil_pn:name="ADC_prescaler.prj"/>
+      <outfile xil_pn:name="ADC_prescaler.stx"/>
+      <outfile xil_pn:name="ADC_prescaler.syr"/>
+      <outfile xil_pn:name="ADC_prescaler.xst"/>
+      <outfile xil_pn:name="ADC_prescaler_xst.xrpt"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1552761916" xil_pn:in_ck="4114112330721799937" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-5822824070625672438" xil_pn:start_ts="1552761916">
+    <transform xil_pn:end_ts="1553106536" xil_pn:in_ck="-2758960470338617257" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-7116848548458898976" xil_pn:start_ts="1553106536">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1552774532" xil_pn:in_ck="3711373726952707784" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="3433360422535557166" xil_pn:start_ts="1552774527">
+    <transform xil_pn:end_ts="1553107061" xil_pn:in_ck="-4046419071587261812" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-491094633906519356" xil_pn:start_ts="1553107057">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="IF_analysis.bld"/>
-      <outfile xil_pn:name="IF_analysis.ngd"/>
-      <outfile xil_pn:name="IF_analysis_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="ADC_prescaler.bld"/>
+      <outfile xil_pn:name="ADC_prescaler.ngd"/>
+      <outfile xil_pn:name="ADC_prescaler_ngdbuild.xrpt"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1552774545" xil_pn:in_ck="-269217727495750841" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="6093601622908603872" xil_pn:start_ts="1552774532">
+    <transform xil_pn:end_ts="1553107068" xil_pn:in_ck="-2748275398280301620" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="6093601622908603872" xil_pn:start_ts="1553107061">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="IF_analysis.pcf"/>
-      <outfile xil_pn:name="IF_analysis_map.map"/>
-      <outfile xil_pn:name="IF_analysis_map.mrp"/>
-      <outfile xil_pn:name="IF_analysis_map.ncd"/>
-      <outfile xil_pn:name="IF_analysis_map.ngm"/>
-      <outfile xil_pn:name="IF_analysis_map.xrpt"/>
-      <outfile xil_pn:name="IF_analysis_summary.xml"/>
-      <outfile xil_pn:name="IF_analysis_usage.xml"/>
+      <outfile xil_pn:name="ADC_prescaler.pcf"/>
+      <outfile xil_pn:name="ADC_prescaler_map.map"/>
+      <outfile xil_pn:name="ADC_prescaler_map.mrp"/>
+      <outfile xil_pn:name="ADC_prescaler_map.ncd"/>
+      <outfile xil_pn:name="ADC_prescaler_map.ngm"/>
+      <outfile xil_pn:name="ADC_prescaler_map.xrpt"/>
+      <outfile xil_pn:name="ADC_prescaler_summary.xml"/>
+      <outfile xil_pn:name="ADC_prescaler_usage.xml"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
     </transform>
-    <transform xil_pn:end_ts="1552774559" xil_pn:in_ck="4505268066035906507" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1552774545">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="IF_analysis.ncd"/>
-      <outfile xil_pn:name="IF_analysis.pad"/>
-      <outfile xil_pn:name="IF_analysis.par"/>
-      <outfile xil_pn:name="IF_analysis.ptwx"/>
-      <outfile xil_pn:name="IF_analysis.unroutes"/>
-      <outfile xil_pn:name="IF_analysis.xpi"/>
-      <outfile xil_pn:name="IF_analysis_pad.csv"/>
-      <outfile xil_pn:name="IF_analysis_pad.txt"/>
-      <outfile xil_pn:name="IF_analysis_par.xrpt"/>
-      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
-    </transform>
-    <transform xil_pn:end_ts="1552774568" xil_pn:in_ck="4867056637647461817" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1552774559">
+    <transform xil_pn:end_ts="1553107078" xil_pn:in_ck="-2031402530349001943" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="93661965788626211" xil_pn:start_ts="1553107068">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
-      <outfile xil_pn:name="IF_analysis.bgn"/>
-      <outfile xil_pn:name="IF_analysis.bit"/>
-      <outfile xil_pn:name="IF_analysis.drc"/>
-      <outfile xil_pn:name="IF_analysis.ut"/>
+      <outfile xil_pn:name="ADC_prescaler.ncd"/>
+      <outfile xil_pn:name="ADC_prescaler.pad"/>
+      <outfile xil_pn:name="ADC_prescaler.par"/>
+      <outfile xil_pn:name="ADC_prescaler.ptwx"/>
+      <outfile xil_pn:name="ADC_prescaler.unroutes"/>
+      <outfile xil_pn:name="ADC_prescaler.xpi"/>
+      <outfile xil_pn:name="ADC_prescaler_pad.csv"/>
+      <outfile xil_pn:name="ADC_prescaler_pad.txt"/>
+      <outfile xil_pn:name="ADC_prescaler_par.xrpt"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1553107085" xil_pn:in_ck="-3836487691520127324" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1553107078">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="ADC_prescaler.bgn"/>
+      <outfile xil_pn:name="ADC_prescaler.bit"/>
+      <outfile xil_pn:name="ADC_prescaler.drc"/>
+      <outfile xil_pn:name="ADC_prescaler.ut"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
       <outfile xil_pn:name="usage_statistics_webtalk.html"/>
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1552821592" xil_pn:in_ck="-4565380129871036831" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="-2494463129479421976" xil_pn:start_ts="1552821592">
+    <transform xil_pn:end_ts="1553106970" xil_pn:in_ck="-81624888916488426" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="-2494463129479421976" xil_pn:start_ts="1553106970">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_impact.cmd"/>
       <outfile xil_pn:name="_impact.log"/>
       <outfile xil_pn:name="_impactbatch.log"/>
       <outfile xil_pn:name="ise_impact.cmd"/>
     </transform>
-    <transform xil_pn:end_ts="1552818113" xil_pn:in_ck="-4565380129871036831" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="-8581695759631058577" xil_pn:start_ts="1552818113">
+    <transform xil_pn:end_ts="1553107085" xil_pn:in_ck="-81624888916488426" xil_pn:name="TRAN_configureTargetDevice" xil_pn:prop_ck="-8581695759631058577" xil_pn:start_ts="1553107085">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
@@ -442,20 +482,31 @@
       <outfile xil_pn:name="_impactbatch.log"/>
       <outfile xil_pn:name="ise_impact.cmd"/>
     </transform>
-    <transform xil_pn:end_ts="1552821650" xil_pn:in_ck="-4565380129871036831" xil_pn:name="TRAN_genImpactFile" xil_pn:prop_ck="-1390640313767767079" xil_pn:start_ts="1552821641">
+    <transform xil_pn:end_ts="1553106714" xil_pn:in_ck="5002087113662821111" xil_pn:name="TRAN_genImpactFile" xil_pn:prop_ck="-1390640313767767079" xil_pn:start_ts="1553106714">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_impact.cmd"/>
       <outfile xil_pn:name="_impact.log"/>
       <outfile xil_pn:name="_impactbatch.log"/>
       <outfile xil_pn:name="ise_impact.cmd"/>
     </transform>
-    <transform xil_pn:end_ts="1552774559" xil_pn:in_ck="7470051330050951863" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1552774554">
+    <transform xil_pn:end_ts="1553107078" xil_pn:in_ck="9096509746884414904" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416185" xil_pn:start_ts="1553107075">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="IF_analysis.twr"/>
-      <outfile xil_pn:name="IF_analysis.twx"/>
+      <outfile xil_pn:name="ADC_prescaler.twr"/>
+      <outfile xil_pn:name="ADC_prescaler.twx"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+    </transform>
+    <transform xil_pn:end_ts="1553106498" xil_pn:in_ck="435986037084183608" xil_pn:name="TRAN_createTimingConstraints" xil_pn:start_ts="1553106497">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
     </transform>
   </transforms>
 

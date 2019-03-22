@@ -1,0 +1,41 @@
+//! **************************************************************************
+// Written by: Map P.68d on Wed Mar 20 19:37:48 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "LED" LOCATE = SITE "P95" LEVEL 1;
+COMP "ADC_IN<0>" LOCATE = SITE "P46" LEVEL 1;
+COMP "ADC_IN<1>" LOCATE = SITE "P43" LEVEL 1;
+COMP "ADC_IN<2>" LOCATE = SITE "P44" LEVEL 1;
+COMP "ADC_IN<3>" LOCATE = SITE "P40" LEVEL 1;
+COMP "ADC_IN<4>" LOCATE = SITE "P41" LEVEL 1;
+COMP "ADC_IN<5>" LOCATE = SITE "P34" LEVEL 1;
+COMP "ADC_IN<6>" LOCATE = SITE "P35" LEVEL 1;
+COMP "ADC_IN<7>" LOCATE = SITE "P33" LEVEL 1;
+COMP "ADC_IN<8>" LOCATE = SITE "P30" LEVEL 1;
+COMP "ADC_IN<9>" LOCATE = SITE "P29" LEVEL 1;
+COMP "ADC_IN<10>" LOCATE = SITE "P32" LEVEL 1;
+COMP "ADC_IN<11>" LOCATE = SITE "P26" LEVEL 1;
+COMP "ADC_IN<12>" LOCATE = SITE "P27" LEVEL 1;
+COMP "ADC_IN<13>" LOCATE = SITE "P24" LEVEL 1;
+COMP "ADC_CLK" LOCATE = SITE "P45" LEVEL 1;
+COMP "CLK" LOCATE = SITE "P56" LEVEL 1;
+TIMEGRP CLOCK_100 = BEL "ADC_input/last_clk" BEL "clk_100_BUFG" BEL
+        "ADC_input/NEW_SAMPLE" BEL "led_buf" BEL "counter_0" BEL "counter_1"
+        BEL "counter_2" BEL "counter_3" BEL "counter_4" BEL
+        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk";
+TIMEGRP clk_100 = BEL "ADC_input/last_clk" BEL "clk_100_BUFG" BEL
+        "ADC_input/NEW_SAMPLE" BEL "led_buf" BEL "counter_0" BEL "counter_1"
+        BEL "counter_2" BEL "counter_3" BEL "counter_4" BEL
+        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk";
+PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
+        PINNAME DIVCLK;
+PIN your_instance_name/dcm_sp_inst_pins<3> = BEL
+        "your_instance_name/dcm_sp_inst" PINNAME CLKIN;
+TIMEGRP CLOCK_50 = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
+        "your_instance_name/dcm_sp_inst_pins<3>";
+TS_CLOCK_50 = PERIOD TIMEGRP "CLOCK_50" 20 ns HIGH 50%;
+TS_CLOCK_100 = PERIOD TIMEGRP "CLOCK_100" 10 ns HIGH 50%;
+TS_clk_100 = PERIOD TIMEGRP "clk_100" TS_CLOCK_50 / 1.25 HIGH 50%;
+SCHEMATIC END;
+

@@ -5,25 +5,91 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="946" delta="old" >"/home/jan/Projekte/RFStuff/FPGA/ADC/SingleBinFFT.vhd" Line 73: Actual for formal port <arg fmt="%s" index="1">sclr</arg> is neither a static name nor a globally static expression
+<msg type="info" file="Xst" num="3210" delta="old" >&quot;<arg fmt="%s" index="1">/home/jan/Projekte/RFStuff/FPGA/ADC/ADC_prescaler.vhd</arg>&quot; line <arg fmt="%s" index="2">76</arg>: Output port &lt;<arg fmt="%s" index="3">DATA_OUT</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">ADC_input</arg>&gt; is unconnected or connected to loadless signal.
 </msg>
 
-<msg type="warning" file="Xst" num="737" delta="old" >Found <arg fmt="%d" index="1">1</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">PWR_14_o_cs_sampled[1]_DLATCH_2_q</arg>&gt;. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="737" delta="old" >Found <arg fmt="%d" index="1">1</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">miso_buffer[15]_cs_sampled[1]_DLATCH_1_q</arg>&gt;. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">FFT/WINDOW_ADDRESS_15</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">IF_analysis</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">FFT/WINDOW_ADDRESS_14</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">IF_analysis</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
 </msg>
 
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">FFT/WINDOW_ADDRESS_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">IF_analysis</arg>&gt;.
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
 </msg>
 
-<msg type="info" file="Xst" num="2169" delta="old" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/DATA_OUT_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_13</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_12</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_11</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_10</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_9</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_7</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_6</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_5</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_4</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">ADC_input/xfer_data_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">ADC_prescaler</arg>&gt;.
 </msg>
 
 </messages>

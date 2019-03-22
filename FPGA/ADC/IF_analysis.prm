@@ -1,9 +1,9 @@
 PROMGEN: Xilinx Prom Generator P.68d
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-promgen -w -p mcs -c FF -o /home/jan/Projekte/RFStuff/FPGA/ADC//IF_analysis -s 4096 -u 0000 /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.bit -spi 
+promgen -w -p mcs -c FF -o /home/jan/Projekte/RFStuff/FPGA/ADC//IF_analysis -s 4096 -u 0 IF_analysis.bit -spi 
 
-PROM /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.prm map: Sun Mar 17 12:25:53 2019
+PROM /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.prm map: Wed Mar 20 19:32:08 2019
 
 Calculating PROM checksum with fill value ff
 
@@ -14,4 +14,4 @@ PROM end      003f:ffff
 PROM checksum 3ae5d69b
 
         Addr1        Addr2                     Date File(s)
-    0000:0000    0005:3393     Mar 16 23:16:07 2019 /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.bit
+    0000:0000    0005:3393     Mar 16 23:16:07 2019 IF_analysis.bit

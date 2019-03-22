@@ -1,0 +1,48 @@
+Release 14.6 ngdbuild P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: /opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
+ise -dd _ngo -sd ipcore_dir -nt timestamp -uc ADC_prescaler.ucf -p
+xc6slx9-tqg144-3 ADC_prescaler.ngc ADC_prescaler.ngd
+
+Reading NGO file "/home/jan/Projekte/RFStuff/FPGA/ADC/ADC_prescaler.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "ADC_prescaler.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'CLOCK_50', used in period specification
+   'TS_CLOCK_50', was traced into DCM_SP instance
+   your_instance_name/dcm_sp_inst. The following new TNM groups and period
+   specifications were generated at the DCM_SP output(s): 
+   CLKFX: <TIMESPEC TS_clk_100 = PERIOD "clk_100" TS_CLOCK_50 / 1.25 HIGH 50%>
+
+Done...
+
+WARNING:NgdBuild:1212 - User specified non-default attribute value (20.833) was
+   detected for the CLKIN_PERIOD attribute on DCM
+   "your_instance_name/dcm_sp_inst".  This does not match the PERIOD constraint
+   value (20 ns.).  The uncertainty calculation will use the non-default
+   attribute value.  This could result in incorrect uncertainty calculated for
+   DCM output clocks.
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   1
+
+Total memory usage is 412160 kilobytes
+
+Writing NGD file "ADC_prescaler.ngd" ...
+Total REAL time to NGDBUILD completion:  2 sec
+Total CPU time to NGDBUILD completion:   2 sec
+
+Writing NGDBUILD log file "ADC_prescaler.bld"...
