@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/jan/Projekte/RFStuff/FPGA/SPI/top.ncd
+OUTFILE=/home/jan/Projekte/RFStuff/FPGA/SPI/top.bit
+FAMILY=Spartan6
+PART=xc6slx9-3tqg144
+WORKINGDIR=/home/jan/Projekte/RFStuff/FPGA/SPI
+LICENSE=WebPack
+USER_INFO=211694844_0_0_311

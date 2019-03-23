@@ -1,0 +1,1 @@
+vhdtdtfi -prj SPI -o /home/jan/Projekte/RFStuff/FPGA/SPI/spi_slave.vhi -module spi_slave -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work spi.vhd 

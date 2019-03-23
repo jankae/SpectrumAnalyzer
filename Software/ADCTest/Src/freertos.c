@@ -54,6 +54,7 @@
 /* USER CODE BEGIN Includes */     
 #include "log.h"
 #include "stm.h"
+#include "FFTSampling.h"
 #include "DummyData.h"
 /* USER CODE END Includes */
 
@@ -103,23 +104,7 @@ void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 //	HAL_GPIO_WritePin(SPI_CLK_GPIO_Port, SPI_CLK_Pin,
 //							GPIO_PIN_RESET);
 //}
-static void writeSPI(uint16_t address, uint16_t value) {
-	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
-	uint16_t send[2] = {0x8000 | address, value};
-//	HAL_SPI_Transmit(&hspi1, &send[0], 1, 10);
-	HAL_SPI_Transmit(&hspi1, send, 2, 10);
-	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-}
-static uint16_t readSPI(uint16_t address) {
-	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
-	uint16_t send[2] = {address & 0x7FFF, 0};
-	uint16_t rec[2];
-//	SPI_Transmit(send, rec, 2);
-	HAL_SPI_TransmitReceive(&hspi1, send, rec, 2, 10);
-//	HAL_SPI_TransmitReceive(&hspi1, &send[1], &rec[1], 1, 10);
-	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-	return rec[1];
-}
+
 /* USER CODE END FunctionPrototypes */
 
 /* GetIdleTaskMemory prototype (linked to static allocation support) */
@@ -192,8 +177,36 @@ void StartDefaultTask(void const * argument)
 	LOG(Log_System, LevelInfo, "Start");
 
 	log_flush();
+
+//#define FREQ				6250000
+//	for (uint32_t i = 490; i < 510; i++) {
+//		uint32_t res = FFT_take_sample(i, FFT_WINDOW_RECTANGLE,
+//		FREQ);
+//		LOG(Log_App, LevelInfo, "Points: %lu, Res: %lu", i, res);
+//	}
+	while (1) {
+		for (uint16_t i = 0; i < UINT16_MAX; i++) {
+			HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
+//			vTaskDelay(5);
+			HAL_SPI_Transmit(&hspi1, (uint8_t*) &i, 1, 10);
+//			vTaskDelay(5);
+			HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
+			vTaskDelay(100);
+		}
+	}
+
+#define POINTS 				15000
+#define FREQ_OFFSET			((25000000/POINTS)/2)
+	for (uint8_t j = 0; j < FFT_WINDOW_MAX; j++) {
+		LOG(Log_App, LevelInfo, "Window: %d", j);
+		for (int32_t i = -5; i <= 5; i++) {
+			uint32_t res = FFT_take_sample(POINTS, j,
+					6250000 + i * FREQ_OFFSET);
+			LOG(Log_App, LevelInfo, "Freq: %lu, Res: %lu", 6250000 + i * FREQ_OFFSET, res);
+		}
+	}
 	while(1) {
-		fft_spi_mem_test();
+//		FFT_take_sample(4, FFT_WINDOW_RECTANGLE, 10000000);
 		vTaskDelay(1000);
 	}
 	generate_dummy_data(10000000, 4000, 250000, 0);

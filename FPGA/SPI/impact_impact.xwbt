@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/jan/Projekte/RFStuff/FPGA/SPI/impact.xsl
+OUTFILE=/home/jan/Projekte/RFStuff/FPGA/SPI/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/jan/Projekte/RFStuff/FPGA/SPI
+LICENSE=iMPACT
+USER_INFO=iMPACT

@@ -1,0 +1,3 @@
+vhdl work "spi.vhd"
+vhdl work "display.vhd"
+vhdl work "top.vhd"

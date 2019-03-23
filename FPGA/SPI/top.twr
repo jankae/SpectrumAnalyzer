@@ -1,0 +1,292 @@
+--------------------------------------------------------------------------------
+Release 14.6 Trace  (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -s 3 -n
+3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf -ucf top.ucf
+
+Design file:              top.ncd
+Physical constraint file: top.pcf
+Device,package,speed:     xc6slx9,tqg144,C,-3 (PRODUCTION 1.23 2013-06-08)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_CLOCK_SPI = PERIOD TIMEGRP "CLOCK_SPI" 10 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 144 paths analyzed, 142 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   5.216ns.
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_spi_slave/mosi_buffer_12 (SLICE_X15Y23.A4), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     2.392ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_spi_slave/bit_cnt_15_1 (FF)
+  Destination:          Inst_spi_slave/mosi_buffer_12 (FF)
+  Requirement:          5.000ns
+  Data Path Delay:      2.485ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.088ns (0.505 - 0.593)
+  Source Clock:         SPI_CLK_BUFGP rising at 0.000ns
+  Destination Clock:    SPI_CLK_BUFGP falling at 5.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_spi_slave/bit_cnt_15_1 to Inst_spi_slave/mosi_buffer_12
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y11.AQ      Tcko                  0.391   Inst_spi_slave/bit_cnt_15_1
+                                                       Inst_spi_slave/bit_cnt_15_1
+    SLICE_X15Y23.A4      net (fanout=20)       1.772   Inst_spi_slave/bit_cnt_15_1
+    SLICE_X15Y23.CLK     Tas                   0.322   Inst_spi_slave/mosi_buffer<14>
+                                                       Inst_spi_slave/mosi_buffer_12_rstpot
+                                                       Inst_spi_slave/mosi_buffer_12
+    -------------------------------------------------  ---------------------------
+    Total                                      2.485ns (0.713ns logic, 1.772ns route)
+                                                       (28.7% logic, 71.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_spi_slave/mosi_buffer_10 (SLICE_X12Y22.C4), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     2.438ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_spi_slave/bit_cnt_15_1 (FF)
+  Destination:          Inst_spi_slave/mosi_buffer_10 (FF)
+  Requirement:          5.000ns
+  Data Path Delay:      2.440ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.087ns (0.506 - 0.593)
+  Source Clock:         SPI_CLK_BUFGP rising at 0.000ns
+  Destination Clock:    SPI_CLK_BUFGP falling at 5.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_spi_slave/bit_cnt_15_1 to Inst_spi_slave/mosi_buffer_10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y11.AQ      Tcko                  0.391   Inst_spi_slave/bit_cnt_15_1
+                                                       Inst_spi_slave/bit_cnt_15_1
+    SLICE_X12Y22.C4      net (fanout=20)       1.760   Inst_spi_slave/bit_cnt_15_1
+    SLICE_X12Y22.CLK     Tas                   0.289   Inst_spi_slave/mosi_buffer<11>
+                                                       Inst_spi_slave/mosi_buffer_10_rstpot
+                                                       Inst_spi_slave/mosi_buffer_10
+    -------------------------------------------------  ---------------------------
+    Total                                      2.440ns (0.680ns logic, 1.760ns route)
+                                                       (27.9% logic, 72.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_spi_slave/mosi_buffer_13 (SLICE_X15Y23.B5), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     2.474ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               Inst_spi_slave/bit_cnt_15_1 (FF)
+  Destination:          Inst_spi_slave/mosi_buffer_13 (FF)
+  Requirement:          5.000ns
+  Data Path Delay:      2.403ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.088ns (0.505 - 0.593)
+  Source Clock:         SPI_CLK_BUFGP rising at 0.000ns
+  Destination Clock:    SPI_CLK_BUFGP falling at 5.000ns
+  Clock Uncertainty:    0.035ns
+
+  Clock Uncertainty:          0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Total Input Jitter (TIJ):   0.000ns
+    Discrete Jitter (DJ):       0.000ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: Inst_spi_slave/bit_cnt_15_1 to Inst_spi_slave/mosi_buffer_13
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y11.AQ      Tcko                  0.391   Inst_spi_slave/bit_cnt_15_1
+                                                       Inst_spi_slave/bit_cnt_15_1
+    SLICE_X15Y23.B5      net (fanout=20)       1.690   Inst_spi_slave/bit_cnt_15_1
+    SLICE_X15Y23.CLK     Tas                   0.322   Inst_spi_slave/mosi_buffer<14>
+                                                       Inst_spi_slave/mosi_buffer_13_rstpot
+                                                       Inst_spi_slave/mosi_buffer_13
+    -------------------------------------------------  ---------------------------
+    Total                                      2.403ns (0.713ns logic, 1.690ns route)
+                                                       (29.7% logic, 70.3% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: TS_CLOCK_SPI = PERIOD TIMEGRP "CLOCK_SPI" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_spi_slave/bit_cnt_13 (SLICE_X14Y11.B5), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.391ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_spi_slave/bit_cnt_12 (FF)
+  Destination:          Inst_spi_slave/bit_cnt_13 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.391ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SPI_CLK_BUFGP rising at 10.000ns
+  Destination Clock:    SPI_CLK_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Inst_spi_slave/bit_cnt_12 to Inst_spi_slave/bit_cnt_13
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X14Y11.BQ      Tcko                  0.200   Inst_spi_slave/bit_cnt<15>
+                                                       Inst_spi_slave/bit_cnt_12
+    SLICE_X14Y11.B5      net (fanout=1)        0.070   Inst_spi_slave/bit_cnt<12>
+    SLICE_X14Y11.CLK     Tah         (-Th)    -0.121   Inst_spi_slave/bit_cnt<15>
+                                                       Inst_spi_slave/Mmux_bit_cnt[14]_GND_7_o_mux_7_OUT51
+                                                       Inst_spi_slave/bit_cnt_13
+    -------------------------------------------------  ---------------------------
+    Total                                      0.391ns (0.321ns logic, 0.070ns route)
+                                                       (82.1% logic, 17.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_spi_slave/RISING_TOGGLE (SLICE_X22Y35.D6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.416ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_spi_slave/RISING_TOGGLE (FF)
+  Destination:          Inst_spi_slave/RISING_TOGGLE (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.416ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SPI_CLK_BUFGP rising at 10.000ns
+  Destination Clock:    SPI_CLK_BUFGP rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Inst_spi_slave/RISING_TOGGLE to Inst_spi_slave/RISING_TOGGLE
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X22Y35.DQ      Tcko                  0.200   Inst_spi_slave/RISING_TOGGLE
+                                                       Inst_spi_slave/RISING_TOGGLE
+    SLICE_X22Y35.D6      net (fanout=2)        0.026   Inst_spi_slave/RISING_TOGGLE
+    SLICE_X22Y35.CLK     Tah         (-Th)    -0.190   Inst_spi_slave/RISING_TOGGLE
+                                                       Inst_spi_slave/RISING_TOGGLE_rstpot
+                                                       Inst_spi_slave/RISING_TOGGLE
+    -------------------------------------------------  ---------------------------
+    Total                                      0.416ns (0.390ns logic, 0.026ns route)
+                                                       (93.8% logic, 6.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point Inst_spi_slave/data_15 (SLICE_X14Y23.DX), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.426ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               Inst_spi_slave/mosi_buffer_14 (FF)
+  Destination:          Inst_spi_slave/data_15 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.428ns (Levels of Logic = 0)
+  Clock Path Skew:      0.002ns (0.031 - 0.029)
+  Source Clock:         SPI_CLK_BUFGP falling at 15.000ns
+  Destination Clock:    SPI_CLK_BUFGP falling at 15.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: Inst_spi_slave/mosi_buffer_14 to Inst_spi_slave/data_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X15Y23.CQ      Tcko                  0.198   Inst_spi_slave/mosi_buffer<14>
+                                                       Inst_spi_slave/mosi_buffer_14
+    SLICE_X14Y23.DX      net (fanout=2)        0.182   Inst_spi_slave/mosi_buffer<14>
+    SLICE_X14Y23.CLK     Tckdi       (-Th)    -0.048   Inst_spi_slave/data<15>
+                                                       Inst_spi_slave/data_15
+    -------------------------------------------------  ---------------------------
+    Total                                      0.428ns (0.246ns logic, 0.182ns route)
+                                                       (57.5% logic, 42.5% route)
+
+--------------------------------------------------------------------------------
+
+Component Switching Limit Checks: TS_CLOCK_SPI = PERIOD TIMEGRP "CLOCK_SPI" 10 ns HIGH 50%;
+--------------------------------------------------------------------------------
+Slack: 8.270ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.730ns (578.035MHz) (Tbcper_I)
+  Physical resource: SPI_CLK_BUFGP/BUFG/I0
+  Logical resource: SPI_CLK_BUFGP/BUFG/I0
+  Location pin: BUFGMUX_X2Y12.I0
+  Clock network: SPI_CLK_BUFGP/IBUFG
+--------------------------------------------------------------------------------
+Slack: 9.000ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 1.000ns (1000.000MHz) (Tcp)
+  Physical resource: Inst_spi_slave/data_synced_2/CLK
+  Logical resource: Inst_spi_slave/Mshreg_data_synced_2/CLK
+  Location pin: SLICE_X16Y22.CLK
+  Clock network: SPI_CLK_BUFGP
+--------------------------------------------------------------------------------
+Slack: 9.570ns (period - min period limit)
+  Period: 10.000ns
+  Min period limit: 0.430ns (2325.581MHz) (Tcp)
+  Physical resource: Inst_spi_slave/bit_cnt<8>/CLK
+  Logical resource: Inst_spi_slave/bit_cnt_3/CK
+  Location pin: SLICE_X14Y10.CLK
+  Clock network: SPI_CLK_BUFGP
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock SPI_CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+SPI_CLK        |    1.995|         |    2.608|    1.622|
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 144 paths, 0 nets, and 136 connections
+
+Design statistics:
+   Minimum period:   5.216ns{1}   (Maximum frequency: 191.718MHz)
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Fri Mar 22 22:22:56 2019 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 399 MB
+
+
+

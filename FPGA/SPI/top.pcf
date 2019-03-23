@@ -1,0 +1,63 @@
+//! **************************************************************************
+// Written by: Map P.68d on Fri Mar 22 22:22:46 2019
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "SEGMENTS<0>" LOCATE = SITE "P85" LEVEL 1;
+COMP "SEGMENTS<1>" LOCATE = SITE "P84" LEVEL 1;
+COMP "SEGMENTS<2>" LOCATE = SITE "P78" LEVEL 1;
+COMP "SEGMENTS<3>" LOCATE = SITE "P81" LEVEL 1;
+COMP "CS" LOCATE = SITE "P57" LEVEL 1;
+COMP "SEGMENTS<4>" LOCATE = SITE "P82" LEVEL 1;
+COMP "SEGMENTS<5>" LOCATE = SITE "P83" LEVEL 1;
+COMP "SEGMENTS<6>" LOCATE = SITE "P79" LEVEL 1;
+COMP "SEGMENTS<7>" LOCATE = SITE "P80" LEVEL 1;
+COMP "MISO" LOCATE = SITE "P50" LEVEL 1;
+COMP "LED1" LOCATE = SITE "P95" LEVEL 1;
+COMP "LED2" LOCATE = SITE "P94" LEVEL 1;
+COMP "MOSI" LOCATE = SITE "P58" LEVEL 1;
+COMP "DIGITS<0>" LOCATE = SITE "P66" LEVEL 1;
+COMP "DIGITS<1>" LOCATE = SITE "P74" LEVEL 1;
+COMP "DIGITS<2>" LOCATE = SITE "P67" LEVEL 1;
+COMP "DIGITS<3>" LOCATE = SITE "P75" LEVEL 1;
+COMP "CLK" LOCATE = SITE "P56" LEVEL 1;
+COMP "SPI_CLK" LOCATE = SITE "P51" LEVEL 1;
+TIMEGRP CLOCK_SPI = BEL "Inst_spi_slave/data_15" BEL "Inst_spi_slave/data_14"
+        BEL "Inst_spi_slave/data_13" BEL "Inst_spi_slave/data_12" BEL
+        "Inst_spi_slave/data_11" BEL "Inst_spi_slave/data_10" BEL
+        "Inst_spi_slave/data_9" BEL "Inst_spi_slave/data_8" BEL
+        "Inst_spi_slave/data_7" BEL "Inst_spi_slave/data_6" BEL
+        "Inst_spi_slave/data_5" BEL "Inst_spi_slave/data_4" BEL
+        "Inst_spi_slave/data_3" BEL "Inst_spi_slave/data_2" BEL
+        "Inst_spi_slave/data_1" BEL "Inst_spi_slave/data_0" BEL
+        "Inst_spi_slave/miso_buffer_15" BEL "Inst_spi_slave/miso_buffer_14"
+        BEL "Inst_spi_slave/miso_buffer_13" BEL
+        "Inst_spi_slave/miso_buffer_12" BEL "Inst_spi_slave/miso_buffer_11"
+        BEL "Inst_spi_slave/miso_buffer_10" BEL "Inst_spi_slave/miso_buffer_9"
+        BEL "Inst_spi_slave/miso_buffer_8" BEL "Inst_spi_slave/miso_buffer_7"
+        BEL "Inst_spi_slave/miso_buffer_6" BEL "Inst_spi_slave/miso_buffer_5"
+        BEL "Inst_spi_slave/miso_buffer_4" BEL "Inst_spi_slave/miso_buffer_3"
+        BEL "Inst_spi_slave/miso_buffer_2" BEL "Inst_spi_slave/miso_buffer_1"
+        BEL "Inst_spi_slave/miso_buffer_0" BEL "Inst_spi_slave/bit_cnt_15" BEL
+        "Inst_spi_slave/bit_cnt_14" BEL "Inst_spi_slave/bit_cnt_13" BEL
+        "Inst_spi_slave/bit_cnt_12" BEL "Inst_spi_slave/bit_cnt_11" BEL
+        "Inst_spi_slave/bit_cnt_10" BEL "Inst_spi_slave/bit_cnt_9" BEL
+        "Inst_spi_slave/bit_cnt_8" BEL "Inst_spi_slave/bit_cnt_7" BEL
+        "Inst_spi_slave/bit_cnt_6" BEL "Inst_spi_slave/bit_cnt_5" BEL
+        "Inst_spi_slave/bit_cnt_4" BEL "Inst_spi_slave/bit_cnt_3" BEL
+        "Inst_spi_slave/bit_cnt_2" BEL "Inst_spi_slave/bit_cnt_1" BEL
+        "Inst_spi_slave/data_valid_0" BEL "Inst_spi_slave/FALLING_TOGGLE" BEL
+        "Inst_spi_slave/RISING_TOGGLE" BEL "Inst_spi_slave/mosi_buffer_14" BEL
+        "Inst_spi_slave/mosi_buffer_13" BEL "Inst_spi_slave/mosi_buffer_12"
+        BEL "Inst_spi_slave/mosi_buffer_11" BEL
+        "Inst_spi_slave/mosi_buffer_10" BEL "Inst_spi_slave/mosi_buffer_9" BEL
+        "Inst_spi_slave/mosi_buffer_8" BEL "Inst_spi_slave/mosi_buffer_7" BEL
+        "Inst_spi_slave/mosi_buffer_6" BEL "Inst_spi_slave/mosi_buffer_5" BEL
+        "Inst_spi_slave/mosi_buffer_4" BEL "Inst_spi_slave/mosi_buffer_3" BEL
+        "Inst_spi_slave/mosi_buffer_2" BEL "Inst_spi_slave/mosi_buffer_1" BEL
+        "Inst_spi_slave/mosi_buffer_0" BEL "Inst_spi_slave/bit_cnt_15_1" BEL
+        "SPI_CLK_BUFGP/BUFG" BEL "Inst_spi_slave/Mshreg_data_synced_2" BEL
+        "Inst_spi_slave/data_synced_2";
+TS_CLOCK_SPI = PERIOD TIMEGRP "CLOCK_SPI" 10 ns HIGH 50%;
+SCHEMATIC END;
+

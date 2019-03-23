@@ -27,20 +27,11 @@
 #define LevelAll   0x1F
 
 // enabled levels for individual log sources
-#define Log_Quectel 	(LevelAll)
-#define Log_ATCMD		(LevelAll)
-#define Log_System  	(LevelAll)
-#define Log_Exti		(LevelAll)
-#define Log_MAX11254	(LevelAll)
-#define Log_MQTT 		(LevelAll)
-#define Log_MQTTSN		(LevelAll)
-#define Log_VL53L0X		(LevelAll)
-#define Log_Example		(LevelAll)
-#define Log_App		  	(LevelAll)
-#define Log_TLS			(LevelAll)
-#define Log_MAX30100	(LevelAll)
-#define Log_MCP9808		(LevelAll)
-#define Log_FFT			(LevelAll)
+#define Log_System  	(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
+#define Log_Exti		(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
+#define Log_App		  	(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
+#define Log_FFT			(/*LevelDebug|LevelInfo|*/LevelWarn|LevelError|LevelCrit)
+#define Log_Dummy		(/*LevelDebug|LevelInfo|*/LevelWarn|LevelError|LevelCrit)
 
 // if LevelDebug is omitted from this mask,
 // debug message will not be logged regardless

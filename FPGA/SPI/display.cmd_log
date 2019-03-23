@@ -1,0 +1,1 @@
+vhdtdtfi -prj SPI -o /home/jan/Projekte/RFStuff/FPGA/SPI/display.vhi -module display -template /opt/Xilinx/14.6/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work display.vhd 

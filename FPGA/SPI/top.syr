@@ -1,0 +1,579 @@
+Release 14.6 - xst P.68d (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> 
+Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc6slx9-3-tqg144
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/SPI/spi.vhd" into library work
+Parsing entity <spi_slave>.
+Parsing architecture <Behavioral> of entity <spi_slave>.
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/SPI/display.vhd" into library work
+Parsing entity <display>.
+Parsing architecture <Behavioral> of entity <display>.
+Parsing VHDL file "/home/jan/Projekte/RFStuff/FPGA/SPI/top.vhd" into library work
+Parsing entity <top>.
+Parsing architecture <Behavioral> of entity <top>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <top> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <display> (architecture <Behavioral>) from library <work>.
+INFO:HDLCompiler:679 - "/home/jan/Projekte/RFStuff/FPGA/SPI/display.vhd" Line 92. Case statement is complete. others clause is never selected
+
+Elaborating entity <spi_slave> (architecture <Behavioral>) with generics from library <work>.
+WARNING:HDLCompiler:92 - "/home/jan/Projekte/RFStuff/FPGA/SPI/spi.vhd" Line 100: buf_in should be on the sensitivity list of the process
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top>.
+    Related source file is "/home/jan/Projekte/RFStuff/FPGA/SPI/top.vhd".
+    Found 16-bit register for signal <display_data>.
+    Summary:
+	inferred  16 D-type flip-flop(s).
+Unit <top> synthesized.
+
+Synthesizing Unit <display>.
+    Related source file is "/home/jan/Projekte/RFStuff/FPGA/SPI/display.vhd".
+    Found 2-bit register for signal <digit>.
+    Found 4-bit register for signal <DIGITS>.
+    Found 8-bit register for signal <SEGMENTS>.
+    Found 4-bit register for signal <nibble>.
+    Found 15-bit register for signal <clk_counter>.
+    Found 15-bit adder for signal <clk_counter[14]_GND_4_o_add_1_OUT> created at line 56.
+    Found 2-bit adder for signal <digit[1]_GND_4_o_add_3_OUT> created at line 60.
+    Found 4x4-bit Read Only RAM for signal <digit[1]_GND_4_o_mux_12_OUT>
+    Found 16x8-bit Read Only RAM for signal <nibble[3]_PWR_4_o_mux_13_OUT>
+    Found 4-bit 4-to-1 multiplexer for signal <digit[1]_nibble[3]_mux_14_OUT> created at line 65.
+    Found 15-bit comparator greater for signal <clk_counter[14]_PWR_4_o_LessThan_1_o> created at line 55
+    Found 2-bit comparator lessequal for signal <digit[1]_PWR_4_o_LessThan_3_o> created at line 59
+    Summary:
+	inferred   2 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  33 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+	inferred   1 Multiplexer(s).
+Unit <display> synthesized.
+
+Synthesizing Unit <spi_slave>.
+    Related source file is "/home/jan/Projekte/RFStuff/FPGA/SPI/spi.vhd".
+        W = 16
+    Found 16-bit register for signal <bit_cnt>.
+    Found 16-bit register for signal <miso_buffer>.
+    Found 1-bit register for signal <data_valid<1>>.
+    Found 16-bit register for signal <BUF_OUT>.
+    Found 1-bit register for signal <COMPLETE>.
+    Found 1-bit register for signal <data_synced<0>>.
+    Found 1-bit register for signal <FALLING_TOGGLE>.
+    Found 1-bit register for signal <data_synced<2>>.
+    Found 1-bit register for signal <data_synced<1>>.
+    Found 1-bit register for signal <data_valid<0>>.
+    Found 16-bit register for signal <data>.
+    Found 16-bit register for signal <mosi_buffer>.
+    Found 1-bit register for signal <RISING_TOGGLE>.
+    Found 1-bit register for signal <data_valid<2>>.
+    Found 1-bit tristate buffer for signal <MISO> created at line 77
+    Summary:
+	inferred  89 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
+	inferred   1 Tristate(s).
+Unit <spi_slave> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 16x8-bit single-port Read Only RAM                    : 1
+ 4x4-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 2
+ 15-bit adder                                          : 1
+ 2-bit adder                                           : 1
+# Registers                                            : 20
+ 1-bit register                                        : 9
+ 15-bit register                                       : 1
+ 16-bit register                                       : 6
+ 2-bit register                                        : 1
+ 4-bit register                                        : 2
+ 8-bit register                                        : 1
+# Comparators                                          : 2
+ 15-bit comparator greater                             : 1
+ 2-bit comparator lessequal                            : 1
+# Multiplexers                                         : 3
+ 16-bit 2-to-1 multiplexer                             : 2
+ 4-bit 4-to-1 multiplexer                              : 1
+# Tristates                                            : 1
+ 1-bit tristate buffer                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:2677 - Node <mosi_buffer_15> of sequential type is unconnected in block <Inst_spi_slave>.
+
+Synthesizing (advanced) Unit <display>.
+The following registers are absorbed into counter <digit>: 1 register on signal <digit>.
+The following registers are absorbed into counter <clk_counter>: 1 register on signal <clk_counter>.
+INFO:Xst:3231 - The small RAM <Mram_nibble[3]_PWR_4_o_mux_13_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 8-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <nibble>        |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+INFO:Xst:3231 - The small RAM <Mram_digit[1]_GND_4_o_mux_12_OUT> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 4-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <digit>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <display> synthesized (advanced).
+WARNING:Xst:2677 - Node <mosi_buffer_15> of sequential type is unconnected in block <spi_slave>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 2
+ 16x8-bit single-port distributed Read Only RAM        : 1
+ 4x4-bit single-port distributed Read Only RAM         : 1
+# Counters                                             : 2
+ 15-bit up counter                                     : 1
+ 2-bit up counter                                      : 1
+# Registers                                            : 120
+ Flip-Flops                                            : 120
+# Comparators                                          : 2
+ 15-bit comparator greater                             : 1
+ 2-bit comparator lessequal                            : 1
+# Multiplexers                                         : 3
+ 16-bit 2-to-1 multiplexer                             : 2
+ 4-bit 4-to-1 multiplexer                              : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <SEGMENTS_0> (without init value) has a constant value of 0 in block <display>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <top> ...
+
+Optimizing unit <display> ...
+INFO:Xst:3203 - The FF/Latch <Inst_spi_slave/miso_buffer_0> in Unit <top> is the opposite to the following FF/Latch, which will be removed : <Inst_spi_slave/bit_cnt_0> 
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 3.
+FlipFlop Inst_spi_slave/bit_cnt_15 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+Processing Unit <top> :
+	Found 2-bit shift register for signal <Inst_spi_slave/data_synced_2>.
+	Found 2-bit shift register for signal <Inst_spi_slave/data_valid_2>.
+Unit <top> processed.
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 132
+ Flip-Flops                                            : 132
+# Shift Registers                                      : 2
+ 2-bit shift register                                  : 2
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : top.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 121
+#      GND                         : 1
+#      INV                         : 5
+#      LUT1                        : 14
+#      LUT2                        : 37
+#      LUT3                        : 17
+#      LUT4                        : 9
+#      LUT6                        : 8
+#      MUXCY                       : 14
+#      VCC                         : 1
+#      XORCY                       : 15
+# FlipFlops/Latches                : 134
+#      FD                          : 18
+#      FD_1                        : 16
+#      FDC                         : 24
+#      FDE                         : 34
+#      FDE_1                       : 16
+#      FDP                         : 8
+#      FDR                         : 17
+#      FDS_1                       : 1
+# Shift Registers                  : 2
+#      SRLC16E                     : 2
+# Clock Buffers                    : 2
+#      BUFGP                       : 2
+# IO Buffers                       : 17
+#      IBUF                        : 2
+#      OBUF                        : 14
+#      OBUFT                       : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx9tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             134  out of  11440     1%  
+ Number of Slice LUTs:                   92  out of   5720     1%  
+    Number used as Logic:                90  out of   5720     1%  
+    Number used as Memory:                2  out of   1440     0%  
+       Number used as SRL:                2
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    141
+   Number with an unused Flip Flop:       7  out of    141     4%  
+   Number with an unused LUT:            49  out of    141    34%  
+   Number of fully used LUT-FF pairs:    85  out of    141    60%  
+   Number of unique control sets:        11
+
+IO Utilization: 
+ Number of IOs:                          19
+ Number of bonded IOBs:                  19  out of    102    18%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+CLK                                | BUFGP                  | 68    |
+SPI_CLK                            | BUFGP                  | 68    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 4.336ns (Maximum Frequency: 230.608MHz)
+   Minimum input arrival time before clock: 2.972ns
+   Maximum output required time after clock: 3.634ns
+   Maximum combinational path delay: 5.113ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 3.898ns (frequency: 256.515MHz)
+  Total number of paths / destination ports: 462 / 99
+-------------------------------------------------------------------------
+Delay:               3.898ns (Levels of Logic = 2)
+  Source:            Inst_display/clk_counter_7 (FF)
+  Destination:       Inst_display/clk_counter_14 (FF)
+  Source Clock:      CLK rising
+  Destination Clock: CLK rising
+
+  Data Path: Inst_display/clk_counter_7 to Inst_display/clk_counter_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.447   0.981  Inst_display/clk_counter_7 (Inst_display/clk_counter_7)
+     LUT6:I0->O            3   0.203   0.651  Inst_display/_n004522 (Inst_display/_n004521)
+     LUT6:I5->O           15   0.205   0.981  Inst_display/_n004523 (Inst_display/clk_counter[14]_PWR_4_o_LessThan_1_o_inv)
+     FDR:R                     0.430          Inst_display/clk_counter_0
+    ----------------------------------------
+    Total                      3.898ns (1.285ns logic, 2.613ns route)
+                                       (33.0% logic, 67.0% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'SPI_CLK'
+  Clock period: 4.336ns (frequency: 230.608MHz)
+  Total number of paths / destination ports: 145 / 83
+-------------------------------------------------------------------------
+Delay:               2.168ns (Levels of Logic = 0)
+  Source:            Inst_spi_slave/bit_cnt_15_1 (FF)
+  Destination:       Inst_spi_slave/data_valid_0 (FF)
+  Source Clock:      SPI_CLK rising
+  Destination Clock: SPI_CLK falling
+
+  Data Path: Inst_spi_slave/bit_cnt_15_1 to Inst_spi_slave/data_valid_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             32   0.447   1.291  Inst_spi_slave/bit_cnt_15_1 (Inst_spi_slave/bit_cnt_15_1)
+     FDS_1:S                   0.430          Inst_spi_slave/data_valid_0
+    ----------------------------------------
+    Total                      2.168ns (0.877ns logic, 1.291ns route)
+                                       (40.4% logic, 59.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_CLK'
+  Total number of paths / destination ports: 35 / 35
+-------------------------------------------------------------------------
+Offset:              2.972ns (Levels of Logic = 1)
+  Source:            CS (PAD)
+  Destination:       Inst_spi_slave/miso_buffer_15 (FF)
+  Destination Clock: SPI_CLK rising
+
+  Data Path: CS to Inst_spi_slave/miso_buffer_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            34   1.222   1.320  CS_IBUF (CS_IBUF)
+     FDC:CLR                   0.430          Inst_spi_slave/bit_cnt_1
+    ----------------------------------------
+    Total                      2.972ns (1.652ns logic, 1.320ns route)
+                                       (55.6% logic, 44.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 11 / 11
+-------------------------------------------------------------------------
+Offset:              3.597ns (Levels of Logic = 1)
+  Source:            Inst_display/SEGMENTS_7 (FF)
+  Destination:       SEGMENTS<7> (PAD)
+  Source Clock:      CLK rising
+
+  Data Path: Inst_display/SEGMENTS_7 to SEGMENTS<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               1   0.447   0.579  Inst_display/SEGMENTS_7 (Inst_display/SEGMENTS_7)
+     OBUF:I->O                 2.571          SEGMENTS_7_OBUF (SEGMENTS<7>)
+    ----------------------------------------
+    Total                      3.597ns (3.018ns logic, 0.579ns route)
+                                       (83.9% logic, 16.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_CLK'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              3.634ns (Levels of Logic = 1)
+  Source:            Inst_spi_slave/RISING_TOGGLE (FF)
+  Destination:       LED1 (PAD)
+  Source Clock:      SPI_CLK rising
+
+  Data Path: Inst_spi_slave/RISING_TOGGLE to LED1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q               2   0.447   0.616  Inst_spi_slave/RISING_TOGGLE (Inst_spi_slave/RISING_TOGGLE)
+     OBUF:I->O                 2.571          LED1_OBUF (LED1)
+    ----------------------------------------
+    Total                      3.634ns (3.018ns logic, 0.616ns route)
+                                       (83.0% logic, 17.0% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               5.113ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       MISO (PAD)
+
+  Data Path: CS to MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            34   1.222   1.320  CS_IBUF (CS_IBUF)
+     OBUFT:T->O                2.571          MISO_OBUFT (MISO)
+    ----------------------------------------
+    Total                      5.113ns (3.793ns logic, 1.320ns route)
+                                       (74.2% logic, 25.8% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |    3.898|         |         |         |
+SPI_CLK        |         |    1.128|         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_CLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    1.097|         |
+SPI_CLK        |    2.148|         |    2.168|         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.79 secs
+ 
+--> 
+
+
+Total memory usage is 398712 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    4 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+
