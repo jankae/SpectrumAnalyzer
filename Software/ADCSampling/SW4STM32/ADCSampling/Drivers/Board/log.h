@@ -32,6 +32,7 @@
 #define Log_App		  	(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
 #define Log_FFT			(/*LevelDebug|LevelInfo|*/LevelWarn|LevelError|LevelCrit)
 #define Log_Dummy		(/*LevelDebug|LevelInfo|*/LevelWarn|LevelError|LevelCrit)
+#define Log_RFFC5072	(LevelAll)
 
 // if LevelDebug is omitted from this mask,
 // debug message will not be logged regardless
