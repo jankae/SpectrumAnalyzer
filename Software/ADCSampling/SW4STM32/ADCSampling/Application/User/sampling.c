@@ -122,5 +122,6 @@ void sampling_start() {
 
 		float fft = calc_fft(data1, data2, SAMPLING_LENGTH, window_data);
 		LOG(Log_App, LevelInfo, "FFT result: %2.2f", fft);
+		vTaskDelay(30);
 	}
 }
