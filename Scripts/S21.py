@@ -6,6 +6,13 @@ from DG1022 import *
 from RigolDevices import *
 import usbtmc
 import math
+import matplotlib
+import matplotlib.pyplot as plt
+import numpy as np
+
+if len(sys.argv) != 4:
+    print "Usage: S21.py center_freq span points"
+    exit()
 
 dev_DG = usbtmc.Instrument(0x1ab1, 0x0642)
 dev_DG.timeout = 0.1
@@ -29,7 +36,7 @@ except:
 s = RigolDS(dev_DS)
 g = RigolDG(dev_DG)
 
-reference = 10
+reference = 17
 
 g.SetImpedance(1, 50)
 g.SetAmplitude(1, reference)
@@ -44,31 +51,47 @@ s.ChannelOffset(1, 0)
 sleep(0.3)
 g.SetEnabled(1, True)
 
-StartFreq = 1000000
-StopFreq = 25000000
-FreqStep = 1000000
+CenterFreq = float(sys.argv[1])
+Span = float(sys.argv[2])
+Steps = int(sys.argv[3])
+
+StartFreq = int(CenterFreq-Span/2)
+StopFreq = int(CenterFreq+Span/2)
+FreqStep =    int(Span/Steps)
 s.TimeScale(1.0/StartFreq)
 sleep(3)
 
-for freq in range(StartFreq, StopFreq + 1, FreqStep):
-    g.SetFrequency(1, freq)
-    s.TimeScale(1.0/freq)
-    sleep(0.4)
-    rms = s.GetRMS(1)
-    while rms < scale * 4 / (math.sqrt(2)*3) and scale > 0.001:
-        scale = scale / 2
-        print("Decreased to " + str(scale))
-        s.ChannelScale(1, scale)
+points_dbm = [None] * Steps 
+points_freq = [None] * Steps 
+
+plt.ion()
+
+while True:
+    for i in range(0, Steps):
+        freq = StartFreq + FreqStep * i
+        g.SetFrequency(1, freq)
+        s.TimeScale(1.0/freq)
         sleep(0.4)
         rms = s.GetRMS(1)
-    while rms > scale * 4 / math.sqrt(2):
-        scale = scale * 2
-        print("Increased to " + str(scale))
-        s.ChannelScale(1, scale)
-        sleep(0.4)
-        rms = s.GetRMS(1)
-    dbm = 10 * math.log10(rms*rms/50) + 30
-    print("{};{}".format(freq, dbm - reference))
+        while rms < scale * 4 / (math.sqrt(2)*3) and scale > 0.001:
+            scale = scale / 2
+            #print("Decreased to " + str(scale))
+            s.ChannelScale(1, scale)
+            sleep(0.6)
+            rms = s.GetRMS(1)
+        while rms > scale * 4 / math.sqrt(2):
+            scale = scale * 2
+            #print("Increased to " + str(scale))
+            s.ChannelScale(1, scale)
+            sleep(0.6)
+            rms = s.GetRMS(1)
+        dbm = 10 * math.log10(rms*rms/50) + 30
+        print("{};{}".format(freq, dbm - reference))
+        points_freq[i] = freq
+        points_dbm[i] = dbm - reference
+        plt.clf()
+        plt.plot(points_freq, points_dbm)
+        plt.pause(0.05)
     
 g.SetEnabled(1, False)
 

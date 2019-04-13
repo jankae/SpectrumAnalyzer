@@ -1,0 +1,7 @@
+Both mixers are RFFC5072 devices.
+First mixer is fed by a 25MHz, 0dbm signal.
+First LO is set to sweep the output from 150MHz to 2.5GHz.
+Second mixer downconvertes the signal to 18.75, which is filtered and measured by the ADC.
+
+through.csv:
+- mixers directly connected

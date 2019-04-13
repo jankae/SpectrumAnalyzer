@@ -1,8 +1,138 @@
 #include "rffc5072.h"
 #include "log.h"
 
-#define PRE_CLK_DELAY()		do { HAL_Delay(1); } while(0)
-#define POST_CLK_DELAY()	do { HAL_Delay(1); } while(0)
+#define PRE_CLK_DELAY()		do { \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	} while(0)
+#define POST_CLK_DELAY()		do { \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	asm volatile("NOP"); \
+	} while(0)
 
 typedef enum {
 	REG_LF	= 0x00,
@@ -56,7 +186,7 @@ static inline void pin_config_output(rffc5072_pin_t pin) {
 	GPIO_InitTypeDef g;
 	g.Mode = GPIO_MODE_OUTPUT_PP;
 	g.Pin = pin.pin;
-	g.Speed = GPIO_SPEED_MEDIUM;
+	g.Speed = GPIO_SPEED_HIGH;
 	HAL_GPIO_Init(pin.gpio, &g);
 }
 static inline void pin_config_input(rffc5072_pin_t pin) {
@@ -75,8 +205,9 @@ static void clock_pulse(rffc5072_t *r) {
 }
 
 static void write_reg(rffc5072_t *r, uint8_t addr, uint16_t value) {
-	uint32_t data = ((addr & 0x1F) | (r->slice_address & 0x03 << 5)) << 16
+	uint32_t data = ((addr & 0x1F) | ((r->slice_address & 0x03) << 5)) << 16
 			| value;
+	clock_pulse(r);
 	clock_pulse(r);
 	clock_pulse(r);
 	pin_low(r->ENX);
@@ -92,11 +223,13 @@ static void write_reg(rffc5072_t *r, uint8_t addr, uint16_t value) {
 	}
 	pin_high(r->ENX);
 	clock_pulse(r);
+	clock_pulse(r);
 	LOG(Log_RFFC5072, LevelDebug, "Wrote 0x%04x to 0x%02x", value, addr);
 }
 
 static uint16_t read_reg(rffc5072_t *r, uint8_t addr) {
-	uint8_t data = (addr & 0x7F) | (r->slice_address & 0x03 << 5) | 0x80;
+	uint8_t data = (addr & 0x7F) | ((r->slice_address & 0x03) << 5) | 0x80;
+	clock_pulse(r);
 	clock_pulse(r);
 	clock_pulse(r);
 	pin_low(r->ENX);
@@ -121,6 +254,7 @@ static uint16_t read_reg(rffc5072_t *r, uint8_t addr) {
 		}
 	}
 	pin_high(r->ENX);
+	clock_pulse(r);
 	clock_pulse(r);
 	pin_config_output(r->DATA);
 	LOG(Log_RFFC5072, LevelDebug, "Read 0x%04x from 0x%02x", read, addr);
