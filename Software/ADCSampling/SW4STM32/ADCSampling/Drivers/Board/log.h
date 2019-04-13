@@ -32,7 +32,8 @@
 #define Log_App		  	(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
 #define Log_FFT			(/*LevelDebug|LevelInfo|*/LevelWarn|LevelError|LevelCrit)
 #define Log_Dummy		(/*LevelDebug|LevelInfo|*/LevelWarn|LevelError|LevelCrit)
-#define Log_RFFC5072	(LevelAll)
+#define Log_RFFC5072	(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
+#define Log_Sampling	(LevelWarn|LevelError|LevelCrit)
 
 // if LevelDebug is omitted from this mask,
 // debug message will not be logged regardless
@@ -42,6 +43,7 @@
 #define LOG(source, level, message, ...) do { \
     if (source & level & Global_Level_Mask) { \
        log_write(#source, level, message, ##__VA_ARGS__); \
+       log_flush(); \
     } \
 } while (0)
 

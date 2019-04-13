@@ -5,11 +5,11 @@
 #include "stm.h"
 #include <math.h>
 
-#define SAMPLING_LENGTH  	30000
-static int32_t data1[SAMPLING_LENGTH / 2];
-static int32_t data2[SAMPLING_LENGTH / 2];
+#define MAX_SAMPLING_LENGTH  	30000
+static int32_t data1[MAX_SAMPLING_LENGTH / 2];
+static int32_t data2[MAX_SAMPLING_LENGTH / 2];
 
-static float window_data[SAMPLING_LENGTH];
+static float window_data[MAX_SAMPLING_LENGTH];
 
 extern TIM_HandleTypeDef htim8;
 extern DMA_HandleTypeDef hdma_tim8_up;
@@ -22,6 +22,9 @@ typedef enum {
 	FFT_WINDOW_FLATTOP = 3,
 	FFT_WINDOW_MAX = 4,
 } fft_window_t;
+
+static fft_window_t window_type = FFT_WINDOW_MAX;
+static uint32_t fft_length = 0;
 
 static float window_ampl_corr[FFT_WINDOW_MAX] = {
 		1.0f,
@@ -81,24 +84,74 @@ float calc_fft(int32_t *d1, int32_t *d2, uint32_t npoints,
 		imag = -real;
 		real = val + buf;
 	}
-	float peak = sqrt(imag * imag + real * real)
-			* window_ampl_corr[FFT_WINDOW_FLATTOP] / (npoints / 2);
+	float peak = sqrt(imag * imag + real * real) * window_ampl_corr[window_type]
+			/ (npoints / 2);
 	float vPeak = peak / 8192;
 	float l = log10(vPeak);
 	float dbm = 10 + 20 * l;
 	return dbm;
 }
 
-void sampling_start() {
+float sampling_get_dbm(uint32_t npoints) {
+	if (npoints > MAX_SAMPLING_LENGTH) {
+		return NAN;
+	}
+	// adjust window if necessary
+	if (npoints != fft_length || window_type != FFT_WINDOW_FLATTOP) {
+		fft_length = npoints;
+		window_type = FFT_WINDOW_FLATTOP;
+		compute_window(window_data, fft_length, window_type);
+	}
+
+	HAL_StatusTypeDef res = HAL_OK;
+	// start sampling
+	res |= HAL_DMA_Start(&hdma_tim8_up, (uint32_t) &(GPIOF->IDR), (uint32_t) data2,
+			npoints / 2);
+	res |= HAL_DMA_Start(&hdma_tim8_ch4_trig_com, (uint32_t) &(GPIOF->IDR),
+			(uint32_t) data1, npoints / 2);
+	/* Enable the TIM Update DMA request */
+	__HAL_TIM_ENABLE_DMA(&htim8, TIM_DMA_UPDATE | TIM_DMA_CC4);
+	uint32_t start = HAL_GetTick();
+	res |= HAL_TIM_Base_Start(&htim8);
+	if (res != HAL_OK) {
+		LOG(Log_Sampling, LevelWarn, "Failed to start ADC sampling");
+		HAL_DMA_Abort(&hdma_tim8_ch4_trig_com);
+		HAL_DMA_Abort(&hdma_tim8_up);
+		HAL_TIM_Base_Stop(&htim8);
+		return NAN;
+	}
+	res = HAL_DMA_PollForTransfer(&hdma_tim8_up,
+			HAL_DMA_FULL_TRANSFER, 1000);
+	res |= HAL_DMA_PollForTransfer(&hdma_tim8_ch4_trig_com, HAL_DMA_FULL_TRANSFER,
+			100);
+	uint32_t stop = HAL_GetTick();
+	if (res != HAL_OK) {
+		LOG(Log_Sampling, LevelWarn, "Timed out while sampling ADC");
+		HAL_DMA_Abort(&hdma_tim8_ch4_trig_com);
+		HAL_DMA_Abort(&hdma_tim8_up);
+		HAL_TIM_Base_Stop(&htim8);
+		return NAN;
+	}
+	HAL_TIM_Base_Stop(&htim8);
+	LOG(Log_Sampling, LevelDebug, "Got %lu samples in %lums", npoints,
+			stop - start);
+
+	float fft = calc_fft(data1, data2, npoints, window_data);
+	LOG(Log_Sampling, LevelInfo, "FFT result: %2.2f", fft);
+
+	return fft;
+}
+
+void sampling_test() {
 	log_init();
-	LOG(Log_App, LevelInfo, "Start");
-	compute_window(window_data, SAMPLING_LENGTH, FFT_WINDOW_FLATTOP);
+	LOG(Log_Sampling, LevelInfo, "Start");
+	compute_window(window_data, MAX_SAMPLING_LENGTH, FFT_WINDOW_FLATTOP);
 	while (1) {
 		HAL_Delay(5);
 		HAL_DMA_Start(&hdma_tim8_up, (uint32_t) &(GPIOF->IDR), (uint32_t) data2,
-		SAMPLING_LENGTH / 2);
+		MAX_SAMPLING_LENGTH / 2);
 		HAL_DMA_Start(&hdma_tim8_ch4_trig_com, (uint32_t) &(GPIOF->IDR), (uint32_t) data1,
-		SAMPLING_LENGTH / 2);
+		MAX_SAMPLING_LENGTH / 2);
 		/* Enable the TIM Update DMA request */
 		__HAL_TIM_ENABLE_DMA(&htim8, TIM_DMA_UPDATE | TIM_DMA_CC4);
 		uint32_t start = HAL_GetTick();
@@ -110,18 +163,18 @@ void sampling_start() {
 				100);
 		uint32_t stop = HAL_GetTick();
 		if (res != HAL_OK) {
-			LOG(Log_App, LevelWarn, "Timed out while sampling ADC");
+			LOG(Log_Sampling, LevelWarn, "Timed out while sampling ADC");
 			HAL_DMA_Abort(&hdma_tim8_ch4_trig_com);
 			HAL_DMA_Abort(&hdma_tim8_up);
 			HAL_TIM_Base_Stop(&htim8);
 			continue;
 		}
 		HAL_TIM_Base_Stop(&htim8);
-		LOG(Log_App, LevelDebug, "Got %lu samples in %lums", SAMPLING_LENGTH,
+		LOG(Log_Sampling, LevelDebug, "Got %lu samples in %lums", MAX_SAMPLING_LENGTH,
 				stop - start);
 
-		float fft = calc_fft(data1, data2, SAMPLING_LENGTH, window_data);
-		LOG(Log_App, LevelInfo, "FFT result: %2.2f", fft);
+		float fft = calc_fft(data1, data2, MAX_SAMPLING_LENGTH, window_data);
+		LOG(Log_Sampling, LevelInfo, "FFT result: %2.2f", fft);
 		vTaskDelay(30);
 	}
 }

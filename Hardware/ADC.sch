@@ -21010,7 +21010,7 @@ Source: www.kingbright.com</description>
 <pinref part="R29" gate="G$1" pin="2"/>
 </segment>
 </net>
-<net name="N$69" class="0">
+<net name="SPI_NSS" class="0">
 <segment>
 <pinref part="JP4" gate="A" pin="5"/>
 <pinref part="JP4" gate="A" pin="6"/>
@@ -21020,9 +21020,10 @@ Source: www.kingbright.com</description>
 <junction x="264.16" y="40.64"/>
 <pinref part="SV1" gate="1" pin="24"/>
 <wire x1="223.52" y1="50.8" x2="223.52" y2="43.18" width="0.1524" layer="91"/>
+<label x="236.22" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$70" class="0">
+<net name="SPI_MOSI" class="0">
 <segment>
 <pinref part="JP4" gate="A" pin="8"/>
 <pinref part="JP4" gate="A" pin="7"/>
@@ -21032,9 +21033,10 @@ Source: www.kingbright.com</description>
 <junction x="261.62" y="33.02"/>
 <pinref part="SV1" gate="1" pin="23"/>
 <wire x1="223.52" y1="20.32" x2="223.52" y2="27.94" width="0.1524" layer="91"/>
+<label x="236.22" y="20.32" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$71" class="0">
+<net name="SPI_MISO" class="0">
 <segment>
 <pinref part="JP4" gate="A" pin="9"/>
 <pinref part="JP4" gate="A" pin="10"/>
@@ -21044,9 +21046,10 @@ Source: www.kingbright.com</description>
 <junction x="259.08" y="40.64"/>
 <pinref part="SV1" gate="1" pin="22"/>
 <wire x1="220.98" y1="53.34" x2="220.98" y2="43.18" width="0.1524" layer="91"/>
+<label x="236.22" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$72" class="0">
+<net name="SPI_SCK" class="0">
 <segment>
 <pinref part="JP4" gate="A" pin="12"/>
 <pinref part="JP4" gate="A" pin="11"/>
@@ -21056,6 +21059,7 @@ Source: www.kingbright.com</description>
 <junction x="256.54" y="33.02"/>
 <pinref part="SV1" gate="1" pin="21"/>
 <wire x1="220.98" y1="17.78" x2="220.98" y2="27.94" width="0.1524" layer="91"/>
+<label x="236.22" y="17.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$73" class="0">

@@ -8,6 +8,9 @@
 #ifndef APPLICATION_USER_SAMPLING_H_
 #define APPLICATION_USER_SAMPLING_H_
 
-void sampling_start();
+#include <stdint.h>
+
+float sampling_get_dbm(uint32_t npoints);
+void sampling_test();
 
 #endif /* APPLICATION_USER_SAMPLING_H_ */
