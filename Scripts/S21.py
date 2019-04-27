@@ -3,15 +3,14 @@
 import sys
 from DS1052E import *
 from DG1022 import *
-from RigolDevices import *
 import usbtmc
 import math
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
-if len(sys.argv) != 4:
-    print "Usage: S21.py center_freq span points"
+if len(sys.argv) != 5:
+    print "Usage: S21.py center_freq span points reference"
     exit()
 
 dev_DG = usbtmc.Instrument(0x1ab1, 0x0642)
@@ -36,7 +35,7 @@ except:
 s = RigolDS(dev_DS)
 g = RigolDG(dev_DG)
 
-reference = 17
+reference = float(sys.argv[4])
 
 g.SetImpedance(1, 50)
 g.SetAmplitude(1, reference)
