@@ -39,17 +39,18 @@ void rf_tests() {
 //		vTaskDelay(1000);
 //	}
 
-	uint32_t f_start = 150000000;
+	uint32_t f_start = 1500000000;
 	uint32_t f_stop = 2500000000;
-	uint32_t f_step = 10000000;
+	uint32_t f_step = 2000000;
+	while(1) {
 	for (uint32_t freq = f_start; freq <= f_stop; freq += f_step) {
 		// set LO frequencies and wait for PLL lock
-		vTaskDelay(1);
+//		vTaskDelay(1);
 		rffc5072_enabled(&r1, 0);
 		rffc5072_enabled(&r2, 0);
-		vTaskDelay(1);
-		rffc5072_set_LO(&r1, freq + 25000000);
-		rffc5072_set_LO(&r2, freq - 18750000);
+//		vTaskDelay(1);
+		rffc5072_set_LO(&r1, freq - 25000000);
+		rffc5072_set_LO(&r2, freq + 18750000);
 		vTaskDelay(1);
 		rffc5072_enabled(&r1, 1);
 		rffc5072_enabled(&r2, 1);
@@ -71,13 +72,14 @@ void rf_tests() {
 
 		// measure final IF
 		float sum = 0.0f;
-		const uint16_t avg = 30;
+		const uint16_t avg = 10;
 		for (uint16_t i = 0; i < avg; i++) {
-			sum += sampling_get_dbm(10000);
+			sum += sampling_get_dbm(30000);
 		}
 		LOG(Log_App, LevelInfo, "F: %lu, dbm: %2.2f", freq, sum / avg);
 //		vTaskDelay(1000);
-	};
+	}
+	}
 	while(1) {
 		vTaskDelay(1000);
 //		float sum = 0.0f;
