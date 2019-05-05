@@ -178,6 +178,11 @@ void StartDefaultTask(void const * argument)
 
 	log_flush();
 
+	while(1) {
+		fft_spi_test();
+		vTaskDelay(5000);
+	}
+
 //#define FREQ				6250000
 //	for (uint32_t i = 490; i < 510; i++) {
 //		uint32_t res = FFT_take_sample(i, FFT_WINDOW_RECTANGLE,
@@ -185,7 +190,10 @@ void StartDefaultTask(void const * argument)
 //		LOG(Log_App, LevelInfo, "Points: %lu, Res: %lu", i, res);
 //	}
 
+//#define DUMMY_DATA
+
 #define POINTS 				15000
+#ifdef DUMMY_DATA
 #define FREQ_OFFSET			((25000000/POINTS)/2)
 	for (uint8_t j = 0; j < FFT_WINDOW_MAX; j++) {
 		LOG(Log_App, LevelInfo, "Window: %d", j);
@@ -195,12 +203,18 @@ void StartDefaultTask(void const * argument)
 			LOG(Log_App, LevelInfo, "Freq: %lu, Res: %lu", 6250000 + i * FREQ_OFFSET, res);
 		}
 	}
+#else
 	while(1) {
-//		FFT_take_sample(4, FFT_WINDOW_RECTANGLE, 10000000);
+		uint32_t res = FFT_take_sample(POINTS, FFT_WINDOW_FLATTOP, 0);
+		float vPeak = (float) res / 8192;
+		float l = log10(vPeak);
+		float dbm = 10 + 20 * l;
+		LOG(Log_App, LevelInfo, "vPeak: %f, dbm: %f", vPeak, dbm);
 		vTaskDelay(1000);
 	}
-	generate_dummy_data(10000000, 4000, 250000, 0);
+#endif
 	while(1) {
+//		FFT_take_sample(4, FFT_WINDOW_RECTANGLE, 10000000);
 		vTaskDelay(1000);
 	}
 

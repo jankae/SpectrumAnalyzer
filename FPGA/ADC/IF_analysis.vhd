@@ -135,6 +135,8 @@ architecture Behavioral of IF_analysis is
 	
 	signal adc_data : std_logic_vector(13 downto 0);
 	signal adc_new : std_logic;
+	
+	signal adc_timeout : unsigned(0 to 100);
 begin
 
 	LED1 <= not fft_active;
@@ -205,7 +207,14 @@ begin
 	begin
 		if rising_edge(clk_100) then
 			if adc_new = '1' then
-				LED3 <= not LED3;
+				LED3 <= '0';
+				adc_timeout <= (others => '0');
+			else
+				if adc_timeout < 100 then
+					adc_timeout <= adc_timeout + 1;
+				else
+					LED3 <= '1';
+				end if;
 			end if;
 			if CS = '1' then
 				first <= '1';

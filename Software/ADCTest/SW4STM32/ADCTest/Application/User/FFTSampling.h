@@ -19,6 +19,6 @@ typedef enum {
 } fft_window_t;
 
 uint32_t FFT_take_sample(uint32_t points, fft_window_t window, uint32_t dummyFreq);
-void fft_spi_mem_test();
+void fft_spi_test();
 
 #endif /* APPLICATION_USER_FFTSAMPLING_H_ */

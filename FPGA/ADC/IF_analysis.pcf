@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.68d on Sat Mar 16 23:15:44 2019
+// Written by: Map P.68d on Sun May 05 15:23:09 2019
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -284,8 +284,8 @@ TIMEGRP CLOCK_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL
         "FFT/sum_imag_4" BEL "FFT/sum_imag_3" BEL "FFT/sum_imag_2" BEL
         "FFT/sum_imag_1" BEL "FFT/sum_imag_0" BEL "clk_100_BUFG" BEL
         "SPI_interface/next_complete" BEL "FFT/pipe_level_0" BEL "fft_active"
-        BEL "LED3" BEL "write_not_read" BEL "ADC_input/NEW_SAMPLE" BEL "first"
-        BEL "mem_write_0" BEL "FFT/window_address_cnt_0" BEL
+        BEL "write_not_read" BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL
+        "mem_write_0" BEL "LED3" BEL "FFT/window_address_cnt_0" BEL
         "FFT/window_address_cnt_14" BEL "FFT/window_address_cnt_13" BEL
         "FFT/window_address_cnt_15" BEL "FFT/window_address_cnt_12" BEL
         "FFT/window_address_cnt_11" BEL "FFT/window_address_cnt_10" BEL
@@ -303,9 +303,12 @@ TIMEGRP CLOCK_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL
         "FFT/mult_a_9" BEL "FFT/mult_a_8" BEL "FFT/mult_a_7" BEL
         "FFT/mult_a_6" BEL "FFT/mult_a_5" BEL "FFT/mult_a_4" BEL
         "FFT/mult_a_3" BEL "FFT/mult_a_2" BEL "FFT/mult_a_1" BEL
-        "FFT/mult_a_0" BEL "mem_address_14_1" BEL "mem_address_14_2" BEL
-        "mem_address_3_1" BEL "ADC_input/Mshreg_new_clk" BEL
-        "ADC_input/new_clk" BEL "SPI_interface/Mshreg_mosi_sampled_1" BEL
+        "FFT/mult_a_0" BEL "adc_timeout_100" BEL "adc_timeout_99" BEL
+        "adc_timeout_98" BEL "adc_timeout_97" BEL "adc_timeout_96" BEL
+        "adc_timeout_95" BEL "adc_timeout_94" BEL "mem_address_14_1" BEL
+        "mem_address_14_2" BEL "mem_address_3_1" BEL
+        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk" BEL
+        "SPI_interface/Mshreg_mosi_sampled_1" BEL
         "SPI_interface/mosi_sampled_1" BEL "SPI_interface/Mshreg_cs_sampled_1"
         BEL "SPI_interface/cs_sampled_1" PIN
         "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
@@ -517,8 +520,8 @@ TIMEGRP clk_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL "mem_in_3"
         "FFT/sum_imag_4" BEL "FFT/sum_imag_3" BEL "FFT/sum_imag_2" BEL
         "FFT/sum_imag_1" BEL "FFT/sum_imag_0" BEL "clk_100_BUFG" BEL
         "SPI_interface/next_complete" BEL "FFT/pipe_level_0" BEL "fft_active"
-        BEL "LED3" BEL "write_not_read" BEL "ADC_input/NEW_SAMPLE" BEL "first"
-        BEL "mem_write_0" BEL "FFT/window_address_cnt_0" BEL
+        BEL "write_not_read" BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL
+        "mem_write_0" BEL "LED3" BEL "FFT/window_address_cnt_0" BEL
         "FFT/window_address_cnt_14" BEL "FFT/window_address_cnt_13" BEL
         "FFT/window_address_cnt_15" BEL "FFT/window_address_cnt_12" BEL
         "FFT/window_address_cnt_11" BEL "FFT/window_address_cnt_10" BEL
@@ -536,9 +539,12 @@ TIMEGRP clk_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL "mem_in_3"
         "FFT/mult_a_9" BEL "FFT/mult_a_8" BEL "FFT/mult_a_7" BEL
         "FFT/mult_a_6" BEL "FFT/mult_a_5" BEL "FFT/mult_a_4" BEL
         "FFT/mult_a_3" BEL "FFT/mult_a_2" BEL "FFT/mult_a_1" BEL
-        "FFT/mult_a_0" BEL "mem_address_14_1" BEL "mem_address_14_2" BEL
-        "mem_address_3_1" BEL "ADC_input/Mshreg_new_clk" BEL
-        "ADC_input/new_clk" BEL "SPI_interface/Mshreg_mosi_sampled_1" BEL
+        "FFT/mult_a_0" BEL "adc_timeout_100" BEL "adc_timeout_99" BEL
+        "adc_timeout_98" BEL "adc_timeout_97" BEL "adc_timeout_96" BEL
+        "adc_timeout_95" BEL "adc_timeout_94" BEL "mem_address_14_1" BEL
+        "mem_address_14_2" BEL "mem_address_3_1" BEL
+        "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk" BEL
+        "SPI_interface/Mshreg_mosi_sampled_1" BEL
         "SPI_interface/mosi_sampled_1" BEL "SPI_interface/Mshreg_cs_sampled_1"
         BEL "SPI_interface/cs_sampled_1" PIN
         "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"

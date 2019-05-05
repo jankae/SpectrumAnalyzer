@@ -158,6 +158,7 @@ Elaborating entity <spi> (architecture <spi_a>) from library <work>.
 
 Synthesizing Unit <IF_analysis>.
     Related source file is "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.vhd".
+    Found 101-bit register for signal <adc_timeout>.
     Found 1-bit register for signal <first>.
     Found 15-bit register for signal <mem_address>.
     Found 1-bit register for signal <mem_write>.
@@ -168,11 +169,14 @@ Synthesizing Unit <IF_analysis>.
     Found 32-bit register for signal <fft_points>.
     Found 16-bit register for signal <spi_in>.
     Found 1-bit register for signal <LED3>.
-    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_15_OUT> created at line 1241.
-    Found 16-bit 13-to-1 multiplexer for signal <_n0162> created at line 256.
+    Found 101-bit adder for signal <adc_timeout[0]_GND_4_o_add_1_OUT> created at line 1241.
+    Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_19_OUT> created at line 1241.
+    Found 16-bit 13-to-1 multiplexer for signal <_n0173> created at line 265.
+    Found 101-bit comparator greater for signal <adc_timeout[0]_GND_4_o_LessThan_1_o> created at line 213
     Summary:
-	inferred   1 Adder/Subtractor(s).
-	inferred 100 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred 201 D-type flip-flop(s).
+	inferred   1 Comparator(s).
 	inferred  21 Multiplexer(s).
 Unit <IF_analysis> synthesized.
 
@@ -246,15 +250,17 @@ Unit <spi_slave> synthesized.
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 7
+# Adders/Subtractors                                   : 8
  1-bit adder                                           : 1
+ 101-bit adder                                         : 1
  15-bit adder                                          : 1
  16-bit adder                                          : 2
  32-bit adder                                          : 1
  64-bit adder                                          : 1
  64-bit subtractor                                     : 1
-# Registers                                            : 35
+# Registers                                            : 36
  1-bit register                                        : 13
+ 101-bit register                                      : 1
  14-bit register                                       : 3
  15-bit register                                       : 1
  16-bit register                                       : 9
@@ -263,7 +269,8 @@ Macro Statistics
  64-bit register                                       : 4
 # Latches                                              : 2
  1-bit latch                                           : 2
-# Comparators                                          : 2
+# Comparators                                          : 3
+ 101-bit comparator greater                            : 1
  16-bit comparator greater                             : 1
  32-bit comparator greater                             : 1
 # Multiplexers                                         : 25
@@ -287,6 +294,10 @@ Reading Secure Unit <blk00000001>.
 Loading core <spi> for timing and area information for instance <memory>.
 Loading core <WindowingMult> for timing and area information for instance <windowing_mult>.
 
+Synthesizing (advanced) Unit <IF_analysis>.
+The following registers are absorbed into counter <adc_timeout>: 1 register on signal <adc_timeout>.
+Unit <IF_analysis> synthesized (advanced).
+
 Synthesizing (advanced) Unit <SingleBinFFT>.
 The following registers are absorbed into counter <WINDOW_ADDRESS>: 1 register on signal <WINDOW_ADDRESS>.
 The following registers are absorbed into counter <pipe_level_0>: 1 register on signal <pipe_level_0>.
@@ -302,13 +313,15 @@ Macro Statistics
  15-bit adder                                          : 1
  64-bit adder                                          : 1
  64-bit subtractor                                     : 1
-# Counters                                             : 4
+# Counters                                             : 5
  1-bit up counter                                      : 1
+ 101-bit up counter                                    : 1
  16-bit up counter                                     : 2
  32-bit up counter                                     : 1
 # Registers                                            : 475
  Flip-Flops                                            : 475
-# Comparators                                          : 2
+# Comparators                                          : 3
+ 101-bit comparator greater                            : 1
  16-bit comparator greater                             : 1
  32-bit comparator greater                             : 1
 # Multiplexers                                         : 40
@@ -332,6 +345,100 @@ Optimizing unit <SingleBinFFT> ...
 WARNING:Xst:2677 - Node <FFT/WINDOW_ADDRESS_15> of sequential type is unconnected in block <IF_analysis>.
 WARNING:Xst:2677 - Node <FFT/WINDOW_ADDRESS_14> of sequential type is unconnected in block <IF_analysis>.
 WARNING:Xst:2677 - Node <FFT/WINDOW_ADDRESS_13> of sequential type is unconnected in block <IF_analysis>.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_24> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_25> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_26> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_27> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_28> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_29> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_30> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_31> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_32> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_33> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_34> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_35> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_36> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_37> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_38> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_39> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_40> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_41> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_42> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_43> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_44> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_45> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_46> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_0> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_1> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_2> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_3> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_4> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_5> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_6> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_7> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_8> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_9> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_10> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_11> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_12> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_13> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_14> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_15> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_16> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_17> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_18> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_19> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_20> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_21> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_22> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_23> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_71> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_72> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_73> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_74> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_75> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_76> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_77> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_78> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_79> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_80> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_81> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_82> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_83> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_84> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_85> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_86> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_87> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_88> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_89> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_90> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_91> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_92> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_93> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_47> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_48> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_49> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_50> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_51> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_52> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_53> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_54> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_55> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_56> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_57> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_58> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_59> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_60> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_61> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_62> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_63> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_64> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_65> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_66> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_67> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_68> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_69> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <adc_timeout_70> (without init value) has a constant value of 0 in block <IF_analysis>. This FF/Latch will be trimmed during the optimization process.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -351,8 +458,8 @@ Unit <IF_analysis> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 534
- Flip-Flops                                            : 534
+# Registers                                            : 541
+ Flip-Flops                                            : 541
 # Shift Registers                                      : 3
  2-bit shift register                                  : 3
 
@@ -377,22 +484,22 @@ Top Level Output File Name         : IF_analysis.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1112
+# BELS                             : 1164
 #      GND                         : 3
-#      INV                         : 76
-#      LUT1                        : 71
+#      INV                         : 78
+#      LUT1                        : 77
 #      LUT2                        : 87
-#      LUT3                        : 14
-#      LUT4                        : 263
-#      LUT5                        : 36
+#      LUT3                        : 21
+#      LUT4                        : 264
+#      LUT5                        : 37
 #      LUT6                        : 132
-#      MUXCY                       : 223
+#      MUXCY                       : 251
 #      VCC                         : 3
-#      XORCY                       : 204
-# FlipFlops/Latches                : 541
+#      XORCY                       : 211
+# FlipFlops/Latches                : 548
 #      FD                          : 37
 #      FDE                         : 99
-#      FDR                         : 52
+#      FDR                         : 59
 #      FDRE                        : 350
 #      FDSE                        : 1
 #      LDC_1                       : 2
@@ -420,18 +527,18 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             540  out of  11440     4%  
- Number of Slice LUTs:                  682  out of   5720    11%  
-    Number used as Logic:               679  out of   5720    11%  
+ Number of Slice Registers:             547  out of  11440     4%  
+ Number of Slice LUTs:                  699  out of   5720    12%  
+    Number used as Logic:               696  out of   5720    12%  
     Number used as Memory:                3  out of   1440     0%  
        Number used as SRL:                3
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    873
-   Number with an unused Flip Flop:     333  out of    873    38%  
-   Number with an unused LUT:           191  out of    873    21%  
-   Number of fully used LUT-FF pairs:   349  out of    873    39%  
-   Number of unique control sets:        23
+ Number of LUT Flip Flop pairs used:    891
+   Number with an unused Flip Flop:     344  out of    891    38%  
+   Number with an unused LUT:           192  out of    891    21%  
+   Number of fully used LUT-FF pairs:   355  out of    891    39%  
+   Number of unique control sets:        24
 
 IO Utilization: 
  Number of IOs:                          24
@@ -465,7 +572,7 @@ Clock Information:
 -----------------------------------+-------------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                       | Load  |
 -----------------------------------+-------------------------------------------------------------+-------+
-CLK                                | DCM_SP:CLKFX                                                | 551   |
+CLK                                | DCM_SP:CLKFX                                                | 558   |
 SPI_interface/cs_sampled_1         | NONE(SPI_interface/miso_buffer[15]_cs_sampled[1]_DLATCH_1_q)| 2     |
 -----------------------------------+-------------------------------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -490,7 +597,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
   Clock period: 6.814ns (frequency: 146.764MHz)
-  Total number of paths / destination ports: 60339 / 1650
+  Total number of paths / destination ports: 60454 / 1664
 -------------------------------------------------------------------------
 Delay:               5.451ns (Levels of Logic = 18)
   Source:            fft_points_0 (FF)
@@ -540,7 +647,7 @@ Offset:              4.677ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            72   1.222   1.940  CS_IBUF (CS_IBUF)
-     LUT4:I0->O           16   0.203   1.005  _n0246_inv1_rstpot (_n0246_inv1_rstpot)
+     LUT4:I0->O           16   0.203   1.005  _n0258_inv1_rstpot (_n0258_inv1_rstpot)
      LUT6:I5->O            1   0.205   0.000  fft_points_0_dpot (fft_points_0_dpot)
      FDE:D                     0.102          fft_points_0
     ----------------------------------------
@@ -612,14 +719,14 @@ CLK            |    2.310|         |         |         |
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.90 secs
+Total CPU time to Xst completion: 8.95 secs
  
 --> 
 
 
-Total memory usage is 417568 kilobytes
+Total memory usage is 418344 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    6 (   0 filtered)
+Number of warnings :  100 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

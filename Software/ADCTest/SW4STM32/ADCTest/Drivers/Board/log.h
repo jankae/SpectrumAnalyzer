@@ -30,7 +30,7 @@
 #define Log_System  	(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
 #define Log_Exti		(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
 #define Log_App		  	(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
-#define Log_FFT			(/*LevelDebug|LevelInfo|*/LevelWarn|LevelError|LevelCrit)
+#define Log_FFT			(LevelDebug|LevelInfo|LevelWarn|LevelError|LevelCrit)
 #define Log_Dummy		(/*LevelDebug|LevelInfo|*/LevelWarn|LevelError|LevelCrit)
 
 // if LevelDebug is omitted from this mask,

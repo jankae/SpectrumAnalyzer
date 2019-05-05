@@ -37,7 +37,7 @@ static uint16_t read16(uint16_t address) {
 	uint16_t rec[2];
 	HAL_SPI_TransmitReceive(&hspi1, (uint8_t*) send, (uint8_t*) rec, 2, 10);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-//	LOG(Log_FFT, LevelDebug, "Read 0x%04x from 0x%04x", rec[1], address);
+	LOG(Log_FFT, LevelDebug, "Read 0x%04x from 0x%04x", rec[1], address);
 	return rec[1];
 }
 static void write16(uint16_t address, uint16_t val) {
@@ -53,7 +53,7 @@ static uint32_t read32(uint16_t address) {
 	uint16_t rec[3];
 	HAL_SPI_TransmitReceive(&hspi1, (uint8_t*) send, (uint8_t*) rec, 3, 10);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-//	LOG(Log_FFT, LevelDebug, "Read 0x%08x from 0x%04x", rec[2] << 16 | rec[1], address);
+	LOG(Log_FFT, LevelDebug, "Read 0x%08x from 0x%04x", rec[2] << 16 | rec[1], address);
 	return rec[2] << 16 | rec[1];
 }
 static void write32(uint16_t address, uint32_t val) {
@@ -61,7 +61,7 @@ static void write32(uint16_t address, uint32_t val) {
 	uint16_t send[3] = { address | 0x8000, val & 0xFFFF, val >> 16 };
 	HAL_SPI_Transmit(&hspi1, (uint8_t*) send, 3, 10);
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_SET);
-//	LOG(Log_FFT, LevelDebug, "Write 0x%08x to 0x%04x", val, address);
+	LOG(Log_FFT, LevelDebug, "Write 0x%08x to 0x%04x", val, address);
 }
 static uint64_t read64(uint16_t address) {
 	HAL_GPIO_WritePin(SPI1_NSS_GPIO_Port, SPI1_NSS_Pin, GPIO_PIN_RESET);
@@ -160,7 +160,14 @@ uint32_t FFT_take_sample(uint32_t points, fft_window_t window, uint32_t dummyFre
 			LOG(Log_FFT, LevelWarn, "Still busy after generating dummy data");
 		}
 	} else {
-		while(read16(0x00) & STATUS_BUSY);
+		uint32_t start = HAL_GetTick();
+		while(read16(0x00) & STATUS_BUSY) {
+			if (HAL_GetTick() - start > 2000) {
+				write16(0x00, 0x00);
+				LOG(Log_FFT, LevelWarn, "FFT timed out");
+				return 0;
+			}
+		}
 	}
 
 	int64_t raw_real = read64(0x04);
@@ -179,17 +186,17 @@ uint32_t FFT_take_sample(uint32_t points, fft_window_t window, uint32_t dummyFre
 	return abs;
 }
 
-void fft_spi_mem_test() {
+void fft_spi_test() {
 #define TEST_ITERATIONS			100
 	uint16_t fail = 0, pass = 0;
 	for(uint16_t i=0;i<TEST_ITERATIONS;i++) {
-		write16(0x01, i);
-		if(read16(0x01) != i) {
+		write32(0x02, i);
+		if(read32(0x02) != i) {
 			fail++;
 		} else {
 			pass++;
 		}
-		vTaskDelay(5);
+		vTaskDelay(50);
 	}
 	LOG(Log_FFT, LevelInfo, "SPI mem test: %d passed, %d failed", pass, fail);
 }
