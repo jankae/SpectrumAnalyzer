@@ -6,7 +6,7 @@ Loading device for application Rf_Device from file '6slx9.nph' in environment
 -3
 Opened constraints file IF_analysis.pcf.
 
-Sun May  5 15:23:28 2019
+Mon May  6 19:14:41 2019
 
 /opt/Xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -intstyle ise -w -g DebugBitstream:No -g Binary:no -g CRC:Enable -g Reset_on_err:No -g ConfigRate:2 -g ProgPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ExtMasterCclk_en:No -g SPI_buswidth:1 -g TIMER_CFG:0xFFFF -g multipin_wakeup:No -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g LCK_cycle:NoWait -g Security:None -g DonePipe:Yes -g DriveDone:No -g en_sw_gsr:No -g drive_awake:No -g sw_clk:Startupclk -g sw_gwe_cycle:5 -g sw_gts_cycle:4 IF_analysis.ncd 
 
@@ -133,6 +133,70 @@ There were 0 CONFIG constraint(s) processed from IF_analysis.pcf.
 
 
 Running DRC.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[5]_AND_28_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[15]_AND_8_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[6]_AND_26_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[10]_AND_18_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[7]_AND_24_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[0]_AND_38_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[11]_AND_16_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[8]_AND_22_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[1]_AND_36_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[12]_AND_14_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[9]_AND_20_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[2]_AND_34_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[13]_AND_12_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[3]_AND_32_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[14]_AND_10_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   SPI_interface/CS_BUF_IN[4]_AND_30_o is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data
+   into the flip-flop.
 INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
    with the CLKFX and CLKFX180 outputs of the DCM comp
    your_instance_name/dcm_sp_inst, consult the device Data Sheet.
@@ -140,7 +204,7 @@ WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
    (RAMB8BWER).  9K Block RAM initialization data, both user defined and
    default, may be incorrect and should not be used.  For more information,
    please reference Xilinx Answer Record 39999.
-DRC detected 0 errors and 1 warnings.  Please see the previously displayed
+DRC detected 0 errors and 17 warnings.  Please see the previously displayed
 individual error or warning messages for more details.
 Creating bit map...
 Saving bit stream in "IF_analysis.bit".

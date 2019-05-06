@@ -149,6 +149,7 @@ Elaborating entity <SingleBinFFT> (architecture <Behavioral>) from library <work
 Elaborating entity <WindowingMult> (architecture <WindowingMult_a>) from library <work>.
 
 Elaborating entity <spi_slave> (architecture <Behavioral>) with generics from library <work>.
+WARNING:HDLCompiler:92 - "/home/jan/Projekte/RFStuff/FPGA/ADC/spi.vhd" Line 101: buf_in should be on the sensitivity list of the process
 
 Elaborating entity <spi> (architecture <spi_a>) from library <work>.
 
@@ -171,7 +172,7 @@ Synthesizing Unit <IF_analysis>.
     Found 1-bit register for signal <LED3>.
     Found 101-bit adder for signal <adc_timeout[0]_GND_4_o_add_1_OUT> created at line 1241.
     Found 15-bit adder for signal <mem_address[14]_GND_4_o_add_19_OUT> created at line 1241.
-    Found 16-bit 13-to-1 multiplexer for signal <_n0173> created at line 265.
+    Found 16-bit 13-to-1 multiplexer for signal <_n0173> created at line 266.
     Found 101-bit comparator greater for signal <adc_timeout[0]_GND_4_o_LessThan_1_o> created at line 213
     Summary:
 	inferred   2 Adder/Subtractor(s).
@@ -228,21 +229,37 @@ Unit <SingleBinFFT> synthesized.
 Synthesizing Unit <spi_slave>.
     Related source file is "/home/jan/Projekte/RFStuff/FPGA/ADC/spi.vhd".
         W = 16
-    Found 2-bit register for signal <cs_sampled>.
-    Found 2-bit register for signal <mosi_sampled>.
-    Found 2-bit register for signal <spiSR>.
-    Found 16-bit register for signal <miso_buffer>.
-    Found 16-bit register for signal <mosi_buffer>.
-    Found 1-bit register for signal <COMPLETE>.
-    Found 1-bit register for signal <next_complete>.
+    Found 15-bit register for signal <bit_cnt<14:0>>.
+    Found 1-bit register for signal <data_valid<1>>.
     Found 16-bit register for signal <BUF_OUT>.
-WARNING:Xst:737 - Found 1-bit latch for signal <PWR_14_o_cs_sampled[1]_DLATCH_2_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
-    Found 1-bit tristate buffer for signal <MISO> created at line 53
-WARNING:Xst:737 - Found 1-bit latch for signal <miso_buffer[15]_cs_sampled[1]_DLATCH_1_q>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 1-bit register for signal <COMPLETE>.
+    Found 1-bit register for signal <data_synced<0>>.
+    Found 1-bit register for signal <data_synced<2>>.
+    Found 1-bit register for signal <data_synced<1>>.
+    Found 1-bit register for signal <data_valid<0>>.
+    Found 16-bit register for signal <data>.
+    Found 16-bit register for signal <mosi_buffer>.
+    Found 1-bit register for signal <data_valid<2>>.
+    Found 1-bit register for signal <miso_buffer<15>>.
+    Found 1-bit register for signal <miso_buffer<14>>.
+    Found 1-bit register for signal <miso_buffer<13>>.
+    Found 1-bit register for signal <miso_buffer<12>>.
+    Found 1-bit register for signal <miso_buffer<11>>.
+    Found 1-bit register for signal <miso_buffer<10>>.
+    Found 1-bit register for signal <miso_buffer<9>>.
+    Found 1-bit register for signal <miso_buffer<8>>.
+    Found 1-bit register for signal <miso_buffer<7>>.
+    Found 1-bit register for signal <miso_buffer<6>>.
+    Found 1-bit register for signal <miso_buffer<5>>.
+    Found 1-bit register for signal <miso_buffer<4>>.
+    Found 1-bit register for signal <miso_buffer<3>>.
+    Found 1-bit register for signal <miso_buffer<2>>.
+    Found 1-bit register for signal <miso_buffer<1>>.
+    Found 1-bit register for signal <miso_buffer<0>>.
+    Found 1-bit tristate buffer for signal <MISO> created at line 78
     Summary:
-	inferred  56 D-type flip-flop(s).
-	inferred   2 Latch(s).
-	inferred   4 Multiplexer(s).
+	inferred  86 D-type flip-flop(s).
+	inferred   2 Multiplexer(s).
 	inferred   1 Tristate(s).
 Unit <spi_slave> synthesized.
 
@@ -258,26 +275,23 @@ Macro Statistics
  32-bit adder                                          : 1
  64-bit adder                                          : 1
  64-bit subtractor                                     : 1
-# Registers                                            : 36
- 1-bit register                                        : 13
+# Registers                                            : 55
+ 1-bit register                                        : 34
  101-bit register                                      : 1
  14-bit register                                       : 3
- 15-bit register                                       : 1
+ 15-bit register                                       : 2
  16-bit register                                       : 9
- 2-bit register                                        : 3
  32-bit register                                       : 2
  64-bit register                                       : 4
-# Latches                                              : 2
- 1-bit latch                                           : 2
 # Comparators                                          : 3
  101-bit comparator greater                            : 1
  16-bit comparator greater                             : 1
  32-bit comparator greater                             : 1
-# Multiplexers                                         : 25
- 1-bit 2-to-1 multiplexer                              : 18
+# Multiplexers                                         : 23
+ 1-bit 2-to-1 multiplexer                              : 17
  15-bit 2-to-1 multiplexer                             : 2
  16-bit 13-to-1 multiplexer                            : 1
- 16-bit 2-to-1 multiplexer                             : 3
+ 16-bit 2-to-1 multiplexer                             : 2
  32-bit 2-to-1 multiplexer                             : 1
 # Tristates                                            : 1
  1-bit tristate buffer                                 : 1
@@ -293,6 +307,7 @@ Reading core <ipcore_dir/WindowingMult.ngc>.
 Reading Secure Unit <blk00000001>.
 Loading core <spi> for timing and area information for instance <memory>.
 Loading core <WindowingMult> for timing and area information for instance <windowing_mult>.
+WARNING:Xst:2677 - Node <mosi_buffer_15> of sequential type is unconnected in block <SPI_interface>.
 
 Synthesizing (advanced) Unit <IF_analysis>.
 The following registers are absorbed into counter <adc_timeout>: 1 register on signal <adc_timeout>.
@@ -304,6 +319,7 @@ The following registers are absorbed into counter <pipe_level_0>: 1 register on 
 The following registers are absorbed into counter <pnt_cnt>: 1 register on signal <pnt_cnt>.
 The following registers are absorbed into counter <window_address_cnt>: 1 register on signal <window_address_cnt>.
 Unit <SingleBinFFT> synthesized (advanced).
+WARNING:Xst:2677 - Node <mosi_buffer_15> of sequential type is unconnected in block <spi_slave>.
 
 =========================================================================
 Advanced HDL Synthesis Report
@@ -318,17 +334,17 @@ Macro Statistics
  101-bit up counter                                    : 1
  16-bit up counter                                     : 2
  32-bit up counter                                     : 1
-# Registers                                            : 475
- Flip-Flops                                            : 475
+# Registers                                            : 504
+ Flip-Flops                                            : 504
 # Comparators                                          : 3
  101-bit comparator greater                            : 1
  16-bit comparator greater                             : 1
  32-bit comparator greater                             : 1
-# Multiplexers                                         : 40
+# Multiplexers                                         : 38
  1-bit 13-to-1 multiplexer                             : 16
- 1-bit 2-to-1 multiplexer                              : 18
+ 1-bit 2-to-1 multiplexer                              : 17
  15-bit 2-to-1 multiplexer                             : 2
- 16-bit 2-to-1 multiplexer                             : 3
+ 16-bit 2-to-1 multiplexer                             : 2
  32-bit 2-to-1 multiplexer                             : 1
 
 =========================================================================
@@ -336,6 +352,46 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
+WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
+   incompatible with the Spartan6 architecture. The two primary causes of this is
+   either a register or latch described with both an asynchronous set and
+   asynchronous reset, or a register or latch described with an asynchronous
+   set or reset which however has an initialization value of the opposite 
+   polarity (i.e. asynchronous reset with an initialization value of 1).
+    While this circuit can be built, it creates a sub-optimal implementation
+   in terms of area, power and performance. For a more optimal implementation
+   Xilinx highly recommends one of the following:
+
+          1) Remove either the set or reset from all registers and latches
+             if not needed for required functionality
+          2) Modify the code in order to produce a synchronous set
+             and/or reset (both is preferred)
+          3) Ensure all registers have the same initialization value as the
+             described asynchronous set or reset polarity
+          4) Use the -async_to_sync option to transform the asynchronous
+             set/reset to synchronous operation
+             (timing simulation highly recommended when using this option)
+
+  Please refer to http://www.xilinx.com search string "Spartan6 asynchronous set/reset" for more details.
+
+  List of register instances with asynchronous set and reset:
+    SPI_interface/miso_buffer_14 in unit <IF_analysis>
+    SPI_interface/miso_buffer_13 in unit <IF_analysis>
+    SPI_interface/miso_buffer_12 in unit <IF_analysis>
+    SPI_interface/miso_buffer_11 in unit <IF_analysis>
+    SPI_interface/miso_buffer_10 in unit <IF_analysis>
+    SPI_interface/miso_buffer_9 in unit <IF_analysis>
+    SPI_interface/miso_buffer_8 in unit <IF_analysis>
+    SPI_interface/miso_buffer_5 in unit <IF_analysis>
+    SPI_interface/miso_buffer_7 in unit <IF_analysis>
+    SPI_interface/miso_buffer_6 in unit <IF_analysis>
+    SPI_interface/miso_buffer_4 in unit <IF_analysis>
+    SPI_interface/miso_buffer_3 in unit <IF_analysis>
+    SPI_interface/miso_buffer_2 in unit <IF_analysis>
+    SPI_interface/miso_buffer_1 in unit <IF_analysis>
+    SPI_interface/miso_buffer_0 in unit <IF_analysis>
+    SPI_interface/miso_buffer_15 in unit <IF_analysis>
+
 
 Optimizing unit <IF_analysis> ...
 
@@ -442,15 +498,15 @@ WARNING:Xst:1710 - FF/Latch <adc_timeout_70> (without init value) has a constant
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block IF_analysis, actual ratio is 14.
+Found area constraint ratio of 100 (+ 5) on block IF_analysis, actual ratio is 16.
 FlipFlop mem_address_14 has been replicated 2 time(s)
-FlipFlop mem_address_3 has been replicated 1 time(s)
+FlipFlop mem_address_2 has been replicated 1 time(s)
 
 Final Macro Processing ...
 
 Processing Unit <IF_analysis> :
-	Found 2-bit shift register for signal <SPI_interface/mosi_sampled_1>.
-	Found 2-bit shift register for signal <SPI_interface/cs_sampled_1>.
+	Found 2-bit shift register for signal <SPI_interface/data_synced_2>.
+	Found 2-bit shift register for signal <SPI_interface/data_valid_2>.
 	Found 2-bit shift register for signal <ADC_input/new_clk>.
 Unit <IF_analysis> processed.
 
@@ -458,8 +514,8 @@ Unit <IF_analysis> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 541
- Flip-Flops                                            : 541
+# Registers                                            : 586
+ Flip-Flops                                            : 586
 # Shift Registers                                      : 3
  2-bit shift register                                  : 3
 
@@ -484,34 +540,36 @@ Top Level Output File Name         : IF_analysis.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1164
+# BELS                             : 1192
 #      GND                         : 3
-#      INV                         : 78
+#      INV                         : 79
 #      LUT1                        : 77
-#      LUT2                        : 87
-#      LUT3                        : 21
-#      LUT4                        : 264
-#      LUT5                        : 37
-#      LUT6                        : 132
-#      MUXCY                       : 251
+#      LUT2                        : 117
+#      LUT3                        : 22
+#      LUT4                        : 250
+#      LUT5                        : 52
+#      LUT6                        : 129
+#      MUXCY                       : 249
 #      VCC                         : 3
 #      XORCY                       : 211
-# FlipFlops/Latches                : 548
-#      FD                          : 37
-#      FDE                         : 99
-#      FDR                         : 59
-#      FDRE                        : 350
-#      FDSE                        : 1
-#      LDC_1                       : 2
+# FlipFlops/Latches                : 607
+#      FD                          : 38
+#      FDC_1                       : 31
+#      FDE                         : 114
+#      FDP_1                       : 16
+#      FDR                         : 57
+#      FDRE                        : 335
+#      LDC                         : 16
 # RAMS                             : 8
 #      RAMB16BWER                  : 7
 #      RAMB8BWER                   : 1
 # Shift Registers                  : 3
 #      SRLC16E                     : 3
-# Clock Buffers                    : 2
+# Clock Buffers                    : 3
 #      BUFG                        : 2
-# IO Buffers                       : 24
-#      IBUF                        : 18
+#      BUFGP                       : 1
+# IO Buffers                       : 23
+#      IBUF                        : 17
 #      IBUFG                       : 1
 #      OBUF                        : 4
 #      OBUFT                       : 1
@@ -527,28 +585,27 @@ Selected Device : 6slx9tqg144-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             547  out of  11440     4%  
- Number of Slice LUTs:                  699  out of   5720    12%  
-    Number used as Logic:               696  out of   5720    12%  
+ Number of Slice Registers:             607  out of  11440     5%  
+ Number of Slice LUTs:                  729  out of   5720    12%  
+    Number used as Logic:               726  out of   5720    12%  
     Number used as Memory:                3  out of   1440     0%  
        Number used as SRL:                3
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:    891
-   Number with an unused Flip Flop:     344  out of    891    38%  
-   Number with an unused LUT:           192  out of    891    21%  
-   Number of fully used LUT-FF pairs:   355  out of    891    39%  
-   Number of unique control sets:        24
+ Number of LUT Flip Flop pairs used:    981
+   Number with an unused Flip Flop:     374  out of    981    38%  
+   Number with an unused LUT:           252  out of    981    25%  
+   Number of fully used LUT-FF pairs:   355  out of    981    36%  
+   Number of unique control sets:        74
 
 IO Utilization: 
  Number of IOs:                          24
  Number of bonded IOBs:                  24  out of    102    23%  
-    IOB Flip Flops/Latches:               1
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                8  out of     32    25%  
     Number using Block RAM only:          8
- Number of BUFG/BUFGCTRLs:                2  out of     16    12%  
+ Number of BUFG/BUFGCTRLs:                3  out of     16    18%  
  Number of DSP48A1s:                      1  out of     16     6%  
 
 ---------------------------
@@ -569,12 +626,31 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------+-------------------------------------------------------------+-------+
-Clock Signal                       | Clock buffer(FF name)                                       | Load  |
------------------------------------+-------------------------------------------------------------+-------+
-CLK                                | DCM_SP:CLKFX                                                | 558   |
-SPI_interface/cs_sampled_1         | NONE(SPI_interface/miso_buffer[15]_cs_sampled[1]_DLATCH_1_q)| 2     |
------------------------------------+-------------------------------------------------------------+-------+
+-----------------------------------------------------------------------------+------------------------------------------+-------+
+Clock Signal                                                                 | Clock buffer(FF name)                    | Load  |
+-----------------------------------------------------------------------------+------------------------------------------+-------+
+CLK                                                                          | DCM_SP:CLKFX                             | 522   |
+SPI_CLK                                                                      | BUFGP                                    | 81    |
+SPI_interface/CS_BUF_IN[15]_AND_8_o(SPI_interface/CS_BUF_IN[15]_AND_8_o1:O)  | NONE(*)(SPI_interface/miso_buffer_15_LDC)| 1     |
+SPI_interface/CS_BUF_IN[0]_AND_38_o(SPI_interface/CS_BUF_IN[0]_AND_38_o1:O)  | NONE(*)(SPI_interface/miso_buffer_0_LDC) | 1     |
+SPI_interface/CS_BUF_IN[1]_AND_36_o(SPI_interface/CS_BUF_IN[1]_AND_36_o1:O)  | NONE(*)(SPI_interface/miso_buffer_1_LDC) | 1     |
+SPI_interface/CS_BUF_IN[2]_AND_34_o(SPI_interface/CS_BUF_IN[2]_AND_34_o1:O)  | NONE(*)(SPI_interface/miso_buffer_2_LDC) | 1     |
+SPI_interface/CS_BUF_IN[3]_AND_32_o(SPI_interface/CS_BUF_IN[3]_AND_32_o1:O)  | NONE(*)(SPI_interface/miso_buffer_3_LDC) | 1     |
+SPI_interface/CS_BUF_IN[4]_AND_30_o(SPI_interface/CS_BUF_IN[4]_AND_30_o1:O)  | NONE(*)(SPI_interface/miso_buffer_4_LDC) | 1     |
+SPI_interface/CS_BUF_IN[6]_AND_26_o(SPI_interface/CS_BUF_IN[6]_AND_26_o1:O)  | NONE(*)(SPI_interface/miso_buffer_6_LDC) | 1     |
+SPI_interface/CS_BUF_IN[7]_AND_24_o(SPI_interface/CS_BUF_IN[7]_AND_24_o1:O)  | NONE(*)(SPI_interface/miso_buffer_7_LDC) | 1     |
+SPI_interface/CS_BUF_IN[5]_AND_28_o(SPI_interface/CS_BUF_IN[5]_AND_28_o1:O)  | NONE(*)(SPI_interface/miso_buffer_5_LDC) | 1     |
+SPI_interface/CS_BUF_IN[8]_AND_22_o(SPI_interface/CS_BUF_IN[8]_AND_22_o1:O)  | NONE(*)(SPI_interface/miso_buffer_8_LDC) | 1     |
+SPI_interface/CS_BUF_IN[9]_AND_20_o(SPI_interface/CS_BUF_IN[9]_AND_20_o1:O)  | NONE(*)(SPI_interface/miso_buffer_9_LDC) | 1     |
+SPI_interface/CS_BUF_IN[10]_AND_18_o(SPI_interface/CS_BUF_IN[10]_AND_18_o1:O)| NONE(*)(SPI_interface/miso_buffer_10_LDC)| 1     |
+SPI_interface/CS_BUF_IN[11]_AND_16_o(SPI_interface/CS_BUF_IN[11]_AND_16_o1:O)| NONE(*)(SPI_interface/miso_buffer_11_LDC)| 1     |
+SPI_interface/CS_BUF_IN[12]_AND_14_o(SPI_interface/CS_BUF_IN[12]_AND_14_o1:O)| NONE(*)(SPI_interface/miso_buffer_12_LDC)| 1     |
+SPI_interface/CS_BUF_IN[13]_AND_12_o(SPI_interface/CS_BUF_IN[13]_AND_12_o1:O)| NONE(*)(SPI_interface/miso_buffer_13_LDC)| 1     |
+SPI_interface/CS_BUF_IN[14]_AND_10_o(SPI_interface/CS_BUF_IN[14]_AND_10_o1:O)| NONE(*)(SPI_interface/miso_buffer_14_LDC)| 1     |
+-----------------------------------------------------------------------------+------------------------------------------+-------+
+(*) These 16 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -585,10 +661,10 @@ Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 6.814ns (Maximum Frequency: 146.764MHz)
-   Minimum input arrival time before clock: 4.677ns
+   Minimum period: 11.356ns (Maximum Frequency: 88.058MHz)
+   Minimum input arrival time before clock: 4.911ns
    Maximum output required time after clock: 6.369ns
-   Maximum combinational path delay: No path found
+   Maximum combinational path delay: 5.720ns
 
 Timing Details:
 ---------------
@@ -596,14 +672,14 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 6.814ns (frequency: 146.764MHz)
-  Total number of paths / destination ports: 60454 / 1664
+  Clock period: 11.356ns (frequency: 88.058MHz)
+  Total number of paths / destination ports: 59968 / 1563
 -------------------------------------------------------------------------
 Delay:               5.451ns (Levels of Logic = 18)
   Source:            fft_points_0 (FF)
   Destination:       FFT/sum_imag_31 (FF)
-  Source Clock:      CLK rising 1.2X
-  Destination Clock: CLK rising 1.2X
+  Source Clock:      CLK rising 2.1X
+  Destination Clock: CLK rising 2.1X
 
   Data Path: fft_points_0 to FFT/sum_imag_31
                                 Gate     Net
@@ -634,45 +710,427 @@ Delay:               5.451ns (Levels of Logic = 18)
                                        (30.0% logic, 70.0% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
-  Total number of paths / destination ports: 104 / 104
+Timing constraint: Default period analysis for Clock 'SPI_CLK'
+  Clock period: 6.995ns (frequency: 142.962MHz)
+  Total number of paths / destination ports: 185 / 109
 -------------------------------------------------------------------------
-Offset:              4.677ns (Levels of Logic = 3)
+Delay:               3.497ns (Levels of Logic = 1)
+  Source:            SPI_interface/bit_cnt_14 (FF)
+  Destination:       SPI_interface/mosi_buffer_14 (FF)
+  Source Clock:      SPI_CLK falling
+  Destination Clock: SPI_CLK rising
+
+  Data Path: SPI_interface/bit_cnt_14 to SPI_interface/mosi_buffer_14
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC_1:C->Q           48   0.447   1.519  SPI_interface/bit_cnt_14 (SPI_interface/bit_cnt_14)
+     INV:I->O             16   0.206   1.004  SPI_interface/bit_cnt<14>_inv1_INV_0 (SPI_interface/bit_cnt<14>_inv)
+     FDE:CE                    0.322          SPI_interface/mosi_buffer_0
+    ----------------------------------------
+    Total                      3.497ns (0.975ns logic, 2.522ns route)
+                                       (27.9% logic, 72.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'CLK'
+  Total number of paths / destination ports: 101 / 101
+-------------------------------------------------------------------------
+Offset:              4.911ns (Levels of Logic = 3)
   Source:            CS (PAD)
   Destination:       fft_points_0 (FF)
-  Destination Clock: CLK rising 1.2X
+  Destination Clock: CLK rising 2.1X
 
   Data Path: CS to fft_points_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            72   1.222   1.940  CS_IBUF (CS_IBUF)
+     IBUF:I->O           119   1.222   2.175  CS_IBUF (CS_IBUF)
      LUT4:I0->O           16   0.203   1.005  _n0258_inv1_rstpot (_n0258_inv1_rstpot)
      LUT6:I5->O            1   0.205   0.000  fft_points_0_dpot (fft_points_0_dpot)
      FDE:D                     0.102          fft_points_0
     ----------------------------------------
-    Total                      4.677ns (1.732ns logic, 2.945ns route)
-                                       (37.0% logic, 63.0% route)
+    Total                      4.911ns (1.732ns logic, 3.179ns route)
+                                       (35.3% logic, 64.7% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_interface/cs_sampled_1'
-  Total number of paths / destination ports: 2 / 1
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_CLK'
+  Total number of paths / destination ports: 49 / 49
 -------------------------------------------------------------------------
-Offset:              4.433ns (Levels of Logic = 2)
-  Source:            SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q (LATCH)
-  Destination:       MISO (PAD)
-  Source Clock:      SPI_interface/cs_sampled_1 rising
+Offset:              4.503ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_15_P_15 (FF)
+  Destination Clock: SPI_CLK falling
 
-  Data Path: SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q to MISO
+  Data Path: CS to SPI_interface/miso_buffer_15_P_15
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     LDC_1:G->Q            1   0.498   0.579  SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q (SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q)
-     INV:I->O              1   0.206   0.579  SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q_inv1_INV_0 (SPI_interface/PWR_14_o_cs_sampled[1]_DLATCH_2_q_inv)
-     OBUFT:T->O                2.571          MISO_OBUFT (MISO)
+     IBUF:I->O           119   1.222   2.032  CS_IBUF (CS_IBUF)
+     LUT2:I0->O            2   0.203   0.616  SPI_interface/CS_BUF_IN[0]_AND_38_o1 (SPI_interface/CS_BUF_IN[0]_AND_38_o)
+     FDP_1:PRE                 0.430          SPI_interface/miso_buffer_0_P_0
     ----------------------------------------
-    Total                      4.433ns (3.275ns logic, 1.158ns route)
-                                       (73.9% logic, 26.1% route)
+    Total                      4.503ns (1.855ns logic, 2.648ns route)
+                                       (41.2% logic, 58.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[15]_AND_8_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_15_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[15]_AND_8_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_15_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[15]_AND_9_o1 (SPI_interface/CS_BUF_IN[15]_AND_9_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_15_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[0]_AND_38_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_0_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[0]_AND_38_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_0_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[0]_AND_39_o1 (SPI_interface/CS_BUF_IN[0]_AND_39_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_0_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[1]_AND_36_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_1_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[1]_AND_36_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_1_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[1]_AND_37_o1 (SPI_interface/CS_BUF_IN[1]_AND_37_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_1_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[2]_AND_34_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_2_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[2]_AND_34_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_2_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[2]_AND_35_o1 (SPI_interface/CS_BUF_IN[2]_AND_35_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_2_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[3]_AND_32_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_3_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[3]_AND_32_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_3_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[3]_AND_33_o1 (SPI_interface/CS_BUF_IN[3]_AND_33_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_3_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[4]_AND_30_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_4_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[4]_AND_30_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_4_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[4]_AND_31_o1 (SPI_interface/CS_BUF_IN[4]_AND_31_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_4_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[6]_AND_26_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_6_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[6]_AND_26_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_6_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[6]_AND_27_o1 (SPI_interface/CS_BUF_IN[6]_AND_27_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_6_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[7]_AND_24_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_7_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[7]_AND_24_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_7_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[7]_AND_25_o1 (SPI_interface/CS_BUF_IN[7]_AND_25_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_7_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[5]_AND_28_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_5_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[5]_AND_28_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_5_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[5]_AND_29_o1 (SPI_interface/CS_BUF_IN[5]_AND_29_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_5_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[8]_AND_22_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_8_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[8]_AND_22_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_8_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[8]_AND_23_o1 (SPI_interface/CS_BUF_IN[8]_AND_23_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_8_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[9]_AND_20_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_9_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[9]_AND_20_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_9_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[9]_AND_21_o1 (SPI_interface/CS_BUF_IN[9]_AND_21_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_9_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[10]_AND_18_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_10_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[10]_AND_18_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_10_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[10]_AND_19_o1 (SPI_interface/CS_BUF_IN[10]_AND_19_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_10_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[11]_AND_16_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_11_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[11]_AND_16_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_11_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[11]_AND_17_o1 (SPI_interface/CS_BUF_IN[11]_AND_17_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_11_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[12]_AND_14_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_12_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[12]_AND_14_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_12_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[12]_AND_15_o1 (SPI_interface/CS_BUF_IN[12]_AND_15_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_12_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[13]_AND_12_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_13_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[13]_AND_12_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_13_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[13]_AND_13_o1 (SPI_interface/CS_BUF_IN[13]_AND_13_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_13_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'SPI_interface/CS_BUF_IN[14]_AND_10_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.401ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       SPI_interface/miso_buffer_14_LDC (LATCH)
+  Destination Clock: SPI_interface/CS_BUF_IN[14]_AND_10_o falling
+
+  Data Path: CS to SPI_interface/miso_buffer_14_LDC
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.928  CS_IBUF (CS_IBUF)
+     LUT2:I1->O            2   0.205   0.616  SPI_interface/CS_BUF_IN[14]_AND_11_o1 (SPI_interface/CS_BUF_IN[14]_AND_11_o)
+     LDC:CLR                   0.430          SPI_interface/miso_buffer_14_LDC
+    ----------------------------------------
+    Total                      4.401ns (1.857ns logic, 2.544ns route)
+                                       (42.2% logic, 57.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_interface/CS_BUF_IN[15]_AND_8_o'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              4.661ns (Levels of Logic = 2)
+  Source:            SPI_interface/miso_buffer_15_LDC (LATCH)
+  Destination:       MISO (PAD)
+  Source Clock:      SPI_interface/CS_BUF_IN[15]_AND_8_o falling
+
+  Data Path: SPI_interface/miso_buffer_15_LDC to MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDC:G->Q              1   0.498   0.808  SPI_interface/miso_buffer_15_LDC (SPI_interface/miso_buffer_15_LDC)
+     LUT3:I0->O            1   0.205   0.579  SPI_interface/miso_buffer_151 (SPI_interface/miso_buffer_15)
+     OBUFT:I->O                2.571          MISO_OBUFT (MISO)
+    ----------------------------------------
+    Total                      4.661ns (3.274ns logic, 1.387ns route)
+                                       (70.2% logic, 29.8% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'SPI_CLK'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              4.484ns (Levels of Logic = 2)
+  Source:            SPI_interface/miso_buffer_15_C_15 (FF)
+  Destination:       MISO (PAD)
+  Source Clock:      SPI_CLK falling
+
+  Data Path: SPI_interface/miso_buffer_15_C_15 to MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC_1:C->Q            1   0.447   0.684  SPI_interface/miso_buffer_15_C_15 (SPI_interface/miso_buffer_15_C_15)
+     LUT3:I1->O            1   0.203   0.579  SPI_interface/miso_buffer_151 (SPI_interface/miso_buffer_15)
+     OBUFT:I->O                2.571          MISO_OBUFT (MISO)
+    ----------------------------------------
+    Total                      4.484ns (3.221ns logic, 1.263ns route)
+                                       (71.8% logic, 28.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
@@ -681,7 +1139,7 @@ Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
 Offset:              6.369ns (Levels of Logic = 2)
   Source:            fft_active (FF)
   Destination:       LED1 (PAD)
-  Source Clock:      CLK rising 1.2X
+  Source Clock:      CLK rising 2.1X
 
   Data Path: fft_active to LED1
                                 Gate     Net
@@ -695,6 +1153,24 @@ Offset:              6.369ns (Levels of Logic = 2)
                                        (50.6% logic, 49.4% route)
 
 =========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Delay:               5.720ns (Levels of Logic = 2)
+  Source:            CS (PAD)
+  Destination:       MISO (PAD)
+
+  Data Path: CS to MISO
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O           119   1.222   1.927  CS_IBUF (CS_IBUF)
+     OBUFT:T->O                2.571          MISO_OBUFT (MISO)
+    ----------------------------------------
+    Total                      5.720ns (3.793ns logic, 1.927ns route)
+                                       (66.3% logic, 33.7% route)
+
+=========================================================================
 
 Cross Clock Domains Report:
 --------------------------
@@ -705,28 +1181,173 @@ Clock to Setup on destination clock CLK
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
 CLK            |    5.451|         |         |         |
+SPI_CLK        |    1.128|         |         |         |
 ---------------+---------+---------+---------+---------+
 
-Clock to Setup on destination clock SPI_interface/cs_sampled_1
+Clock to Setup on destination clock SPI_CLK
+------------------------------------+---------+---------+---------+---------+
+                                    | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock                        |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+------------------------------------+---------+---------+---------+---------+
+CLK                                 |    1.097|         |    2.452|         |
+SPI_CLK                             |    1.599|    3.497|    3.277|         |
+SPI_interface/CS_BUF_IN[0]_AND_38_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[10]_AND_18_o|         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[11]_AND_16_o|         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[12]_AND_14_o|         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[13]_AND_12_o|         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[14]_AND_10_o|         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[1]_AND_36_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[2]_AND_34_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[3]_AND_32_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[4]_AND_30_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[5]_AND_28_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[6]_AND_26_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[7]_AND_24_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[8]_AND_22_o |         |         |    1.630|         |
+SPI_interface/CS_BUF_IN[9]_AND_20_o |         |         |    1.630|         |
+------------------------------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[0]_AND_38_o
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    2.310|         |         |         |
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[10]_AND_18_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[11]_AND_16_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[12]_AND_14_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[13]_AND_12_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[14]_AND_10_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[15]_AND_8_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[1]_AND_36_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[2]_AND_34_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[3]_AND_32_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[4]_AND_30_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[5]_AND_28_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[6]_AND_26_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[7]_AND_24_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[8]_AND_22_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock SPI_interface/CS_BUF_IN[9]_AND_20_o
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK            |         |         |    2.452|         |
 ---------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
 Total REAL time to Xst completion: 9.00 secs
-Total CPU time to Xst completion: 8.95 secs
+Total CPU time to Xst completion: 8.85 secs
  
 --> 
 
 
-Total memory usage is 418344 kilobytes
+Total memory usage is 418480 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  100 (   0 filtered)
+Number of warnings :  102 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

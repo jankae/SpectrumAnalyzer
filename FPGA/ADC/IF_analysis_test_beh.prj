@@ -1,8 +1,0 @@
-vhdl work "ipcore_dir/PLL.vhd"
-vhdl work "ipcore_dir/spi.vhd"
-vhdl work "ipcore_dir/WindowingMult.vhd"
-vhdl work "spi.vhd"
-vhdl work "SingleBinFFT.vhd"
-vhdl work "ADCSynchronizer.vhd"
-vhdl work "IF_analysis.vhd"
-vhdl work "IF_analysis_test.vhd"

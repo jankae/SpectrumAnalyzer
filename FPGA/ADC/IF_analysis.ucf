@@ -26,6 +26,7 @@ NET "ADC_IN[13]" LOC = P24;
 NET "SPI_CLK" LOC = P51;
 NET "MOSI" LOC = P58;
 NET "MISO" LOC = P50;
+NET "MISO" DRIVE = 2;
 NET "CS" LOC = P57;
 
 NET "LED1" LOC = P95;
@@ -35,4 +36,4 @@ NET "LED4" LOC = P97;
 
 # PlanAhead Generated IO constraints 
 
-NET "MISO" SLEW = FAST;
+#NET "MISO" SLEW = FAST;

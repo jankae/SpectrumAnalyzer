@@ -115,7 +115,7 @@ BEGIN
       -- insert stimulus here 
 		BUF_IN <= "0101010100001111";
 		MOSI <= '1';
-		wait for SPI_CLK_period;
+		wait for SPI_CLK_period*0.25;
 		CS <= '0';
 		wait for SPI_CLK_period*8;
 		MOSI <= '0';

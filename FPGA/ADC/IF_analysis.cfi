@@ -2,10 +2,10 @@
 # Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 SOFTWARE_VERSION P.68d
-DATE             5/ 5/2019 - 15:27
+DATE             5/ 6/2019 - 20:24
 SOURCE          /home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis.mcs
 DEVICE          4096K
 DATA_WIDTH      1
 FILL_DATA       0xFF
-SIGNATURE       0x3AE7066F
+SIGNATURE       0x3AE7FEFE
 START_ADDRESS   0x00000000 END_ADDRESS 0x00053393 DIRECTION_UP   "IF_analysis.bit" 6slx9tqg144

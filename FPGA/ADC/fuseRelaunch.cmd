@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "secureip" -o "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_isim_beh.exe" -prj "/home/jan/Projekte/RFStuff/FPGA/ADC/IF_analysis_test_beh.prj" "IF_analysis_test" 
+-intstyle "ise" -incremental -lib "secureip" -o "/home/jan/Projekte/RFStuff/FPGA/ADC/SPI_test_isim_beh.exe" -prj "/home/jan/Projekte/RFStuff/FPGA/ADC/SPI_test_beh.prj" "work.SPI_test" 

@@ -19,6 +19,7 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -38,65 +39,77 @@ entity spi_slave is
 			  BUF_OUT : out STD_LOGIC_VECTOR (W-1 downto 0) := (others => '0');
 			  BUF_IN : in STD_LOGIC_VECTOR (W-1 downto 0);
            CLK : in  STD_LOGIC;
-			  COMPLETE : out STD_LOGIC);
+			  COMPLETE : out STD_LOGIC
+--			  RISING_TOGGLE : inout STD_LOGIC;
+--			  FALLING_TOGGLE : inout STD_LOGIC
+				);
 end spi_slave;
 
 architecture Behavioral of spi_slave is
 	signal miso_buffer : STD_LOGIC_VECTOR (W-1 downto 0);
 	signal mosi_buffer : STD_LOGIC_VECTOR (W-1 downto 0);
-	signal next_complete : STD_LOGIC;
-	signal spiSR : STD_LOGIC_VECTOR (1 downto 0);
-	signal cs_sampled: STD_LOGIC_VECTOR (1 downto 0);
-	signal mosi_sampled: STD_LOGIC_VECTOR (1 downto 0);
-begin
 
-	MISO <= 'Z' when cs_sampled(1) = '1' else
-				miso_buffer(W-1) when cs_sampled(1) = '0';
+	signal data_valid : STD_LOGIC_VECTOR(2 downto 0);
+	signal data_synced : STD_LOGIC_VECTOR(2 downto 0);
+	signal data : STD_LOGIC_VECTOR(W-1 downto 0);
+	
+	signal bit_cnt : STD_LOGIC_VECTOR(W-1 downto 0);
+begin
 
 	process(CLK)
 	begin
 		if rising_edge(CLK) then
-			cs_sampled <= cs_sampled(0) & CS;
-			mosi_sampled <= mosi_sampled(0) & MOSI;
-			spiSR <= spiSR(0 downto 0) & SPI_CLK;
-			if cs_sampled(1) = '1' then
-				-- reset state machine
-				miso_buffer <= BUF_IN;
-				mosi_buffer <= (W-1 downto 1 => '0') & '1';
-				--MISO <= 'Z';
-				COMPLETE <= '0';
-				next_complete <= '0';
-				spiSR <= "00";
-			else
-				--MISO <= miso_buffer(W-1);
-				if spiSR = "01" then
-					-- rising edge
-					if mosi_buffer(W-1) = '1' then
-						-- this was the last bit
-						next_complete <= '1';
-						BUF_OUT <= mosi_buffer(W-2 downto 0) & mosi_sampled(1);
-						mosi_buffer <= (W-1 downto 1 => '0') & '1';
-					else
-						mosi_buffer <= mosi_buffer(W-2 downto 0) & mosi_sampled(1);
-					end if;
-				end if;
-				if spiSR = "10" then
-					-- falling edge
-					if mosi_buffer = (W-2 downto 0 => '0') & '1' then
-						miso_buffer <= BUF_IN;
-					else
-						miso_buffer <= miso_buffer(W-2 downto 0) & '0';
-					end if;
-				end if;
-				if next_complete = '1' then
-					next_complete <= '0';
+			data_valid(2 downto 1) <= data_valid(1 downto 0);
+			if data_valid(2) = '1' then
+				if data_synced(0) = '0' then
+					BUF_OUT <= data;
 					COMPLETE <= '1';
+					data_synced(0) <= '1';
 				else
 					COMPLETE <= '0';
 				end if;
+			else
+				COMPLETE <= '0';
+				data_synced(0) <= '0';
+			end if;
+		end if;
+	end process;
+
+	MISO <= miso_buffer(W-1) when CS = '0' else 'Z';
+
+	slave_in: process(SPI_CLK)
+	begin
+		if rising_edge(SPI_CLK) then
+--			FALLING_TOGGLE <= not FALLING_TOGGLE;
+			data_synced(2 downto 1) <= data_synced(1 downto 0);
+			if bit_cnt(W-2) = '1' then
+				-- this was the last bit
+				data_valid(0) <= '1';
+				data <= mosi_buffer(W-2 downto 0) & MOSI;
+			else
+				if data_valid(0) = '1' and data_synced(2) = '1' then
+					data_valid(0) <= '0';
+				end if;
+				mosi_buffer <= mosi_buffer(W-2 downto 0) & MOSI;
+			end if;
+		end if;
+	end process;
+	
+	slave_out: process(SPI_CLK, CS)
+	begin
+		if CS = '1' then
+			miso_buffer <= BUF_IN;
+			bit_cnt <= (others => '0');
+		elsif falling_edge(SPI_CLK) then
+--			RISING_TOGGLE <= not RISING_TOGGLE;
+			if bit_cnt(W-2) = '1' then
+				bit_cnt <= (others => '0');
+				miso_buffer <= BUF_IN;
+			else
+				bit_cnt <= bit_cnt(W-2 downto 0) & '1';
+				miso_buffer <= miso_buffer(W-2 downto 0) & '0';
 			end if;
 		end if;
 	end process;
 
 end Behavioral;
-

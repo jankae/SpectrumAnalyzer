@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.68d on Sun May 05 15:23:09 2019
+// Written by: Map P.68d on Mon May 06 19:14:22 2019
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -140,32 +140,15 @@ TIMEGRP CLOCK_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL
         BEL "spi_in_5" BEL "spi_in_6" BEL "spi_in_7" BEL "spi_in_8" BEL
         "spi_in_9" BEL "spi_in_10" BEL "spi_in_11" BEL "spi_in_12" BEL
         "spi_in_13" BEL "spi_in_14" BEL "spi_in_15" BEL
-        "SPI_interface/BUF_OUT_15" BEL "SPI_interface/BUF_OUT_14" BEL
-        "SPI_interface/BUF_OUT_13" BEL "SPI_interface/BUF_OUT_12" BEL
-        "SPI_interface/BUF_OUT_11" BEL "SPI_interface/BUF_OUT_10" BEL
-        "SPI_interface/BUF_OUT_9" BEL "SPI_interface/BUF_OUT_8" BEL
-        "SPI_interface/BUF_OUT_7" BEL "SPI_interface/BUF_OUT_6" BEL
-        "SPI_interface/BUF_OUT_5" BEL "SPI_interface/BUF_OUT_4" BEL
-        "SPI_interface/BUF_OUT_3" BEL "SPI_interface/BUF_OUT_2" BEL
-        "SPI_interface/BUF_OUT_1" BEL "SPI_interface/BUF_OUT_0" BEL
-        "SPI_interface/mosi_buffer_15" BEL "SPI_interface/mosi_buffer_14" BEL
-        "SPI_interface/mosi_buffer_13" BEL "SPI_interface/mosi_buffer_12" BEL
-        "SPI_interface/mosi_buffer_11" BEL "SPI_interface/mosi_buffer_10" BEL
-        "SPI_interface/mosi_buffer_9" BEL "SPI_interface/mosi_buffer_8" BEL
-        "SPI_interface/mosi_buffer_7" BEL "SPI_interface/mosi_buffer_6" BEL
-        "SPI_interface/mosi_buffer_5" BEL "SPI_interface/mosi_buffer_4" BEL
-        "SPI_interface/mosi_buffer_3" BEL "SPI_interface/mosi_buffer_2" BEL
-        "SPI_interface/mosi_buffer_1" BEL "SPI_interface/mosi_buffer_0" BEL
-        "SPI_interface/miso_buffer_15" BEL "SPI_interface/miso_buffer_14" BEL
-        "SPI_interface/miso_buffer_13" BEL "SPI_interface/miso_buffer_12" BEL
-        "SPI_interface/miso_buffer_11" BEL "SPI_interface/miso_buffer_10" BEL
-        "SPI_interface/miso_buffer_9" BEL "SPI_interface/miso_buffer_8" BEL
-        "SPI_interface/miso_buffer_7" BEL "SPI_interface/miso_buffer_6" BEL
-        "SPI_interface/miso_buffer_5" BEL "SPI_interface/miso_buffer_4" BEL
-        "SPI_interface/miso_buffer_3" BEL "SPI_interface/miso_buffer_2" BEL
-        "SPI_interface/miso_buffer_1" BEL "SPI_interface/miso_buffer_0" BEL
-        "SPI_interface/COMPLETE" BEL "SPI_interface/spiSR_1" BEL
-        "SPI_interface/spiSR_0" BEL "ADC_input/last_clk" BEL
+        "SPI_interface/COMPLETE" BEL "SPI_interface/BUF_OUT_15" BEL
+        "SPI_interface/BUF_OUT_14" BEL "SPI_interface/BUF_OUT_13" BEL
+        "SPI_interface/BUF_OUT_12" BEL "SPI_interface/BUF_OUT_11" BEL
+        "SPI_interface/BUF_OUT_10" BEL "SPI_interface/BUF_OUT_9" BEL
+        "SPI_interface/BUF_OUT_8" BEL "SPI_interface/BUF_OUT_7" BEL
+        "SPI_interface/BUF_OUT_6" BEL "SPI_interface/BUF_OUT_5" BEL
+        "SPI_interface/BUF_OUT_4" BEL "SPI_interface/BUF_OUT_3" BEL
+        "SPI_interface/BUF_OUT_2" BEL "SPI_interface/BUF_OUT_1" BEL
+        "SPI_interface/BUF_OUT_0" BEL "ADC_input/last_clk" BEL
         "ADC_input/DATA_OUT_13" BEL "ADC_input/DATA_OUT_12" BEL
         "ADC_input/DATA_OUT_11" BEL "ADC_input/DATA_OUT_10" BEL
         "ADC_input/DATA_OUT_9" BEL "ADC_input/DATA_OUT_8" BEL
@@ -283,7 +266,7 @@ TIMEGRP CLOCK_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL
         "FFT/sum_imag_7" BEL "FFT/sum_imag_6" BEL "FFT/sum_imag_5" BEL
         "FFT/sum_imag_4" BEL "FFT/sum_imag_3" BEL "FFT/sum_imag_2" BEL
         "FFT/sum_imag_1" BEL "FFT/sum_imag_0" BEL "clk_100_BUFG" BEL
-        "SPI_interface/next_complete" BEL "FFT/pipe_level_0" BEL "fft_active"
+        "SPI_interface/data_synced_0" BEL "FFT/pipe_level_0" BEL "fft_active"
         BEL "write_not_read" BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL
         "mem_write_0" BEL "LED3" BEL "FFT/window_address_cnt_0" BEL
         "FFT/window_address_cnt_14" BEL "FFT/window_address_cnt_13" BEL
@@ -306,11 +289,10 @@ TIMEGRP CLOCK_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL
         "FFT/mult_a_0" BEL "adc_timeout_100" BEL "adc_timeout_99" BEL
         "adc_timeout_98" BEL "adc_timeout_97" BEL "adc_timeout_96" BEL
         "adc_timeout_95" BEL "adc_timeout_94" BEL "mem_address_14_1" BEL
-        "mem_address_14_2" BEL "mem_address_3_1" BEL
+        "mem_address_14_2" BEL "mem_address_2_1" BEL
         "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk" BEL
-        "SPI_interface/Mshreg_mosi_sampled_1" BEL
-        "SPI_interface/mosi_sampled_1" BEL "SPI_interface/Mshreg_cs_sampled_1"
-        BEL "SPI_interface/cs_sampled_1" PIN
+        "SPI_interface/Mshreg_data_valid_2" BEL "SPI_interface/data_valid_2"
+        PIN
         "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
         PIN
         "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
@@ -376,32 +358,15 @@ TIMEGRP clk_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL "mem_in_3"
         BEL "spi_in_5" BEL "spi_in_6" BEL "spi_in_7" BEL "spi_in_8" BEL
         "spi_in_9" BEL "spi_in_10" BEL "spi_in_11" BEL "spi_in_12" BEL
         "spi_in_13" BEL "spi_in_14" BEL "spi_in_15" BEL
-        "SPI_interface/BUF_OUT_15" BEL "SPI_interface/BUF_OUT_14" BEL
-        "SPI_interface/BUF_OUT_13" BEL "SPI_interface/BUF_OUT_12" BEL
-        "SPI_interface/BUF_OUT_11" BEL "SPI_interface/BUF_OUT_10" BEL
-        "SPI_interface/BUF_OUT_9" BEL "SPI_interface/BUF_OUT_8" BEL
-        "SPI_interface/BUF_OUT_7" BEL "SPI_interface/BUF_OUT_6" BEL
-        "SPI_interface/BUF_OUT_5" BEL "SPI_interface/BUF_OUT_4" BEL
-        "SPI_interface/BUF_OUT_3" BEL "SPI_interface/BUF_OUT_2" BEL
-        "SPI_interface/BUF_OUT_1" BEL "SPI_interface/BUF_OUT_0" BEL
-        "SPI_interface/mosi_buffer_15" BEL "SPI_interface/mosi_buffer_14" BEL
-        "SPI_interface/mosi_buffer_13" BEL "SPI_interface/mosi_buffer_12" BEL
-        "SPI_interface/mosi_buffer_11" BEL "SPI_interface/mosi_buffer_10" BEL
-        "SPI_interface/mosi_buffer_9" BEL "SPI_interface/mosi_buffer_8" BEL
-        "SPI_interface/mosi_buffer_7" BEL "SPI_interface/mosi_buffer_6" BEL
-        "SPI_interface/mosi_buffer_5" BEL "SPI_interface/mosi_buffer_4" BEL
-        "SPI_interface/mosi_buffer_3" BEL "SPI_interface/mosi_buffer_2" BEL
-        "SPI_interface/mosi_buffer_1" BEL "SPI_interface/mosi_buffer_0" BEL
-        "SPI_interface/miso_buffer_15" BEL "SPI_interface/miso_buffer_14" BEL
-        "SPI_interface/miso_buffer_13" BEL "SPI_interface/miso_buffer_12" BEL
-        "SPI_interface/miso_buffer_11" BEL "SPI_interface/miso_buffer_10" BEL
-        "SPI_interface/miso_buffer_9" BEL "SPI_interface/miso_buffer_8" BEL
-        "SPI_interface/miso_buffer_7" BEL "SPI_interface/miso_buffer_6" BEL
-        "SPI_interface/miso_buffer_5" BEL "SPI_interface/miso_buffer_4" BEL
-        "SPI_interface/miso_buffer_3" BEL "SPI_interface/miso_buffer_2" BEL
-        "SPI_interface/miso_buffer_1" BEL "SPI_interface/miso_buffer_0" BEL
-        "SPI_interface/COMPLETE" BEL "SPI_interface/spiSR_1" BEL
-        "SPI_interface/spiSR_0" BEL "ADC_input/last_clk" BEL
+        "SPI_interface/COMPLETE" BEL "SPI_interface/BUF_OUT_15" BEL
+        "SPI_interface/BUF_OUT_14" BEL "SPI_interface/BUF_OUT_13" BEL
+        "SPI_interface/BUF_OUT_12" BEL "SPI_interface/BUF_OUT_11" BEL
+        "SPI_interface/BUF_OUT_10" BEL "SPI_interface/BUF_OUT_9" BEL
+        "SPI_interface/BUF_OUT_8" BEL "SPI_interface/BUF_OUT_7" BEL
+        "SPI_interface/BUF_OUT_6" BEL "SPI_interface/BUF_OUT_5" BEL
+        "SPI_interface/BUF_OUT_4" BEL "SPI_interface/BUF_OUT_3" BEL
+        "SPI_interface/BUF_OUT_2" BEL "SPI_interface/BUF_OUT_1" BEL
+        "SPI_interface/BUF_OUT_0" BEL "ADC_input/last_clk" BEL
         "ADC_input/DATA_OUT_13" BEL "ADC_input/DATA_OUT_12" BEL
         "ADC_input/DATA_OUT_11" BEL "ADC_input/DATA_OUT_10" BEL
         "ADC_input/DATA_OUT_9" BEL "ADC_input/DATA_OUT_8" BEL
@@ -519,7 +484,7 @@ TIMEGRP clk_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL "mem_in_3"
         "FFT/sum_imag_7" BEL "FFT/sum_imag_6" BEL "FFT/sum_imag_5" BEL
         "FFT/sum_imag_4" BEL "FFT/sum_imag_3" BEL "FFT/sum_imag_2" BEL
         "FFT/sum_imag_1" BEL "FFT/sum_imag_0" BEL "clk_100_BUFG" BEL
-        "SPI_interface/next_complete" BEL "FFT/pipe_level_0" BEL "fft_active"
+        "SPI_interface/data_synced_0" BEL "FFT/pipe_level_0" BEL "fft_active"
         BEL "write_not_read" BEL "ADC_input/NEW_SAMPLE" BEL "first" BEL
         "mem_write_0" BEL "LED3" BEL "FFT/window_address_cnt_0" BEL
         "FFT/window_address_cnt_14" BEL "FFT/window_address_cnt_13" BEL
@@ -542,11 +507,10 @@ TIMEGRP clk_100 = BEL "mem_in_0" BEL "mem_in_1" BEL "mem_in_2" BEL "mem_in_3"
         "FFT/mult_a_0" BEL "adc_timeout_100" BEL "adc_timeout_99" BEL
         "adc_timeout_98" BEL "adc_timeout_97" BEL "adc_timeout_96" BEL
         "adc_timeout_95" BEL "adc_timeout_94" BEL "mem_address_14_1" BEL
-        "mem_address_14_2" BEL "mem_address_3_1" BEL
+        "mem_address_14_2" BEL "mem_address_2_1" BEL
         "ADC_input/Mshreg_new_clk" BEL "ADC_input/new_clk" BEL
-        "SPI_interface/Mshreg_mosi_sampled_1" BEL
-        "SPI_interface/mosi_sampled_1" BEL "SPI_interface/Mshreg_cs_sampled_1"
-        BEL "SPI_interface/cs_sampled_1" PIN
+        "SPI_interface/Mshreg_data_valid_2" BEL "SPI_interface/data_valid_2"
+        PIN
         "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<28>"
         PIN
         "memory/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[3].ram.r/s6_init.ram/SDP.SIMPLE_PRIM18.ram_pins<29>"
@@ -591,6 +555,6 @@ TIMEGRP CLOCK_50 = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
         "your_instance_name/dcm_sp_inst_pins<3>";
 TS_CLOCK_50 = PERIOD TIMEGRP "CLOCK_50" 20 ns HIGH 50%;
 TS_CLOCK_100 = PERIOD TIMEGRP "CLOCK_100" 10 ns HIGH 50%;
-TS_clk_100 = PERIOD TIMEGRP "clk_100" TS_CLOCK_50 / 1.25 HIGH 50%;
+TS_clk_100 = PERIOD TIMEGRP "clk_100" TS_CLOCK_50 / 2.08333333 HIGH 50%;
 SCHEMATIC END;
 

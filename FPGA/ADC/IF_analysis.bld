@@ -18,7 +18,8 @@ INFO:ConstraintSystem:178 - TNM 'CLOCK_50', used in period specification
    'TS_CLOCK_50', was traced into DCM_SP instance
    your_instance_name/dcm_sp_inst. The following new TNM groups and period
    specifications were generated at the DCM_SP output(s): 
-   CLKFX: <TIMESPEC TS_clk_100 = PERIOD "clk_100" TS_CLOCK_50 / 1.25 HIGH 50%>
+   CLKFX: <TIMESPEC TS_clk_100 = PERIOD "clk_100" TS_CLOCK_50 / 2.083333333 HIGH
+   50%>
 
 Done...
 
@@ -41,7 +42,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   1
 
-Total memory usage is 417596 kilobytes
+Total memory usage is 417752 kilobytes
 
 Writing NGD file "IF_analysis.ngd" ...
 Total REAL time to NGDBUILD completion:  3 sec

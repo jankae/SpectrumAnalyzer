@@ -1,7 +1,7 @@
 Release 14.6 par P.68d (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-jan-desktop::  Sun May 05 15:23:11 2019
+jan-desktop::  Mon May 06 19:14:24 2019
 
 par -w -intstyle ise -ol high -mt off IF_analysis_map.ncd IF_analysis.ncd
 IF_analysis.pcf 
@@ -22,16 +22,16 @@ Device speed data version:  "PRODUCTION 1.23 2013-06-08".
 Device Utilization Summary:
 
 Slice Logic Utilization:
-  Number of Slice Registers:                   547 out of  11,440    4%
-    Number used as Flip Flops:                 546
-    Number used as Latches:                      1
+  Number of Slice Registers:                   607 out of  11,440    5%
+    Number used as Flip Flops:                 591
+    Number used as Latches:                     16
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                        705 out of   5,720   12%
-    Number used as logic:                      667 out of   5,720   11%
-      Number using O6 output only:             479
-      Number using O5 output only:              73
-      Number using O5 and O6:                  115
+  Number of Slice LUTs:                        703 out of   5,720   12%
+    Number used as logic:                      683 out of   5,720   11%
+      Number using O6 output only:             482
+      Number using O5 output only:              74
+      Number using O5 and O6:                  127
       Number used as ROM:                        0
     Number used as Memory:                       3 out of   1,440    1%
       Number used as Dual Port RAM:              0
@@ -40,18 +40,18 @@ Slice Logic Utilization:
         Number using O6 output only:             3
         Number using O5 output only:             0
         Number using O5 and O6:                  0
-    Number used exclusively as route-thrus:     35
-      Number with same-slice register load:     30
+    Number used exclusively as route-thrus:     17
+      Number with same-slice register load:     12
       Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   221 out of   1,430   15%
-  Number of MUXCYs used:                       268 out of   2,860    9%
-  Number of LUT Flip Flop pairs used:          782
-    Number with an unused Flip Flop:           280 out of     782   35%
-    Number with an unused LUT:                  77 out of     782    9%
-    Number of fully used LUT-FF pairs:         425 out of     782   54%
+  Number of occupied Slices:                   272 out of   1,430   19%
+  Number of MUXCYs used:                       264 out of   2,860    9%
+  Number of LUT Flip Flop pairs used:          869
+    Number with an unused Flip Flop:           284 out of     869   32%
+    Number with an unused LUT:                 166 out of     869   19%
+    Number of fully used LUT-FF pairs:         419 out of     869   48%
     Number of slice register sites lost
       to control set restrictions:               0 out of  11,440    0%
 
@@ -64,7 +64,6 @@ Slice Logic Distribution:
 IO Utilization:
   Number of bonded IOBs:                        24 out of     102   23%
     Number of LOCed IOBs:                       24 out of      24  100%
-    IOB Latches:                                 1
 
 Specific Feature Utilization:
   Number of RAMB16BWERs:                         7 out of      32   21%
@@ -75,17 +74,15 @@ Specific Feature Utilization:
   Number of BUFIO2FB/BUFIO2FB_2CLKs:             1 out of      32    3%
     Number used as BUFIO2FBs:                    1
     Number used as BUFIO2FB_2CLKs:               0
-  Number of BUFG/BUFGMUXs:                       2 out of      16   12%
-    Number used as BUFGs:                        2
+  Number of BUFG/BUFGMUXs:                       3 out of      16   18%
+    Number used as BUFGs:                        3
     Number used as BUFGMUX:                      0
   Number of DCM/DCM_CLKGENs:                     1 out of       4   25%
     Number used as DCMs:                         1
     Number used as DCM_CLKGENs:                  0
   Number of ILOGIC2/ISERDES2s:                   0 out of     200    0%
   Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     200    0%
-  Number of OLOGIC2/OSERDES2s:                   1 out of     200    1%
-    Number used as OLOGIC2s:                     1
-    Number used as OSERDES2s:                    0
+  Number of OLOGIC2/OSERDES2s:                   0 out of     200    0%
   Number of BSCANs:                              0 out of       4    0%
   Number of BUFHs:                               0 out of     128    0%
   Number of BUFPLLs:                             0 out of       8    0%
@@ -111,23 +108,23 @@ Finished initial Timing Analysis.  REAL time: 3 secs
 Starting Router
 
 
-Phase  1  : 4206 unrouted;      REAL time: 4 secs 
+Phase  1  : 4460 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 3102 unrouted;      REAL time: 4 secs 
+Phase  2  : 3318 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 1164 unrouted;      REAL time: 5 secs 
+Phase  3  : 1173 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 1164 unrouted; (Setup:0, Hold:19, Component Switching Limit:0)     REAL time: 5 secs 
+Phase  4  : 1173 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 6 secs 
 
 Updating file: IF_analysis.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:0, Hold:19, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  5  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  6  : 0 unrouted; (Setup:0, Hold:19, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  6  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  7  : 0 unrouted; (Setup:0, Hold:19, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  7  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
-Phase  8  : 0 unrouted; (Setup:0, Hold:19, Component Switching Limit:0)     REAL time: 7 secs 
+Phase  8  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
 Phase  9  : 0 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 7 secs 
 
@@ -151,10 +148,57 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|        clk_100_BUFG | BUFGMUX_X3Y13| No   |  169 |  0.107     |  1.175      |
+|        clk_100_BUFG | BUFGMUX_X3Y13| No   |  165 |  0.112     |  1.180      |
 +---------------------+--------------+------+------+------------+-------------+
-|SPI_interface/cs_sam |              |      |      |            |             |
-|             pled<1> |         Local|      |   27 |  0.648     |  2.011      |
+|       SPI_CLK_BUFGP | BUFGMUX_X2Y12| No   |   44 |  0.103     |  1.171      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[5]_AND_28_o |         Local|      |    2 |  0.000     |  0.505      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[15]_AND_8_o |         Local|      |    2 |  0.000     |  0.496      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[6]_AND_26_o |         Local|      |    2 |  0.000     |  0.505      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|    _IN[10]_AND_18_o |         Local|      |    2 |  0.000     |  0.502      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[7]_AND_24_o |         Local|      |    2 |  0.000     |  0.502      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[0]_AND_38_o |         Local|      |    2 |  0.000     |  0.310      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|    _IN[11]_AND_16_o |         Local|      |    2 |  0.000     |  0.502      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[8]_AND_22_o |         Local|      |    2 |  0.000     |  1.034      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[1]_AND_36_o |         Local|      |    2 |  0.000     |  0.474      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|    _IN[12]_AND_14_o |         Local|      |    2 |  0.000     |  0.522      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[9]_AND_20_o |         Local|      |    2 |  0.000     |  0.502      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[2]_AND_34_o |         Local|      |    2 |  0.000     |  0.490      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|    _IN[13]_AND_12_o |         Local|      |    2 |  0.000     |  0.462      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[3]_AND_32_o |         Local|      |    2 |  0.000     |  0.848      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|    _IN[14]_AND_10_o |         Local|      |    2 |  0.000     |  0.756      |
++---------------------+--------------+------+------+------------+-------------+
+|SPI_interface/CS_BUF |              |      |      |            |             |
+|     _IN[4]_AND_30_o |         Local|      |    2 |  0.000     |  0.310      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -176,11 +220,11 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
+  TS_clk_100 = PERIOD TIMEGRP "clk_100" TS_ | SETUP       |     3.118ns|     6.482ns|       0|           0
+  CLOCK_50 / 2.08333333 HIGH 50%            | HOLD        |     0.326ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
   TS_CLOCK_100 = PERIOD TIMEGRP "CLOCK_100" | MINPERIOD   |     6.876ns|     3.124ns|       0|           0
    10 ns HIGH 50%                           |             |            |            |        |            
-----------------------------------------------------------------------------------------------------------
-  TS_clk_100 = PERIOD TIMEGRP "clk_100" TS_ | SETUP       |     9.673ns|     6.327ns|       0|           0
-  CLOCK_50 / 1.25 HIGH 50%                  | HOLD        |     0.306ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
   TS_CLOCK_50 = PERIOD TIMEGRP "CLOCK_50" 2 | MINLOWPULSE |    12.000ns|     8.000ns|       0|           0
   0 ns HIGH 50%                             |             |            |            |        |            
@@ -197,8 +241,8 @@ Derived Constraints for TS_CLOCK_50
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_CLOCK_50                    |     20.000ns|      8.000ns|      7.909ns|            0|            0|            0|        60451|
-| TS_clk_100                    |     16.000ns|      6.327ns|          N/A|            0|            0|        60451|            0|
+|TS_CLOCK_50                    |     20.000ns|      8.000ns|     13.504ns|            0|            0|            0|        59966|
+| TS_clk_100                    |      9.600ns|      6.482ns|          N/A|            0|            0|        59966|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -208,10 +252,10 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 7 secs 
-Total CPU time to PAR completion: 7 secs 
+Total REAL time to PAR completion: 8 secs 
+Total CPU time to PAR completion: 8 secs 
 
-Peak Memory Usage:  642 MB
+Peak Memory Usage:  641 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

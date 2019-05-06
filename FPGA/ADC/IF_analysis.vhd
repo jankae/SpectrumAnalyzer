@@ -262,6 +262,7 @@ begin
 				end if;
 			end if;
 			-- assign spi_in dependent on mem_address
+--			spi_in <= '0' & mem_address;
 			case mem_address is
 				when "000000000000000" => spi_in <= "00000000000000" & fft_busy & fft_active;
 				when "000000000000001" => spi_in <= window_inc;
