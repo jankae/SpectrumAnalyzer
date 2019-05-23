@@ -8,6 +8,8 @@
 #ifndef APPLICATION_USER_RF_SETTINGS_H_
 #define APPLICATION_USER_RF_SETTINGS_H_
 
+void lo_setting();
+
 void rf_tests();
 
 #endif /* APPLICATION_USER_RF_SETTINGS_H_ */

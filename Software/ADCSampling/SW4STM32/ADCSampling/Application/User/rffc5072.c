@@ -276,10 +276,27 @@ rffc5072_result_t rffc5072_init(rffc5072_t *r) {
 	pin_low(r->CLK);
 
 	// enable addr mode
-	modify_reg(r, REG_SDI_CTRL, 0x0800, 0x0800);
+//	if (r->slice_address != -1) {
+		uint8_t s_buf = r->slice_address;
+		r->slice_address = 0x00;
+		modify_reg(r, REG_SDI_CTRL, 0x0800, 0x0800);
+		r->slice_address = s_buf;
+//	}
+
+	vTaskDelay(10);
 
 	for(uint8_t i=0;i<=0x1E;i++){
 		read_reg(r, i);
+	}
+
+	// check for device ID
+	modify_reg(r, REG_DEV_CTRL, 0x0000, 0xF000);
+	uint16_t device_id = read_reg(r, REG_READBACK);
+	if (device_id != 0x8A01) {
+		LOG(Log_RFFC5072, LevelError,
+				"Failed to initialize slice 0x%02x, wrong device id (0x%04x!=0x8A01)",
+				r->slice_address, device_id);
+		return RFFC5072_RES_ERROR;
 	}
 
 	// set recommended default values
@@ -300,6 +317,8 @@ rffc5072_result_t rffc5072_init(rffc5072_t *r) {
 
 	// set lowest frequency possible
 	rffc5072_set_LO(r, 85000000);
+
+	LOG(Log_RFFC5072, LevelInfo, "Initialized slice 0x%02x", r->slice_address);
 	return RFFC5072_RES_OK;
 }
 

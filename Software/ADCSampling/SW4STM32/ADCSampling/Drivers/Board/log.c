@@ -56,6 +56,12 @@ static StaticSemaphore_t xMutex;
 static SemaphoreHandle_t mutex;
 #endif
 
+#ifdef LOG_RECEIVE
+#define LOG_ISR_PRIO		5
+#else
+#define LOG_ISR_PRIO		0
+#endif
+
 static const char lvl_strings[][4] = {
 	"DBG",
 	"INF",
@@ -84,7 +90,7 @@ void log_init() {
 #endif
 
 	/* USART interrupt Init */
-	HAL_NVIC_SetPriority(NVIC_ISR, 5, 0);
+	HAL_NVIC_SetPriority(NVIC_ISR, LOG_ISR_PRIO, 0);
 	HAL_NVIC_EnableIRQ(NVIC_ISR);
 }
 
@@ -139,6 +145,23 @@ void log_flush() {
 		;
 }
 
+#ifdef LOG_RECEIVE
+static uint8_t *rec_buffer = NULL;
+static uint16_t rec_buffer_len = 0;
+static rec_cb rec_handler = NULL;
+static uint16_t rec_index = 0;
+void log_set_receive_handler(rec_cb handler, uint8_t *rec_buf, uint16_t buf_len) {
+	rec_handler = NULL;
+	rec_buffer = rec_buf;
+	rec_buffer_len = buf_len;
+	rec_index = 0;
+	rec_handler = handler;
+
+	// enable receive interrupt
+	USART_BASE->CR1 |= USART_CR1_RXNEIE;
+}
+#endif
+
 void log_force(const char *fmt, ...) {
 	CLK_ENABLE();
 	// disable ISR
@@ -160,23 +183,45 @@ void log_force(const char *fmt, ...) {
 
 /* Implemented directly here for speed reasons. Disable interrupt in CubeMX! */
 void HANDLER(void) {
-	if (USART_BASE->USART_ISR_REG & USART_TC) {
+	if ((USART_BASE->CR1 & USART_CR1_TCIE)
+			&& (USART_BASE->USART_ISR_REG & USART_TC)) {
 		// clear flag
 		USART_BASE->USART_ISR_REG &= ~USART_TC;
 		if (!(USART_BASE->CR1 & USART_CR1_TXEIE)) {
 			USART_BASE->CR1 &= ~USART_CR1_TCIE;
-			CLK_DISABLE();
+#ifdef LOG_RECEIVE
+			if (rec_buffer == 0)
+#endif
+				CLK_DISABLE();
 			// sent complete buffer, stop mode is allowed again
 			PD_ALLOW_STOP();
 		}
 	}
-	if (USART_BASE->USART_ISR_REG & USART_TXE) {
+	if ((USART_BASE->CR1 & USART_CR1_TXEIE)
+			&& (USART_BASE->USART_ISR_REG & USART_TXE)) {
 		if (fifo_read != fifo_write) {
 			USART_BASE->USART_WRITE = fifo[fifo_read];
 			INC_FIFO_POS(fifo_read, 1);
 		} else {
 			// all done, disable interrupt
 			USART_BASE->CR1 &= ~USART_CR1_TXEIE;
+		}
+	}
+	if ((USART_BASE->CR1 & USART_CR1_RXNEIE)
+			&& (USART_BASE->USART_ISR_REG & USART_RXNE)) {
+		// received something
+		if (rec_buffer && rec_index < rec_buffer_len) {
+			rec_buffer[rec_index++] = USART_BASE->USART_READ;
+			if (rec_buffer[rec_index - 1] == '\n') {
+				// got a complete line
+				if (rec_handler) {
+					rec_handler(rec_buffer, rec_index);
+				}
+				rec_index = 0;
+			}
+		} else {
+			// receive buffer full, throw away
+			rec_index = 0;
 		}
 	}
 }
