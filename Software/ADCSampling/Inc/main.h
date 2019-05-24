@@ -57,12 +57,16 @@
 
 /* Private define ------------------------------------------------------------*/
 
+#define SW2_Pin GPIO_PIN_2
+#define SW2_GPIO_Port GPIOE
 #define USER_Btn_Pin GPIO_PIN_13
 #define USER_Btn_GPIO_Port GPIOC
 #define MCO_Pin GPIO_PIN_0
 #define MCO_GPIO_Port GPIOH
 #define RMII_MDC_Pin GPIO_PIN_1
 #define RMII_MDC_GPIO_Port GPIOC
+#define ATT_LE_Pin GPIO_PIN_0
+#define ATT_LE_GPIO_Port GPIOA
 #define RMII_REF_CLK_Pin GPIO_PIN_1
 #define RMII_REF_CLK_GPIO_Port GPIOA
 #define RMII_MDIO_Pin GPIO_PIN_2
@@ -75,8 +79,10 @@
 #define RMII_RXD0_GPIO_Port GPIOC
 #define RMII_RXD1_Pin GPIO_PIN_5
 #define RMII_RXD1_GPIO_Port GPIOC
-#define LD1_Pin GPIO_PIN_0
-#define LD1_GPIO_Port GPIOB
+#define ATT_DATA_Pin GPIO_PIN_0
+#define ATT_DATA_GPIO_Port GPIOB
+#define LOCK3_Pin GPIO_PIN_1
+#define LOCK3_GPIO_Port GPIOB
 #define RMII_TXD1_Pin GPIO_PIN_13
 #define RMII_TXD1_GPIO_Port GPIOB
 #define LD3_Pin GPIO_PIN_14
@@ -85,6 +91,12 @@
 #define STLK_RX_GPIO_Port GPIOD
 #define STLK_TX_Pin GPIO_PIN_9
 #define STLK_TX_GPIO_Port GPIOD
+#define SW1_Pin GPIO_PIN_11
+#define SW1_GPIO_Port GPIOD
+#define LOCK1_Pin GPIO_PIN_12
+#define LOCK1_GPIO_Port GPIOD
+#define LOCK2_Pin GPIO_PIN_13
+#define LOCK2_GPIO_Port GPIOD
 #define USB_PowerSwitchOn_Pin GPIO_PIN_6
 #define USB_PowerSwitchOn_GPIO_Port GPIOG
 #define USB_OverCurrent_Pin GPIO_PIN_7
@@ -109,6 +121,8 @@
 #define RMII_TXD0_GPIO_Port GPIOG
 #define LD2_Pin GPIO_PIN_7
 #define LD2_GPIO_Port GPIOB
+#define ATT_CLK_Pin GPIO_PIN_1
+#define ATT_CLK_GPIO_Port GPIOE
 
 /* ########################## Assert Selection ############################## */
 /**

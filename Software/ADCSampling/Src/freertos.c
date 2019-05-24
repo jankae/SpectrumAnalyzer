@@ -52,8 +52,6 @@
 #include "cmsis_os.h"
 
 /* USER CODE BEGIN Includes */     
-#include "sampling.h"
-#include "rf_settings.h"
 
 /* USER CODE END Includes */
 
@@ -139,9 +137,10 @@ void StartDefaultTask(void const * argument)
 {
 
   /* USER CODE BEGIN StartDefaultTask */
-	rf_tests();
+//	rf_tests();
 //	lo_setting();
-//	sampling_start();
+//	rf_fft_fpga_test();
+	rf_spectrum_analyzer();
   /* Infinite loop */
   for(;;)
   {

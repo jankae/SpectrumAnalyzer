@@ -149,14 +149,6 @@
 			<type>1</type>
 			<location>PARENT-2-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/croutine.c</location>
 		</link><link>
-			<name>Application/User/tim.c</name>
-			<type>1</type>
-			<location>PARENT-2-PROJECT_LOC/Src/tim.c</location>
-		</link><link>
-			<name>Application/User/dma.c</name>
-			<type>1</type>
-			<location>PARENT-2-PROJECT_LOC/Src/dma.c</location>
-		</link><link>
 			<name>Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_tim_ex.c</name>
 			<type>1</type>
 			<location>PARENT-2-PROJECT_LOC/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c</location>

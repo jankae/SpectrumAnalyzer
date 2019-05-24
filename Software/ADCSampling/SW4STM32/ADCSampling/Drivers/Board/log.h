@@ -55,6 +55,8 @@
 #define Log_Sampling	(LevelAll)
 #define Log_Asynch		(LevelAll)
 #define Log_Cmd			(LevelAll)
+#define Log_FFT			(/*LevelDebug|*/LevelInfo|LevelWarn|LevelError|LevelCrit)
+
 
 // if LevelDebug is omitted from this mask,
 // debug message will not be logged regardless

@@ -50,10 +50,8 @@
 #include "main.h"
 #include "stm32f7xx_hal.h"
 #include "cmsis_os.h"
-#include "dma.h"
 #include "eth.h"
 #include "spi.h"
-#include "tim.h"
 #include "usart.h"
 #include "usb_otg.h"
 #include "gpio.h"
@@ -113,10 +111,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
-  MX_TIM8_Init();
+  MX_SPI1_Init();
 
   /* USER CODE BEGIN 2 */
 

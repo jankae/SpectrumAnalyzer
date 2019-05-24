@@ -194,10 +194,6 @@
                                 </file>
 
                                 <file>
-                                 <name>../Src/dma.c</name>
-                                </file>
-
-                                <file>
                                  <name>../Src/eth.c</name>
                                 </file>
 
@@ -207,10 +203,6 @@
 
                                 <file>
                                  <name>../Src/spi.c</name>
-                                </file>
-
-                                <file>
-                                 <name>../Src/tim.c</name>
                                 </file>
 
                                 <file>
@@ -231,18 +223,6 @@
 
 
 
-               <group>
-        <name>..</name>
-                    <group>
-                    <name>Src</name>
-                    </group>
-        </group>
-               <group>
-        <name>..</name>
-                    <group>
-                    <name>Src</name>
-                    </group>
-        </group>
                <group>
         <name>..</name>
                     <group>

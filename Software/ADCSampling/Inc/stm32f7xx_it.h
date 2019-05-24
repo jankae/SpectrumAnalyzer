@@ -48,8 +48,6 @@
 /* Exported functions ------------------------------------------------------- */
 
 void SysTick_Handler(void);
-void DMA2_Stream1_IRQHandler(void);
-void DMA2_Stream7_IRQHandler(void);
 
 #ifdef __cplusplus
 }

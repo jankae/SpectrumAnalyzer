@@ -1,10 +1,12 @@
-#include "rf_settings.h"
+#include <rf_tests.h>
 #include "log.h"
 
 #include "rffc5072.h"
-#include "sampling.h"
 #include "command.h"
+#include "FFTSampling.h"
 #include <stdlib.h>
+
+#define FFT_POINTS 				25000
 
 static rffc5072_t *lo_control;
 
@@ -42,28 +44,28 @@ void lo_setting() {
 	// initialize reset pin
 	GPIO_InitTypeDef g;
 	g.Mode = GPIO_MODE_OUTPUT_PP;
-	g.Pin = GPIO_PIN_12;
+	g.Pin = GPIO_PIN_2;
 	g.Speed = GPIO_SPEED_MEDIUM;
-	HAL_GPIO_Init(GPIOE, &g);
-	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_12, GPIO_PIN_RESET);
+	HAL_GPIO_Init(GPIOB, &g);
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
 	vTaskDelay(10);
-	HAL_GPIO_WritePin(GPIOE, GPIO_PIN_12, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
 	vTaskDelay(10);
 
-	rffc5072_t r1;
-	r1.slice_address = 0x00;
-	r1.CLK.gpio = GPIOE;
-	r1.CLK.pin = GPIO_PIN_15;
-	r1.ENX.gpio = GPIOE;
-	r1.ENX.pin = GPIO_PIN_14;
-	r1.DATA.gpio = GPIOE;
-	r1.DATA.pin = GPIO_PIN_13;
+	rffc5072_t r1, r2, r3, r4;
+	r1.slice_address = 0x01;
+	r1.CLK.gpio = GPIOF;
+	r1.CLK.pin = GPIO_PIN_4;
+	r1.ENX.gpio = GPIOB;
+	r1.ENX.pin = GPIO_PIN_6;
+	r1.DATA.gpio = GPIOC;
+	r1.DATA.pin = GPIO_PIN_2;
 	r1.RefCLKFreq = 25000000;
 	rffc5072_init(&r1);
 
 	lo_control = &r1;
 
-	uint32_t f_start = 150000000;
+	uint32_t f_start = 85000000;
 	uint32_t f_stop = 2500000000;
 	uint32_t f_step = 2000000;
 	while (1) {
@@ -96,7 +98,7 @@ void lo_setting() {
 
 }
 
-void rf_tests() {
+void rf_mixer_wobble() {
 	log_init();
 	LOG(Log_App, LevelInfo, "Start");
 
@@ -197,4 +199,89 @@ void rf_tests() {
 //	rffc5072_enabled(&r, 1);
 	// ADC FFT test
 //	sampling_start();
+}
+
+void rf_fft_fpga_test() {
+	log_init();
+	LOG(Log_App, LevelInfo, "Start");
+	while(1) {
+		float dbm = FFT_take_sample(FFT_POINTS, FFT_WINDOW_FLATTOP);
+		LOG(Log_App, LevelInfo, "dbm: %f", dbm);
+		vTaskDelay(1000);
+	}
+}
+
+void rf_spectrum_analyzer() {
+	log_init();
+	LOG(Log_App, LevelInfo, "Spectrum analyzer start");
+	//	 RFFC5072 test
+	// initialize reset pin
+	GPIO_InitTypeDef g;
+	g.Mode = GPIO_MODE_OUTPUT_PP;
+	g.Pin = GPIO_PIN_2;
+	g.Speed = GPIO_SPEED_MEDIUM;
+	HAL_GPIO_Init(GPIOB, &g);
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_RESET);
+	vTaskDelay(10);
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_2, GPIO_PIN_SET);
+	vTaskDelay(10);
+
+	rffc5072_t r1, r2, r3;
+	r1.slice_address = 0x01;
+	r1.CLK.gpio = GPIOF;
+	r1.CLK.pin = GPIO_PIN_4;
+	r1.ENX.gpio = GPIOB;
+	r1.ENX.pin = GPIO_PIN_6;
+	r1.DATA.gpio = GPIOC;
+	r1.DATA.pin = GPIO_PIN_2;
+	r1.RefCLKFreq = 25000000;
+	r2 = r1;
+	r2.slice_address = 0x03;
+	r3 = r1;
+	r3.slice_address = 0x02;
+	rffc5072_result_t res = rffc5072_init(&r1);
+	res |= rffc5072_init(&r2);
+	res |= rffc5072_init(&r3);
+
+	if (res == RFFC5072_RES_OK) {
+		LOG(Log_App, LevelInfo, "Mixers initialized");
+	} else {
+		LOG(Log_App, LevelError, "Error initializing mixers");
+		while (1)
+			;
+	}
+
+	/*
+	 * Frequency planning:
+	 * 1. LO: 2.15GHz
+	 * 2. LO: 403MHz
+	 * 3. LO: 18.75MHz
+	 *
+	 * 1. Mixer: 2.15-3.95GHz
+	 * 2. Mixer: 1747MHz
+	 * 3. Mixer: 384.25MHz
+	 */
+	rffc5072_set_LO(&r2, 1747000000);
+	rffc5072_enabled(&r2, 1);
+	rffc5072_set_LO(&r3, 384250000);
+	rffc5072_enabled(&r3, 1);
+
+	uint32_t f_start = 19000000;
+	uint32_t f_stop = 21000000;
+	uint16_t steps = 501;
+	uint32_t f_step = (f_stop - f_start) / (steps - 1);
+
+	uint32_t fft_points = 25000000UL * 3.7f / f_step;
+
+	while(1) {
+		for (uint32_t f = f_start; f <= f_stop; f += f_step) {
+			// set first mixer
+			rffc5072_enabled(&r1, 0);
+			rffc5072_set_LO(&r1, 2150000000 + f);
+			rffc5072_enabled(&r1, 1);
+			vTaskDelay(2);
+			float dbm = FFT_take_sample(fft_points, FFT_WINDOW_FLATTOP);
+			LOG(Log_App, LevelInfo, "freq: %lu, dbm: %f", f, dbm);
+		}
+	}
 }
