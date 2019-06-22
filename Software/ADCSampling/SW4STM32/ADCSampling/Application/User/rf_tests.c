@@ -261,23 +261,34 @@ void rf_spectrum_analyzer() {
 	 * 2. Mixer: 1747MHz
 	 * 3. Mixer: 384.25MHz
 	 */
-	rffc5072_set_LO(&r2, 1747000000);
+	rffc5072_set_LO(&r2, 1737000000);
 	rffc5072_enabled(&r2, 1);
 	rffc5072_set_LO(&r3, 384250000);
 	rffc5072_enabled(&r3, 1);
 
-	uint32_t f_start = 19000000;
-	uint32_t f_stop = 21000000;
+	uint32_t f_start = 1495000000;
+	uint32_t f_stop = 1505000000;
 	uint16_t steps = 501;
 	uint32_t f_step = (f_stop - f_start) / (steps - 1);
 
 	uint32_t fft_points = 25000000UL * 3.7f / f_step;
 
+	uint32_t f = 20000000;
+	// set first mixer
+//	rffc5072_enabled(&r1, 0);
+//	rffc5072_set_LO(&r1, 2160000000 + f);
+//	rffc5072_enabled(&r1, 1);
+//	while (1) {
+//		vTaskDelay(2);
+//		float dbm = FFT_take_sample(fft_points, FFT_WINDOW_FLATTOP);
+//		LOG(Log_App, LevelInfo, "freq: %lu, dbm: %f", f, dbm);
+//	}
+
 	while(1) {
 		for (uint32_t f = f_start; f <= f_stop; f += f_step) {
 			// set first mixer
 			rffc5072_enabled(&r1, 0);
-			rffc5072_set_LO(&r1, 2150000000 + f);
+			rffc5072_set_LO(&r1, 2140000000 + f);
 			rffc5072_enabled(&r1, 1);
 			vTaskDelay(2);
 			float dbm = FFT_take_sample(fft_points, FFT_WINDOW_FLATTOP);
