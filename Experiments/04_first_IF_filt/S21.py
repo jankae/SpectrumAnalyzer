@@ -39,7 +39,7 @@ while True:
     points_freq[step] = freq
     step = step + 1
     cnt = cnt + 1
-    if cnt >= 10:  
+    if cnt >= 100:  
         plt.clf()
         plt.plot(points_freq, points_dbm)
         plt.xlabel('frequency')

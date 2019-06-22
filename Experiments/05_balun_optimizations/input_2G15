@@ -1,0 +1,9 @@
+Input balun: RFXF9503, 100n DC blocking caps
+Output network: single ended, 10uH to VCC, 100n DC blocking caps
+Input signal: 2.15G, -26dbm
+LO: 2G
+-----------------------------------
+Output signal:
+Balun, no matching      
+150MHz, -40dbm          
+
